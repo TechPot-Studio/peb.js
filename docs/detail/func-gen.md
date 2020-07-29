@@ -4,7 +4,7 @@
 ```javascript
 gen(objectName, ...arguments)
 ```
-## Parameters
+## Arguments
 ### `objectName`
 String. The object to be created. The currently accepted values are:
 - `el`: HTMLElement  
