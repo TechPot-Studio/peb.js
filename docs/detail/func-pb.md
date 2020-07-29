@@ -4,7 +4,7 @@
 ```javascript
 pb(selector, ?itemIndex)
 ```
-## Parameters
+## Arguments
 ### `selector`
 The selector of the element is the same as the selector in CSS.
 ### `itemIndex`
