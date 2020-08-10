@@ -78,9 +78,9 @@
 								case "string":
 									return el.getAttribute(n);
 								case "object":
-									for (let i in n) {
-										el.setAttribute(i, n[i]);
-									}
+									Object.keys(n).forEach((c) => {
+										el.setAttribute(c, n[c]);
+									});
 									break;
 							}
 						} else {
@@ -95,9 +95,10 @@
 								case "string":
 									return el.dataset[n];
 								case "object":
-									for (let i in n) {
-										el.dataset[i] = n[i];
-									}
+									Object.keys(n).forEach((c) => {
+										el.dataset[c] = n[c];
+									});
+									break;
 							}
 						} else {
 							return el.dataset[n] = String(f);
@@ -116,9 +117,9 @@
 								case "string":
 									return el.style[n];
 								case "object":
-									for (let i in n) {
-										el.dataset[i] = n[i];
-									}
+									Object.keys(n).forEach((c) => {
+										el.dataset[c] = n[c];
+									});
 							}
 						} else {
 							let ft = String(f)
@@ -126,9 +127,9 @@
 						}
 					},
 					insert: function(...v) {
-						for (let i in v) {
-							el.appendChild(v[i]);
-						}
+						v.forEach((_c, i) => {
+							el.appendChild(i);
+						})
 					},
 					del: function() {
 						return el.parentNode.removeChild(el);
@@ -167,12 +168,13 @@
 						} else {
 							switch (typeof(n)) {
 								case "string":
-									el.removeEventListener(n)
+									el.removeEventListener(n);
 									break;
 								case "object":
-									for (let i in n) {
-										el.addEventListener(i, n[i])
-									}
+									Object.keys(n).forEach((c) => {
+										el.addEventListener(c, n[c]);
+									});
+									break;
 							}
 						}
 					}
@@ -189,10 +191,7 @@
 					forEach: function(f) {
 						es.forEach((_c, ix) => {
 							f(pb(e, ix), ix);
-						})
-					},
-					item: function(i) {
-						return pb(e, i);
+						});
 					}
 				}
 			})();
