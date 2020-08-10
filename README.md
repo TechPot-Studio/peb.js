@@ -1,7 +1,7 @@
 # Peb.js
 [![Stars](https://img.shields.io/github/stars/TechPot-Studio/peb.js?logo=github&style=flat-square)]() 
 [![Forks](https://img.shields.io/github/forks/TechPot-Studio/peb.js?label=Fork&logo=github&style=flat-square)]()
-[![Issues](https://img.shields.io/github/issues/TechPot-Studio/peb.js?logo=github&style=flat-square)]()
+[![Issues](https://img.shields.io/github/issues/TechPot-Studio/peb.js?logo=github&style=flat-square)](https://github.com/TechPot-Studio/peb.js/issues)
 [![NPM Version](https://img.shields.io/npm/v/peb.js?logo=npm&style=flat-square)](https://www.npmjs.com/package/peb.js)
 [![License](https://img.shields.io/github/license/TechPot-Studio/peb.js?logo=github&style=flat-square)](./LICENSE)
 [![Chat](https://img.shields.io/discord/711002879670091868?logo=discord&logoColor=fff&style=flat-square)](https://discord.gg/nS6qYuu)
