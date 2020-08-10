@@ -1,5 +1,5 @@
 # Funtion `gen()`
-**The last updated version of this function**: *1.0.0*
+**The last updated version of this function**: *1.1.0*
 ## Usage
 ```javascript
 gen(objectName, ...arguments)
