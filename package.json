@@ -1,12 +1,10 @@
 {
   "name": "peb.js",
   "title": "Peb.js",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "main": "src/peb.js",
   "description": "Peb.js makes JS easier",
-  "author": {
-    "name": "TechPot Studio",
-  },
+  "author": "TechPot Studio",
   "keywords": [
     "techpot",
     "javascript",
@@ -18,5 +16,15 @@
   },
   "license": "MIT",
   "dependencies": {},
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TechPot-Studio/peb.js.git"
+  },
+  "homepage": "https://github.com/TechPot-Studio/peb.js#readme"
 }
