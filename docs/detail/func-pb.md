@@ -1,5 +1,5 @@
 # Function `pb()`
-**The last updated version of this function**: *1.0.0*
+**The last updated version of this function**: *1.1.1*
 ## Usage
 ```javascript
 pb(selector, ?itemIndex)
