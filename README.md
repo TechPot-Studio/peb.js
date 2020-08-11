@@ -10,7 +10,24 @@
   
 **By *TechPot Studio***  
   
-Peb.js is a web front-end API under the MIT License open source agreement. Provide a better way to manage pages, more content will come in the future! Both users and developers can build API together. Unfortunately, we only wanted to make a simple web package at first. If you are using Node.js or other Node clients, please introduce the Dom compatibility package in advance. In the future, we will try to be compatible with the Node platform!
-  
-  
+## About
+The front-end API made by using native JavaScript makes the JavaScript in the webpage more convenient and more beautiful to complete the requirements. In the future, there will be more practical functions coming!  
 **Documents**: [View](./docs)
+## Installation
+Using **NPMJs**
+```shell
+$ npm install peb
+```
+Or, grab from **jsdelivr** or other 3rd-party API.
+```html
+<script src="https://cdn.jsdelivr.net/npm/peb/src/peb.js"></script>
+```
+## Browser Support
+Number is the **least** version it supports
+|  | Chrome | FireFox | IE | Safari | Edge | Opera |
+|------: | :------: | :------: | :------: | :------: | :------: | :------: |
+| **Full Support** | 54 | 63 | - | 10.1 | 79 | 41 |
+| Dom Operating | 5 | 4 | 9 | 5 | 12 | 12 |
+| Style & Elements | 54 | 63 | - | 10.1 | 79 | 41 |
+| Create Objects By `gen` | 1 | 3.5 | 9 | 3.2 | 12 | 10 |
+
