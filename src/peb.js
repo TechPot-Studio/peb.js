@@ -2,32 +2,39 @@
  * Checked Out JQuery (Copyright OpenJS Foundation and other contributors, https://openjsf.org/)
  * Uncopied Source-Code
  */
-;(function() {
-	console.log("Peb.js is available!");
-	let sth = document.createElement("link");
-	sth.rel = "stylesheet";
-	sth.href = "./css/peb-basic.css";
-	document.head.appendChild(sth);
+;(function(window) {
+	"use strict";
+	/**
+	 * Browser features.
+	 * In browser, globalVar should be `window`
+	 * In node, globalVar should be `global`
+	 * `global.document` is undefined
+	 */
+	let document = window.document;
+	window.addEventListener("pageshow", () => {
+		let sth = document.createElement("link");
+		sth.rel = "stylesheet";
+		sth.href = "./css/peb-basic.css";
+		document.head.appendChild(sth);
+		customElements.define("p-trans", class PebTransElement extends HTMLElement {
+			constructor() {
+				super();
+			}
+		});
+		customElements.define("p-mark", class PebMarkElement extends HTMLElement {
+			constructor() {
+				super();
+				this.style = {
+					color: "attr(color), inherit",
+					fontFamily: "attr(font), inherit"
+				}
+			}
+		})
+	})
 	String.prototype.multi = function(t, c="") {
 		return Array(t).fill(this).join(c);
 	};
-	Object.prototype.forEach = function(f) {
-		for (let i in this) {
-			f(this[i], i, this);
-		}
-	};
-	customElements.define("p-trans", class PebTransElement extends HTMLElement {
-		constructor() {
-			super();
-		}
-	});
-	customElements.define("p-mark", class PebMarkElement extends HTMLElement {
-		constructor() {
-			super();
-			this.style.color = "attr(color), inherit";
-			this.style.fontFamily = "attr(font), inherit"
-		}
-	})
+	Object.prototype.forEach = (f) => {Object.keys(this).forEach(f)};
 	const exist = function(v) {
 		if (v === void 0) {
 			return false;
@@ -41,13 +48,17 @@
 		});
 	};
 	window.sum = function(...values) {
+		/**
+		 * typeof [] === 'object'
+		 * `Array.prototype` required
+		 */
 		if (values[0].__proto__ === Array.prototype) {
-			return sum(...(values[0]))
+			return eval((values[0]).join("+"));
 		} else {
-			return eval(values.join("+"))
+			return eval(values.join("+"));
 		}
 	};
-	window.gen = (function() {
+	window.gen = new (function() {
 		this.ele = function(n, c="", a={}) {
 			let r = document.createElement(n)
 			r.appendChild(document.createTextNode(String(c)));
@@ -68,7 +79,8 @@
 				this.selector = e,
 				this.id = el.id,
 				this.cls = el.classList,
-				this.tag = el.tagName;
+				this.oringinHTMLElementObject = el,
+				this.tag = el.tagName,
 				this.__proto__ = {
 					attr: function(n, f) {
 						if (!exist(n)) {
@@ -197,4 +209,4 @@
 			})();
 		}
 	};
-})();
+})(this);
