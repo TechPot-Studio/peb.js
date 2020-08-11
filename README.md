@@ -5,7 +5,8 @@
 [![NPM Version](https://img.shields.io/npm/v/peb.js?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/peb.js)
 [![NPM Downloads](https://img.shields.io/npm/dw/peb.js?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/peb.js)
 [![License](https://img.shields.io/github/license/TechPot-Studio/peb.js?style=for-the-badge)](./LICENSE)
-[![Chat](https://img.shields.io/discord/711002879670091868?logo=discord&logoColor=fff&style=for-the-badge)](https://discord.gg/nS6qYuu)  
+[![Chat](https://img.shields.io/discord/711002879670091868?logo=discord&logoColor=fff&style=for-the-badge)](https://discord.gg/nS6qYuu)
+[![Contributers](https://img.shields.io/github/contributors-anon/TechPot-Studio/peb.js?logo=github&style=for-the-badge)]()  
   
 **By *TechPot Studio***  
   
