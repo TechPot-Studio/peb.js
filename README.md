@@ -27,7 +27,7 @@ Number is the **least** version it supports
 |  | Chrome | FireFox | IE | Safari | Edge | Opera |
 |------: | :------: | :------: | :------: | :------: | :------: | :------: |
 | **Full Support** | 54 | 63 | - | 10.1 | 79 | 41 |
-| Dom Operating | 5 | 4 | 9 | 5 | 12 | 12 |
+| Dom Operating | 45 | 22 | - | 10 | 12 | 32 |
 | Style & Elements | 54 | 63 | - | 10.1 | 79 | 41 |
 | Create Objects By `gen` | 1 | 3.5 | 9 | 3.2 | 12 | 10 |
 
