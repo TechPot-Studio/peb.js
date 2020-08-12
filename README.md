@@ -31,3 +31,4 @@ Number is the **least** version it supports
 | Style & Elements | 54 | 63 | - | 10.1 | 79 | 41 |
 | Create Objects By `gen` | 1 | 3.5 | 9 | 3.2 | 12 | 10 |
 
+In the future, we will consider compatibility issues. However, in the current situation, we strongly recommend using a newer browser version.
