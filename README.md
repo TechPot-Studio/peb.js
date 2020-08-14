@@ -1,6 +1,6 @@
 # Peb.js
-[![Stars](https://img.shields.io/github/stars/TechPot-Studio/peb.js?logo=github&style=for-the-badge)]()
-[![Forks](https://img.shields.io/github/forks/TechPot-Studio/peb.js?label=Fork&logo=github&style=for-the-badge)]()
+[![Stars](https://img.shields.io/github/stars/TechPot-Studio/peb.js?logo=github&style=for-the-badge)](//github.com/TechPot-Studio/peb.js/stargazers)
+[![Forks](https://img.shields.io/github/forks/TechPot-Studio/peb.js?label=Fork&logo=github&style=for-the-badge)](//github.com/TechPot-Studio/peb.js/network/members)
 [![Issues](https://img.shields.io/github/issues/TechPot-Studio/peb.js?logo=github&style=for-the-badge)](https://github.com/TechPot-Studio/peb.js/issues)
 [![NPM Version](https://img.shields.io/npm/v/peb?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/peb)
 [![NPM Downloads](https://img.shields.io/npm/dw/peb?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/peb)
@@ -8,7 +8,7 @@
 [![Chat](https://img.shields.io/discord/711002879670091868?logo=discord&logoColor=fff&style=for-the-badge)](https://discord.gg/nS6qYuu)
 [![Contributers](https://img.shields.io/github/contributors-anon/TechPot-Studio/peb.js?logo=github&style=for-the-badge)]()  
   
-**By *TechPot Studio***  
+**Codes By *TechPot Studio***  
   
 ## About
 The front-end API made by using native JavaScript makes the JavaScript in the webpage more convenient and more beautiful to complete the requirements. In the future, there will be more practical functions coming!  
