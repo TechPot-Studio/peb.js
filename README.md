@@ -20,8 +20,9 @@ $ npm install peb
 ```
 Or, grab from **jsdelivr** or other 3rd-party API.
 ```html
-<script src="https://cdn.jsdelivr.net/npm/peb/src/peb.js"></script>
+<script src="//cdn.jsdelivr.net/npm/peb/src/peb.js"></script>
 ```
+And, we allowed download source code.
 ## Browser Support
 Number is the **least** version it supports
 |  | Chrome | FireFox | IE | Safari | Edge | Opera |
@@ -29,6 +30,5 @@ Number is the **least** version it supports
 | **Full Support** | 54 | 63 | - | 10.1 | 79 | 41 |
 | Dom Operating | 45 | 22 | - | 10 | 12 | 32 |
 | Style & Elements | 54 | 63 | - | 10.1 | 79 | 41 |
-| Create Objects By `gen` | 1 | 3.5 | 9 | 3.2 | 12 | 10 |
 
 In the future, we will consider compatibility issues. However, in the current situation, we strongly recommend using a newer browser version.
