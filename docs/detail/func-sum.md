@@ -5,9 +5,7 @@ The last updated version of this function: *1.1.0*
 sum(...items);
 sum(itemArray);
 ```
-## Arguments
-Values to sum
-## Return Value
-```javascript
-Number
-```
+| Parameter |	Type | Description |
+| :---: | :---: | :---: |
+| ...items | ...`Number` | Items to sum |
+| itemArray | `Array<Number>` | Item array to sum |
