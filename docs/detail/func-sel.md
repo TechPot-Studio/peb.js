@@ -1,5 +1,6 @@
 # Function `sel()`
-**The last updated version of this function**: *2.0.0*
+**The last updated version of this function**: *2.0.0*  
+Support:&nbsp;&nbsp;Chrome 54+&nbsp;&nbsp;&nbsp;Firefox 22+&nbsp;&nbsp;&nbsp;Safari 10+&nbsp;&nbsp;&nbsp;Edge 12+&nbsp;&nbsp;&nbsp;Opera 32+  
 ## Usage
 ```javascript
 sel(selector, itemIndex)
@@ -16,8 +17,7 @@ Get all attributes
 #### `.attr(sequence)`
 | Parameter | Type | Optional | Description |
 | :---: | :---: | :---: | :---: |
-| sequence | `Object` | | |
-Change all \[key\] attributes to \[key value\]
+| sequence | `Object` | |Change all \[key\] attributes to \[key value\]|
 #### `.attr(name, value)`
 | Parameter | Type | Optional | Description |
 | :---: | :---: | :---: | :---: |
@@ -65,5 +65,5 @@ If no parameters are passed in, the default value is the last value of `hide()`.
 Add event listener if `listener` is passed in, otherwise remove
   
 ### And Others...
-#### `RElements.forEach()`
+#### `.forEach()`
 *Like `Array.forEach` but the third parameter is not avaliable*
