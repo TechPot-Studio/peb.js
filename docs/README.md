@@ -5,7 +5,7 @@ Check these documents to understand how to use functions and other functions!
 - Constructors  
 *Nothing to view*
 - Functions  
-  * [pb()](./detail/func-pb.md "Function pb()")
+  * [sel()](./detail/func-sel.md "Function sel()")
   * [sum()](./detail/func-sum.md "Function sum()")
 - HTML Elements  
 *Nothing to view*
