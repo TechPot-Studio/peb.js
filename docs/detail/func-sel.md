@@ -1,8 +1,8 @@
-# Function `pb()`
-**The last updated version of this function**: *1.1.1*
+# Function `sel()`
+**The last updated version of this function**: *2.0.0*
 ## Usage
 ```javascript
-pb(selector, itemIndex)
+sel(selector, itemIndex)
 ```
 ## Arguments
 | Parameter | Type | Optional | Description |
