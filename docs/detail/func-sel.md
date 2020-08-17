@@ -5,7 +5,6 @@ Support:&nbsp;&nbsp;Chrome 54+&nbsp;&nbsp;&nbsp;Firefox 22+&nbsp;&nbsp;&nbsp;Saf
 ```javascript
 sel(selector, itemIndex)
 ```
-## Arguments
 | Parameter | Type | Optional | Description |
 | :---: | :---: | :---: | :---: |
 | selector | `String` |  | Query Selector to element |
@@ -55,6 +54,7 @@ duh
 | Parameter | Type | Optional | Description |
 | :---: | :---: | :---: | :---: |
 | type | `String` | Yes | value of `Element.style.display` |
+
 If no parameters are passed in, the default value is the last value of `hide()`.
 
 #### `.on(event, listener)`
@@ -62,6 +62,7 @@ If no parameters are passed in, the default value is the last value of `hide()`.
 | :---: | :---: | :---: | :---: |
 | event | `String` |  | Event that triggers the listener |
 | listener | `Function` | Yes | Listener |
+
 Add event listener if `listener` is passed in, otherwise remove
   
 ### And Others...
