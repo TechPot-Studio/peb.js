@@ -8,6 +8,6 @@ Check these documents to understand how to use functions and other functions!
   * [sel()](./detail/func-sel.md "Function sel()")
   * [sum()](./detail/func-sum.md "Function sum()")
 - HTML Elements  
-*Nothing to view*
+  * [\<peb-trans\>](./detail/html-peb-trans.md "HTML Element <peb-trans>")
 - Methods
   * [genDom](./detail/meth-gendom.md "Method genDom")
