@@ -9,7 +9,7 @@ Version with this added: *2.0.0*
 ```
 > JavaScript Code
 ```javascript
-peb.trans({
+peb.translation({
     "en-us": {
         "generic.example_word": "That's a example text"
     }
