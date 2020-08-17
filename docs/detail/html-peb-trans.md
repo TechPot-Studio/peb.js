@@ -21,6 +21,6 @@ peb.translation({
 | 54 | 63 | 9 <sup><a href="#footer">1</a></sup> | 10.1 | 41 |
 ## Definition & Usage
 `<peb-trans>` used to mark the translation area in the HTML document.  
-Using this tag, you can quickly use the `peb.trans` function to translate quickly in JavaScript.  
+Using this tag, you can quickly use the `peb.translation` function to translate quickly in JavaScript.  
 ## Footer
 1. Internet Explorer 9 is not fully supported. It does not support the `customElements` tag and cannot customize HTML elements in a true sense. If you use it in IE9, it will cause the object type to be `HTMLUnknownElement`
