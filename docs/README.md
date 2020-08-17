@@ -1,5 +1,6 @@
 ## Documents
-Check these documents to understand how to use functions and other functions!
+Check these documents to understand how to use functions and other functions!  
+> **Note: All items listed below need to be prefixed with `peb.`!**
 ### Contents
 - Constructors  
 *Nothing to view*
