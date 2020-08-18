@@ -1,3 +1,5 @@
 # Document #
 /*
-!/src/*
+!*.json
+!*.js
+!*.css
