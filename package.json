@@ -20,7 +20,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "src/peb.js"
+    "test": "echo \" No test... \""
   },
   "repository": {
     "type": "git",
