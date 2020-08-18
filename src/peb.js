@@ -5,7 +5,7 @@
  * Used features like arrow functions (`=>`), **Do not** support IE in any version
  */
 
-var peb;
+var peb = new Function;
 
 ;(function (window) {
     'use strict';
@@ -19,10 +19,15 @@ var peb;
                 return true;
             }
         };
-    // Default peb default function
-    peb = function () {
-        console.log(`Peb.js 2.0.0 Running on ${document ? "browser" : "node"}`)
+    // Informations
+    peb.info = function () {
+        return {
+            version: "2.1.0",
+            platform: window.document ? "browser" : "node"
+        }
     }
+    // default is peb.info
+    peb = peb.info;
     // Node.js does not support these functions, needs to check whether the document is undefined
     if (document) {
         window.addEventListener("pageshow", 
@@ -32,18 +37,17 @@ var peb;
          * Inserting `<link>` into the `<head>` tag must be after the page is loaded  
          * The `onload` event can also be used here, 
          * But the `onload` event will only fire when the page is first time loaded   
-         */
-        () => {
+         */() => {
             let stylesheet = document.createElement("link");
             stylesheet.rel = "stylesheet";
             stylesheet.href = "./css/peb-basic.css";
             document.head.appendChild(stylesheet);
-            
         });
+
         customElements.define("p-trans", window.pebTransElement = class PebTransElement extends HTMLElement {
             constructor() {
                 // Call super in class to use `this` and `constructor`
-                // This comment will no longer show again
+                // This comment will not be able to show again
                 super();
             }
         });
@@ -55,7 +59,7 @@ var peb;
                     fontFamily: "attr(font), inherit"
                 }
             }
-            });
+        });
     }
     String.prototype.multi = function ( times, connect="" ) {
         return Array(times)
@@ -282,15 +286,8 @@ var peb;
         }
     };
     peb.ajax = function(type, url, success=function(){}, fail=function(){}) {
-        let request
+        let request = window.XMLHttpRequest ? XMLHttpRequest : new ActiveXObject("Microsoft.XMLHTTP")
           , args;
-        if (window.XMLHttpRequest) {
-            // Support: Chrome , FireFox , Safari , Edge , Opera , IE 7
-            request = new XMLHttpRequest();
-        } else {
-            // Support: IE 5-6
-            request = new ActiveXObject("Microsoft.XMLHTTP");
-        }
         // The parameters are more complicated and can be passed in with `Object` objects
         if (arguments.length === 1 && typeof type === 'object') {
             args = type;
