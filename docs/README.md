@@ -5,9 +5,11 @@ Check these documents to understand how to use functions and other functions!
 - Constructors  
 *Nothing to view*
 - Functions  
-  * [sel()](./detail/func-sel.md "Function sel()")
-  * [sum()](./detail/func-sum.md "Function sum()")
+  * [ajax()](./detail/func-ajax.md)
+  * [sel()](./detail/func-sel.md)
+  * [sum()](./detail/func-sum.md)
+  * [setDefault()](./detail/func-setdefault.md)
 - HTML Elements  
-  * [\<peb-trans\>](./detail/html-peb-trans.md "HTML Element <peb-trans>")
+  * [\<peb-trans\>](./detail/html-peb-trans.md)
 - Methods
-  * [genDom](./detail/meth-gendom.md "Method genDom")
+  * [genDom](./detail/meth-gendom.md)
