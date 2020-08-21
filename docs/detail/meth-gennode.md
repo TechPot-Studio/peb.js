@@ -1,5 +1,5 @@
-# Method `genDom`
-**The last updated version of this function**: *2.0.0*  
+# Method `genNode`
+**The last updated version of this function**: *2.1.0*  
 Quickly create an HTML element
 ## Properties
 ### `.element(node, content, attr)`: HTMLElement
