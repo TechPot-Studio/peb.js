@@ -3,7 +3,7 @@ Check these documents to understand how to use functions and other functions!
 > **Note: All items listed below need to be prefixed with `peb.`!**
 ### Contents
 - Constructors  
-*Nothing to view*
+  * [Sound](./detail/cons-sound.md)
 - Functions  
   * [ajax()](./detail/func-ajax.md)
   * [sel()](./detail/func-sel.md)
@@ -12,4 +12,4 @@ Check these documents to understand how to use functions and other functions!
 - HTML Elements  
   * [\<peb-trans\>](./detail/html-peb-trans.md)
 - Methods
-  * [genDom](./detail/meth-gendom.md)
+  * [genNode](./detail/meth-gennode.md)
