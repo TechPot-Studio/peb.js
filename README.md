@@ -28,7 +28,6 @@ Number is the **least** version it supports
 |  | Chrome | FireFox | IE | Safari | Edge | Opera |
 |------: | :------: | :------: | :------: | :------: | :------: | :------: |
 | **Full Support** | 54 | 63 | - | 10.1 | 79 | 41 |
-| Dom Operating | 45 | 22 | - | 10 | 12 | 32 |
-| Style & Elements | 54 | 63 | - | 10.1 | 79 | 41 |
 
-In the future, we will consider compatibility issues. However, in the current situation, we strongly recommend using a newer browser version.
+Go to the function documentation to view the specific supported browsers of the function  
+**The source of this information: [`developer.mozilla.com`](//developer.mozilla.com)**
