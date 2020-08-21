@@ -1,6 +1,9 @@
 # Function `sel()`
 **The last updated version of this function**: *2.0.0*  
-Support:&nbsp;&nbsp;Chrome 54+&nbsp;&nbsp;&nbsp;Firefox 22+&nbsp;&nbsp;&nbsp;Safari 10+&nbsp;&nbsp;&nbsp;Edge 12+&nbsp;&nbsp;&nbsp;Opera 32+  
+## Browser Support
+| <img src="https://simpleicons.org/icons/googlechrome.svg" width="20" /> | <img src="https://simpleicons.org/icons/firefox.svg" width="20" /> | <img src="https://simpleicons.org/icons/internetexplorer.svg" width="20" /> | <img src="https://simpleicons.org/icons/safari.svg" width="20" /> | <img src="https://simpleicons.org/icons/opera.svg" width="20" /> | <img src="https://simpleicons.org/icons/microsoftedge.svg" width="20" /> |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| 45 | 39 | :x: | 10 | 32 | 12 |
 ## Usage
 ```javascript
 peb.sel(selector, itemIndex)
