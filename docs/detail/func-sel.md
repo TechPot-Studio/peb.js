@@ -3,7 +3,7 @@
 Support:&nbsp;&nbsp;Chrome 54+&nbsp;&nbsp;&nbsp;Firefox 22+&nbsp;&nbsp;&nbsp;Safari 10+&nbsp;&nbsp;&nbsp;Edge 12+&nbsp;&nbsp;&nbsp;Opera 32+  
 ## Usage
 ```javascript
-sel(selector, itemIndex)
+peb.sel(selector, itemIndex)
 ```
 | Parameter | Type | Optional | Description |
 | :---: | :---: | :---: | :---: |
