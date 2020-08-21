@@ -30,4 +30,4 @@ Number is the **least** version it supports
 | **Full Support** | 54 | 63 | - | 10.1 | 79 | 41 |
 
 Go to the function documentation to view the specific supported browsers of the function  
-**The source of this information: [`developer.mozilla.com`](//developer.mozilla.com)**
+**The source of this information: [`developer.mozilla.org`](//developer.mozilla.org)**
