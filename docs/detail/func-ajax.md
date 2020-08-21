@@ -3,7 +3,7 @@ The last updated version of this function: *2.1.0*
 ## Browser Support
 | <img src="https://simpleicons.org/icons/googlechrome.svg" width="20" /> | <img src="https://simpleicons.org/icons/firefox.svg" width="20" /> | <img src="https://simpleicons.org/icons/internetexplorer.svg" width="20" /> | <img src="https://simpleicons.org/icons/safari.svg" width="20" /> | <img src="https://simpleicons.org/icons/opera.svg" width="20" /> | <img src="https://simpleicons.org/icons/microsoftedge.svg" width="20" /> |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | 1 | 5 | 10 | 1.2 | 12 |
+| 1 | 1 | 5 | 1.2 | 10 | 12 |
 ## Usage
 ```javascript
 peb.ajax(type, url, success, fail)
