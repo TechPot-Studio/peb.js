@@ -17,7 +17,7 @@ peb.translation({
 ```
 ## Browser Support
 | <img src="https://simpleicons.org/icons/googlechrome.svg" width="20" /> | <img src="https://simpleicons.org/icons/firefox.svg" width="20" /> | <img src="https://simpleicons.org/icons/internetexplorer.svg" width="20" /> | <img src="https://simpleicons.org/icons/safari.svg" width="20" /> | <img src="https://simpleicons.org/icons/opera.svg" width="20" /> | <img src="https://simpleicons.org/icons/microsoftedge.svg" width="20" />
-| :---: | :---: | :---: | :---: | :---: |
+| :---: | :---: | :---: | :---: | :---: | :---: |
 | 54 | 63 | 9 <sup><a href="#footer">1</a></sup> | 10.1 | 41 | 79 |
 ## Definition & Usage
 `<peb-trans>` used to mark the translation area in the HTML document.  
