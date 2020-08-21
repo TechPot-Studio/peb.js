@@ -2,8 +2,8 @@
 The last updated version of this function: *1.1.0*
 ## Usage
 ```javascript
-sum(...items);
-sum(itemArray);
+peb.sum(...items);
+peb.sum(itemArray);
 ```
 | Parameter |	Type | Description |
 | :---: | :---: | :---: |
