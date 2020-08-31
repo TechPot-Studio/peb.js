@@ -8,7 +8,7 @@ var peb = function(){};
 
 ;( function ( window ) {
     'use strict';
-    // In node, `typeof(  document  ) === undefined`
+    // In node, `typeof( document ) === undefined`
     let document = window.document
       , arr = []
       , exist = function (  value  ) {
@@ -49,21 +49,6 @@ var peb = function(){};
         }
     }
     if ( document ) {
-        window.addEventListener( "pageshow", 
-        /**
-         * Support: Chrome 54 , Firefox 63 , Safari 10.1 , Edge 79 , Opera 41  
-         * 
-         * Inserting `<link>` into the `<head>` tag must be after the page is loaded  
-         * The `onload` event can also be used here, 
-         * But the `onload` event will only fire when the page is first time loaded   
-         */
-        () => {
-            let stylesheet = document.createElement( "link" );
-            stylesheet.rel = "stylesheet";
-            stylesheet.href = "./css/peb-basic.css";
-            document.head.appendChild( stylesheet );
-        } );
-
         customElements.define( "p-trans", window.pebTransElement = class PebTransElement extends HTMLElement {
             constructor() {
                 // Call super in class to use `this` and `constructor`
@@ -142,15 +127,11 @@ var peb = function(){};
          */
         this.elementFromText = function ( str ) {
             document.body.appendChild( document.createElement( "peb-operation-card" ) );
-
             let operationCard = document.querySelector( "peb-operation-card" );
-
             operationCard.innerHTML = str;
 
             let result = operationCard.children[0];
-
             document.body.removeChild( operationCard );
-            
             return result;
         };
         /**
@@ -238,8 +219,8 @@ var peb = function(){};
                             }
                         },
                         insert: function ( ...nodes ) {
-                            nodes.forEach( ( _current, index ) => {
-                                el.appendChild( index );
+                            nodes.forEach( ( current ) => {
+                                el.appendChild( current );
                             } )
                         },
                         del: function () {
