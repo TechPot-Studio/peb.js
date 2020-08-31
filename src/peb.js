@@ -1,6 +1,8 @@
 /**
  * Checked Out JQuery ( Copyright OpenJS Foundation and other contributors, https://openjsf.org/ )
  * Uncopied Source-Code
+ * 
+ * Used features like arrow functions ( `=>` ), **Do not** support IE in any version
  */
 var peb = function(){};
 
@@ -140,8 +142,16 @@ var peb = function(){};
          */
         this.elementFromText = function ( str ) {
             document.body.appendChild( document.createElement( "peb-operation-card" ) );
-            document.querySelector( "peb-operation-card" ).innerHTML = str;
-            return document.querySelector( "peb-operation-card" ).childNodes[0];
+
+            let operationCard = document.querySelector( "peb-operation-card" );
+
+            operationCard.innerHTML = str;
+
+            let result = operationCard.children[0];
+
+            document.body.removeChild( operationCard );
+            
+            return result;
         };
         /**
          * Create a text node quickly
