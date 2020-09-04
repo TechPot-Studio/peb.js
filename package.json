@@ -2,7 +2,7 @@
   "name": "peb",
   "title": "Peb.js",
   "version": "2.1.2",
-  "main": "src/peb.js",
+  "main": "dist/peb.js",
   "description": "Peb.js makes JS easier",
   "author": "TechPot Studio",
   "keywords": [
