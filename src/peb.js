@@ -318,5 +318,9 @@ var peb = function(){};
         }
         request.open( args.type, args.url, true );
         request.send();
+    };
+
+    if (window.module) {
+        window.module.exports = peb;
     }
 } )( this );
