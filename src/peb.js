@@ -19,7 +19,7 @@ var peb = function(){};
             }
         };
     // Informations
-    peb.version = "2.1.0",
+    peb.version = "2.1.3",
     peb.platform = window.document ? "browser" : "node"
     // Node.js does not support these functions, needs to check whether the document is undefined
     peb.Sound = class Sound {
