@@ -1,13 +1,13 @@
 ---
 name: Bug Report
 about: Report a bug to let us know
-title: 'Plate: Title'
+title: 'Classification: Title'
 labels: bug
 assignees: ''
 
 ---
 
 **Language Use**: 
-**Version**: 
+**Affect Version/s**: 
 ### Description
-### Way to Test
+### Way to Test (*Optional*)
