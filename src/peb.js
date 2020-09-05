@@ -125,7 +125,7 @@ var peb = function(){};
          * @param {string} str String
          * @return {HTMLElement}
          */
-        this.elementFromText = function ( str ) {
+        this.elementFromStr = function ( str ) {
             document.body.appendChild( document.createElement( "peb-operation-card" ) );
             let operationCard = document.querySelector( "peb-operation-card" );
             operationCard.innerHTML = str;
@@ -298,15 +298,15 @@ var peb = function(){};
         let request = window.XMLHttpRequest ? XMLHttpRequest : new ActiveXObject( "Microsoft.XMLHTTP" )
           , args;
         // The parameters are more complicated and can be passed in with `Object` objects
-        if ( arguments.length === 1 && typeof type === 'object' ) {
+        if ( arguments.length === 1 && type instanceof Object ) {
             args = type;
         } else {
             // If it is passed in in the normal order
             args = {
                 type: type,
                 url: url,
-                success: success,
-                fail: fail,
+                success: success || function() {},
+                fail: fail || function() {},
             }
         }
         request.onreadystatechange = function () {
