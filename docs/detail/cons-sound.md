@@ -9,7 +9,7 @@ new peb.Sound(url)
 | url | `String` | | Audio File URL |
 Use JavaScript to play audio
 ## Object Method
-### `destroy(obj)` *Static*
+### `destroy(obj)`
 Destroy the `obj` object and delete the cache on the DOM
 ### `play()`, `pause()`
 DUH...
