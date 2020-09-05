@@ -14,13 +14,19 @@
 The front-end API made by using native JavaScript makes the JavaScript in the webpage more convenient and more beautiful to complete the requirements. In the future, there will be more practical functions coming!  
 **Documents**: [View](./docs)
 ## Installation
-Using **NPMJs**
+### Using **NPM**
 ```shell
 $ npm install peb
 ```
-Or, grab from **jsdelivr** or other 3rd-party API.
+```javascript
+// ES6
+import peb from 'peb'
+// CommonJS
+const peb = require('peb');
+```
+### Or, grab from **jsdelivr** or other 3rd-party API.
 ```html
-<script src="//cdn.jsdelivr.net/npm/peb/src/peb.js"></script>
+<script src="//cdn.jsdelivr.net/npm/peb/dist/peb.min.js"></script>
 ```
 And, we allowed download source code.
 ## Browser Support
