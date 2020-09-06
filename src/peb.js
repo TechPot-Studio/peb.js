@@ -1,7 +1,10 @@
 /**
  * Checked Out JQuery ( Copyright OpenJS Foundation and other contributors, https://openjsf.org/ )
  * Uncopied Source-Code
+ * 
+ * @copyright TechPot Studio and other contributors
  */
+() => {}
 ;(function ( global, main ) {
     if ( global.module ) {
         moudule.export = main( global );
@@ -91,11 +94,40 @@
             return func;
         }
     }
-    peb.translation = function ( table ) {
-        document.querySelectorAll( "peb-trans" ).forEach(( c ) => {
-            c.innerHTML = table[c.getAttribute( "p-lang" )][c.getAttribute( "p-word" )];
-        });
-    };
+    peb.translationTable = class translationTable {
+        constructor(table) {
+            if (typeof(tabel) === 'object') {
+                this.tabel = table;
+            }
+        }
+
+        /**
+         * Set value
+         * @param {{ [x: string]: { [x: string]: string; }; }} newTabel
+         * @return {undefined}
+         */
+        set set(newTabel) {
+            Object.keys(newTabel).forEach(( lang ) => {
+                (newTabel[lang]).forEach(( word ) => {
+                    this.tabel[lang][word] = newTabel[lang][word]
+                });
+            });
+        }
+
+        get get() {
+            return this.tabel
+        }
+
+        /**
+         * Translation
+         * @param {string} lang 
+         */
+        translation(lang) {
+            document.querySelectorAll( "peb-trans" ).forEach(( element ) => {
+                element.innerHTML = this.table[lang][c.getAttribute( "p-word" )];
+            });
+        }
+    }
     /** 
      * Quick sum items
      * @param  {...[number, Array<number>]} values Values to sum
