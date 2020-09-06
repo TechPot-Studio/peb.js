@@ -4,7 +4,6 @@
  * 
  * @copyright TechPot Studio and other contributors
  */
-() => {}
 ;(function ( global, main ) {
     if ( global.module ) {
         moudule.export = main( global );
@@ -315,7 +314,7 @@
              * The contained methods will call this function repeatedly
              */ 
             return new ( function RElementsCollection() {
-                let elements = document.querySelectorAll( selector )
+                let elements = document.querySelectorAll( selector );
                 elements.forEach( ( current, index ) => {
                     this[index] = current;
                 } );
@@ -325,6 +324,9 @@
                         elements.forEach( ( _current, index ) => {
                             func( peb.pb( selector, index ), index );
                         } );
+                    },
+                    order: function (number) {
+                        return peb.pb(selector, number);
                     }
                 }
             } )();
