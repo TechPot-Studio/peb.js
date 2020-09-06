@@ -6,7 +6,7 @@ labels: bug
 assignees: ''
 
 ---
- 
+
 **Affect Version/s**: 
 ### Where Did The Error Occur? <!--Optional-->
 - [ ] Ajax data transmission
