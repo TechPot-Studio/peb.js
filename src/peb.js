@@ -1,17 +1,19 @@
 /**
  * Checked Out JQuery ( Copyright OpenJS Foundation and other contributors, https://openjsf.org/ )
  * Uncopied Source-Code
- * 
- * Used features like arrow functions ( `=>` ), **Do not** support IE in any version
  */
-var peb = function(){};
-
-;( function ( window ) {
+;(function ( global, main ) {
+    if ( global.module ) {
+        moudule.export = main( global );
+    } else {
+        return main( global );
+    }
+})( this, function ( window ) {
     'use strict';
-    // In node, `typeof( document ) === undefined`
+    window.peb = function peb() {return}
     let document = window.document
       , arr = []
-      , exist = function (  value  ) {
+      , exist = function ( value ) {
             if ( typeof value === 'undefined' ) {
                 return false;
             } else {
@@ -22,9 +24,6 @@ var peb = function(){};
     peb.platform = window.document ? "browser" : "node"
     // Node.js does not support these functions, needs to check whether the document is undefined
     peb.Sound = class Sound {
-        static destroy( obj ) {
-            document.body.removeChild( obj.player );
-        }
         constructor( url ) {
             this.url = url;
             /* INIT */
@@ -32,6 +31,10 @@ var peb = function(){};
             this.player.style.display = "none";
             this.player.src = this.url;
             document.body.appendChild( this.player );
+        }
+        
+        destroy( obj ) {
+            document.body.removeChild( obj.player );
         }
         play() {
             this.player.play()
@@ -129,7 +132,7 @@ var peb = function(){};
             let operationCard = document.querySelector( "peb-operation-card" );
             operationCard.innerHTML = str;
 
-            let result = operationCard.children[0];
+            let result = operationCard.children;
             document.body.removeChild( operationCard );
             return result;
         };
@@ -319,7 +322,5 @@ var peb = function(){};
         request.send();
     };
 
-    if (window.module) {
-        window.module.exports = peb;
-    }
-} )( this );
+    return peb;
+});
