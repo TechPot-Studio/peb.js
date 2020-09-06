@@ -81,13 +81,15 @@
      * @param {function} func Default Function
      */
     peb.setDefault = function ( func ) {
-        let backup = peb;
-        peb = func;
-        Object.keys( backup ).forEach( function ( current ) {
-            peb[current] = backup[current]
-        } );
-        // Return to destroy variable
-        return func;
+        if (func instanceof Function) {
+            let backup = peb;
+            peb = func;
+            Object.keys( backup ).forEach( function ( current ) {
+                peb[current] = backup[current]
+            } );
+            // Return to destroy variable
+            return func;
+        }
     }
     peb.translation = function ( table ) {
         document.querySelectorAll( "peb-trans" ).forEach(( c ) => {
