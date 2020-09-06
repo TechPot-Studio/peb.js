@@ -6,8 +6,12 @@ labels: bug
 assignees: ''
 
 ---
-
-**Language Use**: 
+ 
 **Affect Version/s**: 
+### Where Did The Error Occur? <!--Optional-->
+- [ ] Ajax data transmission
+- [ ] Alternative functions for native JS
+- [ ] Basic and core functions
+- [ ] Web DOM manipulation
+- [ ] Mathematical operations
 ### Description
-### Way to Test (*Optional*)
