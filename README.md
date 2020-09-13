@@ -31,7 +31,7 @@ const peb = require('peb');
 And, we allowed download source code.
 ## Browser Support
 Number is the **least** version it supports
-|  | Chrome | FireFox | IE | Safari | Edge | Opera |
+| Browser | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/chrome.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/firefox.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/ie.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/safari.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/edge.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/opera.svg" width="30" /> |
 |------: | :------: | :------: | :------: | :------: | :------: | :------: |
 | **Full Support** | 54 | 63 | - | 10.1 | 79 | 41 |
 
