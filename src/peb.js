@@ -46,10 +46,10 @@
         }
         /**
          * Set repeat or not
-         * @param {boolean} b
+         * @param {boolean} isLoop
          */
-        loop( b ) {
-            this.player.onended = b ? this.player.play : new Function;
+        loop( isLoop ) {
+            this.player.onended = isLoop ? this.player.play : new Function;
         }
     }
     if ( document ) {
@@ -192,122 +192,122 @@
             let el = document.querySelectorAll( selector ).item( index || 0 ); // *El*ement
             return new ( function RElement() {
                 this.selector = selector,
-                    this.id = el.id,
-                    this.cls = el.classList,
-                    this.tag = el.tagName,
-                    this.obj = el,
+                this.id = el.id,
+                this.cls = el.classList,
+                this.tag = el.tagName,
+                this.obj = el,
 
-                    this.__proto__ = {
-                        attr: function ( name, index ) {
-                            if ( !exist( name ) ) {
-                                return el.attributes
-                            } else if ( !exist( index ) ) {
-                                switch ( typeof ( name ) ) {
-                                    case "string":
-                                        return el.getAttribute( name );
-                                    case "object":
-                                        Object.keys( name ).forEach( ( current ) => {
-                                            el.setAttribute( current, name[current] );
-                                        } );
-                                        break;
-                                }
-                            } else {
-                                return el.setAttribute( n, String( f ) );
+                this.__proto__ = {
+                    attr: function ( name, index ) {
+                        if ( !exist( name ) ) {
+                            return el.attributes
+                        } else if ( !exist( index ) ) {
+                            switch ( typeof ( name ) ) {
+                                case "string":
+                                    return el.getAttribute( name );
+                                case "object":
+                                    Object.keys( name ).forEach( ( current ) => {
+                                        el.setAttribute( current, name[current] );
+                                    } );
+                                    break;
                             }
-                        },
-                        dats: function ( name, value ) {
-                            if ( !exist( name ) ) {
-                                return el.dataset;
-                            } else if ( !exist( value ) ) {
-                                switch ( typeof ( name ) ) {
-                                    case "string":
-                                        return el.dataset[name];
-                                    case "object":
-                                        Object.keys( name ).forEach( ( current ) => {
-                                            el.dataset[current] = name[current];
-                                        } );
-                                        break;
-                                }
-                            } else {
-                                return el.dataset[n] = String( f );
+                        } else {
+                            return el.setAttribute( n, String( f ) );
+                        }
+                    },
+                    dats: function ( name, value ) {
+                        if ( !exist( name ) ) {
+                            return el.dataset;
+                        } else if ( !exist( value ) ) {
+                            switch ( typeof ( name ) ) {
+                                case "string":
+                                    return el.dataset[name];
+                                case "object":
+                                    Object.keys( name ).forEach( ( current ) => {
+                                        el.dataset[current] = name[current];
+                                    } );
+                                    break;
                             }
-                        },
-                        item: function ( key, value ) {
-                            if ( exist( value ) ) {
-                                return el[key] = value;
-                            } else {
-                                return el[key];
+                        } else {
+                            return el.dataset[n] = String( f );
+                        }
+                    },
+                    item: function ( key, value ) {
+                        if ( exist( value ) ) {
+                            return el[key] = value;
+                        } else {
+                            return el[key];
+                        }
+                    },
+                    css: function ( name, value ) {
+                        if ( !exist( f ) ) {
+                            switch ( typeof ( name ) ) {
+                                case "string":
+                                    return el.style[name];
+                                case "object":
+                                    Object.keys( name ).forEach( ( current ) => {
+                                        el.dataset[current] = n[current];
+                                    } );
                             }
-                        },
-                        css: function ( name, value ) {
-                            if ( !exist( f ) ) {
-                                switch ( typeof ( name ) ) {
-                                    case "string":
-                                        return el.style[name];
-                                    case "object":
-                                        Object.keys( name ).forEach( ( current ) => {
-                                            el.dataset[current] = n[current];
-                                        } );
-                                }
-                            } else {
-                                return el.style[n] = String( value )
-                            }
-                        },
-                        insert: function ( ...nodes ) {
-                            nodes.forEach( ( current ) => {
-                                el.appendChild( current );
-                            } )
-                        },
-                        del: function () {
-                            return el.parentNode.removeChild( el );
-                        },
-                        htm: function ( value ) {
-                            if ( exist( value ) ) {
-                                return el.innerHTML = String( value );
-                            } else {
-                                return el.innerHTML;
-                            }
-                        },
-                        txt: function () {
-                            return el.innerText
-                        },
-                        val: function ( value ) {
-                            if ( exist( value ) ) {
-                                return el.value = String( value );
-                            } else {
-                                return el.value;
-                            }
-                        },
-                        hide: function () {
-                            // dbh: Display Before Hide
-                            el.dbh = el.style.display;
-                            return el.style.display = "none";
-                        },
-                        show: function ( type ) {
-                            if ( exist( type ) ) {
-                                return el.style.display = String( type );
-                            } else {
-                                return el.style.display = el.dbh;
-                            }
-                        },
-                        on: function ( event, listener ) {
-                            if ( exist( func ) ) {
-                                el.addEventListener( event, callback );
-                            } else {
-                                switch ( typeof ( event ) ) {
-                                    case "string":
-                                        el.removeEventListener( listener );
-                                        break;
-                                    case "object":
-                                        Object.keys( event ).forEach( ( current ) => {
-                                            el.addEventListener( current, event[current] );
-                                        } );
-                                        break;
-                                }
+                        } else {
+                            return el.style[n] = String( value )
+                        }
+                    },
+                    insert: function ( ...nodes ) {
+                        nodes.forEach( ( current ) => {
+                            el.appendChild( current );
+                        } )
+                    },
+                    del: function () {
+                        return el.parentNode.removeChild( el );
+                    },
+                    htm: function ( value ) {
+                        if ( exist( value ) ) {
+                            return el.innerHTML = String( value );
+                        } else {
+                            return el.innerHTML;
+                        }
+                    },
+                    txt: function () {
+                        return el.innerText
+                    },
+                    val: function ( value ) {
+                        if ( exist( value ) ) {
+                            return el.value = String( value );
+                        } else {
+                            return el.value;
+                        }
+                    },
+                    hide: function () {
+                        // dbh: Display Before Hide
+                        el.dbh = el.style.display;
+                        return el.style.display = "none";
+                    },
+                    show: function ( type ) {
+                        if ( exist( type ) ) {
+                            return el.style.display = String( type );
+                        } else {
+                            return el.style.display = el.dbh;
+                        }
+                    },
+                    on: function ( event, listener ) {
+                        if ( exist( func ) ) {
+                            el.addEventListener( event, callback );
+                        } else {
+                            switch ( typeof ( event ) ) {
+                                case "string":
+                                    el.removeEventListener( listener );
+                                    break;
+                                case "object":
+                                    Object.keys( event ).forEach( ( current ) => {
+                                        el.addEventListener( current, event[current] );
+                                    } );
+                                    break;
                             }
                         }
                     }
-            } )();
+                }
+            })();
         } else {
             /**
              * `RElementsCollection` is a collection of `RElement`
@@ -324,9 +324,6 @@
                         elements.forEach( ( _current, index ) => {
                             func( peb.pb( selector, index ), index );
                         } );
-                    },
-                    order: function (number) {
-                        return peb.pb(selector, number);
                     }
                 }
             } )();
@@ -349,9 +346,9 @@
         }
         request.onreadystatechange = function () {
             if ( request.readystate === '4' && request.status === '200' ) {
-                args.success( request.responseText );
+                if ( args.success ) args.success( request.responseText );
             } else {
-                args.fail();
+                if ( args.fail ) args.fail();
             }
         }
         request.open( args.type, args.url, true );
