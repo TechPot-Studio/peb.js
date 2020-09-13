@@ -20,7 +20,7 @@ const t = new peb.translationTabel({
 t.translate("en-us");
 ```
 ## Browser Support
-| <img src="https://simpleicons.org/icons/googlechrome.svg" width="20" /> | <img src="https://simpleicons.org/icons/firefox.svg" width="20" /> | <img src="https://simpleicons.org/icons/internetexplorer.svg" width="20" /> | <img src="https://simpleicons.org/icons/safari.svg" width="20" /> | <img src="https://simpleicons.org/icons/opera.svg" width="20" /> | <img src="https://simpleicons.org/icons/microsoftedge.svg" width="20" />
+| <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/chrome.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/firefox.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/ie.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/safari.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/opera.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/edge.svg" width="30" /> |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | 54 | 63 | 9 <sup><a href="#footer">1</a></sup> | 10.1 | 41 | 79 |
 ## Definition & Usage
