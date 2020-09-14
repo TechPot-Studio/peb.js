@@ -1,4 +1,7 @@
-# Peb.js
+<center>
+  <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/pebjs.png" />
+</center>
+
 [![Stars](https://img.shields.io/github/stars/TechPot-Studio/peb.js?logo=github&style=for-the-badge)](//github.com/TechPot-Studio/peb.js/stargazers)
 [![Forks](https://img.shields.io/github/forks/TechPot-Studio/peb.js?label=Fork&logo=github&style=for-the-badge)](//github.com/TechPot-Studio/peb.js/network/members)
 [![Issues](https://img.shields.io/github/issues/TechPot-Studio/peb.js?logo=github&style=for-the-badge)](https://github.com/TechPot-Studio/peb.js/issues)
