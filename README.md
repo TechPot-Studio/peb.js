@@ -3,16 +3,17 @@
 </p>
 <p align="center">
 <a href="//github.com/TechPot-Studio/peb.js/stargazers" title="Stars"><img src="https://img.shields.io/github/stars/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
-<a href="//github.com/TechPot-Studio/peb.js/network/members" title="Forks"><img src="https://img.shields.io/github/forks/TechPot-Studio/peb.js?label=Fork&logo=github&style=flat-square" /></a>
 <a href="//github.com/TechPot-Studio/peb.js/issues" title="Issues"><img src="https://img.shields.io/github/issues/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
+<a href="//github.com/TechPot-Studio/peb.js/network/members" title="Forks"><img src="https://img.shields.io/github/forks/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
 <a href="https://www.npmjs.com/package/peb" title="NPM Version"><img src="https://img.shields.io/npm/v/peb?logo=npm&style=flat-square" /></a>
 <a href="https://www.npmjs.com/package/peb" title="NPM Downloads"><img src="https://img.shields.io/npm/dw/peb?logo=npm&style=flat-square" /></a>
 <a href="./LICENSE" title="Chat"><img src="https://img.shields.io/github/license/TechPot-Studio/peb.js?style=flat-square" /></a>
 <a href="https://discord.gg/nS6qYuu" title="License"><img src="https://img.shields.io/discord/711002879670091868?logo=discord&logoColor=fff&style=flat-square" /></a>
 <a href="" title="License"><img src="https://img.shields.io/github/contributors-anon/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
+<a href="" title="Size"><img src="https://img.shields.io/github/size/TechPot-Studio/peb.js/src/peb.js?style=flat-square" /></a>
+<a href="" title="Minified Size"><img src="https://img.shields.io/github/size/TechPot-Studio/peb.js/dist/peb.min.js?label=minified%20size&style=flat-square" /></a>
+<img src="https://img.shields.io/static/v1?label=Code%20By&message=TechPot%20Studio&style=flat-square&color=important" />
 </p>
-  
-**Codes By *TechPot Studio***  
   
 ## About
 The front-end API made by using native JavaScript makes the JavaScript in the webpage more convenient and more beautiful to complete the requirements. In the future, there will be more practical functions coming!  
