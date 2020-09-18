@@ -26,11 +26,22 @@ Get all attributes
 | name | `String`\|`Object` | | Propertie |
 | value | `String` | Yes | The value to be changed |
 
-Change the attribute `name` to `value` when available, otherwise, return the attribute value corresponding to name
-#### `.dats()`
-Please refer to the `.attr` section. The function parameters here are the same as the above part, but the object of operation is not attributes but dataset
-#### `css()`
-Please refer to the `.attr` section. The function parameters here are the same as the above part, but the object of operation is not attributes but style \[*Note*: You cannot use empty functions to get all values here. \]
+Change the attribute `name` to `value` when available, otherwise, return the attribute value corresponding to `name`
+#### `.dats(name, value)`
+| Parameter | Type | Optional | Description |
+| :---: | :---: | :---: | :---: |
+| name | `String`\|`Object` | | Propertie |
+| value | `String` | Yes | The value to be changed |
+
+Change the dataset `name` to `value` when available, otherwise, return the dataset value corresponding to `name`
+#### `.css(name, value)`
+| Parameter | Type | Optional | Description |
+| :---: | :---: | :---: | :---: |
+| name | `String`\|`Object` | | Propertie |
+| value | `String` | Yes | The value to be changed |
+
+Change style value `name` to `value` when avaliable, otherwise, return the value corresponding to `name`  
+**Attention:** No `use strict`
   
 #### `insert(...nodes)`
 Add child elements to the object
@@ -48,10 +59,14 @@ Get it if no parameters are passed in
 Get innerText
   
 #### `.val()`
-Please refer to the `.htm` section. The usage is the same, but the `value` is modified
+| Parameter | Type | Optional | Description |
+| :---: | :---: | :---: | :---: |
+| value | `String` | Yes | The value to be changed |
+
+Get it if no parameters are passed in
   
 #### `.hide()`
-duh
+Hide element
   
 #### `.show(type)`
 | Parameter | Type | Optional | Description |
@@ -69,5 +84,16 @@ If no parameters are passed in, the default value is the last value of `hide()`.
 Add event listener if `listener` is passed in, otherwise remove
   
 ### And Others...
-#### `.forEach()`
-*Like `Array.forEach` but the third parameter is not avaliable*
+#### `.forEach(callbackFn, startIndex)`
+| Parameter | Type | Optional | Description |
+| :---: | :---: | :---: | :---: |
+| callbackFn | `Function` |  | callback function |
+| startIndex | `Number` | Yes | Start index of loop |
+
+- `callbackFn` function parameter
+
+| Parameter | Value Type | Description |
+| :---: | :---: | :---: |
+| currentItem | `RElement` | Reffer to single mode |
+| index | `Number` | Index |
+| collection | `RElementsCollection` | this |
