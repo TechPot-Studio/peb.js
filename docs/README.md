@@ -1,15 +1,15 @@
 ## Documents
 Check these documents to understand how to use functions and other functions!  
-> **Note: All items listed below need to be prefixed with `peb.`!**
+We are committed to creating a good community environment.
 ### Contents
 - Constructors  
-  * [Sound](./detail/cons-sound.md)
+  * [peb.Sound](./detail/cons-sound.md)
 - Functions  
-  * [ajax()](./detail/func-ajax.md)
-  * [sel()](./detail/func-sel.md)
-  * [sum()](./detail/func-sum.md)
-  * [setDefault()](./detail/func-setdefault.md)
+  * [peb.ajax()](./detail/func-ajax.md)
+  * [peb.sel()](./detail/func-sel.md)
+  * [peb.sum()](./detail/func-sum.md)
+  * [peb.setDefault()](./detail/func-setdefault.md)
 - HTML Elements  
   * [\<peb-trans\>](./detail/html-peb-trans.md)
 - Methods
-  * [genNode](./detail/meth-gennode.md)
+  * [peb.genNode](./detail/meth-gennode.md)
