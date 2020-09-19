@@ -1,7 +1,7 @@
 {
   "name": "peb",
   "title": "Peb.js",
-  "version": "2.3.1",
+  "version": "3.0.0-pre.1",
   "main": "dist/peb.js",
   "description": "Peb.js makes JS easier",
   "author": "TechPot Studio",
