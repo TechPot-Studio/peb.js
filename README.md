@@ -9,7 +9,6 @@
   <a href="https://www.npmjs.com/package/peb" title="NPM Version"><img src="https://img.shields.io/npm/v/peb?logo=npm&style=flat-square" /></a>
   <a href="https://www.npmjs.com/package/peb" title="NPM Downloads"><img src="https://img.shields.io/npm/dw/peb?logo=npm&style=flat-square" /></a>
   <a title="jsdelivr hits"><img src="https://img.shields.io/jsdelivr/npm/hw/peb?label=jsdelivr%20hits&logo=jsdelivr&logoColor=white&style=flat-square" /></a>
-</p>
   <a href="./LICENSE" title="License"><img src="https://img.shields.io/github/license/TechPot-Studio/peb.js?style=flat-square" /></a>
   <a href="https://discord.gg/nS6qYuu" title="Chat"><img src="https://img.shields.io/discord/711002879670091868?logo=discord&logoColor=fff&style=flat-square" /></a>
   <a href="" title="Contributors"><img src="https://img.shields.io/github/contributors-anon/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
@@ -50,10 +49,3 @@ Number is the **least** version it supports
 
 Go to the function documentation to view the specific supported browsers of the function  
 **The source of this information: [`developer.mozilla.org`](//developer.mozilla.org)**
-## Send Issues
-Issue allows us to find bugs and understand the features that users want to add. In order for us to adopt your issue, please read the guidelines:  
-- For everyone to understand, please try to use English.
-- Before reporting a bug, please confirm that what you are reporting is indeed a problem. Otherwise, your issue will be marked as `works as intended`
-- Optional items, please fill in as much as possible.
-- Please fill in the basic information accurately.
-- If there are issues with similar content, we will give priority to the one sent earlier. Therefore, please search for the same content before sending
