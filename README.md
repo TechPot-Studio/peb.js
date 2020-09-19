@@ -10,8 +10,8 @@
 <a href="./LICENSE" title="License"><img src="https://img.shields.io/github/license/TechPot-Studio/peb.js?style=flat-square" /></a>
 <a href="https://discord.gg/nS6qYuu" title="Chat"><img src="https://img.shields.io/discord/711002879670091868?logo=discord&logoColor=fff&style=flat-square" /></a>
 <a href="" title="Contributors"><img src="https://img.shields.io/github/contributors-anon/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
-<a href="" title="Size"><img src="https://img.shields.io/github/size/TechPot-Studio/peb.js/src/peb.js?style=flat-square" /></a>
-<a href="" title="Minified Size"><img src="https://img.shields.io/github/size/TechPot-Studio/peb.js/dist/peb.min.js?label=minified%20size&style=flat-square" /></a>
+<a href="./src/peb.js" title="Size"><img src="https://img.shields.io/github/size/TechPot-Studio/peb.js/src/peb.js?style=flat-square" /></a>
+<a href="./dist/peb.min.js" title="Minified Size"><img src="https://img.shields.io/github/size/TechPot-Studio/peb.js/dist/peb.min.js?label=minified%20size&style=flat-square" /></a>
 </p>
 
 ## About
