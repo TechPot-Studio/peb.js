@@ -82,7 +82,16 @@ If no parameters are passed in, the default value is the last value of `hide()`.
 | listener | `Function` | Yes | Listener |
 
 Add event listener if `listener` is passed in, otherwise remove
-  
+#### `.next()`
+Get next element sibling
+#### `.prev()`
+Get previous element sibling
+#### `.parent()`
+Get parent
+#### `.child()`
+Get **first** child element  
+*Tip:* Better effect with `.next()`
+
 ### And Others...
 #### `.forEach(callbackFn, startIndex)`
 | Parameter | Type | Optional | Description |
