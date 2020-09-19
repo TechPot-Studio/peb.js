@@ -6,9 +6,10 @@
  */
 
 ;(function ( global, main ) {
+    'use strict';
     if ( global.module ) {
         moudule.export = main( global );
-    } else {
+    } else if ( global.document ) {
         main( global );
     }
 })( this, function ( window ) {
@@ -23,14 +24,12 @@
             this.name = "PebBasicError";
         }
     }
-
     window.PebExtensionError = class PebExtensionError extends PebError {
         constructor(message) {
             super(message);
             this.name = "PebExtensionError";
         }
     }
-    
     window.PebNullObjectError = class PebNullObjectError extends PebError {
         constructor(message) {
             super(message);
@@ -179,21 +178,26 @@
          * @param {string} str String
          * @return {HTMLElement}
          */
-        this.elementFromStr = function ( str ) {
+        this.fromStr = function ( str, isReturnCollection=false ) {
             document.body.appendChild( document.createElement( "peb-operation-card" ) );
             let operationCard = document.querySelector( "peb-operation-card" );
             operationCard.innerHTML = str;
 
             let result = operationCard.children;
+
             document.body.removeChild( operationCard );
-            return result;
+            if ( isReturnCollection ) {
+                return result;
+            } else {
+                return result[0];
+            }
         };
         /**
          * Create a text node quickly
          * @param {string} text String
          * @return {Text}
          */
-        this.textNode = function ( text ) {
+        this.text = function ( text ) {
             return document.createTextNode( String( text ) );
         };
     } )();
@@ -319,18 +323,18 @@
             parent: function () {
                 return new RElement( el.parentElement );
             },
-            child: function (index=0) {
-                return new RElement( el.children[index] )
+            child: function () {
+                return new RElement( el.children[0] )
             },
             next: function () {
-                let result = el.parentNode.nextElementSibling
+                let result = el.nextElementSibling
                 if (result === null) {
                     throw new PebNullObjectError("Element is null");
                 }
                 return new RElement( result );
             },
             prev: function () {
-                let result = el.parentNode.previousElementSibling;
+                let result = el.previousElementSibling;
                 if (result === null) {
                     throw new PebNullObjectError("Element is null");
                 }
@@ -340,9 +344,14 @@
         Object.freeze(this);
     }
     function RElementsCollection(elements) {
-        ( function (THIS) {
+        /**
+         * In order to be compatible with IE.
+         * Because of a feature (perhaps a bug), only the 'this' of the parent object is preserved in Arrow Function.
+         * But, Internet Explorer does not support Arrow Function at this time.
+         */
+        ( function (this_) {
             elements.forEach( function ( element, index ) {
-                THIS[index] = new RElement(element);
+                this_[index] = new RElement(element);
             });
         })(this);
         
@@ -387,8 +396,8 @@
             args = {
                 type: type,
                 url: url,
-                success: success || function() {},
-                fail: fail || function() {},
+                success: success,
+                fail: fail,
             }
         }
         request.onreadystatechange = function () {
