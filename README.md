@@ -12,8 +12,8 @@
 <a href="https://discord.gg/nS6qYuu" title="Chat"><img src="https://img.shields.io/discord/711002879670091868?logo=discord&logoColor=fff&style=flat-square" /></a>
 <a href="" title="Contributors"><img src="https://img.shields.io/github/contributors-anon/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
 <a href="//github.com/TechPot-Studio/peb.js/releases" title="Lastest Release"><img src="https://img.shields.io/github/v/release/TechPot-Studio/peb.js?label=lastest%20release&style=flat-square" /></a>
-<a href="//github.com/TechPot-Studio/peb.js/releases" title="Lastest Pre-Release"><img src="https://img.shields.io/github/commits-since/TechPot-Studio/peb.js/latest/master?include_prereleases&logo=github&style=flat-square" /></a>
-<a href="//github.com/TechPot-Studio/peb.js/releases" title="Commits Since Latest Release"><img src="https://img.shields.io/github/v/release/TechPot-Studio/peb.js?include_prereleases&label=lastest%20prerelease&style=flat-square" /></a>
+<a href="//github.com/TechPot-Studio/peb.js/releases" title="Lastest Pre-Release"><img src="https://img.shields.io/github/v/release/TechPot-Studio/peb.js?include_prereleases&label=lastest%20prerelease&style=flat-square" /></a>
+<a href="//github.com/TechPot-Studio/peb.js/releases" title="Commits Since Latest Release"><img src="https://img.shields.io/github/commits-since/TechPot-Studio/peb.js/latest/master?include_prereleases&logo=github&style=flat-square" /></a>
 <a href="./src/peb.js" title="Size"><img src="https://img.shields.io/github/size/TechPot-Studio/peb.js/src/peb.js?style=flat-square" /></a>
 <a href="./dist/peb.min.js" title="Minified Size"><img src="https://img.shields.io/github/size/TechPot-Studio/peb.js/dist/peb.min.js?label=minified%20size&style=flat-square" /></a>
 </p>
