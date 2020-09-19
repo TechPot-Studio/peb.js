@@ -4,12 +4,16 @@
 <p align="center">
 <a href="//github.com/TechPot-Studio/peb.js/stargazers" title="Stars"><img src="https://img.shields.io/github/stars/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
 <a href="//github.com/TechPot-Studio/peb.js/issues" title="Issues"><img src="https://img.shields.io/github/issues/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
+<a href="//github.com/TechPot-Studio/peb.js/pulls" title="Pull Requests"><img src="https://img.shields.io/github/issues-pr/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
 <a href="//github.com/TechPot-Studio/peb.js/network/members" title="Forks"><img src="https://img.shields.io/github/forks/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
 <a href="https://www.npmjs.com/package/peb" title="NPM Version"><img src="https://img.shields.io/npm/v/peb?logo=npm&style=flat-square" /></a>
 <a href="https://www.npmjs.com/package/peb" title="NPM Downloads"><img src="https://img.shields.io/npm/dw/peb?logo=npm&style=flat-square" /></a>
 <a href="./LICENSE" title="License"><img src="https://img.shields.io/github/license/TechPot-Studio/peb.js?style=flat-square" /></a>
 <a href="https://discord.gg/nS6qYuu" title="Chat"><img src="https://img.shields.io/discord/711002879670091868?logo=discord&logoColor=fff&style=flat-square" /></a>
 <a href="" title="Contributors"><img src="https://img.shields.io/github/contributors-anon/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
+<a href="//github.com/TechPot-Studio/peb.js/releases" title="Lastest Release"><img src="https://img.shields.io/github/v/release/TechPot-Studio/peb.js?label=lastest%20release&style=flat-square" /></a>
+<a href="//github.com/TechPot-Studio/peb.js/releases" title="Lastest Pre-Release"><img src="https://img.shields.io/github/commits-since/TechPot-Studio/peb.js/latest/master?include_prereleases&logo=github&style=flat-square" /></a>
+<a href="//github.com/TechPot-Studio/peb.js/releases" title="Commits Since Latest Release"><img src="https://img.shields.io/github/v/release/TechPot-Studio/peb.js?include_prereleases&label=lastest%20prerelease&style=flat-square" /></a>
 <a href="./src/peb.js" title="Size"><img src="https://img.shields.io/github/size/TechPot-Studio/peb.js/src/peb.js?style=flat-square" /></a>
 <a href="./dist/peb.min.js" title="Minified Size"><img src="https://img.shields.io/github/size/TechPot-Studio/peb.js/dist/peb.min.js?label=minified%20size&style=flat-square" /></a>
 </p>
