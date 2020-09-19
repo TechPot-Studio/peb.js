@@ -8,7 +8,7 @@ Quickly create an HTML element
 | node | `String` |  | Node name of new element |
 | content | `String` | Yes | HTML Content of new element |
 | attr | `Object` | Yes | Element attributes |
-### `.elementFromStr(str)`
+### `.fromStr(str)`
 | Parameter | Type | Optional | Description |
 | :---: | :---: | :---: | :---: |
 | str | `String` |  | The string to be converted to HTML content |
