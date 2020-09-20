@@ -25,7 +25,9 @@
   <a title="ECMAScript 版本"><img src="https://img.shields.io/static/v1?label=ECMAScript%20version&message=6&color=informational&logo=JavaScript&style=flat-square&logoColor=white" /></a>
 </p>
 
-## About
+寻找其它语言版本的README?<br />
+简体中文 | [English](README.md)
+## 关于
 基于前端的JS API，让Web开发和数据计算更加简便  
 **文档**: [查看](./docs)
 ## 下载
