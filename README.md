@@ -1,5 +1,8 @@
+<p align="right">
+  <a href='https://gitee.com/TechPot-Studio/peb.js' title="Fork Me On Gitee (China)"><img src='https://gitee.com/TechPot-Studio/peb.js/widgets/widget_5.svg' alt='Fork me on Gitee' /></a>
+</p>
 <p align="center">
-  <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/pebjs.png" width="654" height="240" title="Peb.js" alt="Peb.js Icon" />
+  <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/pebjs.png" width="490.5" height="180" title="Peb.js" alt="Peb.js Icon" />
 </p>
 <p align="center">
   <a href="//github.com/TechPot-Studio/peb.js/stargazers" title="Stars"><img src="https://img.shields.io/github/stars/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
