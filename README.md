@@ -1,6 +1,3 @@
-<p align="right">
-  <a href='https://gitee.com/TechPot-Studio/peb.js' title="Fork Me On Gitee (China)"><img src='https://gitee.com/TechPot-Studio/peb.js/widgets/widget_5.svg' alt='Fork me on Gitee' /></a>
-</p>
 <p align="center">
   <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/pebjs.png" width="490.5" height="180" title="Peb.js" alt="Peb.js Icon" />
 </p>
@@ -24,6 +21,9 @@
   <a title="Node.js Version"><img src="https://img.shields.io/static/v1?label=Node.js%20version&message=12&color=informational&logo=node.js&style=flat-square&logoColor=white" /></a>
   <a title="ECMAScript Version"><img src="https://img.shields.io/static/v1?label=ECMAScript%20version&message=6&color=informational&logo=JavaScript&style=flat-square&logoColor=white" /></a>
 </p>
+
+Looking for README in other languages?<br />
+[简体中文](README.zh.md) | English
 
 ## About
 The front-end API made by using native JavaScript makes the JavaScript in the webpage more convenient and more beautiful to complete the requirements. In the future, there will be more practical functions coming!  
