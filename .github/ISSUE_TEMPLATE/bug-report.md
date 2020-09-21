@@ -1,7 +1,7 @@
 ---
 name: Bug Report
 about: Report a bug to let us know
-title: 'Classification: Title'
+title: 'Bug: '
 labels: bug
 assignees: ''
 
