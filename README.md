@@ -28,7 +28,7 @@ Looking for README in other languages?<br />
 ## About
 The front-end API made by using native JavaScript makes the JavaScript in the webpage more convenient and more beautiful to complete the requirements. In the future, there will be more practical functions coming!  
   
-Since version 3.0.0, Peb.js no longer supports Internet Explorer.  
+Microsoft's support for Internet Explorer has ended. We will also discontinue its compatible code since `v3.0.0`.
 
 **Documents**: [View](./docs)
 ## Installation
