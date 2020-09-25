@@ -39,7 +39,7 @@ import peb from 'peb'
 // CommonJS
 const peb = require('peb');
 ```
-### Or, grab from **jsdelivr** or other 3rd-party API.
+### Or, grab from **jsdelivr** or other API.
 ```html
 <script src="//cdn.jsdelivr.net/npm/peb"></script>
 ```
@@ -51,4 +51,4 @@ Number is the **least** version it supports
 | **Full Support** | 54 | 63 | - | 10.1 | 79 | 41 |
 
 Go to the function documentation to view the specific supported browsers of the function  
-**The source of this information: [`developer.mozilla.org`](//developer.mozilla.org)**
+**The source of this information: [*developer.mozilla.org*](//developer.mozilla.org)**
