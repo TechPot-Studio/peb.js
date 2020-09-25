@@ -344,21 +344,14 @@
         Object.freeze(this);
     }
     function RElementsCollection(elements) {
-        /**
-         * In order to be compatible with IE.
-         * Because of a feature (perhaps a bug), only the 'this' of the parent object is preserved in Arrow Function.
-         * But, Internet Explorer does not support Arrow Function at this time.
-         */
-        ( function (this_) {
-            elements.forEach( function ( element, index ) {
-                this_[index] = new RElement(element);
-            });
-        })(this);
+        elements.forEach( ( element, index ) => {
+            this[index] = new RElement(element);
+        });
         
         this.length = elements.length;
         this.__proto__ = {
             forEach: function ( callbackFn, fromIndex=0 ) {
-                elements.forEach( function ( _, index ) {
+                elements.forEach( ( _, index ) => {
                     if (index >= fromIndex) {
                         callbackFn(this[index], index, this)
                     }
@@ -378,7 +371,7 @@
      */
     peb.sel = function ( selector, index ) {
         if ( selector[0] === "#" || exist( index ) ) {
-            let element = document.querySelectorAll( selector ).item( index || 0 ); // *El*ement
+            let element = document.querySelectorAll( selector ).item( index || 0 ); // El ement
             return new RElement(element);
         } else {
             let elements = document.querySelectorAll( selector )
@@ -386,7 +379,7 @@
         }
     };
     peb.ajax = function( type, url, success=function(){}, fail=function(){} ) {
-        let request = window.XMLHttpRequest ? XMLHttpRequest : new ActiveXObject( "Microsoft.XMLHTTP" )
+        let request = new XMLHttpRequest()
           , args;
         // The parameters are more complicated and can be passed in with `Object` objects
         if ( arguments.length === 1 && type instanceof Object ) {
@@ -418,7 +411,7 @@
      */
     peb.extend = function ( config={} ) {
         if ( config.author && config.version && config.export ) {
-            console.info( `Extension Info:\nAuthor: ${config.author} <${config.email || "null"}>\nVersion: ${config.version}` );
+            console.warn( "peb.extend is still a test function" );
             return Object.assign( peb, {} );
         } else {
             throw new PebExtensionError("The parameter of peb.extend is missing some information");
