@@ -2,7 +2,7 @@
   <a href='https://gitee.com/TechPot-Studio/peb.js' title="在Gitee查看"><img src='https://gitee.com/TechPot-Studio/peb.js/widgets/widget_5.svg' alt='在Gitee上Fork' /></a>
 </p>
 <p align="center">
-  <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/pebjs.png" width="490.5" height="180" title="Peb.js" alt="Peb.js Icon" />
+  <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/pebjs.png" width="490.5" height="180" title="Peb.js" alt="Peb.js Icon" />
 </p>
 <p align="center">
   <a href="//github.com/TechPot-Studio/peb.js/stargazers" title="Stars"><img src="https://img.shields.io/github/stars/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
@@ -48,7 +48,7 @@ const peb = require('peb');
 当然，下载源码也是允许的
 ## 浏览器支持
 以下浏览器最低支持此包的版本
-| 浏览器 | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/chrome.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/firefox.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/ie.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/safari.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/edge.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/opera.svg" width="30" /> |
+| 浏览器 | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/chrome.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/firefox.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/ie.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/safari.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/edge.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/opera.svg" width="30" /> |
 |------: | :------: | :------: | :------: | :------: | :------: | :------: |
 | **完全**支持 | 54 | 63 | - | 10.1 | 79 | 41 |
 
