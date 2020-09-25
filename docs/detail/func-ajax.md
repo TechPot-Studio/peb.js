@@ -17,7 +17,7 @@ peb.ajax(config)
 | fail | `Function` | | Function to run on fail |
 | config | `Object` | | Configs |
 
-Initiate an AJAX request to the URL. You can fill in the parameters in order, or use an Object to pass in. This may be difficult to understand, you can take a look at the following example.
+Initiate an AJAX request to the URL. You can fill in the parameters in order, or use an Object to pass in. This may be difficult to understand, you can take a look at the following example:
 ```javascript
 'use strict';
 peb.ajax('GET', 'https://example.url', () => {}, () => {console.log("Fail")});
