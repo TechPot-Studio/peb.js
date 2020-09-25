@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/pebjs.png" width="490.5" height="180" title="Peb.js" alt="Peb.js Icon" />
+  <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/pebjs.png" width="490.5" height="180" title="Peb.js" alt="Peb.js Icon" />
 </p>
 <p align="center">
   <a href="//github.com/TechPot-Studio/peb.js/stargazers" title="Stars"><img src="https://img.shields.io/github/stars/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
@@ -27,6 +27,8 @@ Looking for README in other languages?<br />
 
 ## About
 The front-end API made by using native JavaScript makes the JavaScript in the webpage more convenient and more beautiful to complete the requirements. In the future, there will be more practical functions coming!  
+  
+Since version 3.0.0, Peb.js no longer supports Internet Explorer.
 **Documents**: [View](./docs)
 ## Installation
 ### Using **NPM**
@@ -46,7 +48,7 @@ const peb = require('peb');
 And, we allowed download source code.
 ## Browser Support
 Number is the **least** version it supports
-| Browser | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/chrome.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/firefox.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/ie.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/safari.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/edge.svg" width="30" /> | <img src="https://github.com/TechPot-Studio/svg-gallery/blob/master/opera.svg" width="30" /> |
+| Browser | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/chrome.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/firefox.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/ie.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/safari.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/edge.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/opera.svg" width="30" /> |
 |------: | :------: | :------: | :------: | :------: | :------: | :------: |
 | **Full Support** | 54 | 63 | - | 10.1 | 79 | 41 |
 
