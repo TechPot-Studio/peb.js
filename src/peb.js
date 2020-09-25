@@ -414,6 +414,7 @@
     /**
      * Allow making extends module
      * @param {object} config
+     * @throws PebExtensionError
      */
     peb.extend = function ( config={} ) {
         if ( config.author && config.version && config.export ) {
