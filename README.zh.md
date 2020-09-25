@@ -56,7 +56,7 @@ const peb = require('peb');
 | **完全**支持 | 54 | 63 | - | 10.1 | 79 | 41 |
 
 进入文档可查看具体函数支持版本  
-**数据来源：[`developer.mozilla.org`](//developer.mozilla.org)**
+**数据来源：[*developer.mozilla.org*](//developer.mozilla.org)**
 ## 脚注
 - ZH 版本可能会更新较慢，可能出现一个版本中两个README不同的情况
 - Gitee中图片无法显示
