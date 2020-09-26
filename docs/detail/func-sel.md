@@ -34,14 +34,6 @@ Change the attribute `name` to `value` when available, otherwise, return the att
 | value | `String` | Yes | The value to be changed |
 
 Change the dataset `name` to `value` when available, otherwise, return the dataset value corresponding to `name`
-#### `.css(name, value)`
-| Parameter | Type | Optional | Description |
-| :---: | :---: | :---: | :---: |
-| name | `String`\|`Object` | | Propertie |
-| value | `String` | Yes | The value to be changed |
-
-Change style value `name` to `value` when avaliable, otherwise, return the value corresponding to `name`  
-**Attention:** No `use strict`
   
 #### `insert(...nodes)`
 Add child elements to the object
@@ -82,6 +74,10 @@ If no parameters are passed in, the default value is the last value of `hide()`.
 | listener | `Function` | Yes | Listener |
 
 Add event listener if `listener` is passed in, otherwise remove
+
+#### `.class(operatingType, className)`
+Allow operatingType: `add` `remove` `set` `get`
+
 #### `.next()`
 Get next element sibling
 #### `.prev()`
@@ -92,7 +88,7 @@ Get parent
 Get **first** child element  
 *Tip:* Better effect with `.next()`
 
-### And Others...
+### And Others
 #### `.forEach(callbackFn, startIndex)`
 | Parameter | Type | Optional | Description |
 | :---: | :---: | :---: | :---: |

@@ -28,7 +28,7 @@
 })( this, function ( window ) {
     'use strict';
     function peb() {
-        this.version = "3.0.0-pre.3";
+        this.version = "3.0.0-pre.4";
     }
 
     // Error type
@@ -215,10 +215,13 @@
             return document.createTextNode( String( text ) );
         };
     } )();
+    /**
+     * Convert HTMLElement to operatable element
+     * @param {HTMLElement} el 
+     */
     function RElement(el) {  
         this.tag = el.tagName,
         this.id = el.id,
-        this.cls = el.classList,
         this.oringin = el;
         this.__proto__ = {
             attr: function ( name, index ) {
@@ -236,6 +239,18 @@
                     }
                 } else {
                     return el.setAttribute( n, String( f ) );
+                }
+            },
+            class: function ( operatingType, className ) {
+                switch (operatingType) {
+                    case "get":
+                        return el.classList
+                    case "set":
+                        return el.classList = className
+                    case "add":
+                        return el.classList.add( className );
+                    case "remove":
+                        return el.classList.remove( className )
                 }
             },
             dats: function ( name, value ) {
@@ -260,20 +275,6 @@
                     return el[key] = value;
                 } else {
                     return el[key];
-                }
-            },
-            css: function ( name, value ) {
-                if ( !exist( f ) ) {
-                    switch ( typeof ( name ) ) {
-                        case "string":
-                            return el.style[name];
-                        case "object":
-                            Object.keys( name ).forEach( function ( current ) {
-                                el.dataset[current] = n[current];
-                            } );
-                    }
-                } else {
-                    return el.style[n] = String( value )
                 }
             },
             insert: function ( ...nodes ) {
