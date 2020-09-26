@@ -1,8 +1,8 @@
-# Constructor `Sound`
-The last updated version of this function: *2.1.0*
+# Constructor `QuickAudio`
+The last updated version of this function: *3.0.0-pre.3*
 ## Construct
 ```javascript
-new peb.Sound(url)
+new peb.QuickAudio(url)
 ```
 | Parameter | Type | Optional | Description |
 | :---: | :---: | :---: | :---: |

@@ -3,7 +3,7 @@ Check these documents to understand how to use functions and other functions!
 We are committed to creating a good community environment.
 ### Contents
 - Constructors  
-  * [peb.Sound](./detail/cons-sound.md)
+  * [peb.QuickAudio](./detail/cons-quickaudio.md)
 - Functions  
   * [peb.ajax()](./detail/func-ajax.md)
   * [peb.sel()](./detail/func-sel.md)
