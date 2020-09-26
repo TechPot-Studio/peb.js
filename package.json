@@ -16,11 +16,15 @@
   },
   "license": "MIT",
   "dependencies": {},
+  "devDependencies": {
+    "terser": "5.3.2"
+  },
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \" No test... \""
+    "test": "echo \" No test... \"",
+    "minify": "terser ./src/peb.js -c toplevel=true -m -o ./dist/peb.min.js"
   },
   "repository": {
     "type": "git",
