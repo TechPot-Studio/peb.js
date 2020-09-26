@@ -2,7 +2,7 @@
   <a href='https://gitee.com/TechPot-Studio/peb.js' title="在Gitee查看"><img src='https://gitee.com/TechPot-Studio/peb.js/widgets/widget_5.svg' alt='在Gitee上Fork' /></a>
 </p>-->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/pebjs.png" width="374" height="172" title="Peb.js" alt="Peb.js Icon" />
+  <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/pebjs.png" width="299.2" height="137.6" title="Peb.js" alt="Peb.js Icon" />
 </p>
 <p align="center">
   <a href="//github.com/TechPot-Studio/peb.js/stargazers" title="Stars"><img src="https://img.shields.io/github/stars/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
