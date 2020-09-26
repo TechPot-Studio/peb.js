@@ -1,21 +1,22 @@
 /**
  * Checked Out JQuery ( Copyright OpenJS Foundation and other contributors, https://openjsf.org/ )
- * Uncopied Source-Code
+ * We Uncopied Source-Code
+ * Most features are OC
  * 
  * @copyright TechPot Studio and other contributors
  */
 
-;(function ( global, main ) {
+;(function ( global, factory ) {
     'use strict';
     if ( global.module ) {
-        moudule.export = main( global );
+        moudule.export = factory( global );
     } else if ( global.window ) {
-        main( global );
+        window.peb = factory( global );
     }
 })( this, function ( window ) {
     'use strict';
-    window.peb = function peb() {
-        return;
+    function peb() {
+        this.version = "3.0.0-pre.3";
     }
 
     // Error type
@@ -61,7 +62,7 @@
                 }
             }
         });
-        peb.Sound = class Sound {
+        peb.QuickAudio = class QuickAudio {
             constructor( url ) {
                 this.url = url;
                 /* INIT */
@@ -450,9 +451,56 @@
             case 1:
                 return str.toUpperCase();
             default:
-                return ByteLengthQueuingStrategy
+                return str;
         }
     }
+
+    /**
+     * Get a class of value
+     * @param {any} val 
+     */
+    peb.classof = function (obj) {
+        if (obj && obj.constructor && obj.constructor.toString()) {
+            if ( obj.constructor.name ) {
+                return obj.constructor.name;
+            }
+            let str = obj.constructor.toString();
+            let arr;
+            if ( str.charAt(0) == '[' )
+            {
+                arr = str.match(/\w+\s∗(\w+)/);
+            } else {
+                arr = str.match(/function\s*(\w+)/);
+            }
+            if (arr && arr.length == 2) {
+                return arr[1];
+            }
+        }
+        return undefined; 
+    }
+
+    /**
+     * Return a boolean of is obj a number
+     * Contains `123` `"123"` `1.23` `"1.23"` `.23` `".23"`
+     * @param {any} obj 
+     */
+    peb.isdigit = function (obj) {
+        return !isNaN(obj)
+    }
+
+    /**
+     * Sleep time but `await` required
+     * @param {number} time 
+     */
+    peb.sleep = async function (time) {
+        return new Promise(resolve => {
+            setTimeout(() => resolve(), time);
+        });
+    }
+
+    // Common function integration
+    peb.parseJson = JSON.parse;
+    peb.stringifyJson = JSON.stringify;
 
     return peb;
 });
