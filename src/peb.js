@@ -9,7 +9,7 @@
     'use strict';
     if ( global.module ) {
         moudule.export = main( global );
-    } else if ( global.document ) {
+    } else if ( global.window ) {
         main( global );
     }
 })( this, function ( window ) {
@@ -18,19 +18,20 @@
         return;
     }
 
-    window.PebError = class PebError extends Error {
+    // Error type
+    window.PebError = peb.PebError = class PebError extends Error {
         constructor(message) {
             super(message);
             this.name = "PebBasicError";
         }
     }
-    window.PebExtensionError = class PebExtensionError extends PebError {
+    window.PebExtensionError = peb.PebExtensionError = class PebExtensionError extends PebError {
         constructor(message) {
             super(message);
             this.name = "PebExtensionError";
         }
     }
-    window.PebNullObjectError = class PebNullObjectError extends PebError {
+    window.PebNullObjectError = peb.PebNullObjectError = class PebNullObjectError extends PebError {
         constructor(message) {
             super(message);
             this.name = "PebNullObjectError"
@@ -43,7 +44,7 @@
             return !(typeof value === 'undefined')
         };
     peb.platform = window.document ? "browser" : "node"
-    if ( document ) {
+    if ( window.window ) {
         customElements.define( "p-trans", window.pebTransElement = class PebTransElement extends HTMLElement {
             constructor() {
                 // Call super in class to use `this` and `constructor`
@@ -417,6 +418,40 @@
             throw new PebExtensionError("The parameter of peb.extend is missing some information");
         }
         
+    }
+
+    /**
+     * print to console
+     * @param {number | string} msgType 
+     * @param  {...string} data 
+     */
+    peb.console = function (msgType, ...data) {
+        let type;
+        if (typeof msgType === "number") {
+            type = (["log", "info", "error", "warn", "clear"])[msgType];
+        } else if (typeof msgType === "string") {
+            type = msgType;
+        } else {
+            throw new TypeError("msgType must be type of String or Number");
+        }
+        (console[msgType])(...data);
+    }
+
+    /**
+     * return a new string upper or lower cased
+     * @param {number} caseNum 1: LowerCase; 2: UpperCase;
+     * @param {string} str 
+     * @return {string}
+     */
+    peb.switchCase = function (caseNum, str) {
+        switch (caseNum) {
+            case 0:
+                return str.toLowerCase();
+            case 1:
+                return str.toUpperCase();
+            default:
+                return ByteLengthQueuingStrategy
+        }
     }
 
     return peb;
