@@ -8,10 +8,22 @@
 
 ;(function ( global, factory ) {
     'use strict';
+
+    let Peb = factory( global )
+
     if ( global.module ) {
-        moudule.export = factory( global );
+        // Node.js
+        moudule.export = Peb;
     } else if ( global.window ) {
-        window.peb = factory( global );
+        // Browser
+        window.peb = Peb;
+    }
+
+    // AMD
+    if ( typeof define === 'function' && define.amd ) {
+        define( "peb", [], function () {
+            return Peb;
+        });
     }
 })( this, function ( window ) {
     'use strict';
@@ -482,19 +494,21 @@
     /**
      * Return a boolean of is obj a number
      * Contains `123` `"123"` `1.23` `"1.23"` `.23` `".23"`
-     * @param {any} obj 
+     * @param {string | number} obj 
      */
     peb.isdigit = function (obj) {
         return !isNaN(obj)
     }
 
     /**
-     * Sleep time but `await` required
+     * Sleep time
+     * `peb.sleep(time).then(Fn)` = setTimeOut
+     * `await sleep(time)` is normal sleep time
      * @param {number} time 
      */
     peb.sleep = async function (time) {
         return new Promise(resolve => {
-            setTimeout(() => resolve(), time);
+            setTimeout( resolve, time );
         });
     }
 
