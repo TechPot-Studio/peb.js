@@ -16,6 +16,6 @@ Think this repository is good? You can do something practical-contribute to this
    ```bash
    $ npm run minify
    ```
-   Our compression code is based on terser. Please use `npm i -g terser' to install CLI first
+   Our compression code is based on terser. Please use `npm i -g terser` to install CLI first
 4. Submit the code to GitHub
 5. Create a new branch and start **Pull Requests**
