@@ -134,7 +134,7 @@
 
         /**
          * Set value
-         * @param {{ [x: string]: { [x: string]: string; }; }} newTabel
+         * @param {{ [lang: string]: { [word: string]: string; }; }} newTabel
          * @return {undefined}
          */
         set set(newTabel) {
