@@ -19,7 +19,7 @@
         window.peb = Peb;
     }
 
-    // AMD
+    // Defined AMD module
     if ( typeof define === 'function' && define.amd ) {
         define( "peb", [], function () {
             return Peb;
@@ -514,9 +514,22 @@
         });
     }
 
+    /**
+     * forEach in ANY OBJECT TYPE
+     * @param {object} obj Object for each
+     * @param {funtion} callbackFn call back function
+     */
+    peb.forEach = function (obj, callbackFn) {
+        Object.keys(obj).forEach( (value, _, object) => {
+            callbackFn( object[value], value, object )
+        } )
+    }
+
     // Common function integration
     peb.parseJson = JSON.parse;
     peb.stringifyJson = JSON.stringify;
+    peb.now = new Date.now();
 
+    // Return final object
     return peb;
 });
