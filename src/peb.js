@@ -1,6 +1,6 @@
 /**
- * Checked Out JQuery ( Copyright OpenJS Foundation and other contributors, https://openjsf.org/ )
- * We Uncopied Source-Code
+ * Peb JavaScript Library
+ * Checked Out JQuery FEATURES (NOT SOURCE CODE)
  * Most features are OC
  * 
  * @copyright TechPot Studio and other contributors
