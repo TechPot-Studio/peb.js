@@ -494,10 +494,11 @@
 
     /**
      * Return a boolean of is obj a number
-     * Contains `123` `"123"` `1.23` `"1.23"` `.23` `".23"`
+     * Contains `123` `"123"` `1.23` `"1.23"` `.23` `".23"` `0xff00` `"0xf3"`
      * @param {string | number} obj 
      */
     peb.isdigit = function (obj) {
+        // isNan supports string
         return !isNaN(obj)
     }
 
