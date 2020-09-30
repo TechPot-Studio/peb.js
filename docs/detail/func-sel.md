@@ -27,7 +27,7 @@ Get all attributes
 | value | `String` | Yes | The value to be changed |
 
 Change the attribute `name` to `value` when available, otherwise, return the attribute value corresponding to `name`
-#### `.dats(name, value)`
+#### `.data(name, value)`
 | Parameter | Type | Optional | Description |
 | :---: | :---: | :---: | :---: |
 | name | `String`\|`Object` | | Propertie |
@@ -41,13 +41,13 @@ Add child elements to the object
 #### `del()`
 Remove Element
 
-#### `.htm(value)`
+#### `.html(value)`
 | Parameter | Type | Optional | Description |
 | :---: | :---: | :---: | :---: |
 | value | `String` | Yes | The value to be changed |
 
 Get it if no parameters are passed in
-#### `.txt()`
+#### `.text()`
 Get innerText
   
 #### `.val()`
