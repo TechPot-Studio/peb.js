@@ -5,13 +5,82 @@ declare module 'peb' {
      */
     namespace peb {
 
+        const parseJson = JSON.parse
+        const stringifyJson = JSON.stringify
+        const now = Date.now()
+
         /**
          * Operate the DOM with the smallest possible code.
          * 
          * See the `RElement` and `RElementsCollection` for more information
          */
         function sel(selector: string, index: number): RElement|RElementsCollection
+
+        /**
+         * Send HTTPXML Request
+         */
+        function ajax(type: string, url: string, success: function, fail: function): undefined
+
+        /**
+         * Send HTTPXML Request
+         */
+        function ajax(args: string): undefined
+
+        /**
+         * Send console log
+         * 
+         * msg types
+         * 
+         * | Name       | ID  |
+         * | :--------: | :-: |
+         * | `"log"`    | `0` |
+         * | `"info"`   | `1` |
+         * | `"error"`  | `2` |
+         * | `"warn"`   | `3` |
+         * | `"clear"`  | `4` |
+         */
+        function console(msgType: string, ...data: string[]): undefined
         
+        /**
+         * Get a upper case of a string
+         */
+        function switchCase(caseNum: 0, str: string): string
+        
+        /**
+         * Get a lower case of a string
+         */
+        function switchCase(caseNum: 1, str: string): string
+
+        /**
+         * Get constructor name of the object
+         */
+        function getclass(obj: any): string
+
+        /**
+         * Get a number or string is numberic
+         */
+        function isdigit(obj: string|number): boolean
+
+        /**
+         * await sleep time or sleep a time then do a function
+         * 
+         * Example:
+         * ```
+         * peb.sleep(1000).then(() => { alert("foo") })
+         * 
+         * await peb.sleep(1000)
+         * ```
+         */
+        function sleep(ms: number): Promise<undefined>
+
+        /**
+         * ForEach in any object type
+         */
+        function forEach(obj: any): undefined
+
+        /**
+         * Create an operatable element.
+         */
         class RElement {
             constructor(element: HTMLElement)
 
@@ -86,8 +155,72 @@ declare module 'peb' {
             text(): string
 
             /**
-             * Get value ()
+             * Get value (`<input>` element, etc.)
              */
+            val(): string
+
+            /**
+             * Set value (`<input>` element, etc.)
+             */
+            val(becoming: string): string
+
+            /**
+             * Hide element.
+             * Actually is set style.display to none
+             */
+            hide(): undefined
+
+            /**
+             * Show element (if already hide)
+             */
+            show(): string
+
+            /**
+             * Set element display type
+             */
+            show(type: string): string
+
+            /**
+             * Add event listener
+             */
+            on(event: string, listener: function): undefined
+
+            /**
+             * Add multiple event listener
+             * 
+             * Example:
+             * ```
+             * peb.sel("div#foo").on({
+             *     click: () => {
+             *         alert("bar")
+             *     },
+             *     mouseover: () => {
+             *         console.log("bar")
+             *     }
+             * })
+             * ```
+             */
+            on(eventListenrSequence: Object): undefined
+
+            /**
+             * Return parent node
+             */
+            parent(): RElement
+
+            /**
+             * Return first child node
+             */
+            child(): RElement
+
+            /**
+             * Get next elementSibling
+             */
+            next(): RElement
+
+            /**
+             * Get previous elementSibling
+             */
+            prev(): RElement
         }
     }
 }
