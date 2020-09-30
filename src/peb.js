@@ -30,7 +30,7 @@ const { peb } = require("peb");
 })( this, function ( window ) {
     'use strict';
     function peb() {
-        this.version = "3.0.0-pre.4";
+        this.version = "3.0.0-rc.1";
     }
 
     // Error type
@@ -70,10 +70,8 @@ const { peb } = require("peb");
         customElements.define( "p-mark", window.pebMarkElement = class PebMarkElement extends HTMLElement {
             constructor() {
                 super();
-                this.style = {
-                    color: "attr( color ), inherit",
-                    fontFamily: "attr( font ), inherit"
-                }
+                this.style.color = "attr(color),inherit",
+                this.style.fontFamily = "attr( font ), inherit"
             }
         });
         peb.QuickAudio = class QuickAudio {
