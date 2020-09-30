@@ -6,6 +6,8 @@
  * @copyright TechPot Studio and other contributors
  */
 
+const { peb } = require("peb");
+
 ;(function ( global, factory ) {
     'use strict';
 
@@ -219,7 +221,7 @@
      * Convert HTMLElement to operatable element
      * @param {HTMLElement} el 
      */
-    function RElement(el) {  
+    peb.RElement = function RElement(el) {  
         this.tag = el.tagName,
         this.id = el.id,
         this.oringin = el;
@@ -253,7 +255,7 @@
                         return el.classList.remove( className )
                 }
             },
-            dats: function ( name, value ) {
+            data: function ( name, value ) {
                 if ( !exist( name ) ) {
                     return el.dataset;
                 } else if ( !exist( value ) ) {
@@ -290,14 +292,14 @@
             del: function () {
                 return el.parentNode.removeChild( el );
             },
-            htm: function ( value ) {
+            html: function ( value ) {
                 if ( exist( value ) ) {
                     return el.innerHTML = String( value );
                 } else {
                     return el.innerHTML;
                 }
             },
-            txt: function () {
+            text: function () {
                 return el.innerText
             },
             val: function ( value ) {
@@ -358,7 +360,8 @@
         }
         Object.freeze(this);
     }
-    function RElementsCollection(elements) {
+
+    peb.RElementsCollection = function RElementsCollection(elements) {
         elements.forEach( ( element, index ) => {
             this[index] = new RElement(element);
         });
