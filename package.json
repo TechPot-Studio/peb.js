@@ -17,7 +17,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "terser": "5.3.2"
+    "terser": "^5.3.2"
   },
   "directories": {
     "doc": "docs"
