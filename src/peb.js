@@ -322,7 +322,7 @@ const { peb } = require("peb");
                 }
             },
             on: function ( event, listener ) {
-                if ( exist( func ) ) {
+                if ( exist( listener ) ) {
                     el.addEventListener( event, callback );
                 } else {
                     switch ( typeof ( event ) ) {
