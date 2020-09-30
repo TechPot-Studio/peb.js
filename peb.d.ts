@@ -1,3 +1,7 @@
+/**
+ * Peb.js JavaScript library
+ * @version 3.0.0-rc.1
+ */
 declare module 'peb' {
 
     /**
@@ -85,12 +89,12 @@ declare module 'peb' {
             constructor(element: HTMLElement)
 
             /**
-             * Edit attribute
+             * Edit attribute `attributeName` to `becoming`
              */
             attr(attributeName: string, becoming: string): undefined
 
             /**
-             * Get attribute
+             * Get attribute `attributeName`
              */
             attr(attributeName: string): string
 
@@ -113,13 +117,34 @@ declare module 'peb' {
             attr(): NamedNodeMap
 
             /**
-             * See document
+             * Get full class list
              */
-            class(method: string|number, operatingString: string): undefined|DOMSettableTokenList
+            class(method: "get"): DOMSettableTokenList
+
+            /**
+             * Set token list
+             * 
+             * `to` parameter example: `"foo"` `"foo bar"`
+             */
+            class(method: "set", to: string): string
+
+            /**
+             * Add a class to class list
+             */
+            class(method: "add", className: string): DOMSettableTokenList
+
+            /**
+             * Remove class in class list
+             */
+            class(method: "remove", className: string): DOMSettableTokenList
 
             /**
              * Reffer to attr().
              * In HTML5, attributes like `data-{}` are collected into `dataset`.
+             * 
+             * `object`         -> merge key to value  
+             * `string`         -> get dataset by name  
+             * `string, string` -> merge dataset to another string  
              * 
              * Example:
              * ```
