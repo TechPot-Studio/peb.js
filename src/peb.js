@@ -30,7 +30,7 @@ const { peb } = require("peb");
 })( this, function ( window ) {
     'use strict';
     function peb() {
-        this.version = "3.0.0-rc.1";
+        this.version = "3.0.0-rc.2";
     }
 
     // Error type
