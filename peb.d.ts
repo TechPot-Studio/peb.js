@@ -1,6 +1,6 @@
 /**
  * Peb.js JavaScript library
- * @version 3.0.0-rc.2
+ * @version 3.0.0
  */
 declare module 'peb' {
 
@@ -12,6 +12,20 @@ declare module 'peb' {
         const parseJson = JSON.parse
         const stringifyJson = JSON.stringify
         const now = Date.now()
+
+        /**
+         * Peb basicly error type.
+         * All other peb error are extending this.
+         */
+        class PebError extends Error {
+            constructor(message: string)
+        }
+        /**
+         * If required a valid object but value is none, then throw this.
+         */
+        class PebNullObjectError extends PebError {
+            constructor(message: string)
+        }
 
         /**
          * Select a HTMLElement and operate it.
