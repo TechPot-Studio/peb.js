@@ -12,7 +12,6 @@ Quickly create an HTML element
 | Parameter          | Type      | Optional | Description                                |
 | :----------------: | :-------: | :------: | :----------------------------------------: |
 | str                | `String`  |          | The string to be converted to HTML content |
-| isReturnCollection | `Boolean` | Yes      | Is return a collection                     |
 
 This function will only create a single element at a time
 ### `.textNode(text)`
