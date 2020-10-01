@@ -239,17 +239,8 @@
                     return el.setAttribute( n, String( f ) );
                 }
             },
-            class: function ( operatingType, className ) {
-                switch (operatingType) {
-                    case "get":
-                        return el.classList
-                    case "set":
-                        return el.classList = className
-                    case "add":
-                        return el.classList.add( className );
-                    case "remove":
-                        return el.classList.remove( className )
-                }
+            class: function () {
+                return el.classList;
             },
             data: function ( name, value ) {
                 if ( !exist( name ) ) {
@@ -318,19 +309,20 @@
                 }
             },
             on: function ( event, listener ) {
-                if ( exist( listener ) ) {
-                    el.addEventListener( event, callback );
-                } else {
-                    switch ( typeof ( event ) ) {
-                        case "string":
-                            el.removeEventListener( listener );
-                            break;
-                        case "object":
-                            Object.keys( event ).forEach( function ( current ) {
-                                el.addEventListener( current, event[current] );
-                            } );
-                            break;
+                let bindEventListener = function ( eventStr, callback ) {
+                    if ( el.addEventListener ) {
+                        el.addEventListener( eventStr, callback )
+                    } else {
+                        el.attachEvent( "on" + eventStr, callback.call( el ) )
                     }
+                }
+
+                if ( exist( listener ) ) {
+                    bindEventListener( event, listener )
+                } else if ( typeof listener === 'object' ) {
+                    Object.keys( event ).forEach( function ( current ) {
+                        bindEventListener( current, event[current] );
+                    } );
                 }
             },
             parent: function () {
