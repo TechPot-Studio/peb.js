@@ -1,6 +1,6 @@
 /**
  * Peb.js JavaScript library
- * @version 3.0.0-rc.1
+ * @version 3.0.0-rc.2
  */
 declare module 'peb' {
 
@@ -14,11 +14,17 @@ declare module 'peb' {
         const now = Date.now()
 
         /**
-         * Operate the DOM with the smallest possible code.
+         * Select a HTMLElement and operate it.
          * 
-         * See the `RElement` and `RElementsCollection` for more information
+         * No need `index` parameter if `selector` is id selector,
+         * but we recommended pass in `null`
          */
-        function sel(selector: string, index: number): RElement|RElementsCollection
+        function sel(selector: string, index?: number): RElement
+
+        /**
+         * Select multiple HTMLElements and operate it.
+         */
+        function sel(selector: string): RElementsCollection
 
         /**
          * Send HTTPXML Request
@@ -28,7 +34,7 @@ declare module 'peb' {
         /**
          * Send HTTPXML Request
          */
-        function ajax(args: string): undefined
+        function ajax(args: object): undefined
 
         /**
          * Send console log
@@ -46,14 +52,11 @@ declare module 'peb' {
         function console(msgType: string, ...data: string[]): undefined
         
         /**
-         * Get a upper case of a string
+         * Get a upper or lower case of a string.
+         * 
+         * caseNum is 0 (lower case) or 1 (upper case)
          */
-        function switchCase(caseNum: 0, str: string): string
-        
-        /**
-         * Get a lower case of a string
-         */
-        function switchCase(caseNum: 1, str: string): string
+        function switchCase(caseNum: number, str: string): string
 
         /**
          * Get constructor name of the object
@@ -80,13 +83,25 @@ declare module 'peb' {
         /**
          * ForEach in any object type
          */
-        function forEach(obj: any): undefined
+        function forEach(obj: any, callbackFn: (current: any, index: number, array: any[]) => void): undefined
 
         /**
-         * Create an operatable element.
+         * Cteate an operatable elements collection
+         */
+        class RElementsCollection {
+            /**
+             * construct by exist node list
+             */
+            constructor(elements: NodeList)
+
+            forEach(callbackFn: (element: RElement, index: number, collection: RElementsCollection) => void, startIndex: number): undefined
+        }
+
+        /**
+         * Create an operatable element or be a `sel` function result
          */
         class RElement {
-            constructor(element: HTMLElement)
+            constructor(element: HTMLElement|Node)
 
             /**
              * Edit attribute `attributeName` to `becoming`
@@ -94,12 +109,12 @@ declare module 'peb' {
             attr(attributeName: string, becoming: string): undefined
 
             /**
-             * Get attribute `attributeName`
+             * Get all attributes or attribute `attributeName`
              */
-            attr(attributeName: string): string
+            attr(attributeName?: string): string|NamedNodeMap
 
             /**
-             * Edit multy attributes
+             * Edit multiple attributes
              * 
              * Example:
              * ```
@@ -110,11 +125,6 @@ declare module 'peb' {
              * ```
              */
             attr(attributesCollection: object): undefined
-
-            /**
-             * Get all attributes
-             */
-            attr(): NamedNodeMap
 
             /**
              * Get full class list
@@ -139,19 +149,28 @@ declare module 'peb' {
             class(method: "remove", className: string): DOMSettableTokenList
 
             /**
-             * Reffer to attr().
-             * In HTML5, attributes like `data-{}` are collected into `dataset`.
-             * 
-             * `object`         -> merge key to value  
-             * `string`         -> get dataset by name  
-             * `string, string` -> merge dataset to another string  
+             * Get all or one of dataset.
+             * Dataset is attributes like `data-{}`
+             */
+            data(name?: string): object
+
+            /**
+             * Set dataset `name` to `becoming`.
+             */
+            data(name: string, becoming: string): string
+
+            /**
+             * Set dataset by object `key` to `value`.
              * 
              * Example:
              * ```
-             * peb.sel("div", 0).data(foo, "bar")
+             * peb.sel("div", 0).data({
+             *     foo: "val",
+             *     bar: "val"
+             * })
              * ```
              */
-            data(name: string, becomeing: string): undefined|string|object
+            data(sequence: object): undefined
 
             /**
              * Insert new element to current element
