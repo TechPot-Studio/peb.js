@@ -42,9 +42,14 @@ import peb from 'peb'
 // CommonJS
 const peb = require('peb');
 ```
-### Or, grab from **jsdelivr** or other API.
+### Or, grab from other API.
+#### jsdelivr
 ```html
 <script src="//cdn.jsdelivr.net/npm/peb"></script>
+```
+#### unpkg
+```html
+<script src="//unpkg.com/peb"></script>
 ```
 And, we allowed download source code.
 ## Browser Support
