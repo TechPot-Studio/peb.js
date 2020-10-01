@@ -28,7 +28,7 @@
 })( this, function ( window ) {
     'use strict';
     function peb() {
-        this.version = "3.0.0-rc.2";
+        this.version = "3.0.0";
     }
 
     // Error type
