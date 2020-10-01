@@ -2,11 +2,8 @@
 The last updated version of this function: *3.0.0-pre.3*
 ## Construct
 ```javascript
-new peb.QuickAudio(url)
+new peb.QuickAudio(url: string)
 ```
-| Parameter | Type | Optional | Description |
-| :---: | :---: | :---: | :---: |
-| url | `String` | | Audio File URL |
 Use JavaScript to play audio
 ## Object Method
 ### `destroy(obj)`

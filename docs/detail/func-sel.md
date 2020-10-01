@@ -16,66 +16,40 @@ peb.sel(selector, itemIndex)
 ### ID Selector or passed in `itemIndex`
 #### `.attr()`
 Get all attributes
-#### `.attr(sequence)`
-| Parameter | Type | Optional | Description |
-| :---: | :---: | :---: | :---: |
-| sequence | `Object` | |Change all \[key\] attributes to \[key value\]|
-#### `.attr(name, value)`
-| Parameter | Type | Optional | Description |
-| :---: | :---: | :---: | :---: |
-| name | `String`\|`Object` | | Propertie |
-| value | `String` | Yes | The value to be changed |
+#### `.attr(sequence: object)`
+Change all \[key\] attributes to \[key value\]
+#### `.attr(name: string, value: string)`
 
 Change the attribute `name` to `value` when available, otherwise, return the attribute value corresponding to `name`
-#### `.data(name, value)`
-| Parameter | Type | Optional | Description |
-| :---: | :---: | :---: | :---: |
-| name | `String`\|`Object` | | Propertie |
-| value | `String` | Yes | The value to be changed |
+#### `.data(name: string, value: string)`
 
 Change the dataset `name` to `value` when available, otherwise, return the dataset value corresponding to `name`
   
-#### `insert(...nodes)`
+#### `insert(...nodes: Node[] | HTMLElement[] | RElement[])`
 Add child elements to the object
   
 #### `del()`
 Remove Element
 
-#### `.html(value)`
-| Parameter | Type | Optional | Description |
-| :---: | :---: | :---: | :---: |
-| value | `String` | Yes | The value to be changed |
+#### `.html(value?: string)`
+Get it if no parameters are passed in, otherwise set value to `value`
 
-Get it if no parameters are passed in
 #### `.text()`
 Get innerText
   
-#### `.val()`
-| Parameter | Type | Optional | Description |
-| :---: | :---: | :---: | :---: |
-| value | `String` | Yes | The value to be changed |
-
-Get it if no parameters are passed in
+#### `.val(value?: string)`
+Get it if no parameters are passed in, otherwise set value to `value`
   
 #### `.hide()`
 Hide element
   
-#### `.show(type)`
-| Parameter | Type | Optional | Description |
-| :---: | :---: | :---: | :---: |
-| type | `String` | Yes | value of `Element.style.display` |
+#### `.show(type?: string)
+set value of `Element.style.display` if passed in parameter, otherwise set display type to value of lastest time hide
 
-If no parameters are passed in, the default value is the last value of `hide()`.
-
-#### `.on(event, listener)`
-| Parameter | Type | Optional | Description |
-| :---: | :---: | :---: | :---: |
-| event | `String` |  | Event that triggers the listener |
-| listener | `Function` | Yes | Listener |
-
+#### `.on(event: string, listener?: function)`
 Add event listener if `listener` is passed in, otherwise remove
 
-#### `.class(operatingType, className)`
+#### `.class(operatingType: string, className: string)`
 Allow operatingType: `add` `remove` `set` `get`
 
 #### `.next()`
@@ -89,11 +63,7 @@ Get **first** child element
 *Tip:* Better effect with `.next()`
 
 ### And Others
-#### `.forEach(callbackFn, startIndex)`
-| Parameter | Type | Optional | Description |
-| :---: | :---: | :---: | :---: |
-| callbackFn | `Function` |  | callback function |
-| startIndex | `Number` | Yes | Start index of loop |
+#### `.forEach(callbackFn: function, startIndex: number)`
 
 - `callbackFn` function parameter
 

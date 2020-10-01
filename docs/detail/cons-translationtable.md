@@ -2,11 +2,8 @@
 The last updated version of this function: 2.2.0
 ## Construct
 ```javascript
-new peb.translationTable(tabel)
+new peb.translationTable(tabel: object)
 ```
-| Parameter | Type | Optional | Description |
-| :-: | :-: | :-: | :-: |
-| tabel | `Object` | | Translate Tabel |
 
 ## Object Method
 ### *SET* `set(tabel)`
