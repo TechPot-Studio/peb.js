@@ -461,9 +461,9 @@ const { peb } = require("peb");
     peb.switchCase = function (caseNum, str) {
         switch (caseNum) {
             case 0:
-                return str.toLowerCase();
-            case 1:
                 return str.toUpperCase();
+            case 1:
+                return str.toLowerCase();
             default:
                 return str;
         }
