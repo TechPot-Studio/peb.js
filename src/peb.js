@@ -188,9 +188,8 @@
         /**
          * Convert text to HTML. Usually this function is not used, sometimes combined with ajax
          * @param {string} str String
-         * @return {HTMLElement}
          */
-        this.fromStr = function ( str, isReturnCollection=false ) {
+        this.fromStr = function ( str ) {
             document.body.appendChild( document.createElement( "peb-operation-card" ) );
             let operationCard = document.querySelector( "peb-operation-card" );
             operationCard.innerHTML = str;
@@ -198,11 +197,12 @@
             let result = operationCard.children;
 
             document.body.removeChild( operationCard );
-            if ( isReturnCollection ) {
-                return result;
-            } else {
+            if (result.length == 1) {
                 return result[0];
+            } else {
+                return result
             }
+            
         };
         /**
          * Create a text node quickly
