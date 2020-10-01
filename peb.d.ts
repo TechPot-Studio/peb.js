@@ -111,6 +111,26 @@ declare module 'peb' {
         function forEach(obj: any, callbackFn: (current: any, index: number, array: any[]) => void): undefined
 
         /**
+         * Generate a node
+         */
+        namespace genNode {
+            /**
+             * Generate a new element with innerHTML and attributes
+             */
+            function element(nodeName: string, inner?: string, attr?: object): HTMLElement
+
+            /**
+             * Generate a text node.
+             */
+            function text(text: string): Text
+
+            /**
+             * Parse the string of HTML content into Node
+             */
+            function fromStr(str: string): HTMLElement|Node|Text
+        }
+
+        /**
          * Cteate an operatable elements collection
          */
         class RElementsCollection {
