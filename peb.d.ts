@@ -4,6 +4,17 @@
  */
 declare module 'peb' {
 
+    interface ajaxConfigOptions {
+        /** Request type - `GET` or `POST`*/
+        type: string,
+        /** Request URL */
+        url: string,
+        /** Function to do when success */
+        success?: function,
+        /** Function to do when fail */
+        fail?: function
+    }
+
     /**
      * A namespace of basic peb.js method peb
      */
@@ -48,7 +59,7 @@ declare module 'peb' {
         /**
          * Send HTTPXML Request
          */
-        function ajax(args: object): undefined
+        function ajax(args: ajaxConfigOptions): undefined
 
         /**
          * Send console log
@@ -141,32 +152,9 @@ declare module 'peb' {
             attr(attributesCollection: object): undefined
 
             /**
-             * Get full class list
+             * Add, Remove, Get or Set class of the element
              */
-            class(method: "get"): DOMSettableTokenList
-
-            /**
-             * Set token list
-             * 
-             * `to` parameter example: `"foo"` `"foo bar"`
-             */
-            class(method: "set", to: string): string
-
-            /**
-             * Add a class to class list
-             */
-            class(method: "add", className: string): DOMSettableTokenList
-
-            /**
-             * Remove class in class list
-             */
-            class(method: "remove", className: string): DOMSettableTokenList
-
-            /**
-             * Get all or one of dataset.
-             * Dataset is attributes like `data-{}`
-             */
-            data(name?: string): object
+            class(): DOMSettableTokenList
 
             /**
              * Set dataset `name` to `becoming`.
