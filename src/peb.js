@@ -6,8 +6,6 @@
  * @copyright TechPot Studio and other contributors
  */
 
-const { peb } = require("peb");
-
 ;(function ( global, factory ) {
     'use strict';
 
