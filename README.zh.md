@@ -20,7 +20,6 @@
   <a href="//github.com/TechPot-Studio/peb.js/releases" title="从最后一个版本起的Commnit数"><img src="https://img.shields.io/github/commits-since/TechPot-Studio/peb.js/latest/master?include_prereleases&logo=github&style=flat-square" /></a>
   <a href="./src/peb.js" title="大小"><img src="https://img.shields.io/github/size/TechPot-Studio/peb.js/src/peb.js?style=flat-square" /></a>
   <a href="./dist/peb.min.js" title="打包后大小"><img src="https://img.shields.io/github/size/TechPot-Studio/peb.js/dist/peb.min.js?label=minified%20size&style=flat-square" /></a>
-  <a title="仓库大小"><img src="https://img.shields.io/github/repo-size/TechPot-Studio/peb.js?style=flat-square" /></a>
   <a title="Node.js 版本"><img src="https://img.shields.io/static/v1?label=Node.js%20version&message=12&color=informational&logo=node.js&style=flat-square&logoColor=white" /></a>
   <a title="ECMAScript 版本"><img src="https://img.shields.io/static/v1?label=ECMAScript%20version&message=6&color=informational&logo=JavaScript&style=flat-square&logoColor=white" /></a>
 </p>
@@ -44,9 +43,14 @@ import peb from 'peb'
 // CommonJS
 const peb = require('peb');
 ```
-### 或者，从 **jsdelivr** 或其它第三方API抓取
+### 或者，从其它第三方API抓取
+#### jsdelivr
 ```html
 <script src="//cdn.jsdelivr.net/npm/peb"></script>
+```
+#### unpkg
+```html
+<script src="//unpkg.com/peb"></script>
 ```
 当然，下载源码也是允许的
 ## 浏览器支持
@@ -59,5 +63,3 @@ const peb = require('peb');
 **数据来源：[*developer.mozilla.org*](//developer.mozilla.org)**
 ## 脚注
 - ZH 版本可能会更新较慢，可能出现一个版本中两个README不同的情况
-- Gitee中图片无法显示
-- 打赏移步至Gitee
