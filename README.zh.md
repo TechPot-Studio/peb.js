@@ -39,9 +39,9 @@ $ npm install peb
 ```
 ```javascript
 // ES6
-import peb from 'peb'
+import { peb } from 'peb'
 // CommonJS
-const peb = require('peb');
+const { peb } = require('peb');
 ```
 ### 或者，从其它第三方API抓取
 #### jsdelivr
