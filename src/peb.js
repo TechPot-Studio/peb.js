@@ -443,20 +443,31 @@
     }
 
     /**
-     * return a new string upper or lower cased
-     * @param {number} caseNum 1: LowerCase; 2: UpperCase;
+     * return a new string upper cased
      * @param {string} str 
      * @return {string}
      */
-    peb.switchCase = function (caseNum, str) {
-        switch (caseNum) {
-            case 0:
-                return str.toUpperCase();
-            case 1:
-                return str.toLowerCase();
-            default:
-                return str;
-        }
+    peb.upperCase = (str) => {
+        return str.toUpperCase()
+    }
+    /**
+     * return a new string lower cased
+     * @param {string} str 
+     * @return {string}
+     */
+    peb.lowerCase = (str) => {
+        return str.toLowerCase()
+    }
+
+    /**
+     * Remove spaces or dashes and convert to camel case
+     * @param {string} str
+     * @return {string}
+      */
+    peb.camelCase = (str) => {
+        return str.replace(/[ -]./g, ( word ) => {
+            return word.replace(/[ -]/g, "").toUpperCase()
+        })
     }
 
     /**

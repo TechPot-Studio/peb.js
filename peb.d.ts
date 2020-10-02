@@ -4,6 +4,7 @@
  */
 declare module 'peb' {
 
+    /* interface declare */
     interface ajaxConfigOptions {
         /** Request type - `GET` or `POST`*/
         type: string,
@@ -14,6 +15,11 @@ declare module 'peb' {
         /** Function to do when fail */
         fail?: function
     }
+
+    /* type declare */
+    type consoleOperatorCharacter = "log" | "info" | "warn" | "error" | "clear" | 0 | 1 | 2 | 3 | 4
+
+    /* namespace peb */
 
     /**
      * A namespace of basic peb.js method peb
@@ -74,14 +80,28 @@ declare module 'peb' {
          * | `"warn"`   | `3` |
          * | `"clear"`  | `4` |
          */
-        function console(msgType: string, ...data: string[]): undefined
+        function console(msgType: consoleOperatorCharacter, ...data: string[]): undefined
         
         /**
-         * Get a upper or lower case of a string.
-         * 
-         * caseNum is 0 (lower case) or 1 (upper case)
+         * Get a upper case of a string.
          */
-        function switchCase(caseNum: number, str: string): string
+        function upperCase(str: string): string
+        
+        /**
+         * Get a lower case of a string.
+         */
+        function lowerCase(str: string): string
+        
+        /**
+         * Remove spaces or dashes and convert to camel case.
+         * 
+         * Example:
+         * ```
+         * peb.camelCase("a good variable"); // aGoodVariable
+         * peb.camelCase("a-bad-variable"); // aBadVariable
+         * ```
+         */
+        function camelCase(str: string): string
 
         /**
          * Get constructor name of the object
@@ -266,7 +286,7 @@ declare module 'peb' {
              * })
              * ```
              */
-            on(eventListenrSequence: Object): undefined
+            on(eventListenerSequence: Object): undefined
 
             /**
              * Return parent node
