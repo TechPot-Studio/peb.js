@@ -15,3 +15,5 @@ peb.log(...data: any[])
 Send error to console
 ### `.warn(..data: any[])`
 Send warning to console
+### `.clear()`
+Clear console
