@@ -427,19 +427,26 @@
 
     /**
      * print to console
-     * @param {number | string} msgType 
-     * @param  {...string} data 
+     * @param {any[]} data
      */
-    peb.console = function (msgType, ...data) {
-        let type;
-        if (typeof msgType === "number") {
-            type = (["log", "info", "error", "warn", "clear"])[msgType];
-        } else if (typeof msgType === "string") {
-            type = msgType;
-        } else {
-            throw new TypeError("msgType must be type of String or Number");
-        }
-        (console[msgType])(...data);
+    peb.log = function ( ...data ) {
+        console.log( ...data )
+    }
+
+    /**
+     * print to console
+     * @param {any[]} data
+     */
+    peb.log.error = function ( ...data ) {
+        console.error( ...data )
+    }
+
+    /**
+     * print to console
+     * @param {any[]} data
+     */
+    peb.log.warn = function ( ...data ) {
+        console.error( ...data )
     }
 
     /**

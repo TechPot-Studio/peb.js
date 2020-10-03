@@ -68,19 +68,24 @@ declare module 'peb' {
         function ajax(args: ajaxConfigOptions): undefined
 
         /**
-         * Send console log
-         * 
-         * msg types
-         * 
-         * | Name       | ID  |
-         * | :--------: | :-: |
-         * | `"log"`    | `0` |
-         * | `"info"`   | `1` |
-         * | `"error"`  | `2` |
-         * | `"warn"`   | `3` |
-         * | `"clear"`  | `4` |
+         * Send log to console
          */
-        function console(msgType: consoleOperatorCharacter, ...data: string[]): undefined
+        function log(...data: any[]): undefined
+
+        /**
+         * More console infos
+         */
+        namespace log {
+            /**
+             * Send error to console
+             */
+            function error(...data: any[]): undefined
+            
+            /**
+             * Send warning to console
+             */
+            function warn(...data: any[]): undefined
+        }
         
         /**
          * Get a upper case of a string.
