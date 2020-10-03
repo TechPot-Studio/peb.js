@@ -9,22 +9,12 @@
 ;(function ( global, factory ) {
     'use strict';
 
-    let Peb = factory( global )
-
-    if ( global.module ) {
-        // when module avaliable
-        module.exports = Peb;
-    } else if ( global.window ) {
-        // Browser
-        window.peb = Peb;
+    if ( typeof module === "object" && typeof module.exports === "object" ) {
+        module.exports = factory( global );
+    } else {
+        window.peb = factory( global );
     }
 
-    // Defined AMD module
-    if ( typeof define === 'function' && define.amd ) {
-        define( "peb", [], function () {
-            return Peb;
-        });
-    }
 })( this, function ( window ) {
     'use strict';
     function peb() {
@@ -108,21 +98,7 @@
     Object.prototype.forEach = function ( callbackFn ) {
         arr.forEach.call( Object.keys( this ), callbackFn )
     };
-    /**
-     * Choose default function of peb().
-     * @param {function} func Default Function
-     */
-    peb.setDefault = function ( func ) {
-        if (func instanceof Function) {
-            let backup = peb;
-            peb = func;
-            Object.keys( backup ).forEach( function ( current ) {
-                peb[current] = backup[current]
-            } );
-            // Return to destroy variable
-            return func;
-        }
-    }
+    
     peb.translationTable = class translationTable {
         constructor(table) {
             if (typeof(tabel) === 'object') {
@@ -538,6 +514,13 @@
     peb.parseJson = JSON.parse;
     peb.stringifyJson = JSON.stringify;
     peb.now = new Date.now();
+
+    // Define AMD module
+    if ( typeof define === 'function' && define.amd ) {
+        define( "peb", [], function () {
+            return peb;
+        });
+    }
 
     // Return final object
     return peb;
