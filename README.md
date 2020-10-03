@@ -57,9 +57,9 @@ const peb = require('peb');
 And, we allowed download source code.
 ## Browser Support
 Number is the **least** version it supports
-| Browser | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/chrome.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/firefox.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/ie.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/safari.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/edge.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/opera.svg" width="30" /> |
-|------: | :------: | :------: | :------: | :------: | :------: | :------: |
-| **Full Support** | 54 | 63 | - | 10.1 | 79 | 41 |
+| Browser | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/chrome.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/firefox.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/safari.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/edge.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/opera.svg" width="30" /> |
+|------: | :------: | :------: | :------: | :------: | :------: |
+| **Full Support** | 54 | 63 | 10.1 | 79 | 41 |
 
 Go to the function documentation to view the specific supported browsers of the function  
 **The source of this information: [*developer.mozilla.org*](//developer.mozilla.org)**

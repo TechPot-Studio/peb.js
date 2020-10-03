@@ -55,9 +55,9 @@ const peb = require('peb');
 当然，下载源码也是允许的
 ## 浏览器支持
 以下浏览器最低支持此包的版本
-| 浏览器 | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/chrome.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/firefox.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/ie.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/safari.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/edge.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/opera.svg" width="30" /> |
-|------: | :------: | :------: | :------: | :------: | :------: | :------: |
-| **完全**支持 | 54 | 63 | - | 10.1 | 79 | 41 |
+| 浏览器 | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/chrome.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/firefox.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/safari.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/edge.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/opera.svg" width="30" /> |
+|------: | :------: | :------: | :------: | :------: | :------: |
+| **完全**支持 | 54 | 63 | 10.1 | 79 | 41 |
 
 进入文档可查看具体函数支持版本  
 **数据来源：[*developer.mozilla.org*](//developer.mozilla.org)**
