@@ -31,6 +31,10 @@
   
 微软对Internet Explorer的支持已经结束，从`v3.0.0`版起，我们也将停止兼容旧版浏览器的支持
 
+<p align="center">
+<img src="https://forthebadge.com/images/badges/built-with-love.svg" />
+</p>
+
 **文档**: [查看](./docs)
 ## 下载
 ### 使用 **NPM**
