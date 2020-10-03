@@ -32,11 +32,14 @@
     function peb() {
         this.version = "3.0.0";
         this.platform = window.document ? "browser" : "node";
-        console.info("%cP%ceb\n%cPeb.js is avaliable. We are committed to making Javascript easier. \n\n%cCopyright © TechPot Studio\nMIT License", "font-weight: 600; color: #00a8fa; font-size: 30px", "font-weight: 600; color: #3f48cc; font-size: 30px", "", "color: #999");
-        console.info(`PLATFORM INFO: \n${navigator.userAgent}`)
     }
 
     platform = window.document ? "browser" : "node"
+
+    peb.info = function () {
+        console.info("%cP%ceb\n%cPeb.js is avaliable. We are committed to making Javascript easier. \n\n%cCopyright © TechPot Studio\nMIT License", "font-weight: 600; color: #00a8fa; font-size: 30px", "font-weight: 600; color: #3f48cc; font-size: 30px", "", "color: #999");
+        console.info(`PLATFORM INFO: \n${navigator.userAgent}`)
+    }
 
     // Error type
     window.PebError = peb.PebError = class PebError extends Error {
