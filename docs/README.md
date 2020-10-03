@@ -29,7 +29,6 @@ We are committed to creating a good community environment.
   * [peb.sel()](./detail/func-sel.md)
   * [peb.sum()](./detail/func-sum.md)
   * [peb.sleep()](./detail/func-sleep.md)
-  * [peb.setDefault()](./detail/func-setdefault.md)
 <!-- T -->
 <!-- U -->
   * [peb.upperCase()](./detail/func-uppercase.md)
