@@ -6,7 +6,7 @@ The last updated version of this function: *2.1.0*
 | 1 | 1| 1.2 | 10 | 12 |
 ## Usage
 ```ts
-peb.ajax(type: string, url: string, success?: function, fail?: function)
+peb.ajax(type: string, url: string, data: any, success?: function, fail?: function)
 peb.ajax(config)
 ```
 
