@@ -37,9 +37,9 @@ $ npm install peb
 ```
 ```javascript
 // ES6
-import { peb } from 'peb'
+import peb from 'peb'
 // CommonJS
-const { peb } = require('peb');
+const peb = require('peb');
 ```
 ### Or, grab from other API.
 #### jsdelivr
