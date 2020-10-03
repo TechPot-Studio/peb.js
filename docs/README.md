@@ -7,7 +7,6 @@ We are committed to creating a good community environment.
 - Functions  
   * [peb.ajax()](./detail/func-ajax.md)
   * [peb.classof()](./detail/func-classof.md)
-  * [peb.console()](./detail/func-console.md)
   * [peb.isdigit()](./detail/func-isdigit.md)
   * [peb.lowerCase()](./detail/func-lowercase.md)
   * [peb.sel()](./detail/func-sel.md)
@@ -19,5 +18,6 @@ We are committed to creating a good community environment.
   * [peb-trans](./detail/html-peb-trans.md)
 - Methods
   * [peb.genNode](./detail/meth-gennode.md)
+  * [peb.console](./detail/meth-log.md)
 ### ProTips
 Coding with `peb.d.ts` to throw off documents. A more readable document is under construction...
