@@ -3,6 +3,7 @@
   "title": "Peb.js",
   "version": "3.0.0",
   "main": "dist/peb.min.js",
+  "typings": "peb.d.ts",
   "description": "Peb.js makes JS easier",
   "author": "TechPot Studio",
   "keywords": [
