@@ -38,15 +38,18 @@
 **文档**: [查看](./docs)
 ## 下载
 ### 使用 **NPM**
+
+[![NPM包信息](https://nodei.co/npm/peb.png?compact=true)](https://www.npmjs.com/package/peb)
+
 ```shell
 $ npm install peb
 ```
 ```javascript
-// ES6
+/* ES6 */
 import peb from 'peb'
-// CommonJS
-const peb = require('peb');
+/* CommonJS */
 ```
+
 ### 或者，从其它第三方API抓取
 #### jsdelivr
 ```html

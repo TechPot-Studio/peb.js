@@ -1,6 +1,7 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/pebjs.png" width="299.2" height="137.6" title="Peb.js" alt="Peb.js Icon" />
-</p>
+<p align="center"><img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/pebjs.png" width="299.2" height="137.6" title="Peb.js" alt="Peb.js Icon" /></p>
+
+#
+
 <p align="center">
   <a href="//github.com/TechPot-Studio/peb.js/stargazers" title="Stars"><img src="https://img.shields.io/github/stars/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
   <a href="//github.com/TechPot-Studio/peb.js/issues" title="Issues"><img src="https://img.shields.io/github/issues/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
@@ -36,13 +37,16 @@ Microsoft's support for Internet Explorer has ended. We will also discontinue it
 
 ## Installation
 ### Using **NPM**
+
+[![NPM informations](https://nodei.co/npm/peb.png?compact=true)](https://www.npmjs.com/package/peb)
+
 ```shell
 $ npm install peb
 ```
 ```javascript
-// ES6
+/* ES6 */
 import peb from 'peb'
-// CommonJS
+/* CommonJS */
 const peb = require('peb');
 ```
 ### Or, grab from other API.
