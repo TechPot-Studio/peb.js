@@ -11,10 +11,21 @@
     'use strict';
 
     if ( typeof module === "object" && typeof module.exports === "object" ) {
+        // CommonJS
         module.exports = factory( global );
+
+    } else if ( typeof define === 'function' && define.amd ) {
+        // AMD
+        define( "peb", [], function () {
+            return factory( global );
+        });
+
     } else {
+        // Browser
         factory( global );
     }
+
+    // ES6: Outside the function
 
 })( this, function ( window ) {
     'use strict';
@@ -365,7 +376,7 @@
             return new RElementsCollection(elements);
         }
     };
-    peb.ajax = function( type, url, success=function(){}, fail=function(){} ) {
+    peb.ajax = function( type, url, data, success, fail ) {
         let request = new XMLHttpRequest()
           , args;
         // The parameters are more complicated and can be passed in with `Object` objects
@@ -376,6 +387,7 @@
             args = {
                 type: type,
                 url: url,
+                data: data,
                 success: success,
                 fail: fail,
             }
@@ -388,7 +400,7 @@
             }
         }
         request.open( args.type, args.url, true );
-        request.send();
+        request.send( data || null );
     };
 
     /**
@@ -526,13 +538,6 @@
     peb.parseJson = JSON.parse;
     peb.stringifyJson = JSON.stringify;
     peb.now = new Date.now();
-
-    // Define AMD module
-    if ( typeof define === 'function' && define.amd ) {
-        define( "peb", [], function () {
-            return peb;
-        });
-    }
 
     // Return final object
     window.peb = peb;

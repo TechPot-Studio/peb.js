@@ -10,6 +10,8 @@ declare module 'peb' {
         type: string,
         /** Request URL */
         url: string,
+        /** Data to send */
+        data?: string,
         /** Function to do when success */
         success?: function,
         /** Function to do when fail */
@@ -17,7 +19,6 @@ declare module 'peb' {
     }
 
     /* type declare */
-    type consoleOperatorCharacter = "log" | "info" | "warn" | "error" | "clear" | 0 | 1 | 2 | 3 | 4
 
     /* namespace peb */
 
@@ -60,7 +61,7 @@ declare module 'peb' {
         /**
          * Send HTTPXML Request
          */
-        function ajax(type: string, url: string, success: function, fail: function): undefined
+        function ajax(type: string, url: string, data: any, success: function, fail: function): undefined
 
         /**
          * Send HTTPXML Request
