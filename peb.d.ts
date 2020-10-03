@@ -85,6 +85,11 @@ declare module 'peb' {
              * Send warning to console
              */
             function warn(...data: any[]): undefined
+
+            /**
+             * Clear console
+             */
+            function clear(): undefined
         }
         
         /**
