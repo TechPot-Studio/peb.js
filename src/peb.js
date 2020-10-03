@@ -30,11 +30,23 @@
 })( this, function ( window ) {
     'use strict';
     function peb() {
+        if (this == window) {
+            return;
+        }
         this.version = "3.0.0";
-        this.platform = window.document ? "browser" : "node";
-    }
+        this.platform = (function () {
+            if ( window.window ) {
+                return "browser";
 
-    platform = window.document ? "browser" : "node"
+            } else if ( window.module ) {
+                return "node";
+
+            } else {
+                return "unknown";
+
+            }
+        })();
+    }
 
     peb.info = function () {
         console.info("%cP%ceb\n%cPeb.js is avaliable. We are committed to making Javascript easier. \n\n%cCopyright © TechPot Studio\nMIT License", "font-weight: 600; color: #00a8fa; font-size: 30px", "font-weight: 600; color: #3f48cc; font-size: 30px", "", "color: #999");
@@ -42,29 +54,34 @@
     }
 
     // Error type
-    window.PebError = peb.PebError = class PebError extends Error {
+    peb.PebError = class PebError extends Error {
         constructor(message) {
             super(message);
             this.name = "PebBasicError";
         }
     }
-    window.PebExtensionError = peb.PebExtensionError = class PebExtensionError extends PebError {
+
+    peb.PebExtensionError = class PebExtensionError extends PebError {
         constructor(message) {
             super(message);
             this.name = "PebExtensionError";
         }
     }
-    window.PebNullObjectError = peb.PebNullObjectError = class PebNullObjectError extends PebError {
+
+    peb.PebNullObjectError = class PebNullObjectError extends PebError {
         constructor(message) {
             super(message);
             this.name = "PebNullObjectError"
         }
     }
 
+
+    // Core
+
     let document = window.document
       , arr = []
       , exist = function ( value ) {
-            return !(typeof value === 'undefined')
+            return !(typeof( value ) === 'undefined')
         };
     if ( window.window ) {
         customElements.define( "p-trans", window.pebTransElement = class PebTransElement extends HTMLElement {
@@ -74,13 +91,15 @@
                 super();
             }
         } );
+
         customElements.define( "p-mark", window.pebMarkElement = class PebMarkElement extends HTMLElement {
             constructor() {
                 super();
                 this.style.color = "attr(color),inherit",
-                this.style.fontFamily = "attr( font ), inherit"
+                this.style.fontFamily = "attr(font), inherit"
             }
         });
+
         peb.QuickAudio = class QuickAudio {
             constructor( url ) {
                 this.url = url;
@@ -154,7 +173,7 @@
     }
     /** 
      * Quick sum items
-     * @param  {...[number, Array<number>]} values Values to sum
+     * @param  {number[] | Array<number>} values Values to sum
      * @return {number}
      */
     peb.sum = function ( ...values ) {
@@ -208,11 +227,13 @@
             return document.createTextNode( String( text ) );
         };
     } )();
+
     /**
      * Convert HTMLElement to operatable element
-     * @param {HTMLElement} el 
+     * @param {HTMLElement | Node} el 
      */
-    peb.RElement = function RElement(el) {  
+    peb.RElement = function RElement(el) {
+
         this.tag = el.tagName,
         this.id = el.id,
         this.oringin = el;
@@ -344,6 +365,11 @@
         Object.freeze(this);
     }
 
+    
+    /**
+     * Convert HTMLCollection to operatable element collection
+     * @param {HTMLCollection | NodeList} elements
+     */
     peb.RElementsCollection = function RElementsCollection(elements) {
         elements.forEach( ( element, index ) => {
             this[index] = new RElement(element);
