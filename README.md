@@ -30,6 +30,10 @@ The front-end API made by using native JavaScript makes the JavaScript in the we
 Microsoft's support for Internet Explorer has ended. We will also discontinue its compatible code since `v3.0.0`.
 
 **Documents**: [View](./docs)
+<p align="center">
+<img src="https://forthebadge.com/images/badges/built-with-love.svg" />
+</p>
+
 ## Installation
 ### Using **NPM**
 ```shell
