@@ -12,7 +12,7 @@
     if ( typeof module === "object" && typeof module.exports === "object" ) {
         module.exports = factory( global );
     } else {
-        window.peb = factory( global );
+        factory( global );
     }
 
 })( this, function ( window ) {
@@ -523,5 +523,8 @@
     }
 
     // Return final object
+    window.peb = peb;
     return peb;
 });
+
+export default peb;
