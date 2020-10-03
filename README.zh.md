@@ -65,5 +65,11 @@ const peb = require('peb');
 
 进入文档可查看具体函数支持版本  
 **数据来源：[*developer.mozilla.org*](//developer.mozilla.org)**
+
+## 负责人
+| ![@TheColdPot](https://avatars1.githubusercontent.com/u/66854652?s=60&v=4) |
+| :---: |
+| @TheColdPot | 
+
 ## 脚注
 - ZH 版本可能会更新较慢，可能出现一个版本中两个README不同的情况
