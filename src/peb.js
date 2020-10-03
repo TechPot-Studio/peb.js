@@ -12,8 +12,8 @@
     let Peb = factory( global )
 
     if ( global.module ) {
-        // Node.js
-        moudule.export = Peb;
+        // when module avaliable
+        module.exports = Peb;
     } else if ( global.window ) {
         // Browser
         window.peb = Peb;
