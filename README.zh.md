@@ -72,7 +72,7 @@ import peb from 'peb'
 ## 负责人
 | ![@TheColdPot](https://avatars1.githubusercontent.com/u/66854652?s=60&v=4) |
 | :---: |
-| @TheColdPot | 
+| [@TheColdPot](https://github.com/TheColdPot) | 
 
 ## 脚注
 - ZH 版本可能会更新较慢，可能出现一个版本中两个README不同的情况
