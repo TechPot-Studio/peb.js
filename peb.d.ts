@@ -18,6 +18,11 @@ declare module 'peb' {
         fail?: function
     }
 
+    interface translationTableOptions {
+        [lang: string]: {
+            [word: string]: string
+        }
+    }
     /* type declare */
 
     /* namespace peb */
@@ -161,6 +166,33 @@ declare module 'peb' {
             function fromStr(str: string): HTMLElement|Node|Text
         }
 
+
+        /**
+         * Define translator of `peb-trans` HTML tag
+         */
+        class translationTable {
+
+            /**
+             * translation table constructor
+             */
+            constructor(table: translationTableOptions)
+
+            /**
+             * Set translation table
+             */
+            set set(table: translationTable): translationTable
+
+            /**
+             * Get table value
+             */
+            get get(): object
+
+            /**
+             * Translation by languange
+             */
+            translate(lang: string): undefined
+        }
+
         /**
          * Cteate an operatable elements collection
          */
@@ -170,7 +202,10 @@ declare module 'peb' {
              */
             constructor(elements: NodeList)
 
-            forEach(callbackFn: (element: RElement, index: number, collection: RElementsCollection) => void, startIndex: number): undefined
+            /**
+             * ForEach loop.
+             */
+            forEach(callbackFn: (currentElement: RElement, index: number, collection: RElementsCollection) => void, startIndex?: number): undefined
         }
 
         /**
