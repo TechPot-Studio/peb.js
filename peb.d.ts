@@ -163,7 +163,8 @@ declare module 'peb' {
             /**
              * Parse the string of HTML content into Node
              */
-            function fromStr(str: string): HTMLElement|Node|Text
+            function fromStr(str: string): HTMLElement|HTMLCollection|Node|NodeList|Text
+
         }
 
 
