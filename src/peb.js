@@ -155,6 +155,7 @@
                     this.tabel[lang][word] = newTabel[lang][word]
                 });
             });
+            return this;
         }
 
         get get() {
@@ -370,7 +371,7 @@
      * Convert HTMLCollection to operatable element collection
      * @param {HTMLCollection | NodeList} elements
      */
-    peb.RElementsCollection = function RElementsCollection(elements) {
+    peb.RElementsCollection = function RElementsCollection( elements ) {
         elements.forEach( ( element, index ) => {
             this[index] = new RElement(element);
         });
