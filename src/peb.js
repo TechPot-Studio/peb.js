@@ -30,50 +30,54 @@
 })( this, function ( window ) {
     'use strict';
     function peb() {
-        if (this == window) {
-            return;
-        }
-        this.version = "3.0.0";
-        this.platform = (function () {
-            if ( window.window ) {
-                return "browser";
-
-            } else if ( window.module ) {
-                return "node";
-
-            } else {
-                return "unknown";
-
-            }
-        })();
-    }
-
-    peb.info = function () {
+        this.name = "peb";
         console.info("%cP%ceb\n%cPeb.js is avaliable. We are committed to making Javascript easier. \n\n%cCopyright © TechPot Studio\nMIT License", "font-weight: 600; color: #00a8fa; font-size: 30px", "font-weight: 600; color: #3f48cc; font-size: 30px", "", "color: #999");
         console.info(`PLATFORM INFO: \n${navigator.userAgent}`)
     }
 
+    peb.info = function () {
+        return {
+            version: "3.0.0",
+            platform: (function () {
+                if ( window.window ) {
+                    return "browser";
+
+                } else if ( window.module ) {
+                    return "node";
+
+                } else {
+                    return "unknown";
+
+                }
+            })()
+        }
+    }
+
     // Error type
-    peb.PebError = class PebError extends Error {
+    class PebError extends Error {
         constructor(message) {
             super(message);
             this.name = "PebBasicError";
         }
     }
 
-    peb.PebExtensionError = class PebExtensionError extends PebError {
+    class PebExtensionError extends PebError {
         constructor(message) {
             super(message);
             this.name = "PebExtensionError";
         }
     }
 
-    peb.PebNullObjectError = class PebNullObjectError extends PebError {
+    class PebNullObjectError extends PebError {
         constructor(message) {
             super(message);
             this.name = "PebNullObjectError"
         }
     }
+
+    peb.PebError = PebError,
+    peb.PebExtensionError = PebExtensionError,
+    peb.PebNullObjectError = PebExtensionError;
 
 
     // Core
@@ -195,8 +199,8 @@
         this.element = function ( node, content="", attr={} ) {
             let r = document.createElement( node )
             r.appendChild( document.createTextNode( String( content ) ) );
-            Object.keys( attr ).forEach( function ( current ) {
-                r.setAttribute( current, attr[current] );
+            Object.keys( attr ).forEach( function ( attrName ) {
+                r.setAttribute( attrName, attr[attrName] );
             } )
             return r;
         };
@@ -206,10 +210,11 @@
          */
         this.fromStr = function ( str ) {
             document.body.appendChild( document.createElement( "peb-operation-card" ) );
-            let operationCard = document.querySelector( "peb-operation-card" );
+            let operationCard = document.querySelector( "peb-operation-card" )
+              , result;
             operationCard.innerHTML = str;
 
-            let result = operationCard.children;
+            result = operationCard.children;
 
             document.body.removeChild( operationCard );
             if (result.length == 1) {
@@ -235,6 +240,7 @@
      */
     peb.RElement = function RElement(el) {
 
+        this.size = 1
         this.tag = el.tagName,
         this.id = el.id,
         this.oringin = el;
@@ -372,6 +378,8 @@
      * @param {HTMLCollection | NodeList} elements
      */
     peb.RElementsCollection = function RElementsCollection( elements ) {
+        this.size = elements.length
+
         elements.forEach( ( element, index ) => {
             this[index] = new RElement(element);
         });
@@ -389,7 +397,6 @@
         Object.freeze(this);
     }
     /**
-     * Support: Chrome 54 , Firefox 22 , Safari 10 , Edge 12 , Opera 32  
      * Operate the DOM with the smallest possible code  
      * In order to be compatible with other APIs, the HTMLElement prototype is not directly manipulated  
      * But this may cause some problems  
@@ -398,12 +405,29 @@
      * @param {number} index Index In the List
      */
     peb.sel = function ( selector, index ) {
-        if ( selector[0] === "#" || exist( index ) ) {
-            let element = document.querySelectorAll( selector ).item( index || 0 ); // El ement
-            return new RElement(element);
+        if (typeof selector === 'string') {
+            let matchesElements = document.querySelectorAll( selector )
+
+            if ( matchesElements.length === 1 ) {
+                // ONLY MATCHES 1
+                return new RElement( matchesElements.item( 0 ) );
+
+            } else if ( exist( index ) ) {
+                return new RElement( matchesElements.item( index ) );
+
+            } else {
+                return new RElementsCollection(matchesElements);
+
+            }
         } else {
-            let elements = document.querySelectorAll( selector )
-            return new RElementsCollection(elements);
+            // Instant covert
+
+            if (selector instanceof HTMLElement || selector instanceof Node) {
+                return new RElement( selector )
+            } 
+            if (selector instanceof HTMLCollection || selector instanceof NodeList) {
+                return new this.RElementsCollection( selector );
+            }
         }
     };
     peb.ajax = function( type, url, data, success, fail ) {
@@ -432,21 +456,6 @@
         request.open( args.type, args.url, true );
         request.send( data || null );
     };
-
-    /**
-     * Allow making extends module
-     * @param {object} config
-     * @throws PebExtensionError
-     */
-    peb.extend = function ( config={} ) {
-        if ( config.author && config.version && config.export ) {
-            console.warn( "peb.extend is still a test function" );
-            return Object.assign( peb, {} );
-        } else {
-            throw new PebExtensionError("The parameter of peb.extend is missing some information");
-        }
-        
-    }
 
     /**
      * print to console
@@ -516,8 +525,8 @@
             if ( obj.constructor.name ) {
                 return obj.constructor.name;
             }
-            let str = obj.constructor.toString();
-            let arr;
+            let str = obj.constructor.toString()
+              , arr;
             if ( str.charAt(0) == '[' )
             {
                 arr = str.match(/\w+\s∗(\w+)/);
@@ -538,7 +547,7 @@
      */
     peb.isdigit = function (obj) {
         // isNan supports string
-        return !isNaN(obj)
+        return !isNaN(obj - 0)
     }
 
     /**
@@ -564,10 +573,47 @@
         } )
     }
 
+    /**
+     * Return is this in array
+     * @param {array} arr
+     * @param {any} obj
+     */
+    peb.inArray = function (arr, obj, returnIndex=false) {
+        if (returnIndex) {
+            return arr.indexOf(obj) > -1 ? arr.indexOf(obj) : null
+        } else {
+            return arr.indexOf(obj) > -1
+        }
+    }
+
     // Common function integration
     peb.parseJson = JSON.parse;
     peb.stringifyJson = JSON.stringify;
-    peb.now = new Date.now();
+    peb.now = Date.now();
+
+    /**
+     * Get search string data
+     */
+    peb.getSearchData = function () {
+        if ( window.location ) {
+            let str = location.search
+            
+            return eval("({" + decodeURIComponent(str.replace(/[?]/g, "").replace(/=/g, ":\"").replace(/&/g, "\",")) + "\"})")
+            
+        } else {
+            throw ReferenceError("window.location is not defined. Are you in browser?")
+        }
+    }
+
+    /**
+     * Wrap URL
+     */
+    peb.navigate = function ( url, target="_self" ) {
+        if ( window.window ) {
+            window.opener = null;
+            window.open(url, target);
+        }
+    }
 
     // Return final object
     window.peb = peb;
