@@ -6,6 +6,7 @@
  * @copyright TechPot Studio and other contributors
  */
 
+import('../css/peb-basic.css');
 
 (function ( global, factory ) {
     'use strict';
