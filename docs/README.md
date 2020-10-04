@@ -5,38 +5,38 @@ We are committed to creating a good community environment.
 - Constructors  
   * [peb.QuickAudio](./detail/cons-quickaudio.md)
 - Functions  
-<!-- A -->
+  <!-- A -->
   * [peb.ajax()](./detail/func-ajax.md)
-<!-- B -->
-<!-- C -->
+  <!-- B -->
+  <!-- C -->
   * [peb.classof()](./detail/func-classof.md)
-<!-- D -->
-<!-- E -->
-<!-- F -->
-<!-- G -->
-<!-- H -->
-<!-- I -->
+  <!-- D -->
+  <!-- E -->
+  <!-- F -->
+  <!-- G -->
+  <!-- H -->
+  <!-- I -->
   * [peb.isdigit()](./detail/func-isdigit.md)
-<!-- J -->
-<!-- K -->
-<!-- L -->
+  <!-- J -->
+  <!-- K -->
+  <!-- L -->
   * [peb.lowerCase()](./detail/func-lowercase.md)
-<!-- M -->
-<!-- N -->
-<!-- O -->
-<!-- R -->
-<!-- S -->
+  <!-- M -->
+  <!-- N -->
+  <!-- O -->
+  <!-- R -->
+  <!-- S -->
   * [peb.sel()](./detail/func-sel.md)
   * [peb.sum()](./detail/func-sum.md)
   * [peb.sleep()](./detail/func-sleep.md)
-<!-- T -->
-<!-- U -->
+  <!-- T -->
+  <!-- U -->
   * [peb.upperCase()](./detail/func-uppercase.md)
-<!-- V -->
-<!-- W -->
-<!-- X -->
-<!-- Y -->
-<!-- Z -->
+  <!-- V -->
+  <!-- W -->
+  <!-- X -->
+  <!-- Y -->
+  <!-- Z -->
 - HTML Elements  
   * [peb-trans](./detail/html-peb-trans.md)
 - Methods
