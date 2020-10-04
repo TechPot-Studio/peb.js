@@ -69,6 +69,4 @@ Go to the function documentation to view the specific supported browsers of the 
 **The source of this information: [*developer.mozilla.org*](//developer.mozilla.org)**
 
 ## Assignees
-| ![@TheColdPot](https://avatars1.githubusercontent.com/u/66854652?s=60&v=4) |
-| :---: |
-| [@TheColdPot](https://github.com/TheColdPot) | 
+[@TechPot-Studio/pebjs](https://github.com/TechPot-Studio/pebjs)
