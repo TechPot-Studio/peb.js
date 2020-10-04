@@ -69,4 +69,4 @@ Go to the function documentation to view the specific supported browsers of the 
 **The source of this information: [*developer.mozilla.org*](//developer.mozilla.org)**
 
 ## Assignees
-[@TechPot-Studio/pebjs](https://github.com/TechPot-Studio/pebjs)
+[@TechPot-Studio/pebjs](https://github.com/orgs/TechPot-Studio/teams/pebjs)
