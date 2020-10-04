@@ -23,7 +23,10 @@ declare module 'peb' {
             [word: string]: string
         }
     }
+
     /* type declare */
+
+    type wrapPageTarget = '_blank' | '_self' | '_top' | '_parent'
 
     /* namespace peb */
 
@@ -53,8 +56,7 @@ declare module 'peb' {
         /**
          * Select a HTMLElement and operate it.
          * 
-         * No need `index` parameter if `selector` is id selector,
-         * but we recommended pass in `null`
+         * No need `index` when selector can only match ONE element
          */
         function sel(selector: string, index?: number): RElement
 
@@ -62,6 +64,11 @@ declare module 'peb' {
          * Select multiple HTMLElements and operate it.
          */
         function sel(selector: string): RElementsCollection
+
+        /**
+         * Convert Node or HTMLElement into peb RElement or RElementsCollection.
+         */
+        function sel(element: HTMLElement|HTMLCollection|Node|NodeList): RElement|RElementsCollection
 
         /**
          * Send HTTPXML Request
@@ -99,6 +106,11 @@ declare module 'peb' {
         }
         
         /**
+         * Wrap URL to another page
+         */
+        function navigate(url: string, target: wrapPageTarget): undefined
+
+        /**
          * Get a upper case of a string.
          */
         function upperCase(str: string): string
@@ -123,6 +135,19 @@ declare module 'peb' {
          * Get constructor name of the object
          */
         function getclass(obj: any): string
+
+        /**
+         * Get JSON Object format of location.search
+         * 
+         * Example:
+         * ```plain
+         * locahost:8080/?foo=b%20ar&bar=foo-foo1-foo2
+         * ```
+         * ```
+         * getSearchData(); // {foo: "b ar", bar: "foo-foo1-foo2"}
+         * ```
+         */
+        function getSearchData(): object
 
         /**
          * Get a number or string is numberic
