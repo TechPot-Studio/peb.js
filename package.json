@@ -28,8 +28,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "terser": "^5.3.2",
-    "bundlesize": "^0.18.0"
+    "terser": "^5.3.2"
   },
   "directories": {
     "doc": "docs"

@@ -5,7 +5,7 @@ on:
     branches: [master]
 
 jobs:
-  bundlewatch:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -13,4 +13,3 @@ jobs:
         with:
           node-version: 12
       - run: npm i
-      - run: bundlesize
