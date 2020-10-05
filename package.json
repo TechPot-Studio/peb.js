@@ -4,6 +4,14 @@
   "version": "3.0.0",
   "main": "dist/peb.min.js",
   "typings": "peb.d.ts",
+  "bundlewatch": {
+    "files": [
+      {
+        "path": "src/*.js",
+        "maxSize": "120kB"
+      }
+    ]
+  },
   "description": "Peb.js makes JS easier",
   "author": "TechPot Studio <techpot-studio@yandex.com>",
   "keywords": [
@@ -20,7 +28,8 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "terser": "^5.3.2"
+    "terser": "^5.3.2",
+    "bundlewatch": "^0.3.1"
   },
   "directories": {
     "doc": "docs"
