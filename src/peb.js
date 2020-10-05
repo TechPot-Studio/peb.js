@@ -400,20 +400,20 @@
 
             if ( matchesElements.length === 1 ) {
                 // ONLY MATCHES 1
-                return new RElement( matchesElements.item( 0 ) );
+                return new this.RElement( matchesElements.item( 0 ) );
 
             } else if ( exist( index ) ) {
-                return new RElement( matchesElements.item( index ) );
+                return new this.RElement( matchesElements.item( index ) );
 
             } else {
-                return new RElementsCollection(matchesElements);
+                return new this.RElementsCollection(matchesElements);
 
             }
         } else {
             // Instant covert
 
             if (selector instanceof HTMLElement || selector instanceof Node) {
-                return new RElement( selector )
+                return new this.RElement( selector )
             } 
             if (selector instanceof HTMLCollection || selector instanceof NodeList) {
                 return new this.RElementsCollection( selector );
@@ -628,4 +628,4 @@
     return peb;
 });
 
-export default peb;
+//export default peb;
