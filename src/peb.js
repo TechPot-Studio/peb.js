@@ -131,15 +131,6 @@
             }
         }
     }
-    String.prototype.multi = function ( times, connect="" ) {
-        return Array( times )
-            .fill( this )
-            .join( connect );
-    };
-    Object.prototype.forEach = function ( callbackFn ) {
-        arr.forEach.call( Object.keys( this ), callbackFn )
-    };
-    
     peb.translationTable = class translationTable {
         constructor(table) {
             if (typeof(tabel) === 'object') {
@@ -619,10 +610,18 @@
         }
     }
 
+    /**
+     * Multi String
+     */
+    peb.stringTimes = function ( string, times, connector='' ) {
+        new Array( times ).fill( string ).join( connector )
+    }
+
     // Common function integration
     peb.parseJson = JSON.parse;
     peb.stringifyJson = JSON.stringify;
     peb.now = Date.now();
+    peb.insert = arr.push.call
 
     // Return final object
     window.peb = peb;
