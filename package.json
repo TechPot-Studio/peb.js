@@ -5,7 +5,7 @@
   "main": "dist/peb.min.js",
   "typings": "peb.d.ts",
   "description": "Peb.js makes JS easier",
-  "author": "TechPot Studio",
+  "author": "TechPot Studio <techpot-studio@yandex.com>",
   "keywords": [
     "techpot",
     "javascript",
