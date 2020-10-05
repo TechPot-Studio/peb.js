@@ -398,11 +398,6 @@ declare module 'peb' {
             prev(): RElement
         }
     }
-
-    class peb {
-        /**
-         * Show infos of this pkg
-         */
-        constructor()
-    }
+    
+    export = peb
 }
