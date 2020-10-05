@@ -585,10 +585,15 @@
         }
     }
 
-    // Common function integration
-    peb.parseJson = JSON.parse;
-    peb.stringifyJson = JSON.stringify;
-    peb.now = Date.now();
+    /**
+     * Slice string or array
+     * @param {Array<any> | string} obj
+     * @param {number} start
+     * @param {number} end
+     */
+    peb.slice = function (obj, start, end) {
+        return obj.slice(start, end || start)
+    }
 
     /**
      * Get search string data
@@ -613,6 +618,11 @@
             window.open(url, target);
         }
     }
+
+    // Common function integration
+    peb.parseJson = JSON.parse;
+    peb.stringifyJson = JSON.stringify;
+    peb.now = Date.now();
 
     // Return final object
     window.peb = peb;
