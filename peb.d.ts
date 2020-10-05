@@ -172,6 +172,13 @@ declare module 'peb' {
         function sleep(ms: number): Promise<undefined>
 
         /**
+         * String multiplication.
+         * 
+         * This method is equivalent to string multiplication in some programming languages (e.g: Python)
+         */
+        function stringTimes(string: string, times: number, connector?: string): string
+
+        /**
          * ForEach in any object type
          */
         function forEach(obj: any, callbackFn: (current: any, index: number, array: any[]) => void): undefined
@@ -385,5 +392,12 @@ declare module 'peb' {
              */
             prev(): RElement
         }
+    }
+
+    class peb {
+        /**
+         * Show infos of this pkg
+         */
+        constructor()
     }
 }
