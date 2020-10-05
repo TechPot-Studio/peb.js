@@ -229,7 +229,6 @@
      * @param {HTMLElement | Node} el 
      */
     peb.RElement = function RElement(el) {
-
         this.size = 1
         this.tag = el.tagName,
         this.id = el.id,
