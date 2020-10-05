@@ -137,6 +137,11 @@ declare module 'peb' {
         function getclass(obj: any): string
 
         /**
+         * Slice array or string
+         */
+        function slice(obj: string|Array, start: number, end?: number): string|Array
+
+        /**
          * Get JSON Object format of location.search
          * 
          * Example:
