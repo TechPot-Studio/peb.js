@@ -137,6 +137,11 @@ declare module 'peb' {
         function getclass(obj: any): string
 
         /**
+         * Insert item to array
+         */
+        function insert(...items: any[]): number
+
+        /**
          * Slice array or string
          */
         function slice(obj: string|Array, start: number, end?: number): string|Array
