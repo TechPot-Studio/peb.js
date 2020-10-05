@@ -288,6 +288,17 @@
                     
                 } )
             },
+            insertTo: function ( node ) {
+                let target;
+                if( node instanceof HTMLElement || node instanceof Node ) {
+                    target = node
+                }
+                if ( node instanceof RElement ) {
+                    target = node.oringin
+                }
+                target.appendChild( el );
+                el.parentNode.removeChild( el );
+            },
             del: function () {
                 return el.parentNode.removeChild( el );
             },

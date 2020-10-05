@@ -309,6 +309,11 @@ declare module 'peb' {
             insert(...nodes: Node[]|HTMLElement[]|RElement[]): undefined
 
             /**
+             * Insert to another element and delete this element
+             */
+            insertTo(node: HTMLElement|Node|RElement): undefined
+
+            /**
              * Delete element
              */
             del(): undefined
