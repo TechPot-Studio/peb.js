@@ -26,6 +26,8 @@ jobs:
         uses: actions/checkout@master
       - name: Run codacy-analysis-cli
         uses: codacy/codacy-analysis-cli-action@master
+        with:
+          esversion: 6
   
   # build:
   #   needs: [check]
