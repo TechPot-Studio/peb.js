@@ -267,12 +267,14 @@
                         break;
                 }
             } else {
-                return el.dataset[n] = String(f);
+                el.dataset[n] = String(f)
+                return String(f);
             }
         },
         this.item = function (key, value) {
             if (exist(value)) {
-                return el[key] = value;
+                el[key] = value
+                return value;
             } else {
                 return el[key];
             }
@@ -302,7 +304,8 @@
         },
         this.html = function (value) {
             if (exist(value)) {
-                return el.innerHTML = String(value);
+                el.innerHTML = String(value)
+                return String(value);
             } else {
                 return el.innerHTML;
             }
@@ -312,7 +315,8 @@
         },
         this.val = function (value) {
             if (exist(value)) {
-                return el.value = String(value);
+                el.value = String(value)
+                return String(value);
             } else {
                 return el.value;
             }
@@ -320,13 +324,16 @@
         this.hide = function () {
             // dbh: Display Before Hide
             el.dbh = el.style.display;
-            return el.style.display = "none";
+            el.style.display = "none"
+            return "none";
         },
         this.show = function (type) {
             if (exist(type)) {
-                return el.style.display = String(type);
+                el.style.display = String(type)
+                return String(type);
             } else {
-                return el.style.display = el.dbh;
+                el.style.display = el.dbh
+                return el.dbh;
             }
         },
         this.on = function (event, listener) {
@@ -352,7 +359,7 @@
             return new RElement(el.children[0])
         },
         this.next = function () {
-            let result = el.nextElementSibling
+            let result = el.nextElementSibling;
             if (result === null) {
                 throw new PebNullObjectError("Element is null");
             }
@@ -364,9 +371,9 @@
                 throw new PebNullObjectError("Element is null");
             }
             return new RElement(result);
-        }
+        };
         Object.freeze(this);
-    }
+    };
 
 
     /**
