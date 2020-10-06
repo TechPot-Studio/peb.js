@@ -27,8 +27,7 @@ jobs:
       - name: Run codacy-analysis-cli
         uses: codacy/codacy-analysis-cli-action@master
         with:
-          verbose:
-            esversion: 6
+          verbose: 'esversion: 6'
   
   # build:
   #   needs: [check]
