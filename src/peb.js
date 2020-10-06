@@ -233,141 +233,138 @@
         this.tag = el.tagName,
         this.id = el.id,
         this.oringin = el;
-        this.__proto__ = {
-            attr: function ( name, index ) {
-                if ( !exist( name ) ) {
-                    return el.attributes;
-                } else if ( !exist( index ) ) {
-                    switch ( typeof ( name ) ) {
-                        case "string":
-                            return el.getAttribute( name );
-                        case "object":
-                            Object.keys( name ).forEach( function ( current ) {
-                                el.setAttribute( current, name[current] );
-                            } );
-                            break;
-                    }
-                } else {
-                    return el.setAttribute( n, String( f ) );
+        this.attr = function ( name, index ) {
+            if ( !exist( name ) ) {
+                return el.attributes;
+            } else if ( !exist( index ) ) {
+                switch ( typeof ( name ) ) {
+                    case "string":
+                        return el.getAttribute( name );
+                    case "object":
+                        Object.keys( name ).forEach( function ( current ) {
+                            el.setAttribute( current, name[current] );
+                        } );
+                        break;
                 }
-            },
-            class: function () {
-                return el.classList;
-            },
-            data: function ( name, value ) {
-                if ( !exist( name ) ) {
-                    return el.dataset;
-                } else if ( !exist( value ) ) {
-                    switch ( typeof ( name ) ) {
-                        case "string":
-                            return el.dataset[name];
-                        case "object":
-                            Object.keys( name ).forEach( function ( current ) {
-                                el.dataset[current] = name[current];
-                            } );
-                            break;
-                    }
-                } else {
-                    return el.dataset[n] = String( f );
-                }
-            },
-            item: function ( key, value ) {
-                if ( exist( value ) ) {
-                    return el[key] = value;
-                } else {
-                    return el[key];
-                }
-            },
-            insert: function ( ...nodes ) {
-                nodes.forEach( function ( current ) {
-                    if ( current instanceof RElement ) {
-                        el.appendChild( current.oringin )
-                    } else {
-                        el.appendChild( current );
-                    }
-                    
-                } )
-            },
-            insertTo: function ( node ) {
-                let target;
-                if( node instanceof HTMLElement || node instanceof Node ) {
-                    target = node
-                }
-                if ( node instanceof RElement ) {
-                    target = node.oringin
-                }
-                target.appendChild( el );
-                el.parentNode.removeChild( el );
-            },
-            del: function () {
-                return el.parentNode.removeChild( el );
-            },
-            html: function ( value ) {
-                if ( exist( value ) ) {
-                    return el.innerHTML = String( value );
-                } else {
-                    return el.innerHTML;
-                }
-            },
-            text: function () {
-                return el.innerText
-            },
-            val: function ( value ) {
-                if ( exist( value ) ) {
-                    return el.value = String( value );
-                } else {
-                    return el.value;
-                }
-            },
-            hide: function () {
-                // dbh: Display Before Hide
-                el.dbh = el.style.display;
-                return el.style.display = "none";
-            },
-            show: function ( type ) {
-                if ( exist( type ) ) {
-                    return el.style.display = String( type );
-                } else {
-                    return el.style.display = el.dbh;
-                }
-            },
-            on: function ( event, listener ) {
-                let bindEventListener = function ( eventStr, callback ) {
-                    if ( el.addEventListener ) {
-                        el.addEventListener( eventStr, callback )
-                    } else {
-                        el.attachEvent( "on" + eventStr, callback.call( el ) )
-                    }
-                }
-
-                if ( exist( listener ) ) {
-                    bindEventListener( event, listener )
-                } else if ( typeof listener === 'object' ) {
-                    Object.keys( event ).forEach( function ( current ) {
-                        bindEventListener( current, event[current] );
-                    } );
-                }
-            },
-            parent: function () {
-                return new RElement( el.parentElement );
-            },
-            child: function () {
-                return new RElement( el.children[0] )
-            },
-            next: function () {
-                let result = el.nextElementSibling
-                if (result === null) {
-                    throw new PebNullObjectError("Element is null");
-                }
-                return new RElement( result );
-            },
-            prev: function () {
-                let result = el.previousElementSibling;
-                if (result === null) {
-                    throw new PebNullObjectError("Element is null");
-                }
-                return new RElement( result );
+            } else {
+                return el.setAttribute( n, String( f ) );
             }
+        },
+        this.class = function () {
+            return el.classList;
+        },
+        this.data = function ( name, value ) {
+            if ( !exist( name ) ) {
+                return el.dataset;
+            } else if ( !exist( value ) ) {
+                switch ( typeof ( name ) ) {
+                    case "string":
+                        return el.dataset[name];
+                    case "object":
+                        Object.keys( name ).forEach( function ( current ) {
+                            el.dataset[current] = name[current];
+                        } );
+                        break;
+                }
+            } else {
+                return el.dataset[n] = String( f );
+            }
+        },
+        this.item = function ( key, value ) {
+            if ( exist( value ) ) {
+                return el[key] = value;
+            } else {
+                return el[key];
+            }
+        },
+        this.insert = function ( ...nodes ) {
+            nodes.forEach( function ( current ) {
+                if ( current instanceof RElement ) {
+                    el.appendChild( current.oringin )
+                } else {
+                    el.appendChild( current );
+                }
+                
+            } )
+        },
+        this.insertTo = function ( node ) {
+            let target;
+            if( node instanceof HTMLElement || node instanceof Node ) {
+                target = node
+            }
+            if ( node instanceof RElement ) {
+                target = node.oringin
+            }
+            target.appendChild( el );
+            el.parentNode.removeChild( el );
+        },
+        this.del = function () {
+            return el.parentNode.removeChild( el );
+        },
+        this.html = function ( value ) {
+            if ( exist( value ) ) {
+                return el.innerHTML = String( value );
+            } else {
+                return el.innerHTML;
+            }
+        },
+        this.text = function () {
+            return el.innerText
+        },
+        this.val = function ( value ) {
+            if ( exist( value ) ) {
+                return el.value = String( value );
+            } else {
+                return el.value;
+            }
+        },
+        this.hide = function () {
+            // dbh: Display Before Hide
+            el.dbh = el.style.display;
+            return el.style.display = "none";
+        },
+        this.show = function ( type ) {
+            if ( exist( type ) ) {
+                return el.style.display = String( type );
+            } else {
+                return el.style.display = el.dbh;
+            }
+        },
+        this.on = function ( event, listener ) {
+            let bindEventListener = function ( eventStr, callback ) {
+                if ( el.addEventListener ) {
+                    el.addEventListener( eventStr, callback )
+                } else {
+                    el.attachEvent( "on" + eventStr, callback.call( el ) )
+                }
+            }
+            if ( exist( listener ) ) {
+                bindEventListener( event, listener )
+            } else if ( typeof listener === 'object' ) {
+                Object.keys( event ).forEach( function ( current ) {
+                    bindEventListener( current, event[current] );
+                } );
+            }
+        },
+        this.parent = function () {
+            return new RElement( el.parentElement );
+        },
+        this.child = function () {
+            return new RElement( el.children[0] )
+        },
+        this.next = function () {
+            let result = el.nextElementSibling
+            if (result === null) {
+                throw new PebNullObjectError("Element is null");
+            }
+            return new RElement( result );
+        },
+        this.prev = function () {
+            let result = el.previousElementSibling;
+            if (result === null) {
+                throw new PebNullObjectError("Element is null");
+            }
+            return new RElement( result );
         }
         Object.freeze(this);
     }
@@ -385,14 +382,12 @@
         });
         
         this.length = elements.length;
-        this.__proto__ = {
-            forEach: function ( callbackFn, fromIndex=0 ) {
-                elements.forEach( ( _, index ) => {
-                    if (index >= fromIndex) {
-                        callbackFn(this[index], index, this)
-                    }
-                });
-            }
+        this.forEach = function ( callbackFn, fromIndex=0 ) {
+            elements.forEach( ( _, index ) => {
+                if (index >= fromIndex) {
+                    callbackFn(this[index], index, this)
+                }
+            });
         }
         Object.freeze(this);
     }
