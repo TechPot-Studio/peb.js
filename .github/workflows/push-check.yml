@@ -42,7 +42,7 @@ jobs:
           # Number of tools to run in parallel
           parallel: # optional
           # Maximum number of issues allowed for the analysis to succeed
-          max-allowed-issues: # optional
+          max-allowed-issues: 1
           # The name of the tool to analyze the code
           tool: # optional
           # Maximum time each tool has to execute
