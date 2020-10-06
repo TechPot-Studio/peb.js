@@ -37,7 +37,7 @@ jobs:
           # Send analysis results to an output file
           output: # optional
           # The directory to be analyzed
-          directory: # optional
+          directory: ./src
           # Number of tools to run in parallel
           parallel: # optional
           # Maximum number of issues allowed for the analysis to succeed
