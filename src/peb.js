@@ -75,16 +75,16 @@
     }
 
     peb.PebError = PebError,
-        peb.PebExtensionError = PebExtensionError,
-        peb.PebNullObjectError = PebExtensionError;
+    peb.PebExtensionError = PebExtensionError,
+    peb.PebNullObjectError = PebExtensionError;
 
 
     // Core
 
     let document = window.document
-        , arr = []
-        , exist = function (value) {
-            return !(typeof (value) === 'undefined');
+      , arr = []
+      , exist = function (value) {
+          return !(typeof (value) === 'undefined');
         };
     if (window.window) {
         customElements.define("p-trans", window.pebTransElement = class PebTransElement extends HTMLElement {
@@ -99,7 +99,7 @@
             constructor() {
                 super();
                 this.style.color = "attr(color),inherit",
-                    this.style.fontFamily = "attr(font), inherit";
+                this.style.fontFamily = "attr(font), inherit";
             }
         });
 
@@ -450,11 +450,15 @@
         }
         request.onreadystatechange = function () {
             if (request.readystate === '4' && request.status === '200') {
-                if (args.success) args.success(request.responseText);
+                if (args.success) {
+                    args.success(request.responseText);
+                }
             } else {
-                if (args.fail) args.fail();
+                if (args.fail) {
+                    args.fail();
+                }
             }
-        }
+        };
         request.open(args.type, args.url, true);
         request.send(data || null);
     };
@@ -472,7 +476,7 @@
      * @param {any[]} data
      */
     peb.log.error = function (...data) {
-        console.error(...data)
+        console.error(...data);
     };
 
     /**
@@ -480,7 +484,7 @@
      * @param {any[]} data
      */
     peb.log.warn = function (...data) {
-        console.error(...data)
+        console.error(...data);
     };
 
     /**
@@ -496,7 +500,7 @@
      * @return {string}
      */
     peb.upperCase = (str) => {
-        return str.toUpperCase()
+        return str.toUpperCase();
     };
     /**
      * return a new string lower cased
@@ -504,7 +508,7 @@
      * @return {string}
      */
     peb.lowerCase = (str) => {
-        return str.toLowerCase()
+        return str.toLowerCase();
     };
 
     /**
