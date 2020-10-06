@@ -6,27 +6,27 @@
  * @copyright TechPot Studio and other contributors
  */
 
-(function ( global, factory ) {
+(function (global, factory) {
     'use strict';
 
-    if ( typeof module === "object" && typeof module.exports === "object" ) {
+    if (typeof module === "object" && typeof module.exports === "object") {
         // CommonJS
-        module.exports = factory( global );
+        module.exports = factory(global);
 
-    } else if ( typeof define === 'function' && define.amd ) {
+    } else if (typeof define === 'function' && define.amd) {
         // AMD
-        define( "peb", [], function () {
-            return factory( global );
+        define("peb", [], function () {
+            return factory(global);
         });
 
     } else {
         // Browser
-        factory( global );
+        factory(global);
     }
 
     // ES6: Outside the function
 
-})( this, function ( window ) {
+})(this, function (window) {
     'use strict';
     function peb() {
         this.name = "peb";
@@ -38,10 +38,10 @@
         return {
             version: "3.0.0",
             platform: (function () {
-                if ( window.window ) {
+                if (window.window) {
                     return "browser";
 
-                } else if ( window.module ) {
+                } else if (window.module) {
                     return "node";
 
                 } else {
@@ -75,46 +75,46 @@
     }
 
     peb.PebError = PebError,
-    peb.PebExtensionError = PebExtensionError,
-    peb.PebNullObjectError = PebExtensionError;
+        peb.PebExtensionError = PebExtensionError,
+        peb.PebNullObjectError = PebExtensionError;
 
 
     // Core
 
     let document = window.document
-      , arr = []
-      , exist = function ( value ) {
-            return !(typeof( value ) === 'undefined');
+        , arr = []
+        , exist = function (value) {
+            return !(typeof (value) === 'undefined');
         };
-    if ( window.window ) {
-        customElements.define( "p-trans", window.pebTransElement = class PebTransElement extends HTMLElement {
+    if (window.window) {
+        customElements.define("p-trans", window.pebTransElement = class PebTransElement extends HTMLElement {
             constructor() {
                 // Call super in class to use `this` and `constructor`
                 // This comment will no longer show again
                 super();
             }
-        } );
+        });
 
-        customElements.define( "p-mark", window.pebMarkElement = class PebMarkElement extends HTMLElement {
+        customElements.define("p-mark", window.pebMarkElement = class PebMarkElement extends HTMLElement {
             constructor() {
                 super();
                 this.style.color = "attr(color),inherit",
-                this.style.fontFamily = "attr(font), inherit";
+                    this.style.fontFamily = "attr(font), inherit";
             }
         });
 
         peb.QuickAudio = class QuickAudio {
-            constructor( url ) {
+            constructor(url) {
                 this.url = url;
                 /* INIT */
                 this.player = new Audio();
                 this.player.style.display = "none";
                 this.player.src = this.url;
-                document.body.appendChild( this.player );
+                document.body.appendChild(this.player);
             }
-            
-            destroy( obj ) {
-                document.body.removeChild( obj.player );
+
+            destroy(obj) {
+                document.body.removeChild(obj.player);
             }
             play() {
                 this.player.play();
@@ -126,14 +126,14 @@
              * Set repeat or not
              * @param {boolean} isLoop
              */
-            loop( isLoop ) {
-                this.player.onended = isLoop ? this.player.play : () => {return;};
+            loop(isLoop) {
+                this.player.onended = isLoop ? this.player.play : () => { return; };
             }
         };
     }
     peb.translationTable = class translationTable {
         constructor(table) {
-            if (typeof(tabel) === 'object') {
+            if (typeof (tabel) === 'object') {
                 this.tabel = table;
             }
         }
@@ -144,8 +144,8 @@
          * @return {undefined}
          */
         set set(newTabel) {
-            Object.keys(newTabel).forEach( function ( lang ) {
-                (newTabel[lang]).forEach( function ( word ) {
+            Object.keys(newTabel).forEach(function (lang) {
+                (newTabel[lang]).forEach(function (word) {
                     this.tabel[lang][word] = newTabel[lang][word];
                 });
             });
@@ -161,8 +161,8 @@
          * @param {string} lang 
          */
         translation(lang) {
-            document.querySelectorAll( "peb-trans" ).forEach(function ( element ) {
-                element.innerHTML = this.table[lang][c.getAttribute( "p-word" )];
+            document.querySelectorAll("peb-trans").forEach(function (element) {
+                element.innerHTML = this.table[lang][c.getAttribute("p-word")];
             });
         }
     };
@@ -171,11 +171,11 @@
      * @param  {number[] | Array<number>} values Values to sum
      * @return {number}
      */
-    peb.sum = function ( ...values ) {
-        if ( values[0] instanceof Array ) {
-            return peb.sum( values[0] );
+    peb.sum = function (...values) {
+        if (values[0] instanceof Array) {
+            return peb.sum(values[0]);
         } else {
-            return eval( values.join( "+" ) );
+            return eval(values.join("+"));
         }
     };
     peb.genNode = {
@@ -186,41 +186,41 @@
          * @param {object} attr Element Attributes
          * @return {HTMLElement}
          */
-        element = function ( node, content="", attr={} ) {
-            let r = document.createElement( node );
-            r.appendChild( document.createTextNode( String( content ) ) );
-            Object.keys( attr ).forEach( function ( attrName ) {
-                r.setAttribute( attrName, attr[attrName] );
-            } );
+        element = function (node, content = "", attr = {}) {
+            let r = document.createElement(node);
+            r.appendChild(document.createTextNode(String(content)));
+            Object.keys(attr).forEach(function (attrName) {
+                r.setAttribute(attrName, attr[attrName]);
+            });
             return r;
         },
         /**
          * Convert text to HTML. Usually this function is not used, sometimes combined with ajax
          * @param {string} str String
          */
-        fromStr = function ( str ) {
-            document.body.appendChild( document.createElement( "peb-operation-card" ) );
-            let operationCard = document.querySelector( "peb-operation-card" )
-              , result;
+        fromStr = function (str) {
+            document.body.appendChild(document.createElement("peb-operation-card"));
+            let operationCard = document.querySelector("peb-operation-card")
+                , result;
             operationCard.innerHTML = str;
 
             result = operationCard.children;
 
-            document.body.removeChild( operationCard );
+            document.body.removeChild(operationCard);
             if (result.length == 1) {
                 return result[0];
             } else {
                 return result;
             }
-            
+
         },
         /**
          * Create a text node quickly
          * @param {string} text String
          * @return {Text}
          */
-        text = function ( text ) {
-            return document.createTextNode( String( text ) );
+        text = function (text) {
+            return document.createTextNode(String(text));
         }
     }
 
@@ -230,80 +230,79 @@
      */
     peb.RElement = function RElement(el) {
         this.size = 1,
-        this.tag = el.tagName,
-        this.id = el.id,
-        this.oringin = el;
-        this.attr = function ( name, index ) {
-            if ( !exist( name ) ) {
+            this.tag = el.tagName,
+            this.id = el.id,
+            this.oringin = el;
+        this.attr = function (name, index) {
+            if (!exist(name)) {
                 return el.attributes;
-            } else if ( !exist( index ) ) {
-                switch ( typeof ( name ) ) {
+            } else if (!exist(index)) {
+                switch (typeof (name)) {
                     case "string":
-                        return el.getAttribute( name );
+                        return el.getAttribute(name);
                     case "object":
-                        Object.keys( name ).forEach( function ( current ) {
-                            el.setAttribute( current, name[current] );
-                        } );
+                        Object.keys(name).forEach(function (current) {
+                            el.setAttribute(current, name[current]);
+                        });
                         break;
                 }
             } else {
-                return el.setAttribute( n, String( f ) );
+                return el.setAttribute(n, String(f));
             }
         },
         this.class = function () {
             return el.classList;
         },
-        this.data = function ( name, value ) {
-            if ( !exist( name ) ) {
+        this.data = function (name, value) {
+            if (!exist(name)) {
                 return el.dataset;
-            } else if ( !exist( value ) ) {
-                switch ( typeof ( name ) ) {
+            } else if (!exist(value)) {
+                switch (typeof (name)) {
                     case "string":
                         return el.dataset[name];
                     case "object":
-                        Object.keys( name ).forEach( function ( current ) {
+                        Object.keys(name).forEach(function (current) {
                             el.dataset[current] = name[current];
-                        } );
+                        });
                         break;
                 }
             } else {
-                return el.dataset[n] = String( f );
+                return el.dataset[n] = String(f);
             }
         },
-        this.item = function ( key, value ) {
-            if ( exist( value ) ) {
+        this.item = function (key, value) {
+            if (exist(value)) {
                 return el[key] = value;
             } else {
                 return el[key];
             }
         },
-        this.insert = function ( ...nodes ) {
-            nodes.forEach( function ( current ) {
-                if ( current instanceof RElement ) {
-                    el.appendChild( current.oringin );
+        this.insert = function (...nodes) {
+            nodes.forEach(function (current) {
+                if (current instanceof RElement) {
+                    el.appendChild(current.oringin);
                 } else {
-                    el.appendChild( current );
+                    el.appendChild(current);
                 }
-                
             });
         },
-        this.insertTo = function ( node ) {
+        this.insertTo = function (node) {
             let target;
-            if( node instanceof HTMLElement || node instanceof Node ) {
+            if (node instanceof HTMLElement || node instanceof Node) {
                 target = node;
             }
-            if ( node instanceof RElement ) {
+            if (node instanceof RElement) {
                 target = node.oringin;
             }
-            target.appendChild( el );
-            el.parentNode.removeChild( el );
+            target.appendChild(el);
+            el.parentNode.removeChild(el);
         },
         this.del = function () {
-            return el.parentNode.removeChild( el );
+            return el.parentNode.removeChild(el);
         },
-        this.html = function ( value ) {
-            if ( exist( value ) ) {
-                return el.innerHTML = String( value );
+        this.html = function (value) {
+            if (exist(value)) {
+                return el.innerHTML = String(value);
             } else {
                 return el.innerHTML;
             }
@@ -311,9 +310,9 @@
         this.text = function () {
             return el.innerText;
         },
-        this.val = function ( value ) {
-            if ( exist( value ) ) {
-                return el.value = String( value );
+        this.val = function (value) {
+            if (exist(value)) {
+                return el.value = String(value);
             } else {
                 return el.value;
             }
@@ -323,67 +322,67 @@
             el.dbh = el.style.display;
             return el.style.display = "none";
         },
-        this.show = function ( type ) {
-            if ( exist( type ) ) {
-                return el.style.display = String( type );
+        this.show = function (type) {
+            if (exist(type)) {
+                return el.style.display = String(type);
             } else {
                 return el.style.display = el.dbh;
             }
         },
-        this.on = function ( event, listener ) {
-            let bindEventListener = function ( eventStr, callback ) {
-                if ( el.addEventListener ) {
-                    el.addEventListener( eventStr, callback );
+        this.on = function (event, listener) {
+            let bindEventListener = function (eventStr, callback) {
+                if (el.addEventListener) {
+                    el.addEventListener(eventStr, callback);
                 } else {
-                    el.attachEvent( "on" + eventStr, callback.call( el ) );
+                    el.attachEvent("on" + eventStr, callback.call(el));
                 }
             };
-            if ( exist( listener ) ) {
-                bindEventListener( event, listener );
-            } else if ( typeof listener === 'object' ) {
-                Object.keys( event ).forEach( function ( current ) {
-                    bindEventListener( current, event[current] );
-                } );
+            if (exist(listener)) {
+                bindEventListener(event, listener);
+            } else if (typeof listener === 'object') {
+                Object.keys(event).forEach(function (current) {
+                    bindEventListener(current, event[current]);
+                });
             }
         },
         this.parent = function () {
-            return new RElement( el.parentElement );
+            return new RElement(el.parentElement);
         },
         this.child = function () {
-            return new RElement( el.children[0] )
+            return new RElement(el.children[0])
         },
         this.next = function () {
             let result = el.nextElementSibling
             if (result === null) {
                 throw new PebNullObjectError("Element is null");
             }
-            return new RElement( result );
+            return new RElement(result);
         },
         this.prev = function () {
             let result = el.previousElementSibling;
             if (result === null) {
                 throw new PebNullObjectError("Element is null");
             }
-            return new RElement( result );
+            return new RElement(result);
         }
         Object.freeze(this);
     }
 
-    
+
     /**
      * Convert HTMLCollection to operatable element collection
      * @param {HTMLCollection | NodeList} elements
      */
-    peb.RElementsCollection = function RElementsCollection( elements ) {
+    peb.RElementsCollection = function RElementsCollection(elements) {
         this.size = elements.length;
 
-        elements.forEach( ( element, index ) => {
+        elements.forEach((element, index) => {
             this[index] = new RElement(element);
         });
-        
+
         this.length = elements.length;
-        this.forEach = function ( callbackFn, fromIndex=0 ) {
-            elements.forEach( ( _, index ) => {
+        this.forEach = function (callbackFn, fromIndex = 0) {
+            elements.forEach((_, index) => {
                 if (index >= fromIndex) {
                     callbackFn(this[index], index, this)
                 }
@@ -399,16 +398,16 @@
      * @param {string} selector Query Selector For the Element
      * @param {number} index Index In the List
      */
-    peb.sel = function ( selector, index ) {
+    peb.sel = function (selector, index) {
         if (typeof selector === 'string') {
-            let matchesElements = document.querySelectorAll( selector )
+            let matchesElements = document.querySelectorAll(selector)
 
-            if ( matchesElements.length === 1 ) {
+            if (matchesElements.length === 1) {
                 // ONLY MATCHES 1
-                return new this.RElement( matchesElements.item( 0 ) );
+                return new this.RElement(matchesElements.item(0));
 
-            } else if ( exist( index ) ) {
-                return new this.RElement( matchesElements.item( index ) );
+            } else if (exist(index)) {
+                return new this.RElement(matchesElements.item(index));
 
             } else {
                 return new this.RElementsCollection(matchesElements);
@@ -418,18 +417,18 @@
             // Instant covert
 
             if (selector instanceof HTMLElement || selector instanceof Node) {
-                return new this.RElement( selector )
-            } 
+                return new this.RElement(selector)
+            }
             if (selector instanceof HTMLCollection || selector instanceof NodeList) {
-                return new this.RElementsCollection( selector );
+                return new this.RElementsCollection(selector);
             }
         }
     };
-    peb.ajax = function( type, url, data, success, fail ) {
+    peb.ajax = function (type, url, data, success, fail) {
         let request = new XMLHttpRequest()
-          , args;
+            , args;
         // The parameters are more complicated and can be passed in with `Object` objects
-        if ( arguments.length === 1 && type instanceof Object ) {
+        if (arguments.length === 1 && type instanceof Object) {
             args = type;
         } else {
             // If it is passed in in the normal order
@@ -442,38 +441,38 @@
             }
         }
         request.onreadystatechange = function () {
-            if ( request.readystate === '4' && request.status === '200' ) {
-                if ( args.success ) args.success( request.responseText );
+            if (request.readystate === '4' && request.status === '200') {
+                if (args.success) args.success(request.responseText);
             } else {
-                if ( args.fail ) args.fail();
+                if (args.fail) args.fail();
             }
         }
-        request.open( args.type, args.url, true );
-        request.send( data || null );
+        request.open(args.type, args.url, true);
+        request.send(data || null);
     };
 
     /**
      * print to console
      * @param {any[]} data
      */
-    peb.log = function ( ...data ) {
-        console.log( ...data )
+    peb.log = function (...data) {
+        console.log(...data)
     }
 
     /**
      * print to console
      * @param {any[]} data
      */
-    peb.log.error = function ( ...data ) {
-        console.error( ...data )
+    peb.log.error = function (...data) {
+        console.error(...data)
     }
 
     /**
      * print to console
      * @param {any[]} data
      */
-    peb.log.warn = function ( ...data ) {
-        console.error( ...data )
+    peb.log.warn = function (...data) {
+        console.error(...data)
     }
 
     /**
@@ -506,7 +505,7 @@
      * @return {string}
       */
     peb.camelCase = (str) => {
-        return str.replace(/[ -]./g, ( word ) => {
+        return str.replace(/[ -]./g, (word) => {
             return word.replace(/[ -]/g, "").toUpperCase()
         })
     }
@@ -517,13 +516,12 @@
      */
     peb.classof = function (obj) {
         if (obj && obj.constructor && obj.constructor.toString()) {
-            if ( obj.constructor.name ) {
+            if (obj.constructor.name) {
                 return obj.constructor.name;
             }
             let str = obj.constructor.toString()
-              , arr;
-            if ( str.charAt(0) == '[' )
-            {
+                , arr;
+            if (str.charAt(0) == '[') {
                 arr = str.match(/\w+\s∗(\w+)/);
             } else {
                 arr = str.match(/function\s*(\w+)/);
@@ -532,7 +530,7 @@
                 return arr[1];
             }
         }
-        return undefined; 
+        return undefined;
     }
 
     /**
@@ -553,7 +551,7 @@
      */
     peb.sleep = async function (time) {
         return new Promise(resolve => {
-            setTimeout( resolve, time );
+            setTimeout(resolve, time);
         });
     }
 
@@ -563,9 +561,9 @@
      * @param {funtion} callbackFn call back function
      */
     peb.forEach = function (obj, callbackFn) {
-        Object.keys(obj).forEach( (value, _, object) => {
-            callbackFn( object[value], value, object )
-        } )
+        Object.keys(obj).forEach((value, _, object) => {
+            callbackFn(object[value], value, object)
+        })
     }
 
     /**
@@ -573,7 +571,7 @@
      * @param {array} arr
      * @param {any} obj
      */
-    peb.inArray = function (arr, obj, returnIndex=false) {
+    peb.inArray = function (arr, obj, returnIndex = false) {
         if (returnIndex) {
             return arr.indexOf(obj) > -1 ? arr.indexOf(obj) : null
         } else {
@@ -595,11 +593,11 @@
      * Get search string data
      */
     peb.getSearchData = function () {
-        if ( window.location ) {
+        if (window.location) {
             let str = location.search
-            
+
             return eval("({" + decodeURIComponent(str.replace(/[?]/g, "").replace(/=/g, ":\"").replace(/&/g, "\",")) + "\"})")
-            
+
         } else {
             throw ReferenceError("window.location is not defined. Are you in browser?")
         }
@@ -608,8 +606,8 @@
     /**
      * Wrap URL
      */
-    peb.navigate = function ( url, target="_self" ) {
-        if ( window.window ) {
+    peb.navigate = function (url, target = "_self") {
+        if (window.window) {
             window.opener = null;
             window.open(url, target);
         }
@@ -618,8 +616,8 @@
     /**
      * Multi String
      */
-    peb.stringTimes = function ( string, times, connector='' ) {
-        new Array( times ).fill( string ).join( connector )
+    peb.stringTimes = function (string, times, connector = '') {
+        new Array(times).fill(string).join(connector)
     }
 
     // Common function integration
