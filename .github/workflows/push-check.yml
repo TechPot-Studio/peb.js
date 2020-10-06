@@ -26,8 +26,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Run codacy-analysis-cli
         uses: codacy/codacy-analysis-cli-action@1.0.1
-        env:
-          esversion: 6
         with:
           # Run with verbose output
           verbose: # optional
@@ -40,7 +38,7 @@ jobs:
           # Send analysis results to an output file
           output: # optional
           # The directory to be analyzed
-          directory: # optional
+          directory: /src
           # Number of tools to run in parallel
           parallel: # optional
           # Maximum number of issues allowed for the analysis to succeed
