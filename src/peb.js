@@ -175,6 +175,7 @@
         if (values[0] instanceof Array) {
             return peb.sum(values[0]);
         } else {
+            // TODO: #13 Codacy Analysis CLI - eval can be harmful.
             return eval(values.join("+"));
         }
     };
@@ -222,7 +223,7 @@
         text = function (text) {
             return document.createTextNode(String(text));
         }
-    }
+    };
 
     /**
      * Convert HTMLElement to operatable element
@@ -267,13 +268,13 @@
                         break;
                 }
             } else {
-                el.dataset[n] = String(f)
+                el.dataset[n] = String(f);
                 return String(f);
             }
         },
         this.item = function (key, value) {
             if (exist(value)) {
-                el[key] = value
+                el[key] = value;
                 return value;
             } else {
                 return el[key];
@@ -304,7 +305,7 @@
         },
         this.html = function (value) {
             if (exist(value)) {
-                el.innerHTML = String(value)
+                el.innerHTML = String(value);
                 return String(value);
             } else {
                 return el.innerHTML;
@@ -315,7 +316,7 @@
         },
         this.val = function (value) {
             if (exist(value)) {
-                el.value = String(value)
+                el.value = String(value);
                 return String(value);
             } else {
                 return el.value;
@@ -324,15 +325,15 @@
         this.hide = function () {
             // dbh: Display Before Hide
             el.dbh = el.style.display;
-            el.style.display = "none"
+            el.style.display = "none";
             return "none";
         },
         this.show = function (type) {
             if (exist(type)) {
-                el.style.display = String(type)
+                el.style.display = String(type);
                 return String(type);
             } else {
-                el.style.display = el.dbh
+                el.style.display = el.dbh;
                 return el.dbh;
             }
         },
@@ -356,7 +357,7 @@
             return new RElement(el.parentElement);
         },
         this.child = function () {
-            return new RElement(el.children[0])
+            return new RElement(el.children[0]);
         },
         this.next = function () {
             let result = el.nextElementSibling;
@@ -391,12 +392,12 @@
         this.forEach = function (callbackFn, fromIndex = 0) {
             elements.forEach((_, index) => {
                 if (index >= fromIndex) {
-                    callbackFn(this[index], index, this)
+                    callbackFn(this[index], index, this);
                 }
             });
         }
         Object.freeze(this);
-    }
+    };
     /**
      * Operate the DOM with the smallest possible code  
      * In order to be compatible with other APIs, the HTMLElement prototype is not directly manipulated  
