@@ -1,15 +1,39 @@
-name: Push Analysis
+name: Push Check
 
 on:
   push:
+    branches: [master]
+  pull_requests: 
     branches: [master]
 
 jobs:
   check:
     runs-on: ubuntu-latest
+    name: Check dependencies
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 12
       - run: npm i
+      - run: npm test
+
+  check-quality:
+    runs-on: ubuntu-latest
+    name: Codacy Analysis CLI
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+      - name: Run codacy-analysis-cli
+        uses: codacy/codacy-analysis-cli-action@master
+  
+  # build:
+  #   needs: [check]
+  #   runs-on: ubuntu-lastest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v1
+  #       with:
+  #         node_version: 12
+  #     - run: npm i
+  #     - run: npm run minify
