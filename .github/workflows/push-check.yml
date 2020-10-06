@@ -34,11 +34,11 @@ jobs:
           # Codacy's API URL, to retrieve your remote Codacy configuration
           codacy-api-base-url: # optional
           # Format of the output file
-          format: js
+          format: # optional
           # Send analysis results to an output file
           output: # optional
           # The directory to be analyzed
-          directory: # optional
+          directory: src/*.js
           # Number of tools to run in parallel
           parallel: # optional
           # Maximum number of issues allowed for the analysis to succeed
