@@ -49,7 +49,7 @@
 
                 }
             })()
-        }
+        };
     }
 
     // Error type
@@ -70,7 +70,7 @@
     class PebNullObjectError extends PebError {
         constructor(message) {
             super(message);
-            this.name = "PebNullObjectError"
+            this.name = "PebNullObjectError";
         }
     }
 
@@ -84,7 +84,7 @@
     let document = window.document
       , arr = []
       , exist = function ( value ) {
-            return !(typeof( value ) === 'undefined')
+            return !(typeof( value ) === 'undefined');
         };
     if ( window.window ) {
         customElements.define( "p-trans", window.pebTransElement = class PebTransElement extends HTMLElement {
@@ -99,7 +99,7 @@
             constructor() {
                 super();
                 this.style.color = "attr(color),inherit",
-                this.style.fontFamily = "attr(font), inherit"
+                this.style.fontFamily = "attr(font), inherit";
             }
         });
 
@@ -117,7 +117,7 @@
                 document.body.removeChild( obj.player );
             }
             play() {
-                this.player.play()
+                this.player.play();
             }
             pause() {
                 this.player.pause();
@@ -127,9 +127,9 @@
              * @param {boolean} isLoop
              */
             loop( isLoop ) {
-                this.player.onended = isLoop ? this.player.play : new Function;
+                this.player.onended = isLoop ? this.player.play : () => {return;};
             }
-        }
+        };
     }
     peb.translationTable = class translationTable {
         constructor(table) {
@@ -146,14 +146,14 @@
         set set(newTabel) {
             Object.keys(newTabel).forEach( function ( lang ) {
                 (newTabel[lang]).forEach( function ( word ) {
-                    this.tabel[lang][word] = newTabel[lang][word]
+                    this.tabel[lang][word] = newTabel[lang][word];
                 });
             });
             return this;
         }
 
         get get() {
-            return this.tabel
+            return this.tabel;
         }
 
         /**
@@ -165,7 +165,7 @@
                 element.innerHTML = this.table[lang][c.getAttribute( "p-word" )];
             });
         }
-    }
+    };
     /** 
      * Quick sum items
      * @param  {number[] | Array<number>} values Values to sum
@@ -187,7 +187,7 @@
          * @return {HTMLElement}
          */
         this.element = function ( node, content="", attr={} ) {
-            let r = document.createElement( node )
+            let r = document.createElement( node );
             r.appendChild( document.createTextNode( String( content ) ) );
             Object.keys( attr ).forEach( function ( attrName ) {
                 r.setAttribute( attrName, attr[attrName] );
@@ -210,7 +210,7 @@
             if (result.length == 1) {
                 return result[0];
             } else {
-                return result
+                return result;
             }
             
         };
@@ -236,7 +236,7 @@
         this.__proto__ = {
             attr: function ( name, index ) {
                 if ( !exist( name ) ) {
-                    return el.attributes
+                    return el.attributes;
                 } else if ( !exist( index ) ) {
                     switch ( typeof ( name ) ) {
                         case "string":
