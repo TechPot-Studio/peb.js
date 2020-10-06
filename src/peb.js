@@ -611,7 +611,7 @@
         if (window.location) {
             let str = location.search;
 
-            return JSON.parse("({\"" + decodeURIComponent(str.replace(/[?]/g, "").replace(/=/g, "\":\"").replace(/&/g, "\",\"")) + "\"})");
+            return JSON.parse("{\"" + decodeURIComponent(str.replace(/[?]/g, "").replace(/=/g, "\":\"").replace(/&/g, "\",\"")) + "\"}");
 
         } else {
             throw ReferenceError("window.location is not defined. Are you in browser?");
