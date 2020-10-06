@@ -31,7 +31,7 @@
     function peb() {
         this.name = "peb";
         console.info("%cP%ceb\n%cPeb.js is avaliable. We are committed to making Javascript easier. \n\n%cCopyright © TechPot Studio\nMIT License", "font-weight: 600; color: #00a8fa; font-size: 30px", "font-weight: 600; color: #3f48cc; font-size: 30px", "", "color: #999");
-        console.info(`PLATFORM INFO: \n${navigator.userAgent}`)
+        console.info(`PLATFORM INFO: \n${navigator.userAgent}`);
     }
 
     peb.info = function () {
@@ -50,7 +50,7 @@
                 }
             })()
         };
-    }
+    };
 
     // Error type
     class PebError extends Error {
@@ -178,7 +178,7 @@
             return eval( values.join( "+" ) );
         }
     };
-    peb.genNode = new ( function () {
+    peb.genNode = {
         /**
          * Quickly create an HTMLElement
          * @param {string} node Element Name
@@ -186,19 +186,19 @@
          * @param {object} attr Element Attributes
          * @return {HTMLElement}
          */
-        this.element = function ( node, content="", attr={} ) {
+        element = function ( node, content="", attr={} ) {
             let r = document.createElement( node );
             r.appendChild( document.createTextNode( String( content ) ) );
             Object.keys( attr ).forEach( function ( attrName ) {
                 r.setAttribute( attrName, attr[attrName] );
-            } )
+            } );
             return r;
-        };
+        },
         /**
          * Convert text to HTML. Usually this function is not used, sometimes combined with ajax
          * @param {string} str String
          */
-        this.fromStr = function ( str ) {
+        fromStr = function ( str ) {
             document.body.appendChild( document.createElement( "peb-operation-card" ) );
             let operationCard = document.querySelector( "peb-operation-card" )
               , result;
@@ -213,23 +213,23 @@
                 return result;
             }
             
-        };
+        },
         /**
          * Create a text node quickly
          * @param {string} text String
          * @return {Text}
          */
-        this.text = function ( text ) {
+        text = function ( text ) {
             return document.createTextNode( String( text ) );
-        };
-    } )();
+        }
+    }
 
     /**
      * Convert HTMLElement to operatable element
      * @param {HTMLElement | Node} el 
      */
     peb.RElement = function RElement(el) {
-        this.size = 1
+        this.size = 1,
         this.tag = el.tagName,
         this.id = el.id,
         this.oringin = el;
@@ -280,20 +280,20 @@
         this.insert = function ( ...nodes ) {
             nodes.forEach( function ( current ) {
                 if ( current instanceof RElement ) {
-                    el.appendChild( current.oringin )
+                    el.appendChild( current.oringin );
                 } else {
                     el.appendChild( current );
                 }
                 
-            } )
+            });
         },
         this.insertTo = function ( node ) {
             let target;
             if( node instanceof HTMLElement || node instanceof Node ) {
-                target = node
+                target = node;
             }
             if ( node instanceof RElement ) {
-                target = node.oringin
+                target = node.oringin;
             }
             target.appendChild( el );
             el.parentNode.removeChild( el );
@@ -309,7 +309,7 @@
             }
         },
         this.text = function () {
-            return el.innerText
+            return el.innerText;
         },
         this.val = function ( value ) {
             if ( exist( value ) ) {
@@ -333,13 +333,13 @@
         this.on = function ( event, listener ) {
             let bindEventListener = function ( eventStr, callback ) {
                 if ( el.addEventListener ) {
-                    el.addEventListener( eventStr, callback )
+                    el.addEventListener( eventStr, callback );
                 } else {
-                    el.attachEvent( "on" + eventStr, callback.call( el ) )
+                    el.attachEvent( "on" + eventStr, callback.call( el ) );
                 }
-            }
+            };
             if ( exist( listener ) ) {
-                bindEventListener( event, listener )
+                bindEventListener( event, listener );
             } else if ( typeof listener === 'object' ) {
                 Object.keys( event ).forEach( function ( current ) {
                     bindEventListener( current, event[current] );
@@ -375,7 +375,7 @@
      * @param {HTMLCollection | NodeList} elements
      */
     peb.RElementsCollection = function RElementsCollection( elements ) {
-        this.size = elements.length
+        this.size = elements.length;
 
         elements.forEach( ( element, index ) => {
             this[index] = new RElement(element);
