@@ -37,13 +37,13 @@ jobs:
           # Send analysis results to an output file
           output: # optional
           # The directory to be analyzed
-          directory: src
+          directory: # optional
           # Number of tools to run in parallel
           parallel: # optional
           # Maximum number of issues allowed for the analysis to succeed
           max-allowed-issues: # optional
           # The name of the tool to analyze the code
-          tool: # optional
+          tool: 'esversion: 6'
           # Maximum time each tool has to execute
           tool-timeout: # optional
           # Upload analysis results to Codacy
