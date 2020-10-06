@@ -26,7 +26,10 @@ jobs:
         uses: actions/checkout@v2
       - name: Run codacy-analysis-cli
         uses: codacy/codacy-analysis-cli-action@1.0.1
-        with: # Run with verbose output
+        env:
+          esversion: 6
+        with:
+          # Run with verbose output
           verbose: # optional
           # API token to retrieve your remote Codacy configuration for the project being analyzed
           project-token: # optional
@@ -43,7 +46,7 @@ jobs:
           # Maximum number of issues allowed for the analysis to succeed
           max-allowed-issues: # optional
           # The name of the tool to analyze the code
-          tool: 'esversion: 6'
+          tool: # optional
           # Maximum time each tool has to execute
           tool-timeout: # optional
           # Upload analysis results to Codacy
