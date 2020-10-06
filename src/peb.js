@@ -395,7 +395,7 @@
                     callbackFn(this[index], index, this);
                 }
             });
-        }
+        };
         Object.freeze(this);
     };
     /**
@@ -408,7 +408,7 @@
      */
     peb.sel = function (selector, index) {
         if (typeof selector === 'string') {
-            let matchesElements = document.querySelectorAll(selector)
+            let matchesElements = document.querySelectorAll(selector);
 
             if (matchesElements.length === 1) {
                 // ONLY MATCHES 1
@@ -425,7 +425,7 @@
             // Instant covert
 
             if (selector instanceof HTMLElement || selector instanceof Node) {
-                return new this.RElement(selector)
+                return new this.RElement(selector);
             }
             if (selector instanceof HTMLCollection || selector instanceof NodeList) {
                 return new this.RElementsCollection(selector);
@@ -446,7 +446,7 @@
                 data: data,
                 success: success,
                 fail: fail,
-            }
+            };
         }
         request.onreadystatechange = function () {
             if (request.readystate === '4' && request.status === '200') {
@@ -464,8 +464,8 @@
      * @param {any[]} data
      */
     peb.log = function (...data) {
-        console.log(...data)
-    }
+        console.log(...data);
+    };
 
     /**
      * print to console
@@ -473,7 +473,7 @@
      */
     peb.log.error = function (...data) {
         console.error(...data)
-    }
+    };
 
     /**
      * print to console
@@ -481,14 +481,14 @@
      */
     peb.log.warn = function (...data) {
         console.error(...data)
-    }
+    };
 
     /**
      * Clear console
      */
     peb.log.clear = function () {
         console.clear();
-    }
+    };
 
     /**
      * return a new string upper cased
@@ -497,7 +497,7 @@
      */
     peb.upperCase = (str) => {
         return str.toUpperCase()
-    }
+    };
     /**
      * return a new string lower cased
      * @param {string} str 
@@ -505,7 +505,7 @@
      */
     peb.lowerCase = (str) => {
         return str.toLowerCase()
-    }
+    };
 
     /**
      * Remove spaces or dashes and convert to camel case
@@ -514,9 +514,9 @@
       */
     peb.camelCase = (str) => {
         return str.replace(/[ -]./g, (word) => {
-            return word.replace(/[ -]/g, "").toUpperCase()
-        })
-    }
+            return word.replace(/[ -]/g, "").toUpperCase();
+        });
+    };
 
     /**
      * Get a class of value
@@ -528,7 +528,7 @@
                 return obj.constructor.name;
             }
             let str = obj.constructor.toString()
-                , arr;
+              , arr;
             if (str.charAt(0) == '[') {
                 arr = str.match(/\w+\s∗(\w+)/);
             } else {
@@ -539,7 +539,7 @@
             }
         }
         return undefined;
-    }
+    };
 
     /**
      * Return a boolean of is obj a number
@@ -548,8 +548,8 @@
      */
     peb.isdigit = function (obj) {
         // isNan supports string
-        return !isNaN(obj - 0)
-    }
+        return !isNaN(obj - 0);
+    };
 
     /**
      * Sleep time
@@ -561,7 +561,7 @@
         return new Promise(resolve => {
             setTimeout(resolve, time);
         });
-    }
+    };
 
     /**
      * forEach in ANY OBJECT TYPE
@@ -570,9 +570,9 @@
      */
     peb.forEach = function (obj, callbackFn) {
         Object.keys(obj).forEach((value, _, object) => {
-            callbackFn(object[value], value, object)
-        })
-    }
+            callbackFn(object[value], value, object);
+        });
+    };
 
     /**
      * Return is this in array
@@ -581,11 +581,11 @@
      */
     peb.inArray = function (arr, obj, returnIndex = false) {
         if (returnIndex) {
-            return arr.indexOf(obj) > -1 ? arr.indexOf(obj) : null
+            return arr.indexOf(obj) > -1 ? arr.indexOf(obj) : null;
         } else {
-            return arr.indexOf(obj) > -1
+            return arr.indexOf(obj) > -1;
         }
-    }
+    };
 
     /**
      * Slice string or array
@@ -594,22 +594,22 @@
      * @param {number} end
      */
     peb.slice = function (obj, start, end) {
-        return obj.slice(start, end || start)
-    }
+        return obj.slice(start, end || start);
+    };
 
     /**
      * Get search string data
      */
     peb.getSearchData = function () {
         if (window.location) {
-            let str = location.search
+            let str = location.search;
 
-            return eval("({" + decodeURIComponent(str.replace(/[?]/g, "").replace(/=/g, ":\"").replace(/&/g, "\",")) + "\"})")
+            return eval("({" + decodeURIComponent(str.replace(/[?]/g, "").replace(/=/g, ":\"").replace(/&/g, "\",")) + "\"})");
 
         } else {
-            throw ReferenceError("window.location is not defined. Are you in browser?")
+            throw ReferenceError("window.location is not defined. Are you in browser?");
         }
-    }
+    };
 
     /**
      * Wrap URL
@@ -619,20 +619,20 @@
             window.opener = null;
             window.open(url, target);
         }
-    }
+    };
 
     /**
      * Multi String
      */
     peb.stringTimes = function (string, times, connector = '') {
-        new Array(times).fill(string).join(connector)
-    }
+        new Array(times).fill(string).join(connector);
+    };
 
     // Common function integration
     peb.parseJson = JSON.parse;
     peb.stringifyJson = JSON.stringify;
     peb.now = Date.now();
-    peb.insert = arr.push.call
+    peb.insert = arr.push.call;
 
     // Return final object
     window.peb = peb;
