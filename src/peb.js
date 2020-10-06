@@ -74,8 +74,8 @@
         }
     }
 
-    peb.PebError = PebError,
-    peb.PebExtensionError = PebExtensionError,
+    peb.PebError = PebError;
+    peb.PebExtensionError = PebExtensionError;
     peb.PebNullObjectError = PebExtensionError;
 
 
@@ -98,7 +98,7 @@
         customElements.define("p-mark", window.pebMarkElement = class PebMarkElement extends HTMLElement {
             constructor() {
                 super();
-                this.style.color = "attr(color),inherit",
+                this.style.color = "attr(color),inherit";
                 this.style.fontFamily = "attr(font), inherit";
             }
         });
@@ -230,10 +230,10 @@
      * @param {HTMLElement | Node} el 
      */
     peb.RElement = function RElement(el) {
-        this.size = 1,
-            this.tag = el.tagName,
-            this.id = el.id,
-            this.oringin = el;
+        this.size = 1;
+        this.tag = el.tagName;
+        this.id = el.id;
+        this.oringin = el;
         this.attr = function (name, index) {
             if (!exist(name)) {
                 return el.attributes;
@@ -250,10 +250,10 @@
             } else {
                 return el.setAttribute(n, String(f));
             }
-        },
+        };
         this.class = function () {
             return el.classList;
-        },
+        };
         this.data = function (name, value) {
             if (!exist(name)) {
                 return el.dataset;
@@ -271,7 +271,7 @@
                 el.dataset[n] = String(f);
                 return String(f);
             }
-        },
+        };
         this.item = function (key, value) {
             if (exist(value)) {
                 el[key] = value;
@@ -279,7 +279,7 @@
             } else {
                 return el[key];
             }
-        },
+        };
         this.insert = function (...nodes) {
             nodes.forEach(function (current) {
                 if (current instanceof RElement) {
@@ -288,7 +288,7 @@
                     el.appendChild(current);
                 }
             });
-        },
+        };
         this.insertTo = function (node) {
             let target;
             if (node instanceof HTMLElement || node instanceof Node) {
@@ -299,10 +299,10 @@
             }
             target.appendChild(el);
             el.parentNode.removeChild(el);
-        },
+        };
         this.del = function () {
             return el.parentNode.removeChild(el);
-        },
+        };
         this.html = function (value) {
             if (exist(value)) {
                 el.innerHTML = String(value);
@@ -310,10 +310,10 @@
             } else {
                 return el.innerHTML;
             }
-        },
+        };
         this.text = function () {
             return el.innerText;
-        },
+        };
         this.val = function (value) {
             if (exist(value)) {
                 el.value = String(value);
@@ -321,13 +321,13 @@
             } else {
                 return el.value;
             }
-        },
+        };
         this.hide = function () {
             // dbh: Display Before Hide
             el.dbh = el.style.display;
             el.style.display = "none";
             return "none";
-        },
+        };
         this.show = function (type) {
             if (exist(type)) {
                 el.style.display = String(type);
@@ -336,7 +336,7 @@
                 el.style.display = el.dbh;
                 return el.dbh;
             }
-        },
+        };
         this.on = function (event, listener) {
             let bindEventListener = function (eventStr, callback) {
                 if (el.addEventListener) {
@@ -352,20 +352,20 @@
                     bindEventListener(current, event[current]);
                 });
             }
-        },
+        };
         this.parent = function () {
             return new RElement(el.parentElement);
-        },
+        };
         this.child = function () {
             return new RElement(el.children[0]);
-        },
+        };
         this.next = function () {
             let result = el.nextElementSibling;
             if (result === null) {
                 throw new PebNullObjectError("Element is null");
             }
             return new RElement(result);
-        },
+        };
         this.prev = function () {
             let result = el.previousElementSibling;
             if (result === null) {

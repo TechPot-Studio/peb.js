@@ -12,7 +12,7 @@ currently being supported with security updates.
 
 ### Reporting a Vulnerability
 
-Please send an email to <techpot-studio@yandex.com>. **Your email will be answered within *1-7 days***.  
+Please send an email to <mailto:techpot-studio@yandex.com>. **Your email will be answered within *1-7 days***.  
 We will try our best to deal with your problem.
 
 **Note**: The open source agreement for this project is MIT License. We do not reserve the right to take responsibility.
