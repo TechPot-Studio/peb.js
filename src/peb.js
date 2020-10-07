@@ -30,7 +30,7 @@
     'use strict';
     function peb() {
         this.name = "peb";
-        console.info("%cP%ceb\n%cPeb.js is avaliable. We are committed to making Javascript easier. \n\n%cCopyright © TechPot Studio\nMIT License", "font-weight: 600; color: #00a8fa; font-size: 30px", "font-weight: 600; color: #3f48cc; font-size: 30px", "", "color: #999");
+        console.info('%cP%ceb\n%cPeb.js is avaliable. We are committed to making Javascript easier. \n\n%cCopyright © TechPot Studio\nMIT License", "font-weight: 600; color: #00a8fa; font-size: 30px", "font-weight: 600; color: #3f48cc; font-size: 30px", "", "color: #999');
         console.info(`PLATFORM INFO: \n${navigator.userAgent}`);
     }
 
@@ -39,13 +39,13 @@
             version: "3.0.0",
             platform: (function () {
                 if (window.window) {
-                    return "browser";
+                    return 'browser';
 
                 } else if (window.module) {
-                    return "node";
+                    return 'node';
 
                 } else {
-                    return "unknown";
+                    return 'unknown';
 
                 }
             })()
@@ -56,21 +56,21 @@
     class PebError extends Error {
         constructor(message) {
             super(message);
-            this.name = "PebBasicError";
+            this.name = 'PebBasicError';
         }
     }
 
     class PebExtensionError extends PebError {
         constructor(message) {
             super(message);
-            this.name = "PebExtensionError";
+            this.name = 'PebExtensionError';
         }
     }
 
     class PebNullObjectError extends PebError {
         constructor(message) {
             super(message);
-            this.name = "PebNullObjectError";
+            this.name = 'PebNullObjectError';
         }
     }
 
@@ -87,7 +87,7 @@
           return !(typeof (value) === 'undefined');
         };
     if (window.window) {
-        customElements.define("p-trans", window.pebTransElement = class PebTransElement extends HTMLElement {
+        customElements.define('p-trans', window.pebTransElement = class PebTransElement extends HTMLElement {
             constructor() {
                 // Call super in class to use `this` and `constructor`
                 // This comment will no longer show again
@@ -95,11 +95,11 @@
             }
         });
 
-        customElements.define("p-mark", window.pebMarkElement = class PebMarkElement extends HTMLElement {
+        customElements.define('p-mark', window.pebMarkElement = class PebMarkElement extends HTMLElement {
             constructor() {
                 super();
-                this.style.color = "attr(color),inherit";
-                this.style.fontFamily = "attr(font), inherit";
+                this.style.color = 'attr(color),inherit';
+                this.style.fontFamily = 'attr(font), inherit';
             }
         });
 
@@ -108,7 +108,7 @@
                 this.url = url;
                 /* INIT */
                 this.player = new Audio();
-                this.player.style.display = "none";
+                this.player.style.display = 'none';
                 this.player.src = this.url;
                 document.body.appendChild(this.player);
             }
@@ -161,8 +161,8 @@
          * @param {string} lang 
          */
         translation(lang) {
-            document.querySelectorAll("peb-trans").forEach(function (element) {
-                element.innerHTML = this.table[lang][c.getAttribute("p-word")];
+            document.querySelectorAll('peb-trans').forEach(function (element) {
+                element.innerHTML = this.table[lang][c.getAttribute('p-word')];
             });
         }
     };
@@ -190,7 +190,7 @@
          * @param {object} attr Element Attributes
          * @return {HTMLElement}
          */
-        element = function (node, content = "", attr = {}) {
+        element = function (node, content = '', attr = {}) {
             let r = document.createElement(node);
             r.appendChild(document.createTextNode(String(content)));
             Object.keys(attr).forEach(function (attrName) {
@@ -203,8 +203,8 @@
          * @param {string} str String
          */
         fromStr = function (str) {
-            document.body.appendChild(document.createElement("peb-operation-card"));
-            let operationCard = document.querySelector("peb-operation-card")
+            document.body.appendChild(document.createElement('peb-operation-card'));
+            let operationCard = document.querySelector('peb-operation-card')
                 , result;
             operationCard.innerHTML = str;
 
@@ -242,9 +242,9 @@
                 return el.attributes;
             } else if (!exist(index)) {
                 switch (typeof (name)) {
-                    case "string":
+                    case 'string':
                         return el.getAttribute(name);
-                    case "object":
+                    case 'object':
                         Object.keys(name).forEach(function (current) {
                             el.setAttribute(current, name[current]);
                         });
@@ -262,9 +262,9 @@
                 return el.dataset;
             } else if (!exist(value)) {
                 switch (typeof (name)) {
-                    case "string":
+                    case 'string':
                         return el.dataset[name];
-                    case "object":
+                    case 'object':
                         Object.keys(name).forEach(function (current) {
                             el.dataset[current] = name[current];
                         });
@@ -328,8 +328,8 @@
         this.hide = function () {
             // dbh: Display Before Hide
             el.dbh = el.style.display;
-            el.style.display = "none";
-            return "none";
+            el.style.display = 'none';
+            return 'none';
         };
         this.show = function (type) {
             if (exist(type)) {
@@ -345,7 +345,7 @@
                 if (el.addEventListener) {
                     el.addEventListener(eventStr, callback);
                 } else {
-                    el.attachEvent("on" + eventStr, callback.call(el));
+                    el.attachEvent('on' + eventStr, callback.call(el));
                 }
             };
             if (exist(listener)) {
@@ -365,14 +365,14 @@
         this.next = function () {
             let result = el.nextElementSibling;
             if (result === null) {
-                throw new PebNullObjectError("Element is null");
+                throw new PebNullObjectError('Element is null');
             }
             return new RElement(result);
         };
         this.prev = function () {
             let result = el.previousElementSibling;
             if (result === null) {
-                throw new PebNullObjectError("Element is null");
+                throw new PebNullObjectError('Element is null');
             }
             return new RElement(result);
         };
@@ -614,14 +614,14 @@
             return JSON.parse("{\"" + decodeURIComponent(str.replace(/[?]/g, "").replace(/=/g, "\":\"").replace(/&/g, "\",\"")) + "\"}");
 
         } else {
-            throw ReferenceError("window.location is not defined. Are you in browser?");
+            throw ReferenceError('window.location is not defined. Are you in browser?');
         }
     };
 
     /**
      * Wrap URL
      */
-    peb.navigate = function (url, target = "_self") {
+    peb.navigate = function (url, target = '_self') {
         if (window.window) {
             window.opener = null;
             window.open(url, target);
