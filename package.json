@@ -30,8 +30,9 @@
   },
   "type": "module",
   "scripts": {
-    "test": "echo \" No test... \"",
-    "minify": "terser ./src/peb.js -c toplevel=true -m -o ./dist/peb.min.js"
+    "test": "node ./src/peb.js",
+    "minify": "terser ./src/peb.js -c toplevel=true -m -o ./dist/peb.min.js",
+    "build": "npm run minify"
   },
   "repository": {
     "type": "git",
