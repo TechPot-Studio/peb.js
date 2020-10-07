@@ -24,11 +24,16 @@ We are committed to creating a good community environment.
   <!-- M -->
   <!-- N -->
   <!-- O -->
+  <!-- P -->
+  * [peb.parseJson()](./detail/func-parsejson-n-stringifyjson.md)
+  <!-- Q -->
   <!-- R -->
   <!-- S -->
   * [peb.sel()](./detail/func-sel.md)
   * [peb.sum()](./detail/func-sum.md)
   * [peb.sleep()](./detail/func-sleep.md)
+  * [peb.stringifyJson()](./detail/func-parsejson-n-stringifyjson.md)
+  * [peb.stringTimes()](.detail/stringtimes.md)
   <!-- T -->
   <!-- U -->
   * [peb.upperCase()](./detail/func-uppercase.md)
