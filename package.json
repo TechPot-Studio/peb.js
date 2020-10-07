@@ -33,6 +33,9 @@
   "directories": {
     "doc": "docs"
   },
+  "engines": {
+    "node": ">14.0.0"
+  },
   "scripts": {
     "test": "echo \" No test... \"",
     "minify": "terser ./src/peb.js -c toplevel=true -m -o ./dist/peb.min.js"
