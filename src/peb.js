@@ -11,6 +11,7 @@
 
     if (typeof module === "object" && typeof module.exports === "object") {
         // CommonJS
+        // But even I am not sure that this thing is useful
         module.exports = factory(global);
 
     } else if (typeof define === 'function' && define.amd) {
@@ -26,7 +27,7 @@
 
     // ES6: Outside the function
 
-})(typeof window === 'undefined' ? this : window, function (window) {
+})(globalThis, function (window) {
     'use strict';
     function peb() {
         this.name = "peb";
