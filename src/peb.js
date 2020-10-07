@@ -26,7 +26,7 @@
 
     // ES6: Outside the function
 
-})(this, function (window) {
+})(typeof window === 'undefined' ? this : window, function (window) {
     'use strict';
     function peb() {
         this.name = "peb";
@@ -646,4 +646,4 @@
     return peb;
 });
 
-//export default peb;
+export default peb;
