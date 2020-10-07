@@ -7,9 +7,9 @@ on:
     branches: [master]
 
 jobs:
-  check:
+  nodejs-check:
     runs-on: ubuntu-latest
-    name: Check dependencies
+    name: Node.js and dependencies check
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -17,6 +17,7 @@ jobs:
           node-version: 12
       - run: npm i
       - run: npm test
+      - run: npm run build
 
   check-quality:
     runs-on: ubuntu-latest
@@ -55,14 +56,3 @@ jobs:
           allow-network: # optional
           # Force files to be readable by changing the permissions before running the analysis
           force-file-permissions: # optional
-  
-  # build:
-  #   needs: [check]
-  #   runs-on: ubuntu-lastest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v1
-  #       with:
-  #         node_version: 12
-  #     - run: npm i
-  #     - run: npm run minify
