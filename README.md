@@ -49,6 +49,8 @@ import peb from 'peb'
 /* CommonJS */
 const peb = require('peb');
 ```
+**Note**: If you use Node.js, version 14.0.0 or above is recommended. Lower versions may work, but there may be problems.
+
 ### Or, grab from other API.
 #### jsdelivr
 ```html
