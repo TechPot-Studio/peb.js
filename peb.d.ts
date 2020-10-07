@@ -35,10 +35,6 @@ declare module 'peb' {
      */
     namespace peb {
 
-        const parseJson = JSON.parse
-        const stringifyJson = JSON.stringify
-        const now = Date.now()
-
         /**
          * Peb basicly error type.
          * All other peb error are extending this.
@@ -52,6 +48,21 @@ declare module 'peb' {
         class PebNullObjectError extends PebError {
             constructor(message: string)
         }
+
+        /**
+         * Return the current time with timestamp
+         */
+        function now(): number
+
+        /**
+         * Stringify to json string
+         */
+        function stringifyJson(obj: object): string
+
+        /**
+         * Parse json string to object
+         */
+        function parseJson(jsonString: string): object
 
         /**
          * Select a HTMLElement and operate it.

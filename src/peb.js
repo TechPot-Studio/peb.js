@@ -638,7 +638,7 @@
     // Common function integration
     peb.parseJson = JSON.parse;
     peb.stringifyJson = JSON.stringify;
-    peb.now = Date.now();
+    peb.now = Date.now;
     peb.insert = arr.push.call;
 
     // Return final object
