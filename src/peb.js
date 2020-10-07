@@ -454,7 +454,7 @@
         request.onreadystatechange = function () {
             if (request.readystate === '4' && request.status === '200') {
                 if (args.success) {
-                    args.success(request.responseText);
+                    args.success(request.responseText, request.responseXML);
                 }
             } else {
                 if (args.fail) {

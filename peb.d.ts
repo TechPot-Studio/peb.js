@@ -13,9 +13,9 @@ declare module 'peb' {
         /** Data to send */
         data?: string,
         /** Function to do when success */
-        success?: function,
+        success?: (text: string, xml: string) => void,
         /** Function to do when fail */
-        fail?: function
+        fail?: () => void
     }
 
     interface translationTableOptions {
@@ -73,7 +73,7 @@ declare module 'peb' {
         /**
          * Send HTTPXML Request
          */
-        function ajax(type: string, url: string, data: any, success: function, fail: function): undefined
+        function ajax(type: string, url: string, data: any, success?: function, fail?: function): undefined
 
         /**
          * Send HTTPXML Request
