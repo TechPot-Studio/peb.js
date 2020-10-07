@@ -38,11 +38,11 @@ jobs:
           # Send analysis results to an output file
           output: # optional
           # The directory to be analyzed
-          directory: $PWD/src
+          directory: $PWD/src $PWD/.jshintrc
           # Number of tools to run in parallel
           parallel: # optional
           # Maximum number of issues allowed for the analysis to succeed
-          max-allowed-issues: 1
+          max-allowed-issues: # optional
           # The name of the tool to analyze the code
           tool: # optional
           # Maximum time each tool has to execute
