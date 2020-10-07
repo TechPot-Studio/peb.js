@@ -49,7 +49,7 @@ $ npm install peb
 import peb from 'peb'
 /* CommonJS */
 ```
-
+**\*** 如果您使用Node.js，请使用14.0.0以上版本。旧版本可能可以运行，但可能出现严重错误
 ### 或者，从其它第三方API抓取
 #### jsdelivr
 ```html
