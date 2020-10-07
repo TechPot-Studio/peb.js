@@ -4,14 +4,6 @@
   "version": "3.0.0",
   "main": "dist/peb.min.js",
   "typings": "peb.d.ts",
-  "bundlewatch": {
-    "files": [
-      {
-        "path": "src/*.js",
-        "maxSize": "120kB"
-      }
-    ]
-  },
   "description": "Peb.js makes JS easier",
   "author": "TechPot Studio <techpot-studio@yandex.com>",
   "keywords": [
@@ -36,6 +28,7 @@
   "engines": {
     "node": ">14.0.0"
   },
+  "type": "module",
   "scripts": {
     "test": "echo \" No test... \"",
     "minify": "terser ./src/peb.js -c toplevel=true -m -o ./dist/peb.min.js"
