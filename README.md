@@ -54,12 +54,14 @@ const peb = require('peb');
 ### Or, grab from other API.
 #### jsdelivr
 ```html
-<script src="//cdn.jsdelivr.net/npm/peb"></script>
+<script src="//cdn.jsdelivr.net/npm/peb" type="module"></script>
 ```
 #### unpkg
 ```html
-<script src="//unpkg.com/peb"></script>
+<script src="//unpkg.com/peb" type="module"></script>
 ```
+`type="module"` is only applicable after `v3.1.0`
+
 And, we allowed download source code.
 ## Browser Support
 Number is the **least** version it supports

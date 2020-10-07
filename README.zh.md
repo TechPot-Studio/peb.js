@@ -53,12 +53,14 @@ import peb from 'peb'
 ### 或者，从其它第三方API抓取
 #### jsdelivr
 ```html
-<script src="//cdn.jsdelivr.net/npm/peb"></script>
+<script src="//cdn.jsdelivr.net/npm/peb" type="module"></script>
 ```
 #### unpkg
 ```html
-<script src="//unpkg.com/peb"></script>
+<script src="//unpkg.com/peb" type="module"></script>
 ```
+`type="module"`只在`v3.1.0`后适用
+
 当然，下载源码也是允许的
 ## 浏览器支持
 以下浏览器最低支持此包的版本
