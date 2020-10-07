@@ -32,7 +32,7 @@
     function peb() {
         this.name = "peb";
         console.info('%cP%ceb\n%cPeb.js is avaliable. We are committed to making Javascript easier. \n\n%cCopyright © TechPot Studio\nMIT License', 'font-weight: 600; color: #00a8fa; font-size: 30px', 'font-weight: 600; color: #3f48cc; font-size: 30px', '', 'color: #999');
-        console.info(`PLATFORM INFO: \n${navigator.userAgent}`);
+        console.info(`PLATFORM INFO: \n${window.navigate ? 'Rejected' : navigator.userAgent}`);
     }
 
     peb.info = function () {
