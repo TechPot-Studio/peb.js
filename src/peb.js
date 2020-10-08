@@ -400,6 +400,12 @@
         click() {
             this.element.click();
         }
+
+        style(sheet) {
+            Object.keys(sheet).forEach((styleName) => {
+                this.element.style[styleName] = sheet[styleName]
+            })
+        }
     
         // Video and audio
         pause(isPause = true) {
