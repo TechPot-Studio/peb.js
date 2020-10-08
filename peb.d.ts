@@ -56,11 +56,15 @@ declare module 'peb' {
 
         /**
          * Stringify to json string
+         * 
+         * @param obj Object to stringify
          */
         function stringifyJson(obj: object): string
 
         /**
          * Parse json string to object
+         * 
+         * @param jsonString JSON string
          */
         function parseJson(jsonString: string): object
 
@@ -68,11 +72,16 @@ declare module 'peb' {
          * Select a HTMLElement and operate it.
          * 
          * No need `index` when selector can only match ONE element
+         * 
+         * @param selector Css Selector of the element
+         * @param index Index in the list
          */
         function sel(selector: string, index?: number): RElement
 
         /**
          * Select multiple HTMLElements and operate it.
+         * 
+         * @param selector Css Selector of elements
          */
         function sel(selector: string): RElementsCollection
 
@@ -118,6 +127,9 @@ declare module 'peb' {
         
         /**
          * Wrap URL to another page
+         * 
+         * @param url URL to wrap
+         * @param target Same as `target` in `<a>`
          */
         function navigate(url: string, target: wrapPageTarget): void
 
@@ -149,11 +161,18 @@ declare module 'peb' {
 
         /**
          * Insert item to array
+         * 
+         * @param arr Array
+         * @param items Items to insert
          */
-        function insert(...items: any[]): number
+        function insert(arr: array, ...items: any[]): number
 
         /**
          * Slice array or string
+         * 
+         * @param obj String or arrray
+         * @param start Start index
+         * @param end End index
          */
         function slice(obj: string|Array, start: number, end?: number): string|Array
 
@@ -191,11 +210,17 @@ declare module 'peb' {
          * String multiplication.
          * 
          * This method is equivalent to string multiplication in some programming languages (e.g: Python)
+         * 
+         * @param str String
+         * @param times Times to repeat
+         * @param connector Connect character
          */
-        function stringTimes(string: string, times: number, connector?: string): string
+        function stringTimes(str: string, times: number, connector?: string): string
 
         /**
          * ForEach in any object type
+         * 
+         * ProTip: Likes `Array.forEach`
          */
         function forEach(obj: any, callbackFn: (current: any, index: number, array: any[]) => void): void
 
@@ -205,6 +230,10 @@ declare module 'peb' {
         namespace genNode {
             /**
              * Generate a new element with innerHTML and attributes
+             * 
+             * @param nodeName Node name
+             * @param inner Inner HTML of the e;ement
+             * @param attr Object of attributes
              */
             function element(nodeName: string, inner?: string, attr?: object): HTMLElement
 
@@ -263,6 +292,9 @@ declare module 'peb' {
 
             /**
              * ForEach loop.
+             * 
+             * @param callbackFn executed each time loop
+             * @param startIndex start from index
              */
             forEach(callbackFn: (currentElement: RElement, index: number, collection: RElementsCollection) => void, startIndex?: number): void
         }
