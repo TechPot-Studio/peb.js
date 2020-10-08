@@ -132,6 +132,7 @@
             }
         };
     }
+    
     peb.translationTable = class translationTable {
         constructor(table) {
             if (typeof (tabel) === 'object') {
@@ -234,123 +235,141 @@
      * Convert HTMLElement to operatable element
      * @param {HTMLElement | Node} element 
      */
-    peb.RElement = function RElement(element) {
-        if (element === null) {
-            throw new PebNullObjectError('Element is null');
+    peb.RElement = class RElement {
+        constructor(element) {
+            if (element === null) {
+                throw new PebNullObjectError('Element is null');
+            }
+            this.size = 1;
+            this.tag = element.tagName;
+            this.id = element.id;
+            this.element = element;
+            this[0] = this;
+
+            Object.freeze(this);
         }
-        this.size = 1;
-        this.tag = element.tagName;
-        this.id = element.id;
-        this.oringin = element;
-        this.attr = function (name, index) {
+        
+        attr(name, index) {
             if (!exist(name)) {
-                return element.attributes;
+                return this.element.attributes;
             } else if (!exist(index)) {
                 switch (typeof (name)) {
                     case 'string':
-                        return element.getAttribute(name);
+                        return this.element.getAttribute(name);
                     case 'object':
                         Object.keys(name).forEach(function (current) {
-                            element.setAttribute(current, name[current]);
+                            this.element.setAttribute(current, name[current]);
                         });
                         break;
                 }
             } else {
-                return element.setAttribute(n, String(f));
+                return this.element.setAttribute(n, String(f));
             }
-        };
-        this.class = function () {
-            return element.classList;
-        };
-        this.data = function (name, value) {
+        }
+
+        class() {
+            return this.element.classList;
+        }
+
+        data(name, value) {
             if (!exist(name)) {
-                return element.dataset;
+                return this.element.dataset;
             } else if (!exist(value)) {
                 switch (typeof (name)) {
                     case 'string':
-                        return element.dataset[name];
+                        return this.element.dataset[name];
                     case 'object':
                         Object.keys(name).forEach(function (current) {
-                            element.dataset[current] = name[current];
+                            this.element.dataset[current] = name[current];
                         });
                         break;
                 }
             } else {
-                element.dataset[n] = String(f);
+                this.element.dataset[n] = String(f);
                 return String(f);
             }
-        };
-        this.item = function (key, value) {
+        }
+
+        item(key, value) {
             if (exist(value)) {
                 element[key] = value;
                 return value;
             } else {
                 return element[key];
             }
-        };
-        this.insert = function (...nodes) {
+        }
+
+        insert(...nodes) {
             nodes.forEach(function (current) {
                 if (current instanceof RElement) {
-                    element.appendChild(current.oringin);
+                    this.element.appendChild(current.element);
                 } else {
-                    element.appendChild(current);
+                    this.element.appendChild(current);
                 }
             });
-        };
-        this.insertTo = function (node) {
+        }
+
+        insertTo(node) {
             let target;
             if (node instanceof HTMLElement || node instanceof Node) {
                 target = node;
             }
             if (node instanceof RElement) {
-                target = node.oringin;
+                target = node.element;
             }
             target.appendChild(element);
-            element.parentNode.removeChild(element);
-        };
-        this.del = function () {
-            return element.parentNode.removeChild(element);
-        };
-        this.html = function (value) {
+            this.element.parentNode.removeChild(element);
+        }
+
+        del() {
+            return this.element.parentNode.removeChild(element);
+        }
+
+        html(value) {
             if (exist(value)) {
-                element.innerHTML = String(value);
+                this.element.innerHTML = String(value);
                 return String(value);
             } else {
-                return element.innerHTML;
+                return this.element.innerHTML;
             }
-        };
-        this.text = function () {
-            return element.innerText;
-        };
-        this.val = function (value) {
+        }
+
+        text() {
+            return this.element.innerText;
+        }
+
+        val(value) {
             if (exist(value)) {
-                element.value = String(value);
+                this.element.value = String(value);
                 return String(value);
             } else {
-                return element.value;
+                return this.element.value;
             }
-        };
-        this.hide = function () {
+        }
+
+        hide(){
             // dbh: Display Before Hide
-            element.dbh = element.style.display;
-            element.style.display = 'none';
+            this.element.dbh = this.element.style.display;
+            this.element.style.display = 'none';
             return 'none';
-        };
-        this.show = function (type) {
+        }
+
+        show(type) {
             if (exist(type)) {
-                element.style.display = String(type);
+                this.element.style.display = String(type);
                 return String(type);
             } else {
-                element.style.display = element.dbh;
-                return element.dbh;
+                this.element.style.display = this.element.dbh;
+                return this.element.dbh;
             }
-        };
-        this.on = function (event, listener) {
+        }
+
+        on(event, listener) {
             let bindEventListener = function (eventStr, callback) {
-                if (element.addEventListener) {
-                    element.addEventListener(eventStr, callback);
+                if (this.element.addEventListener) {
+                    this.element.addEventListener(eventStr, callback);
                 } else {
-                    element.attachEvent('on' + eventStr, callback.call(element));
+                    this.element.attachEvent('on' + eventStr, callback.call(element));
                 }
             };
             if (exist(listener)) {
@@ -360,41 +379,49 @@
                     bindEventListener(current, event[current]);
                 });
             }
-        };
-        this.parent = function () {
-            return new RElement(element.parentElement);
-        };
-        this.child = function () {
-            return new RElement(element.children[0]);
-        };
-        this.next = function () {
-            return new RElement(element.nextElementSibling);
-        };
-        this.prev = function () {
-            return new RElement(element.previousElementSibling);
-        };
-        this.click = function () {
-            element.click()
-        };
+        }
+
+        parent() {
+            return new RElement(this.element.parentElement);
+        }
+
+        child() {
+            return new RElement(this.element.children[0]);
+        }
+
+        next() {
+            return new RElement(this.element.nextElementSibling);
+        }
+
+        prev() {
+            return new RElement(this.element.previousElementSibling);
+        }
+
+        click() {
+            this.element.click()
+        }
+    
         // Video and audio
-        this.pause = function (isPause = true) {
+        pause(isPause = true) {
             if (isPause) {
-                element.pause();
+                this.element.pause();
             } else {
-                element.play();
+                this.element.play();
             }
-        };
-        this.play = function () {
-            element.play();
-        };
+        }
+
+        play() {
+            this.element.play();
+        }
 
         // RElementsCollection
-        this[0] = this;
-        this.forEach = function(callbackFn) {
+        forEach(callbackFn) {
             callbackFn(this, 0, this);
-        };
+        }
 
-        Object.freeze(this);
+        item() {
+            return this
+        }
     };
 
 
@@ -402,26 +429,31 @@
      * Convert HTMLCollection to operatable element collection
      * @param {HTMLCollection | NodeList} elements
      */
-    peb.RElementsCollection = function RElementsCollection(elements) {
-        if (elements === null) {
-            throw new PebNullObjectError('Element is null');
+    peb.RElementsCollection = class RElementsCollection {
+        constructor(elements) {
+            if (elements === null) {
+                throw new PebNullObjectError('Element is null');
+            }
+            this.size = this.length = elements.length;
+            this.elements = elements
+            
+            elements.forEach((element, index) => {
+                this[index] = new RElement(element);
+            });
+            Object.freeze(this);
+        }
+        
+        item(index=0) {
+            return this[index]
         }
 
-        this.size = elements.length;
-
-        elements.forEach((element, index) => {
-            this[index] = new RElement(element);
-        });
-
-        this.length = elements.length;
-        this.forEach = function (callbackFn, fromIndex = 0) {
-            elements.forEach((_, index) => {
+        forEach(callbackFn, fromIndex = 0) {
+            this.elements.forEach((_, index) => {
                 if (index >= fromIndex) {
                     callbackFn(this[index], index, this);
                 }
             });
         };
-        Object.freeze(this);
     };
 
     /**
