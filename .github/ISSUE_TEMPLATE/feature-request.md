@@ -7,12 +7,8 @@ assignees: ''
 
 ---
 
-### Naming & Parameters
+### Naming & Parameters <!--If you are request a function-->
 ```javascript
 peb.
 ```
-### Parameters
-| Parameter | Type | Optional | Description |
-| :---: | :---: | :---: | :---: |
-|  |  |  | 
-### Description & Effects
+### Description or Effects
