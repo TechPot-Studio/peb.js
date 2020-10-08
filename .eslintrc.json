@@ -1,0 +1,21 @@
+{
+    "root": true,
+
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+
+    "parserOptions": { 
+		"ecmaVersion": 6,
+		"sourceType": "script"
+    },
+
+    "rules": {
+        "no-array-constructor": 0,
+        "no-else-return": 0,
+        "no-inner-declarations": [0, "functions"],
+        "quote-props": [0, "always"],
+        "no-iterator": 1
+    }
+}
