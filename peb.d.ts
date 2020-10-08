@@ -13,7 +13,7 @@ declare module 'peb' {
         /** Data to send */
         data?: string,
         /** Function to do when success */
-        success?: (text: string, xml: string) => void,
+        success?: (text: string, xml: Document) => void,
         /** Function to do when fail */
         fail?: () => void
     }
@@ -84,17 +84,17 @@ declare module 'peb' {
         /**
          * Send HTTPXML Request
          */
-        function ajax(type: string, url: string, data: any, success?: function, fail?: function): undefined
+        function ajax(type: string, url: string, data: any, success?: function, fail?: function): void
 
         /**
          * Send HTTPXML Request
          */
-        function ajax(args: ajaxConfigOptions): undefined
+        function ajax(args: ajaxConfigOptions): void
 
         /**
          * Send log to console
          */
-        function log(...data: any[]): undefined
+        function log(...data: any[]): void
 
         /**
          * More console infos
@@ -103,23 +103,23 @@ declare module 'peb' {
             /**
              * Send error to console
              */
-            function error(...data: any[]): undefined
+            function error(...data: any[]): void
             
             /**
              * Send warning to console
              */
-            function warn(...data: any[]): undefined
+            function warn(...data: any[]): void
 
             /**
              * Clear console
              */
-            function clear(): undefined
+            function clear(): void
         }
         
         /**
          * Wrap URL to another page
          */
-        function navigate(url: string, target: wrapPageTarget): undefined
+        function navigate(url: string, target: wrapPageTarget): void
 
         /**
          * Get a upper case of a string.
@@ -197,7 +197,7 @@ declare module 'peb' {
         /**
          * ForEach in any object type
          */
-        function forEach(obj: any, callbackFn: (current: any, index: number, array: any[]) => void): undefined
+        function forEach(obj: any, callbackFn: (current: any, index: number, array: any[]) => void): void
 
         /**
          * Generate a node
@@ -244,11 +244,11 @@ declare module 'peb' {
             /**
              * Translation by languange
              */
-            translate(lang: string): undefined
+            translate(lang: string): void
         }
 
         /**
-         * Cteate an operatable elements collection
+         * Create an operatable elements collection
          */
         class RElementsCollection {
             /**
@@ -257,9 +257,14 @@ declare module 'peb' {
             constructor(elements: NodeList)
 
             /**
+             * Get item by index
+             */
+            item(index: number): RElement
+
+            /**
              * ForEach loop.
              */
-            forEach(callbackFn: (currentElement: RElement, index: number, collection: RElementsCollection) => void, startIndex?: number): undefined
+            forEach(callbackFn: (currentElement: RElement, index: number, collection: RElementsCollection) => void, startIndex?: number): void
         }
 
         /**
@@ -271,7 +276,7 @@ declare module 'peb' {
             /**
              * Edit attribute `attributeName` to `becoming`
              */
-            attr(attributeName: string, becoming: string): undefined
+            attr(attributeName: string, becoming: string): void
 
             /**
              * Get all attributes or attribute `attributeName`
@@ -289,12 +294,17 @@ declare module 'peb' {
              * })
              * ```
              */
-            attr(attributesCollection: object): undefined
+            attr(attributesCollection: object): void
 
             /**
              * Add, Remove, Get or Set class of the element
              */
             class(): DOMSettableTokenList
+
+            /**
+             * Click element
+             */
+            click(): void
 
             /**
              * Set dataset `name` to `becoming`.
@@ -312,22 +322,22 @@ declare module 'peb' {
              * })
              * ```
              */
-            data(sequence: object): undefined
+            data(sequence: object): void
 
             /**
              * Insert new element to current element
              */
-            insert(...nodes: Node[]|HTMLElement[]|RElement[]): undefined
+            insert(...nodes: Node[]|HTMLElement[]|RElement[]): void
 
             /**
              * Insert to another element and delete this element
              */
-            insertTo(node: HTMLElement|Node|RElement): undefined
+            insertTo(node: HTMLElement|Node|RElement): void
 
             /**
              * Delete element
              */
-            del(): undefined
+            del(): void
 
             /**
              * Get inner (html)
@@ -359,7 +369,7 @@ declare module 'peb' {
              * Hide element.
              * Actually is set style.display to none
              */
-            hide(): undefined
+            hide(): void
 
             /**
              * Show element (if already hide)
@@ -374,7 +384,7 @@ declare module 'peb' {
             /**
              * Add event listener
              */
-            on(event: string, listener: function): undefined
+            on(event: string, listener: function): void
 
             /**
              * Add multiple event listener
@@ -391,7 +401,7 @@ declare module 'peb' {
              * })
              * ```
              */
-            on(eventListenerSequence: Object): undefined
+            on(eventListenerSequence: Object): void
 
             /**
              * Return parent node
