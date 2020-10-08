@@ -377,6 +377,11 @@ declare module 'peb' {
             show(): string
 
             /**
+             * Set style
+             */
+            style(sheet: object): void
+
+            /**
              * Set element display type
              */
             show(type: string): string
