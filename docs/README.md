@@ -48,4 +48,4 @@ We are committed to creating a good community environment.
   * [peb.genNode](./detail/meth-gennode.md)
   * [peb.console](./detail/meth-log.md)
 ### ProTips
-Coding with `peb.d.ts` to throw off documents. A more readable document is under construction...
+It is not recommended to view the documentation. Please use `peb.d.ts` typings file
