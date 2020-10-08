@@ -27,7 +27,7 @@
 寻找其它语言版本的README?<br />
 简体中文 | [English](README.md)
 ## 关于
-基于前端的JS API，让Web开发和数据计算更加简便  
+让JS开发更简便的 ECMAScript 6 轻量级API。让代码更快、更高效、更易读，并且与其它一部分API兼容。由TechPot Studio创作，一些方法借鉴了jQuery，并且基本符合大众的书写习惯。
   
 微软对Internet Explorer的支持已经结束，从`v3.0.0`版起，我们也将停止兼容旧版浏览器的支持
 

@@ -26,7 +26,7 @@ Looking for README in other languages?<br />
 [简体中文](README.zh.md) | English
 
 ## About
-The front-end API made by using native JavaScript makes the JavaScript in the webpage more convenient and more beautiful to complete the requirements. In the future, there will be more practical functions coming!  
+ECMAScript 6 lightweight API that makes JS development easier. Make the code faster, more efficient, easier to read, and compatible with other parts of the API. Created by TechPot Studio, some methods are borrowed from jQuery, and basically conform to the writing habits of the public.
   
 Microsoft's support for Internet Explorer has ended. We will also discontinue its compatible code since `v3.0.0`.
 
