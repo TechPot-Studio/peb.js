@@ -403,8 +403,8 @@
 
         style(sheet) {
             Object.keys(sheet).forEach((styleName) => {
-                this.element.style[styleName] = sheet[styleName]
-            })
+                this.element.style[styleName] = sheet[styleName];
+            });
         }
     
         // Video and audio
