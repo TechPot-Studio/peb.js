@@ -49,8 +49,11 @@ set value of `Element.style.display` if passed in parameter, otherwise set displ
 #### `.on(event: string, listener?: function)`
 Add event listener if `listener` is passed in, otherwise remove
 
-#### `.class(operatingType: string, className: string)`
-Allow operatingType: `add` `remove` `set` `get`
+#### `.class()`
+Returns HTMLSettableTokenList
+
+#### `.style(sheet)`
+Set style by sheet. sheet is a object like `{width: .5em}`
 
 #### `.next()`
 Get next element sibling
