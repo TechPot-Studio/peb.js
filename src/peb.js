@@ -183,6 +183,7 @@
             return result;
         }
     };
+    
     peb.genNode = {
         /**
          * Quickly create an HTMLElement
@@ -231,65 +232,68 @@
 
     /**
      * Convert HTMLElement to operatable element
-     * @param {HTMLElement | Node} el 
+     * @param {HTMLElement | Node} element 
      */
-    peb.RElement = function RElement(el) {
+    peb.RElement = function RElement(element) {
+        if (element === null) {
+            throw new PebNullObjectError('Element is null');
+        }
         this.size = 1;
-        this.tag = el.tagName;
-        this.id = el.id;
-        this.oringin = el;
+        this.tag = element.tagName;
+        this.id = element.id;
+        this.oringin = element;
         this.attr = function (name, index) {
             if (!exist(name)) {
-                return el.attributes;
+                return element.attributes;
             } else if (!exist(index)) {
                 switch (typeof (name)) {
                     case 'string':
-                        return el.getAttribute(name);
+                        return element.getAttribute(name);
                     case 'object':
                         Object.keys(name).forEach(function (current) {
-                            el.setAttribute(current, name[current]);
+                            element.setAttribute(current, name[current]);
                         });
                         break;
                 }
             } else {
-                return el.setAttribute(n, String(f));
+                return element.setAttribute(n, String(f));
             }
         };
         this.class = function () {
-            return el.classList;
+            return element.classList;
         };
         this.data = function (name, value) {
             if (!exist(name)) {
-                return el.dataset;
+                return element.dataset;
             } else if (!exist(value)) {
                 switch (typeof (name)) {
                     case 'string':
-                        return el.dataset[name];
+                        return element.dataset[name];
                     case 'object':
                         Object.keys(name).forEach(function (current) {
-                            el.dataset[current] = name[current];
+                            element.dataset[current] = name[current];
                         });
                         break;
                 }
             } else {
-                el.dataset[n] = String(f);
+                element.dataset[n] = String(f);
                 return String(f);
             }
         };
         this.item = function (key, value) {
             if (exist(value)) {
-                el[key] = value;
+                element[key] = value;
                 return value;
             } else {
-                return el[key];
+                return element[key];
             }
         };
         this.insert = function (...nodes) {
             nodes.forEach(function (current) {
                 if (current instanceof RElement) {
-                    el.appendChild(current.oringin);
+                    element.appendChild(current.oringin);
                 } else {
-                    el.appendChild(current);
+                    element.appendChild(current);
                 }
             });
         };
@@ -301,52 +305,52 @@
             if (node instanceof RElement) {
                 target = node.oringin;
             }
-            target.appendChild(el);
-            el.parentNode.removeChild(el);
+            target.appendChild(element);
+            element.parentNode.removeChild(element);
         };
         this.del = function () {
-            return el.parentNode.removeChild(el);
+            return element.parentNode.removeChild(element);
         };
         this.html = function (value) {
             if (exist(value)) {
-                el.innerHTML = String(value);
+                element.innerHTML = String(value);
                 return String(value);
             } else {
-                return el.innerHTML;
+                return element.innerHTML;
             }
         };
         this.text = function () {
-            return el.innerText;
+            return element.innerText;
         };
         this.val = function (value) {
             if (exist(value)) {
-                el.value = String(value);
+                element.value = String(value);
                 return String(value);
             } else {
-                return el.value;
+                return element.value;
             }
         };
         this.hide = function () {
             // dbh: Display Before Hide
-            el.dbh = el.style.display;
-            el.style.display = 'none';
+            element.dbh = element.style.display;
+            element.style.display = 'none';
             return 'none';
         };
         this.show = function (type) {
             if (exist(type)) {
-                el.style.display = String(type);
+                element.style.display = String(type);
                 return String(type);
             } else {
-                el.style.display = el.dbh;
-                return el.dbh;
+                element.style.display = element.dbh;
+                return element.dbh;
             }
         };
         this.on = function (event, listener) {
             let bindEventListener = function (eventStr, callback) {
-                if (el.addEventListener) {
-                    el.addEventListener(eventStr, callback);
+                if (element.addEventListener) {
+                    element.addEventListener(eventStr, callback);
                 } else {
-                    el.attachEvent('on' + eventStr, callback.call(el));
+                    element.attachEvent('on' + eventStr, callback.call(element));
                 }
             };
             if (exist(listener)) {
@@ -358,25 +362,38 @@
             }
         };
         this.parent = function () {
-            return new RElement(el.parentElement);
+            return new RElement(element.parentElement);
         };
         this.child = function () {
-            return new RElement(el.children[0]);
+            return new RElement(element.children[0]);
         };
         this.next = function () {
-            let result = el.nextElementSibling;
-            if (result === null) {
-                throw new PebNullObjectError('Element is null');
-            }
-            return new RElement(result);
+            return new RElement(element.nextElementSibling);
         };
         this.prev = function () {
-            let result = el.previousElementSibling;
-            if (result === null) {
-                throw new PebNullObjectError('Element is null');
-            }
-            return new RElement(result);
+            return new RElement(element.previousElementSibling);
         };
+        this.click = function () {
+            element.click()
+        };
+        // Video and audio
+        this.pause = function (isPause = true) {
+            if (isPause) {
+                element.pause();
+            } else {
+                element.play();
+            }
+        }
+        this.play = function () {
+            element.play();
+        }
+
+        // RElementsCollection
+        this[0] = this;
+        this.forEach = function(callbackFn) {
+            callbackFn(this, 0, this)
+        }
+
         Object.freeze(this);
     };
 
@@ -386,6 +403,10 @@
      * @param {HTMLCollection | NodeList} elements
      */
     peb.RElementsCollection = function RElementsCollection(elements) {
+        if (elements === null) {
+            throw new PebNullObjectError('Element is null');
+        }
+
         this.size = elements.length;
 
         elements.forEach((element, index) => {
@@ -402,6 +423,7 @@
         };
         Object.freeze(this);
     };
+
     /**
      * Operate the DOM with the smallest possible code  
      * In order to be compatible with other APIs, the HTMLElement prototype is not directly manipulated  
@@ -436,6 +458,7 @@
             }
         }
     };
+
     peb.ajax = function (type, url, data, success, fail) {
         let request = new XMLHttpRequest()
             , args;
