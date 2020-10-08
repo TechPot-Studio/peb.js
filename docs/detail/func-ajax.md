@@ -1,12 +1,12 @@
 # Function `ajax()`
-The last updated version of this function: *2.1.0*
+The last updated version of this function: *3.1.0*
 ## Browser Support
 | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/chrome.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/firefox.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/safari.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/opera.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/edge.svg" width="30" /> |
 | :---: | :---: | :---: | :---: | :---: |
 | 1 | 1| 1.2 | 10 | 12 |
 ## Usage
 ```ts
-peb.ajax(type: string, url: string, data: any, success?: function, fail?: function)
+peb.ajax(type: string, url: string, data: any, success?: (text: string, xml: Document) => void, fail?: () => void)
 peb.ajax(config)
 ```
 
