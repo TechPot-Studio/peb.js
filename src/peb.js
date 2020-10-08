@@ -398,7 +398,7 @@
         }
 
         click() {
-            this.element.click()
+            this.element.click();
         }
     
         // Video and audio
@@ -420,7 +420,7 @@
         }
 
         item() {
-            return this
+            return this;
         }
     };
 
@@ -435,7 +435,7 @@
                 throw new PebNullObjectError('Element is null');
             }
             this.size = this.length = elements.length;
-            this.elements = elements
+            this.elements = elements;
             
             elements.forEach((element, index) => {
                 this[index] = new RElement(element);
@@ -444,7 +444,7 @@
         }
         
         item(index=0) {
-            return this[index]
+            return this[index];
         }
 
         forEach(callbackFn, fromIndex = 0) {
