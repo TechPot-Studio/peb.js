@@ -183,7 +183,7 @@
             return result;
         }
     };
-    
+
     peb.genNode = {
         /**
          * Quickly create an HTMLElement
@@ -383,16 +383,16 @@
             } else {
                 element.play();
             }
-        }
+        };
         this.play = function () {
             element.play();
-        }
+        };
 
         // RElementsCollection
         this[0] = this;
         this.forEach = function(callbackFn) {
-            callbackFn(this, 0, this)
-        }
+            callbackFn(this, 0, this);
+        };
 
         Object.freeze(this);
     };
