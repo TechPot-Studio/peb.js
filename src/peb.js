@@ -31,8 +31,7 @@
     'use strict';
     function peb() {
         this.name = "peb";
-        console.info('%cP%ceb\n%cPeb.js is avaliable. We are committed to making Javascript easier. \n\n%cCopyright © TechPot Studio\nMIT License', 'font-weight: 600; color: #00a8fa; font-size: 30px', 'font-weight: 600; color: #3f48cc; font-size: 30px', '', 'color: #999');
-        console.info(`PLATFORM INFO: \n${window.navigate ? 'Rejected' : navigator.userAgent}`);
+        console.info('Peb.js is aviliable');
     }
 
     peb.info = function () {
@@ -235,7 +234,7 @@
      * Convert HTMLElement to operatable element
      * @param {HTMLElement | Node} element 
      */
-    peb.RElement = class RElement {
+    peb.RElement = class {
         constructor(element) {
             if (element === null) {
                 throw new PebNullObjectError('Element is null');
@@ -435,7 +434,7 @@
      * Convert HTMLCollection to operatable element collection
      * @param {HTMLCollection | NodeList} elements
      */
-    peb.RElementsCollection = class RElementsCollection {
+    peb.RElementsCollection = class {
         constructor(elements) {
             if (elements === null) {
                 throw new PebNullObjectError('Element is null');
@@ -676,7 +675,7 @@
             return JSON.parse("{\"" + decodeURIComponent(str.replace(/[?]/g, "").replace(/=/g, "\":\"").replace(/&/g, "\",\"")) + "\"}");
 
         } else {
-            throw ReferenceError('window.location is not defined. Are you in browser?');
+            throw ReferenceError('window.location is not defined');
         }
     };
 
@@ -694,7 +693,7 @@
      * Multi String
      */
     peb.stringTimes = function (string, times, connector = '') {
-        new Array(times).fill(string).join(connector);
+        return new Array(times).fill(string).join(connector);
     };
 
     // Common function integration
