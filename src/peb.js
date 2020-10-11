@@ -36,7 +36,7 @@
 
     peb.info = function () {
         return {
-            version: "3.0.0",
+            version: "3.1.0",
             platform: (function () {
                 if (window.window) {
                     return 'browser';
