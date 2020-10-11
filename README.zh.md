@@ -13,7 +13,7 @@
   <a href="https://www.npmjs.com/package/peb" title="NPM 下载量"><img src="https://img.shields.io/npm/dw/peb?logo=npm&style=flat-square" /></a>
   <a title="jsdelivr 点击量"><img src="https://img.shields.io/jsdelivr/npm/hw/peb?label=jsdelivr%20hits&logo=jsdelivr&logoColor=white&style=flat-square" /></a>
   <a href="./LICENSE" title="开源协议"><img src="https://img.shields.io/github/license/TechPot-Studio/peb.js?style=flat-square" /></a>
-  <a href="https://discord.gg/nS6qYuu" title="聊天"><img src="https://img.shields.io/discord/711002879670091868?logo=discord&logoColor=fff&style=flat-square" /></a>
+  <a href="https://discord.gg/EvsaWcB" title="聊天"><img src="https://img.shields.io/discord/711002879670091868?logo=discord&logoColor=fff&style=flat-square" /></a>
   <a href="" title="贡献者"><img src="https://img.shields.io/github/contributors-anon/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
   <a href="//github.com/TechPot-Studio/peb.js/releases" title="最新版本"><img src="https://img.shields.io/github/v/release/TechPot-Studio/peb.js?label=lastest%20release&style=flat-square" /></a>
   <a href="//github.com/TechPot-Studio/peb.js/releases" title="最新测试版"><img src="https://img.shields.io/github/v/release/TechPot-Studio/peb.js?include_prereleases&label=lastest%20prerelease&style=flat-square" /></a>

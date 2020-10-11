@@ -11,7 +11,7 @@
   <a href="https://www.npmjs.com/package/peb" title="NPM Downloads"><img src="https://img.shields.io/npm/dw/peb?logo=npm&style=flat-square" /></a>
   <a title="jsdelivr hits"><img src="https://img.shields.io/jsdelivr/npm/hw/peb?label=jsdelivr%20hits&logo=jsdelivr&logoColor=white&style=flat-square" /></a>
   <a href="./LICENSE" title="License"><img src="https://img.shields.io/github/license/TechPot-Studio/peb.js?style=flat-square" /></a>
-  <a href="https://discord.gg/nS6qYuu" title="Chat"><img src="https://img.shields.io/discord/711002879670091868?logo=discord&logoColor=fff&style=flat-square" /></a>
+  <a href="https://discord.gg/EvsaWcB" title="Chat"><img src="https://img.shields.io/discord/711002879670091868?logo=discord&logoColor=fff&style=flat-square" /></a>
   <a href="" title="Contributors"><img src="https://img.shields.io/github/contributors-anon/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
   <a href="//github.com/TechPot-Studio/peb.js/releases" title="Lastest Release"><img src="https://img.shields.io/github/v/release/TechPot-Studio/peb.js?label=lastest%20release&style=flat-square" /></a>
   <a href="//github.com/TechPot-Studio/peb.js/releases" title="Lastest Pre-Release"><img src="https://img.shields.io/github/v/release/TechPot-Studio/peb.js?include_prereleases&label=lastest%20prerelease&style=flat-square" /></a>
