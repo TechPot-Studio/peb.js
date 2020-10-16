@@ -451,14 +451,16 @@ declare module 'peb' {
             child(): RElement
 
             /**
-             * Get next elementSibling
+             * Get next sibling
+             * @param isContainTextNode If true then contains text nodes
              */
-            next(): RElement
+            next(isContainTextNode: boolean): RElement
 
             /**
-             * Get previous elementSibling
+             * Get previous sibling
+             * @param isContainTextNode If true then contains text nodes
              */
-            prev(): RElement
+            prev(isContainTextNode: boolean): RElement
         }
     }
     
