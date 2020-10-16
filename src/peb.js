@@ -31,26 +31,8 @@
     'use strict';
     function peb() {
         this.name = "peb";
-        console.info('Peb.js is aviliable');
+        console.info('Peb.js 3.1.0 is aviliable');
     }
-
-    peb.info = function () {
-        return {
-            version: "3.1.0",
-            platform: (function () {
-                if (window.window) {
-                    return 'browser';
-
-                } else if (window.module) {
-                    return 'node';
-
-                } else {
-                    return 'unknown';
-
-                }
-            })()
-        };
-    };
 
     // Error type
     class PebError extends Error {
@@ -182,6 +164,24 @@
             });
             return result;
         }
+    };
+
+    peb.getGlobal = function () {
+        if (typeof globalThis !== 'undefined') {
+            return globalThis;
+        };
+
+        // window was a parameter
+        if (window.window) return window;
+
+        // CommonJS
+        if (typeof global === 'object') return global;
+
+        // Webworker
+        if (typeof self === 'object') return self;
+
+        // None of them
+        return undefined;
     };
 
     peb.genNode = {
@@ -388,12 +388,20 @@
             return new RElement(this.element.children[0]);
         }
 
-        next() {
-            return new RElement(this.element.nextElementSibling);
+        next(isContainTextNode = false) {
+            if (isContainTextNode) {
+                return new RElement(this.element.nextSibling);
+            } else {
+                return new RElement(this.element.nextElementSibling);
+            }
         }
 
-        prev() {
-            return new RElement(this.element.previousElementSibling);
+        prev(isContainTextNode = false) {
+            if (isContainTextNode) {
+                return new RElement(this.element.previousSibling);
+            } else {
+                return new RElement(this.element.previousElementSibling);
+            }
         }
 
         click() {
