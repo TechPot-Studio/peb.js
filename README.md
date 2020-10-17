@@ -38,6 +38,7 @@ Microsoft's support for Internet Explorer has ended. We will also discontinue it
 ## Installation
 ### Using **NPM**
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/08315c7ca8dc4689b9876ab0e92f30a8)](https://app.codacy.com/gh/TechPot-Studio/peb.js?utm_source=github.com&utm_medium=referral&utm_content=TechPot-Studio/peb.js&utm_campaign=Badge_Grade)
 [![NPM informations](https://nodei.co/npm/peb.png?compact=true)](https://www.npmjs.com/package/peb)
 
 ```shell
