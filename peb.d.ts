@@ -49,205 +49,7 @@ declare module 'peb' {
             constructor(message: string)
         }
 
-        /**
-         * Return the current time with timestamp
-         */
-        function now(): number
-
-        /**
-         * Stringify to json string
-         * 
-         * @param obj Object to stringify
-         */
-        function stringifyJson(obj: object): string
-
-        /**
-         * Parse json string to object
-         * 
-         * @param jsonString JSON string
-         */
-        function parseJson(jsonString: string): object
-
-        /**
-         * Select a HTMLElement and operate it.
-         * 
-         * No need `index` when selector can only match ONE element
-         * 
-         * @param selector Css Selector of the element
-         * @param index Index in the list
-         */
-        function sel(selector: string, index?: number): RElement
-
-        /**
-         * Select multiple HTMLElements and operate it.
-         * 
-         * @param selector Css Selector of elements
-         */
-        function sel(selector: string): RElementsCollection
-
-        /**
-         * Convert Node or HTMLElement into peb RElement or RElementsCollection.
-         */
-        function sel(element: HTMLElement|HTMLCollection|Node|NodeList): RElement|RElementsCollection
-
-        /**
-         * Send HTTPXML Request
-         */
-        function ajax(type: string, url: string, data: any, success?: function, fail?: function): void
-
-        /**
-         * Send HTTPXML Request
-         */
-        function ajax(args: ajaxConfigOptions): void
-
-        /**
-         * Send log to console
-         */
-        function log(...data: any[]): void
-
-        /**
-         * More console infos
-         */
-        namespace log {
-            /**
-             * Send error to console
-             */
-            function error(...data: any[]): void
-            
-            /**
-             * Send warning to console
-             */
-            function warn(...data: any[]): void
-
-            /**
-             * Clear console
-             */
-            function clear(): void
-        }
         
-        /**
-         * Wrap URL to another page
-         * 
-         * @param url URL to wrap
-         * @param target Same as `target` in `<a>`
-         */
-        function navigate(url: string, target: wrapPageTarget): void
-
-        /**
-         * Get a upper case of a string.
-         */
-        function upperCase(str: string): string
-        
-        /**
-         * Get a lower case of a string.
-         */
-        function lowerCase(str: string): string
-        
-        /**
-         * Remove spaces or dashes and convert to camel case.
-         * 
-         * Example:
-         * ```
-         * peb.camelCase("a good variable"); // aGoodVariable
-         * peb.camelCase("a-bad-variable"); // aBadVariable
-         * ```
-         */
-        function camelCase(str: string): string
-
-        /**
-         * Get constructor name of the object
-         */
-        function getclass(obj: any): string
-
-        /**
-         * Insert item to array
-         * 
-         * @param arr Array
-         * @param items Items to insert
-         */
-        function insert(arr: array, ...items: any[]): number
-
-        /**
-         * Slice array or string
-         * 
-         * @param obj String or arrray
-         * @param start Start index
-         * @param end End index
-         */
-        function slice(obj: string|Array, start: number, end?: number): string|Array
-
-        /**
-         * Get JSON Object format of location.search
-         * 
-         * Example:
-         * ```plain
-         * locahost:8080/?foo=b%20ar&bar=foo-foo1-foo2
-         * ```
-         * ```
-         * getSearchData(); // {foo: "b ar", bar: "foo-foo1-foo2"}
-         * ```
-         */
-        function getSearchData(): object
-
-        /**
-         * Get a number or string is numberic
-         */
-        function isdigit(obj: string|number): boolean
-
-        /**
-         * await sleep time or sleep a time then do a function
-         * 
-         * Example:
-         * ```
-         * peb.sleep(1000).then(() => { alert("foo") })
-         * 
-         * await peb.sleep(1000)
-         * ```
-         */
-        function sleep(ms: number): Promise<undefined>
-
-        /**
-         * String multiplication.
-         * 
-         * This method is equivalent to string multiplication in some programming languages (e.g: Python)
-         * 
-         * @param str String
-         * @param times Times to repeat
-         * @param connector Connect character
-         */
-        function stringTimes(str: string, times: number, connector?: string): string
-
-        /**
-         * ForEach in any object type
-         * 
-         * ProTip: Likes `Array.forEach`
-         */
-        function forEach(obj: any, callbackFn: (current: any, index: number, array: any[]) => void): void
-
-        /**
-         * Generate a node
-         */
-        namespace genNode {
-            /**
-             * Generate a new element with innerHTML and attributes
-             * 
-             * @param nodeName Node name
-             * @param inner Inner HTML of the e;ement
-             * @param attr Object of attributes
-             */
-            function element(nodeName: string, inner?: string, attr?: object): HTMLElement
-
-            /**
-             * Generate a text node.
-             */
-            function text(text: string): Text
-
-            /**
-             * Parse the string of HTML content into Node
-             */
-            function fromStr(str: string): HTMLElement|HTMLCollection|Node|NodeList|Text
-
-        }
 
 
         /**
@@ -462,7 +264,206 @@ declare module 'peb' {
              */
             prev(isContainTextNode: boolean): RElement
         }
+
+        /**
+         * Return the current time with timestamp
+         */
+        function now(): number
+
+        /**
+         * Stringify to json string
+         * 
+         * @param obj Object to stringify
+         */
+        function stringifyJson(obj: object): string
+
+        /**
+         * Parse json string to object
+         * 
+         * @param jsonString JSON string
+         */
+        function parseJson(jsonString: string): object
+
+        /**
+         * Select a HTMLElement and operate it.
+         * 
+         * No need `index` when selector can only match ONE element
+         * 
+         * @param selector Css Selector of the element
+         * @param index Index in the list
+         */
+        function sel(selector: string, index?: number): RElement
+
+        /**
+         * Select multiple HTMLElements and operate it.
+         * 
+         * @param selector Css Selector of elements
+         */
+        function sel(selector: string): RElementsCollection
+
+        /**
+         * Convert Node or HTMLElement into peb RElement or RElementsCollection.
+         */
+        function sel(element: HTMLElement|HTMLCollection|Node|NodeList): RElement|RElementsCollection
+
+        /**
+         * Send HTTPXML Request
+         */
+        function ajax(type: string, url: string, data: any, success?: function, fail?: function): void
+
+        /**
+         * Send HTTPXML Request
+         */
+        function ajax(args: ajaxConfigOptions): void
+
+        /**
+         * Send log to console
+         */
+        function log(...data: any[]): void
+
+        /**
+         * More console infos
+         */
+        namespace log {
+            /**
+             * Send error to console
+             */
+            function error(...data: any[]): void
+            
+            /**
+             * Send warning to console
+             */
+            function warn(...data: any[]): void
+
+            /**
+             * Clear console
+             */
+            function clear(): void
+        }
+        
+        /**
+         * Wrap URL to another page
+         * 
+         * @param url URL to wrap
+         * @param target Same as `target` in `<a>`
+         */
+        function navigate(url: string, target: wrapPageTarget): void
+
+        /**
+         * Get a upper case of a string.
+         */
+        function upperCase(str: string): string
+        
+        /**
+         * Get a lower case of a string.
+         */
+        function lowerCase(str: string): string
+        
+        /**
+         * Remove spaces or dashes and convert to camel case.
+         * 
+         * Example:
+         * ```
+         * peb.camelCase("a good variable"); // aGoodVariable
+         * peb.camelCase("a-bad-variable"); // aBadVariable
+         * ```
+         */
+        function camelCase(str: string): string
+
+        /**
+         * Get constructor name of the object
+         */
+        function getclass(obj: any): string
+
+        /**
+         * Insert item to array
+         * 
+         * @param arr Array
+         * @param items Items to insert
+         */
+        function insert(arr: array, ...items: any[]): number
+
+        /**
+         * Slice array or string
+         * 
+         * @param obj String or arrray
+         * @param start Start index
+         * @param end End index
+         */
+        function slice(obj: string|Array, start: number, end?: number): string|Array
+
+        /**
+         * Get JSON Object format of location.search
+         * 
+         * Example:
+         * ```plain
+         * locahost:8080/?foo=b%20ar&bar=foo-foo1-foo2
+         * ```
+         * ```
+         * getSearchData(); // {foo: "b ar", bar: "foo-foo1-foo2"}
+         * ```
+         */
+        function getSearchData(): object
+
+        /**
+         * Get a number or string is numberic
+         */
+        function isdigit(obj: string|number): boolean
+
+        /**
+         * await sleep time or sleep a time then do a function
+         * 
+         * Example:
+         * ```
+         * peb.sleep(1000).then(() => { alert("foo") })
+         * 
+         * await peb.sleep(1000)
+         * ```
+         */
+        function sleep(ms: number): Promise<undefined>
+
+        /**
+         * String multiplication.
+         * 
+         * This method is equivalent to string multiplication in some programming languages (e.g: Python)
+         * 
+         * @param str String
+         * @param times Times to repeat
+         * @param connector Connect character
+         */
+        function stringTimes(str: string, times: number, connector?: string): string
+
+        /**
+         * ForEach in any object type
+         * 
+         * ProTip: Likes `Array.forEach`
+         */
+        function forEach(obj: any, callbackFn: (current: any, index: number, array: any[]) => void): void
+
+        /**
+         * Generate a node
+         */
+        namespace genNode {
+            /**
+             * Generate a new element with innerHTML and attributes
+             * 
+             * @param nodeName Node name
+             * @param inner Inner HTML of the e;ement
+             * @param attr Object of attributes
+             */
+            function element(nodeName: string, inner?: string, attr?: object): HTMLElement
+
+            /**
+             * Generate a text node.
+             */
+            function text(text: string): Text
+
+            /**
+             * Parse the string of HTML content into Node
+             */
+            function fromStr(str: string): HTMLElement|HTMLCollection|Node|NodeList|Text
+
+        }
     }
-    
     export = peb
 }
