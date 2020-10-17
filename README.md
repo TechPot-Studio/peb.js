@@ -3,6 +3,7 @@
 #
 
 <p align="center">
+  <a href="https://app.codacy.com/gh/TechPot-Studio/peb.js?utm_source=github.com&utm_medium=referral&utm_content=TechPot-Studio/peb.js&utm_campaign=Badge_Grade" title="Codacy"><img src="https://api.codacy.com/project/badge/Grade/08315c7ca8dc4689b9876ab0e92f30a8" /></a>
   <a href="//github.com/TechPot-Studio/peb.js/stargazers" title="Stars"><img src="https://img.shields.io/github/stars/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
   <a href="//github.com/TechPot-Studio/peb.js/issues" title="Issues"><img src="https://img.shields.io/github/issues/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
   <a href="//github.com/TechPot-Studio/peb.js/pulls" title="Pull Requests"><img src="https://img.shields.io/github/issues-pr/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
@@ -37,8 +38,6 @@ Microsoft's support for Internet Explorer has ended. We will also discontinue it
 
 ## Installation
 ### Using **NPM**
-
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/08315c7ca8dc4689b9876ab0e92f30a8)](https://app.codacy.com/gh/TechPot-Studio/peb.js?utm_source=github.com&utm_medium=referral&utm_content=TechPot-Studio/peb.js&utm_campaign=Badge_Grade)
 [![NPM informations](https://nodei.co/npm/peb.png?compact=true)](https://www.npmjs.com/package/peb)
 
 ```shell
