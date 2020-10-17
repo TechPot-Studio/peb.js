@@ -11,7 +11,6 @@
 
     if (typeof module === "object" && typeof module.exports === "object") {
         // CommonJS
-        // But even I am not sure that this thing is useful
         module.exports = factory(global);
 
     } else if (typeof define === 'function' && define.amd) {
@@ -71,8 +70,6 @@
     if (window.window) {
         customElements.define('p-trans', window.pebTransElement = class PebTransElement extends HTMLElement {
             constructor() {
-                // Call super in class to use `this` and `constructor`
-                // This comment will no longer show again
                 super();
             }
         });
@@ -167,18 +164,17 @@
     };
 
     peb.getGlobal = function () {
-        if (typeof globalThis !== 'undefined') {
-            return globalThis;
-        };
-
         // window was a parameter
         if (window.window) return window;
 
         // CommonJS
         if (typeof global === 'object') return global;
-
         // Webworker
         if (typeof self === 'object') return self;
+
+        if (typeof globalThis !== 'undefined') {
+            return globalThis;
+        };
 
         // None of them
         return undefined;
@@ -205,15 +201,12 @@
          * @param {string} str String
          */
         fromStr: function (str) {
-            document.body.appendChild(document.createElement('peb-operation-card'));
-            let operationCard = document.querySelector('peb-operation-card')
-                , result;
+            let operationCard = document.createElement('peb-operation-card')
+              , result;
+            
             operationCard.innerHTML = str;
 
-            result = operationCard.children;
-
-            document.body.removeChild(operationCard);
-            if (result.length == 1) {
+            if (result.length === 1) {
                 return result[0];
             } else {
                 return result;
@@ -571,7 +564,7 @@
      * @param {string} str 
      * @return {string}
      */
-    peb.upperCase = (str) => {
+    peb.upperCase = function (str) {
         return str.toUpperCase();
     };
     /**
@@ -579,7 +572,7 @@
      * @param {string} str 
      * @return {string}
      */
-    peb.lowerCase = (str) => {
+    peb.lowerCase = function (str) {
         return str.toLowerCase();
     };
 
@@ -588,7 +581,7 @@
      * @param {string} str
      * @return {string}
       */
-    peb.camelCase = (str) => {
+    peb.camelCase = function (str) {
         return str.replace(/[ -]./g, (word) => {
             return word.replace(/[ -]/g, "").toUpperCase();
         });
@@ -698,7 +691,7 @@
     };
 
     /**
-     * Multi String
+     * Multiple String
      */
     peb.stringTimes = function (string, times, connector = '') {
         return new Array(times).fill(string).join(connector);
