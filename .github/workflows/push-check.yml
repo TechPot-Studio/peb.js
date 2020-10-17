@@ -28,7 +28,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Run codacy-analysis-cli
-        uses: codacy/codacy-analysis-cli-action@1.0.1
+        uses: codacy/codacy-analysis-cli-action@1.1.0
         with:
           # Run with verbose output
           verbose: # optional
