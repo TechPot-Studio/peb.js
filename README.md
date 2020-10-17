@@ -3,7 +3,7 @@
 #
 
 <p align="center">
-  <a href="https://app.codacy.com/gh/TechPot-Studio/peb.js?utm_source=github.com&utm_medium=referral&utm_content=TechPot-Studio/peb.js&utm_campaign=Badge_Grade" title="Codacy"><img src="https://api.codacy.com/project/badge/Grade/08315c7ca8dc4689b9876ab0e92f30a8" /></a>
+  <a href="https://www.codacy.com/gh/TechPot-Studio/peb.js/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TechPot-Studio/peb.js&amp;utm_campaign=Badge_Grade" title="Codacy"><img src="https://img.shields.io/codacy/grade/3cf32c2b188944b7bd1359d4d5a4cc7d?logo=codacy&style=flat-square" /></a>
   <a href="//github.com/TechPot-Studio/peb.js/stargazers" title="Stars"><img src="https://img.shields.io/github/stars/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
   <a href="//github.com/TechPot-Studio/peb.js/issues" title="Issues"><img src="https://img.shields.io/github/issues/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
   <a href="//github.com/TechPot-Studio/peb.js/pulls" title="Pull Requests"><img src="https://img.shields.io/github/issues-pr/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
