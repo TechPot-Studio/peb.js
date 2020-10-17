@@ -598,12 +598,12 @@
             }
             let str = obj.constructor.toString()
               , arr;
-            if (str.charAt(0) == '[') {
+            if (str.charAt(0) === '[') {
                 arr = str.match(/\w+\s∗(\w+)/);
             } else {
                 arr = str.match(/function\s*(\w+)/);
             }
-            if (arr && arr.length == 2) {
+            if (arr && arr.length === 2) {
                 return arr[1];
             }
         }
