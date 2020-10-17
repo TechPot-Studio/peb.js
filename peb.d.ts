@@ -309,7 +309,7 @@ declare module 'peb' {
         /**
          * Send HTTPXML Request
          */
-        function ajax(type: string, url: string, data: any, success?: function, fail?: function): void
+        function ajax(type: string, url: string, data: any, success?: (text: string, xml: Document) => void, fail?: () => void): void
 
         /**
          * Send HTTPXML Request
