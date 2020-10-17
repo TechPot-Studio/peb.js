@@ -3,6 +3,7 @@
 #
 
 <p align="center">
+  <a href="https://github.com/TechPot-Studio/peb.js/commits/master" title="Commit Activity"><img src="https://img.shields.io/github/commit-activity/m/TechPot-Studio/peb.js?logo=git&logoColor=white&style=flat-square" /></a>
   <a href="https://www.codacy.com/gh/TechPot-Studio/peb.js/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TechPot-Studio/peb.js&amp;utm_campaign=Badge_Grade" title="Codacy"><img src="https://img.shields.io/codacy/grade/3cf32c2b188944b7bd1359d4d5a4cc7d?logo=codacy&style=flat-square" /></a>
   <a href="//github.com/TechPot-Studio/peb.js/stargazers" title="Stars"><img src="https://img.shields.io/github/stars/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
   <a href="//github.com/TechPot-Studio/peb.js/issues" title="Issues"><img src="https://img.shields.io/github/issues/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>

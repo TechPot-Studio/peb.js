@@ -5,24 +5,25 @@
   <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/pebjs.png" width="299.2" height="137.6" title="Peb.js" alt="Peb.js Icon" />
 </p>
 <p align="center">
-  <a href="https://www.codacy.com/gh/TechPot-Studio/peb.js/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TechPot-Studio/peb.js&amp;utm_campaign=Badge_Grade" title="Codacy"><img src="https://img.shields.io/codacy/grade/3cf32c2b188944b7bd1359d4d5a4cc7d?logo=codacy&style=flat-square" /></a>
+  <a href="https://github.com/TechPot-Studio/peb.js/commits/master" title="提交频率"><img src="https://img.shields.io/github/commit-activity/m/TechPot-Studio/peb.js?logo=git&logoColor=white&style=flat-square&label=提交频率" /></a>
+  <a href="https://www.codacy.com/gh/TechPot-Studio/peb.js/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TechPot-Studio/peb.js&amp;utm_campaign=Badge_Grade" title="Codacy"><img src="https://img.shields.io/codacy/grade/3cf32c2b188944b7bd1359d4d5a4cc7d?logo=codacy&style=flat-square&label=代码质量" /></a>
   <a href="//github.com/TechPot-Studio/peb.js/stargazers" title="Stars"><img src="https://img.shields.io/github/stars/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
   <a href="//github.com/TechPot-Studio/peb.js/issues" title="Issues"><img src="https://img.shields.io/github/issues/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
   <a href="//github.com/TechPot-Studio/peb.js/pulls" title="Pull Requests"><img src="https://img.shields.io/github/issues-pr/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
   <a href="//github.com/TechPot-Studio/peb.js/network/members" title="Forks"><img src="https://img.shields.io/github/forks/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
-  <a href="https://www.npmjs.com/package/peb" title="NPM 版本"><img src="https://img.shields.io/npm/v/peb?logo=npm&style=flat-square" /></a>
-  <a href="https://www.npmjs.com/package/peb" title="NPM 下载量"><img src="https://img.shields.io/npm/dw/peb?logo=npm&style=flat-square" /></a>
-  <a title="jsdelivr 点击量"><img src="https://img.shields.io/jsdelivr/npm/hw/peb?label=jsdelivr%20hits&logo=jsdelivr&logoColor=white&style=flat-square" /></a>
-  <a href="./LICENSE" title="开源协议"><img src="https://img.shields.io/github/license/TechPot-Studio/peb.js?style=flat-square" /></a>
-  <a href="https://discord.gg/EvsaWcB" title="聊天"><img src="https://img.shields.io/discord/711002879670091868?logo=discord&logoColor=fff&style=flat-square" /></a>
-  <a href="" title="贡献者"><img src="https://img.shields.io/github/contributors-anon/TechPot-Studio/peb.js?logo=github&style=flat-square" /></a>
-  <a href="//github.com/TechPot-Studio/peb.js/releases" title="最新版本"><img src="https://img.shields.io/github/v/release/TechPot-Studio/peb.js?label=lastest%20release&style=flat-square" /></a>
-  <a href="//github.com/TechPot-Studio/peb.js/releases" title="最新测试版"><img src="https://img.shields.io/github/v/release/TechPot-Studio/peb.js?include_prereleases&label=lastest%20prerelease&style=flat-square" /></a>
-  <a href="//github.com/TechPot-Studio/peb.js/releases" title="从最后一个版本起的Commnit数"><img src="https://img.shields.io/github/commits-since/TechPot-Studio/peb.js/latest/master?include_prereleases&logo=github&style=flat-square" /></a>
-  <a href="./src/peb.js" title="大小"><img src="https://img.shields.io/github/size/TechPot-Studio/peb.js/src/peb.js?style=flat-square" /></a>
-  <a href="./dist/peb.min.js" title="打包后大小"><img src="https://img.shields.io/github/size/TechPot-Studio/peb.js/dist/peb.min.js?label=minified%20size&style=flat-square" /></a>
-  <a title="Node.js 版本"><img src="https://img.shields.io/static/v1?label=Node.js%20version&message=12&color=informational&logo=node.js&style=flat-square&logoColor=white" /></a>
-  <a title="ECMAScript 版本"><img src="https://img.shields.io/static/v1?label=ECMAScript%20version&message=6&color=informational&logo=JavaScript&style=flat-square&logoColor=white" /></a>
+  <a href="https://www.npmjs.com/package/peb" title="NPM 版本"><img src="https://img.shields.io/npm/v/peb?logo=npm&style=flat-square&label=NPM版本" /></a>
+  <a href="https://www.npmjs.com/package/peb" title="NPM 下载量"><img src="https://img.shields.io/npm/dw/peb?logo=npm&style=flat-square&label=NPM下载" /></a>
+  <a title="jsdelivr 点击量"><img src="https://img.shields.io/jsdelivr/npm/hw/peb?label=jsdelivr点击&logo=jsdelivr&logoColor=white&style=flat-square" /></a>
+  <a href="./LICENSE" title="开源协议"><img src="https://img.shields.io/github/license/TechPot-Studio/peb.js?style=flat-square&label=协议" /></a>
+  <a href="https://discord.gg/EvsaWcB" title="社区"><img src="https://img.shields.io/discord/711002879670091868?logo=discord&logoColor=fff&style=flat-square&label=社区" /></a>
+  <a href="" title="贡献者"><img src="https://img.shields.io/github/contributors-anon/TechPot-Studio/peb.js?logo=github&style=flat-square&label=贡献者" /></a>
+  <a href="//github.com/TechPot-Studio/peb.js/releases" title="最新版本"><img src="https://img.shields.io/github/v/release/TechPot-Studio/peb.js?label=最新发行版&style=flat-square" /></a>
+  <a href="//github.com/TechPot-Studio/peb.js/releases" title="最新测试版"><img src="https://img.shields.io/github/v/release/TechPot-Studio/peb.js?include_prereleases&label=最新测试版&style=flat-square" /></a>
+  <a href="//github.com/TechPot-Studio/peb.js/releases" title="从最后一个版本起的提交次数"><img src="https://img.shields.io/github/commits-since/TechPot-Studio/peb.js/latest/master?include_prereleases&logo=github&style=flat-square" /></a>
+  <a href="./src/peb.js" title="大小"><img src="https://img.shields.io/github/size/TechPot-Studio/peb.js/src/peb.js?style=flat-square&label=大小" /></a>
+  <a href="./dist/peb.min.js" title="打包后大小"><img src="https://img.shields.io/github/size/TechPot-Studio/peb.js/dist/peb.min.js?style=flat-square&label=打包后大小" /></a>
+  <a title="Node.js 版本"><img src="https://img.shields.io/static/v1?&message=12&color=informational&logo=node.js&style=flat-square&logoColor=white&label=Node.js版本" /></a>
+  <a title="ECMAScript 版本"><img src="https://img.shields.io/static/v1?label=ECMAScript版本&message=6&color=informational&logo=JavaScript&style=flat-square&logoColor=white" /></a>
 </p>
 
 寻找其它语言版本的README?<br />
