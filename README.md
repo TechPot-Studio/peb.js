@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/pebjs.png" width="299.2" height="137.6" title="Peb.js" alt="Peb.js Icon" /></p>
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/pebjs.png" width="299.2" height="137.6" title="Peb.js" alt="Peb.js Icon" /></p>
 
 #
 
@@ -66,7 +66,7 @@ const peb = require('peb');
 And, we allowed download source code.
 ## Browser Support
 Number is the **least** version it supports
-| Browser | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/chrome.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/firefox.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/safari.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/edge.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/opera.svg" width="30" /> |
+| Browser | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/chrome.svg" width="30" /> | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/firefox.svg" width="30" /> | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/safari.svg" width="30" /> | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/edge.svg" width="30" /> | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/opera.svg" width="30" /> |
 |------: | :------: | :------: | :------: | :------: | :------: |
 | **Full Support** | 54 | 63 | 10.1 | 79 | 41 |
 

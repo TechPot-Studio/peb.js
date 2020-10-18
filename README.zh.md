@@ -2,7 +2,7 @@
   <a href='https://gitee.com/TechPot-Studio/peb.js' title="在Gitee查看"><img src='https://gitee.com/TechPot-Studio/peb.js/widgets/widget_5.svg' alt='在Gitee上Fork' /></a>
 </p>-->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/pebjs.png" width="299.2" height="137.6" title="Peb.js" alt="Peb.js Icon" />
+  <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/pebjs.png" width="299.2" height="137.6" title="Peb.js" alt="Peb.js Icon" />
 </p>
 <p align="center">
   <a href="https://github.com/TechPot-Studio/peb.js/commits/master" title="提交频率"><img src="https://img.shields.io/github/commit-activity/m/TechPot-Studio/peb.js?logo=git&logoColor=white&style=flat-square" /></a>
@@ -66,7 +66,7 @@ import peb from 'peb'
 当然，下载源码也是允许的
 ## 浏览器支持
 以下浏览器最低支持此包的版本
-| 浏览器 | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/chrome.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/firefox.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/safari.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/edge.svg" width="30" /> | <img src="https://raw.githubusercontent.com/TechPot-Studio/svg-gallery/master/opera.svg" width="30" /> |
+| 浏览器 | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/chrome.svg" width="30" /> | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/firefox.svg" width="30" /> | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/safari.svg" width="30" /> | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/edge.svg" width="30" /> | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/opera.svg" width="30" /> |
 |------: | :------: | :------: | :------: | :------: | :------: |
 | **完全**支持 | 54 | 63 | 10.1 | 79 | 41 |
 
