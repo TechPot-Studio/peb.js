@@ -1,3 +1,12 @@
 {
-    "esversion": 6
+    "esversion": 6,
+    "globals": {
+      "define": true,
+      "module": true,
+      "export": true,
+      "console": true,
+      "THREE": true,
+      "TWEEN": true,
+      "Stats": true
+    }
 }
