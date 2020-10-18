@@ -9,13 +9,13 @@
 (function (global, factory) {
     'use strict';
 
-    if (typeof module === "object" && typeof module.exports === "object") {
+    if (typeof module === 'object' && typeof module.exports === 'object') {
         // CommonJS
         module.exports = factory(global);
 
     } else if (typeof define === 'function' && define.amd) {
         // AMD
-        define("peb", [], function () {
+        define('peb', [], function () {
             return factory(global);
         });
 
@@ -29,8 +29,8 @@
 })(globalThis, function (window) {
     'use strict';
     function peb() {
-        this.name = "peb";
-        console.info('Peb.js 3.1.0 is aviliable');
+        this.name = 'peb';
+        console.info('Peb.js 3.1.0 is aviliable!');
     }
 
     // Error type
@@ -583,7 +583,7 @@
       */
     peb.camelCase = function (str) {
         return str.replace(/[ -]./g, (word) => {
-            return word.replace(/[ -]/g, "").toUpperCase();
+            return word.replace(/[ -]/g, '').toUpperCase();
         });
     };
 
@@ -616,7 +616,6 @@
      * @param {string | number} obj 
      */
     peb.isdigit = function (obj) {
-        // isNan supports string
         return !isNaN(obj - 0);
     };
 
@@ -673,7 +672,7 @@
         if (window.location) {
             let str = location.search;
 
-            return JSON.parse("{\"" + decodeURIComponent(str.replace(/[?]/g, "").replace(/=/g, "\":\"").replace(/&/g, "\",\"")) + "\"}");
+            return JSON.parse('{\"' + decodeURIComponent(str.replace(/[?]/g, '').replace(/=/g, '\":\"').replace(/&/g, '\",\"')) + '\"}');
 
         } else {
             throw ReferenceError('window.location is not defined');
