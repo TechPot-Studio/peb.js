@@ -33,7 +33,7 @@ jobs:
           # Run with verbose output
           verbose: # optional
           # API token to retrieve your remote Codacy configuration for the project being analyzed
-          project-token: 3cf32c2b188944b7bd1359d4d5a4cc7d
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           # Codacy's API URL, to retrieve your remote Codacy configuration
           codacy-api-base-url: # optional
           # Format of the output file
