@@ -1,0 +1,7 @@
+.github/
+docs/
+dist/
+*.md
+*.json
+LICENSE
+*.d.ts
