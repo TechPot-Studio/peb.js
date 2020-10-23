@@ -23,11 +23,10 @@ jobs:
 
   check-quality:
     runs-on: ubuntu-latest
-    name: Codacy Analysis CLI
+    name: Codacy Analysis
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
       - name: Run codacy-analysis-cli
         uses: codacy/codacy-analysis-cli-action@1.1.0
         with:
