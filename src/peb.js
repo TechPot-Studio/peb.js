@@ -54,6 +54,13 @@
             this.name = 'PebNullObjectError';
         }
     }
+    
+    class PebMissingParameterError extends PebError {
+        constructor(message) {
+            super(message)
+            this.name = 'PebMissingParameterError';
+        }
+    }
 
     peb.PebError = PebError;
     peb.PebExtensionError = PebExtensionError;
@@ -64,9 +71,15 @@
 
     let document = window.document
       , arr = []
-      , exist = function (value) {
+      , reqArg = (name) => {
+          throw new PebMissingParameterError(name ? "Missing parameter " + name : "Missing required parameters");
+        }
+      , exist = (value) => {
           return !(typeof (value) === 'undefined');
         };
+    
+    peb.reqArg = reqArg;
+    
     if (window.window) {
         customElements.define('p-trans', window.pebTransElement = class PebTransElement extends HTMLElement {
             constructor() {
@@ -205,6 +218,7 @@
               , result;
             
             operationCard.innerHTML = str;
+            result = operationCard.children;
 
             if (result.length === 1) {
                 return result[0];
@@ -668,11 +682,11 @@
     /**
      * Get search string data
      */
-    peb.getSearchData = function () {
+    peb.getSearchData = function (data) {
         if (window.location) {
-            let str = location.search;
+            let str = data || location.search;
 
-            return JSON.parse('{\"' + decodeURIComponent(str.replace(/[?]/g, '').replace(/=/g, '\":\"').replace(/&/g, '\",\"')) + '\"}');
+            return JSON.parse('{\"' + decodeURIComponent(str.replace(/\"/g,'\\\"').replace(/[?]/g, '').replace(/=/g, '\":\"').replace(/&/g, '\",\"')) + '\"}');
 
         } else {
             throw ReferenceError('window.location is not defined');
