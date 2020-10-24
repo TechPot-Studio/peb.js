@@ -74,9 +74,7 @@
       , reqArg = (name) => {
           throw new PebMissingParameterError(name ? 'Missing parameter ' + name : 'Missing required parameters');
         }
-      , exist = (value) => {
-          return !(typeof (value) === 'undefined');
-        };
+      , exist = (value) => !(typeof (value) === 'undefined');
     
     peb.reqArg = reqArg;
     
