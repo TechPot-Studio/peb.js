@@ -72,7 +72,7 @@
     let document = window.document
       , arr = []
       , reqArg = (name) => {
-          throw new PebMissingParameterError(name ? "Missing parameter " + name : "Missing required parameters");
+          throw new PebMissingParameterError(name ? 'Missing parameter ' + name : 'Missing required parameters');
         }
       , exist = (value) => {
           return !(typeof (value) === 'undefined');
