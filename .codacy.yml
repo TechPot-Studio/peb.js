@@ -1,0 +1,9 @@
+---
+# exclude_paths:
+#   - '.github/**'
+#   - 'docs/**'
+#   - 'dist/**'
+#   - '**.md'
+#   - '**.json'
+#   - 'LICENSE'
+#   - '**.d.ts'
