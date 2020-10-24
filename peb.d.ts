@@ -442,6 +442,8 @@ declare module 'peb' {
 
         /**
          * Generate a node
+         * 
+         * **Warning:** This method will be removed in the next major version
          */
         namespace genNode {
             /**
