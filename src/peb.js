@@ -69,8 +69,7 @@
 
     // Core
 
-    let document = window.document
-      , arr = []
+    let arr = []
       , reqArg = (name) => {
           throw new PebMissingParameterError(name ? 'Missing parameter ' + name : 'Missing required parameters');
         }
@@ -79,13 +78,14 @@
     peb.reqArg = reqArg;
     
     if (window.window) {
-        customElements.define('p-trans', window.pebTransElement = class PebTransElement extends HTMLElement {
+        customElements.define('p-trans', class PebTransElement extends HTMLElement {
             constructor() {
                 super();
+                this.style.display = 'inline';
             }
         });
 
-        customElements.define('p-mark', window.pebMarkElement = class PebMarkElement extends HTMLElement {
+        customElements.define('p-mark', class PebMarkElement extends HTMLElement {
             constructor() {
                 super();
                 this.style.color = 'attr(color),inherit';
@@ -233,6 +233,30 @@
         text: function (text) {
             return document.createTextNode(String(text));
         }
+    };
+
+    /**
+     * Create an element
+     * @param {} name
+     * @param {object} options
+     */
+    peb.createElement = function (name, attr, inner = '', ...child) {
+        let result = document.createElement(name)
+          , setMultipleAttributes = (target, objectSeq) => {
+              Object.keys(objectSeq).forEach((attrName) => {
+                  target.setAttribute(attrName, objectSeq[attrName]);
+              });
+          }
+          , addMultipleChildrenToElement = (target, children) => {
+              if (!children) return false;
+              children.forEach((eachChild) => {
+                  target.appendChild(eachChild)
+              });
+          };
+        result.innerHTML = content;
+        setMultipleAttributes(result, attr);
+        addMultipleChildrenToElement(result, child)
+        return result;
     };
 
     /**
