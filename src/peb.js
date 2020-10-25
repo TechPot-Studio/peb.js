@@ -546,7 +546,7 @@
 
         request.open(arg.type, arg.url, true);
         request.send(arg.data || null);
-        request.responseType = config.response || "text";
+        request.responseType = config.response || 'text';
         request.onreadystatechange = function () {
             if (request.readyState === 4) {
                 if (request.status === 200) {
