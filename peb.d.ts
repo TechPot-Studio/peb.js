@@ -51,9 +51,6 @@ declare module 'peb' {
             constructor(message: string)
         }
 
-        
-
-
         /**
          * Define translator of `peb-trans` HTML tag
          */
