@@ -239,17 +239,20 @@
      * @param {(HTMLElement | Node)[]} child
      */
     peb.createElement = function (name, attr, inner = '', ...child) {
-        let result = document.createElement(name)
-          , setMultipleAttributes = (target, objectSeq) => {
-              Object.keys(objectSeq).forEach((attrName) => {
-                  target.setAttribute(attrName, objectSeq[attrName]);
-              });
-          }
-          , addMultipleChildrenToElement = (target, children) => {
-              if (!children) return false;
-              children.forEach((eachChild) => {
-                  target.appendChild(eachChild)
-              });
+        let result = document.createElement(name),
+            setMultipleAttributes = (target, objectSeq) => {
+                Object.keys(objectSeq).forEach((attrName) => {
+                    target.setAttribute(attrName, objectSeq[attrName])
+                });
+            },
+            addMultipleChildrenToElement = (target, children) => {
+                if (!children) {
+                    return false;
+                }
+
+                children.forEach((eachChild) => {
+                    target.appendChild(eachChild)
+                });
           };
         result.innerHTML = inner;
         setMultipleAttributes(result, attr);
