@@ -30,7 +30,7 @@
     'use strict';
     function peb() {
         this.name = 'peb';
-        console.info('Peb.js 3.1.0 is aviliable!');
+        console.info('Peb.js 3.1.0 is available!');
     }
 
     // Error type
@@ -67,15 +67,12 @@
     peb.PebNullObjectError = PebExtensionError;
 
 
-    // Core
-
-    let arr = []
-      , reqArg = (name) => {
-          throw new PebMissingParameterError(name ? 'Missing parameter ' + name : 'Missing required parameters');
-        }
+    // Cor
+    let emptyArray = []
       , exist = (value) => !(typeof (value) === 'undefined');
-    
-    peb.reqArg = reqArg;
+    peb.reqArg = (name) => {
+        throw new PebMissingParameterError(name ? 'Missing parameter ' + name : 'Missing required parameters');
+    };
     
     if (window.window) {
         customElements.define('p-trans', class PebTransElement extends HTMLElement {
@@ -313,17 +310,17 @@
                         break;
                 }
             } else {
-                this.element.dataset[n] = String(f);
-                return String(f);
+                this.element.dataset[name] = String(value);
+                return String(value);
             }
         }
 
-        item(key, value) {
+        get(key, value) {
             if (exist(value)) {
-                element[key] = value;
+                this.element[key] = value;
                 return value;
             } else {
-                return element[key];
+                return this.element[key];
             }
         }
 
@@ -670,7 +667,7 @@
     /**
      * forEach in ANY OBJECT TYPE
      * @param {object} obj Object for each
-     * @param {funtion} callbackFn call back function
+     * @param {Function} callbackFn call back function
      */
     peb.forEach = function (obj, callbackFn) {
         Object.keys(obj).forEach((value, _, object) => {
@@ -682,6 +679,7 @@
      * Return is this in array
      * @param {array} arr
      * @param {any} obj
+     * @param {boolean} returnIndex
      */
     peb.inArray = function (arr, obj, returnIndex = false) {
         if (returnIndex) {
@@ -693,7 +691,7 @@
 
     /**
      * Slice string or array
-     * @param {Array<any> | string} obj
+     * @param {Array<> | string} obj
      * @param {number} start
      * @param {number} end
      */
@@ -736,7 +734,7 @@
     peb.parseJson = JSON.parse;
     peb.stringifyJson = JSON.stringify;
     peb.now = Date.now;
-    peb.insert = arr.push.call;
+    peb.insert = emptyArray.push.call;
 
     // Return final object
     window.peb = peb;
