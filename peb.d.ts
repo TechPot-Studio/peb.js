@@ -57,7 +57,7 @@ declare module 'peb' {
         /**
          * Define translator of `peb-trans` HTML tag
          */
-        class translationTable {
+        class TranslationTable {
 
             /**
              * translation table constructor
@@ -67,7 +67,7 @@ declare module 'peb' {
             /**
              * Set translation table
              */
-            set set(table: translationTable)
+            set set(table: TranslationTable)
 
             /**
              * Get table value
@@ -107,7 +107,7 @@ declare module 'peb' {
          * Create an operable element or be a `sel` function result
          */
         class RElement {
-            constructor(element: HTMLElement|Node)
+            constructor(element: HTMLElement)
 
             /**
              * Edit attribute `attributeName` to `becoming`
@@ -168,7 +168,7 @@ declare module 'peb' {
             /**
              * Insert to another element and delete this element
              */
-            insertTo(node: HTMLElement|Node|RElement): void
+            insertTo(node: HTMLElement|RElement): void
 
             /**
              * Delete element
@@ -323,7 +323,7 @@ declare module 'peb' {
          *
          * As known as: `genNode.element`
          */
-        function createElement(name: string, attributes: object, inner?: string, ...child: (HTMLElement|Node)[])
+        function createElement(name: string, attributes: object, inner?: string, ...child: (HTMLElement)[])
 
         /**
          * Send log to console
