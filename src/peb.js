@@ -114,7 +114,7 @@
              * @param {boolean} isLoop
              */
             loop(isLoop) {
-                this.player.onended = isLoop ? this.player.play : () => { return; };
+                this.player.onended = isLoop ? this.player.play : () => { };
             }
         };
     }
@@ -128,8 +128,7 @@
 
         /**
          * Set value
-         * @param {{ [lang: string]: { [word: string]: string; }; }} newTabel
-         * @return {undefined}
+         * @param {object} newTabel
          */
         set set(newTabel) {
             Object.keys(newTabel).forEach(function (lang) {
@@ -150,7 +149,7 @@
          */
         translation(lang) {
             document.querySelectorAll('peb-trans').forEach(function (element) {
-                element.innerHTML = this.table[lang][c.getAttribute('p-word')];
+                element.innerHTML = this.table[lang][element.getAttribute('p-word')];
             });
         }
     };
@@ -182,7 +181,7 @@
 
         if (typeof globalThis !== 'undefined') {
             return globalThis;
-        };
+        }
 
         // None of them
         return undefined;
@@ -234,8 +233,10 @@
 
     /**
      * Create an element
-     * @param {} name
-     * @param {object} options
+     * @param {string} name
+     * @param {object} attr
+     * @param {string} inner
+     * @param {(HTMLElement | Node)[]} child
      */
     peb.createElement = function (name, attr, inner = '', ...child) {
         let result = document.createElement(name)
@@ -250,7 +251,7 @@
                   target.appendChild(eachChild)
               });
           };
-        result.innerHTML = content;
+        result.innerHTML = inner;
         setMultipleAttributes(result, attr);
         addMultipleChildrenToElement(result, child)
         return result;
@@ -530,35 +531,30 @@
         }
     };
 
-    peb.ajax = function (type, url, data, success, fail) {
+    /**
+     *
+     * @param {object} config
+     */
+    peb.ajax = function (config) {
         let request = new XMLHttpRequest()
-            , args;
-        // The parameters are more complicated and can be passed in with `Object` objects
-        if (arguments.length === 1 && type instanceof Object) {
-            args = type;
-        } else {
-            // If it is passed in in the normal order
-            args = {
-                type: type,
-                url: url,
-                data: data,
-                success: success,
-                fail: fail,
-            };
-        }
+          , arg = config;
+        arg.success = config.success || function () {};
+        arg.fail = config.fail || function () {};
+
+        request.open(arg.type, arg.url, true);
+        request.send(arg.data || null);
+        request.responseType = config.response || "text";
         request.onreadystatechange = function () {
-            if (request.readystate === '4' && request.status === '200') {
-                if (args.success) {
-                    args.success(request.responseText, request.responseXML);
-                }
-            } else {
-                if (args.fail) {
-                    args.fail();
+            if (request.readyState === 4) {
+                if (request.status === 200) {
+                    // 200: Loading or Successful
+                    arg.success(request.response);
+                } else {
+                    // 0: Unset or Opened
+                    arg.fail();
                 }
             }
-        };
-        request.open(args.type, args.url, true);
-        request.send(data || null);
+        }
     };
 
     /**
@@ -622,7 +618,7 @@
 
     /**
      * Get a class of value
-     * @param {any} val 
+     * @param {any} obj
      */
     peb.classof = function (obj) {
         if (obj && obj.constructor && obj.constructor.toString()) {
@@ -706,7 +702,7 @@
         if (window.location) {
             let str = data || location.search;
 
-            return JSON.parse('{\"' + decodeURIComponent(str.replace(/\"/g,'\\\"').replace(/[?]/g, '').replace(/=/g, '\":\"').replace(/&/g, '\",\"')) + '\"}');
+            return JSON.parse('{\"' + decodeURIComponent(str.replace(/"/g,'\\\"').replace(/[?]/g, '').replace(/=/g, '\":\"').replace(/&/g, '\",\"')) + '\"}');
 
         } else {
             throw ReferenceError('window.location is not defined');
