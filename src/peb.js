@@ -117,11 +117,9 @@
             loop(isLoop) {
                 this.player.onended = isLoop ? this.player.play : () => { };
             }
+
         };
     }
-
-    class GeneratedElement extends HTMLElement {}
-    
     peb.TranslationTable = class TranslationTable {
         constructor(table) {
             if (typeof (table) === 'object') {
