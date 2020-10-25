@@ -70,6 +70,7 @@
     // Cor
     let emptyArray = [],
         exist = (value) => !(typeof (value) === 'undefined');
+
     peb.reqArg = (name) => {
         throw new PebMissingParameterError(name ? 'Missing parameter ' + name : 'Missing required parameters');
     };
@@ -118,8 +119,10 @@
             }
         };
     }
+
+    class GeneratedElement extends HTMLElement {}
     
-    peb.translationTable = class translationTable {
+    peb.TranslationTable = class TranslationTable {
         constructor(table) {
             if (typeof (table) === 'object') {
                 this.tabel = table;
@@ -338,16 +341,8 @@
             });
         }
 
-        insertTo(node) {
-            let target;
-            if (node instanceof HTMLElement || node instanceof Node) {
-                target = node;
-            }
-            if (node instanceof RElement) {
-                target = node.element;
-            }
-            target.appendChild(element);
-            this.element.parentNode.removeChild(element);
+        insertTo(target) {
+            target.appendChild(this.element)
         }
 
         del() {
