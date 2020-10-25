@@ -12,8 +12,10 @@ declare module 'peb' {
         url: string,
         /** Data to send */
         data?: string,
+        /** Response type */
+        response?: string,
         /** Function to do when success */
-        success?: (text: string, xml: Document) => void,
+        success?: (response: any) => void,
         /** Function to do when fail */
         fail?: () => void
     }
@@ -65,7 +67,7 @@ declare module 'peb' {
             /**
              * Set translation table
              */
-            set set(table: translationTable): translationTable
+            set set(table: translationTable)
 
             /**
              * Get table value
@@ -223,7 +225,7 @@ declare module 'peb' {
             /**
              * Add event listener
              */
-            on(event: string, listener: function): void
+            on(event: string, listener: Function): void
 
             /**
              * Add multiple event listener
@@ -381,7 +383,7 @@ declare module 'peb' {
          * @param arr Array
          * @param items Items to insert
          */
-        function insert(arr: array, ...items: any[]): number
+        function insert(arr: Array<any>, ...items: any[]): number
 
         /**
          * Slice array or string
@@ -390,7 +392,7 @@ declare module 'peb' {
          * @param start Start index
          * @param end End index
          */
-        function slice(obj: string|Array, start: number, end?: number): string|Array
+        function slice(obj: string|Array<any>, start: number, end?: number): string|Array<any>
 
         /**
          * Get JSON Object format of location.search
