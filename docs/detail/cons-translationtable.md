@@ -1,8 +1,8 @@
-# Constructor `translationTable`
-The last updated version of this function: 2.2.0
+# Constructor `TranslationTable`
+The last updated version of this function: 3.1.0
 ## Construct
 ```javascript
-new peb.translationTable(tabel: object)
+new peb.TranslationTable(tabel: object)
 ```
 
 ## Object Method
