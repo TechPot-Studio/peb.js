@@ -319,6 +319,13 @@ declare module 'peb' {
         function ajax(args: ajaxConfigOptions): void
 
         /**
+         * Create an element
+         *
+         * As known as: `genNode.element`
+         */
+        function createElement(name: string, attributes: object, inner?: string, ...child: (HTMLElement|Node)[])
+
+        /**
          * Send log to console
          */
         function log(...data: any[]): void
@@ -443,7 +450,7 @@ declare module 'peb' {
         function forEach(obj: any, callbackFn: (current: any, index: number, array: any[]) => void): void
 
         /**
-         * Generate a node
+         * ~~Generate a node~~
          * 
          * **Warning:** This method will be removed in the next major version
          */
