@@ -38,7 +38,7 @@ declare module 'peb' {
     namespace peb {
 
         /**
-         * Peb basicly error type.
+         * Peb basically error type.
          * All other peb error are extending this.
          */
         class PebError extends Error {
@@ -75,13 +75,13 @@ declare module 'peb' {
             get get(): object
 
             /**
-             * Translation by languange
+             * Translation by language
              */
             translate(lang: string): void
         }
 
         /**
-         * Create an operatable elements collection
+         * Create an operable elements collection
          */
         class RElementsCollection {
             /**
@@ -104,7 +104,7 @@ declare module 'peb' {
         }
 
         /**
-         * Create an operatable element or be a `sel` function result
+         * Create an operable element or be a `sel` function result
          */
         class RElement {
             constructor(element: HTMLElement|Node)
@@ -309,12 +309,12 @@ declare module 'peb' {
         function sel(element: HTMLElement|HTMLCollection|Node|NodeList): RElement|RElementsCollection
 
         /**
-         * Send HTTPXML Request
+         * Send HTTP XML Request
          */
         function ajax(type: string, url: string, data: any, success?: (text: string, xml: Document) => void, fail?: () => void): void
 
         /**
-         * Send HTTPXML Request
+         * Send HTTP XML Request
          */
         function ajax(args: ajaxConfigOptions): void
 
@@ -388,7 +388,7 @@ declare module 'peb' {
         /**
          * Slice array or string
          * 
-         * @param obj String or arrray
+         * @param obj String or array
          * @param start Start index
          * @param end End index
          */
@@ -399,7 +399,7 @@ declare module 'peb' {
          * 
          * Example:
          * ```plain
-         * locahost:8080/?foo=b%20ar&bar=foo-foo1-foo2
+         * localhost:8080/?foo=b%20ar&bar=foo-foo1-foo2
          * ```
          * ```
          * getSearchData(); // {foo: "b ar", bar: "foo-foo1-foo2"}
@@ -408,7 +408,7 @@ declare module 'peb' {
         function getSearchData(): object
 
         /**
-         * Get a number or string is numberic
+         * Get a number or string is numeric
          */
         function isdigit(obj: string|number): boolean
 
@@ -452,7 +452,7 @@ declare module 'peb' {
              * Generate a new element with innerHTML and attributes
              * 
              * @param nodeName Node name
-             * @param inner Inner HTML of the e;ement
+             * @param inner Inner HTML of the element
              * @param attr Object of attributes
              */
             function element(nodeName: string, inner?: string, attr?: object): HTMLElement

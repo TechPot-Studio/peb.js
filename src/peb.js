@@ -68,8 +68,8 @@
 
 
     // Cor
-    let emptyArray = []
-      , exist = (value) => !(typeof (value) === 'undefined');
+    let emptyArray = [],
+        exist = (value) => !(typeof (value) === 'undefined');
     peb.reqArg = (name) => {
         throw new PebMissingParameterError(name ? 'Missing parameter ' + name : 'Missing required parameters');
     };
@@ -121,19 +121,19 @@
     
     peb.translationTable = class translationTable {
         constructor(table) {
-            if (typeof (tabel) === 'object') {
+            if (typeof (table) === 'object') {
                 this.tabel = table;
             }
         }
 
         /**
          * Set value
-         * @param {object} newTabel
+         * @param {object} newTable
          */
-        set set(newTabel) {
-            Object.keys(newTabel).forEach(function (lang) {
-                (newTabel[lang]).forEach(function (word) {
-                    this.tabel[lang][word] = newTabel[lang][word];
+        set set(newTable) {
+            Object.keys(newTable).forEach(function (lang) {
+                (newTable[lang]).forEach(function (word) {
+                    this.tabel[lang][word] = newTable[lang][word];
                 });
             });
             return this;
@@ -176,7 +176,7 @@
 
         // CommonJS
         if (typeof global === 'object') return global;
-        // Webworker
+        // WebWorker
         if (typeof self === 'object') return self;
 
         if (typeof globalThis !== 'undefined') {
@@ -208,8 +208,8 @@
          * @param {string} str String
          */
         fromStr: function (str) {
-            let operationCard = document.createElement('peb-operation-card')
-              , result;
+            let operationCard = document.createElement('peb-operation-card'),
+                result;
             
             operationCard.innerHTML = str;
             result = operationCard.children;
