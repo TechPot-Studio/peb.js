@@ -377,6 +377,38 @@ declare module 'peb' {
         function camelCase(str: string): string
 
         /**
+         * A map to store data
+         */
+        class dataMap {
+            /**
+             * Construct a empty map
+             */
+            constructor()
+
+            /**
+             * Set key to value
+             */
+            set(key: string, value: any): void
+
+            /**
+             * Get a value by key
+             */
+            get(key: string): any
+
+            /**
+             * Get all keys
+             */
+            keys(): Array<string>
+
+            /**
+             * Lock a type to make all of add in values match or throw an error
+             *
+             * @throws {ReferenceError|TypeError}
+             */
+            lockType(type: Function)
+        }
+
+        /**
          * Get constructor name of the object
          */
         function getclass(obj: any): string
