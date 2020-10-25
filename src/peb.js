@@ -104,8 +104,9 @@
             destroy(obj) {
                 document.body.removeChild(obj.player);
             }
-            play() {
-                this.player.play();
+
+            async play() {
+                return this.player.play();
             }
             pause() {
                 this.player.pause();
