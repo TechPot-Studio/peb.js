@@ -529,7 +529,7 @@
     };
 
     /**
-     *
+     * Send ajax requests
      * @param {object} config
      */
     peb.ajax = function (config) {
@@ -722,6 +722,44 @@
     peb.stringTimes = function (string, times, connector = '') {
         return new Array(times).fill(string).join(connector);
     };
+
+    /**
+     * Data map
+     */
+    peb.dataMap = class {
+        constructor() {
+            /* Generate a object with no proto */
+            this.map = new Object(null);
+            this.lockedType = null;
+        }
+
+        lockType(type) {
+            if (type === undefined) {
+                throw new ReferenceError('Type locking of undefined is meaningless');
+            } else if (typeof type !== 'function') {
+                throw new TypeError('Locked type is not a constructor')
+            } else {
+                this.lockedType = type;
+            }
+        }
+
+        get(key) {
+            return this.map[key];
+        }
+
+        set(key, value) {
+            if (this.lockedType !== null && value instanceof this.lockedType) {
+                this.map[key] = value;
+            } else {
+                throw new TypeError('The type is locked but the incoming value does not match');
+            }
+        }
+
+        keys() {
+            return Object.keys(this.map);
+        }
+
+    }
 
     // Common function integration
     peb.parseJson = JSON.parse;
