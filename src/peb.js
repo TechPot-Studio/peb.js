@@ -67,8 +67,8 @@
     peb.PebNullObjectError = PebExtensionError;
 
 
-    // Cor
-    let emptyArray = [],
+    // Core
+    let emptyArray = [null],
         exist = (value) => !(typeof (value) === 'undefined');
 
     peb.reqArg = (name) => {
