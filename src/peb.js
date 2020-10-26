@@ -266,7 +266,7 @@
      * Convert HTMLElement to operatable element
      * @param {HTMLElement | Node} element 
      */
-    peb.RElement = class {
+    peb.RElement = class RElement {
         constructor(element) {
             if (element === null) {
                 throw new PebNullObjectError('Element is null');
@@ -280,10 +280,10 @@
             Object.freeze(this);
         }
         
-        attr(name, index) {
+        attr(name, value) {
             if (!exist(name)) {
                 return this.element.attributes;
-            } else if (!exist(index)) {
+            } else if (!exist(value)) {
                 switch (typeof (name)) {
                     case 'string':
                         return this.element.getAttribute(name);
@@ -294,7 +294,7 @@
                         break;
                 }
             } else {
-                return this.element.setAttribute(n, String(f));
+                return this.element.setAttribute(name, String(value));
             }
         }
 
@@ -466,7 +466,7 @@
      * Convert HTMLCollection to operatable element collection
      * @param {HTMLCollection | NodeList} elements
      */
-    peb.RElementsCollection = class {
+    peb.RElementsCollection = class RElementsCollection {
         constructor(elements) {
             if (elements === null) {
                 throw new PebNullObjectError('Element is null');
@@ -507,23 +507,23 @@
 
             if (matchesElements.length === 1) {
                 // ONLY MATCHES 1
-                return new this.RElement(matchesElements.item(0));
+                return new RElement(matchesElements.item(0));
 
             } else if (exist(index)) {
-                return new this.RElement(matchesElements.item(index));
+                return new RElement(matchesElements.item(index));
 
             } else {
-                return new this.RElementsCollection(matchesElements);
+                return new RElementsCollection(matchesElements);
 
             }
         } else {
             // Instant covert
 
             if (selector instanceof HTMLElement || selector instanceof Node) {
-                return new this.RElement(selector);
+                return new RElement(selector);
             }
             if (selector instanceof HTMLCollection || selector instanceof NodeList) {
-                return new this.RElementsCollection(selector);
+                return new RElementsCollection(selector);
             }
         }
     };
