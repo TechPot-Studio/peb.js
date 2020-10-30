@@ -39,7 +39,7 @@ Microsoft's support for Internet Explorer has ended. We will also discontinue it
 
 ## Installation
 ### Using **NPM**
-[![NPM informations](https://nodei.co/npm/peb.png?compact=true)](https://www.npmjs.com/package/peb)
+[![NPM information](https://nodei.co/npm/peb.png?compact=true)](https://www.npmjs.com/package/peb)
 
 ```shell
 $ npm install peb
@@ -73,5 +73,10 @@ Number is the **least** version it supports
 Go to the function documentation to view the specific supported browsers of the function  
 **The source of this information: [*developer.mozilla.org*](//developer.mozilla.org)**
 
-## Assignees
+## Assignments
 [@TechPot-Studio/pebjs](https://github.com/orgs/TechPot-Studio/teams/pebjs)
+
+## Special Thanks to
+### Software Support
+[WebStorm](https://www.jetbrains.com/webstorm/)  
+[Visual Studio Code](https://visualstudio.com)   
