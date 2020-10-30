@@ -116,7 +116,11 @@
              * @param {boolean} isLoop
              */
             loop(isLoop) {
-                this.player.onended = isLoop ? this.player.play : () => { };
+                if (isLoop) {
+                    this.player.addEventListener("ended", this.play);
+                } else {
+                    this.player.removeEventListener("ended", this.play);
+                }
             }
 
         };
@@ -173,20 +177,8 @@
     };
 
     peb.getGlobal = function () {
-        // window was a parameter
-        if (window.window) return window;
-
-        // CommonJS
-        if (typeof global === 'object') return global;
-        // WebWorker
-        if (typeof self === 'object') return self;
-
-        if (typeof globalThis !== 'undefined') {
-            return globalThis;
-        }
-
-        // None of them
-        return undefined;
+        // globalThis is read-only
+        return window;
     };
 
     peb.genNode = {
