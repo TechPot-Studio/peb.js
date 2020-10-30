@@ -117,9 +117,9 @@
              */
             loop(isLoop) {
                 if (isLoop) {
-                    this.player.addEventListener("ended", this.play);
+                    this.player.addEventListener('ended', this.play);
                 } else {
-                    this.player.removeEventListener("ended", this.play);
+                    this.player.removeEventListener('ended', this.play);
                 }
             }
 
