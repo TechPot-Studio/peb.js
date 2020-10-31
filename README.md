@@ -38,13 +38,13 @@ Microsoft's support for Internet Explorer has ended. We will also discontinue it
 </p>
 
 ### JQuery Writing Habits
-Peb.js
+Peb.js 3.2.0+
 ```js
-peb.sel('div#foo').html("bar");
+peb.sel('div#foo').toggleVisible();
 ```
 JQuery
 ```js
-$('div#foo').html("bar");
+$('div#foo').toggle();
 ```
 
 ## Installation

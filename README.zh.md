@@ -37,6 +37,16 @@
 <img src="https://forthebadge.com/images/badges/built-with-love.svg" />
 </p>
 
+### JQuery的书写习惯
+Peb.js 3.2.0+
+```js
+peb.sel('div#foo').toggleVisible();
+```
+JQuery
+```js
+$('div#foo').toggle();
+```
+
 **文档**: [查看](./docs)
 ## 下载
 ### 使用 **NPM**
