@@ -9,16 +9,18 @@ Version with this added: *2.3.0*
 ```
 #### JS
 ```javascript
-const t = new peb.translationTabel({
+const t = new peb.TranslationTable({
     "en-us": {
-        "generic.example_word": "That's a example text"
+        "generic.example_word": "Example text"
     },
     "zh-cn": {
-        "generic.example_word": "这是一个实例文本"
+        "generic.example_word": "实例文本"
     }
 });
 t.translate("en-us");
 ```
+#### Result
+Example text
 ## Browser Support
 | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/chrome.svg" width="30" /> | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/firefox.svg" width="30" /> | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/safari.svg" width="30" /> | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/opera.svg" width="30" /> | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/edge.svg" width="30" /> |
 | :---: | :---: | :---: | :---: | :---: | :---: |

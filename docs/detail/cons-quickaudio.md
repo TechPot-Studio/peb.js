@@ -1,8 +1,10 @@
 # Constructor `QuickAudio`
-The last updated version of this function: *3.0.0-pre.3*
+~~The last updated version of this function: *3.0.0-pre.3*~~
+
+This method has been **deprecated**. Will be removed in 4.0.0.
 ## Construct
 ```javascript
-new peb.QuickAudio(url: string)
+new peb.QuickAudio(url)
 ```
 Use JavaScript to play audio
 ## Object Method

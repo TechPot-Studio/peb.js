@@ -1,9 +1,12 @@
 ## Documents
 Check these documents to understand how to use functions and other functions!  
 We are committed to creating a good community environment.
+
+*Test features will not available at documents but you can use it in typings file*
 ### Contents
 - Constructors  
   * [peb.QuickAudio](./detail/cons-quickaudio.md)
+  * [peb.RElement](./detail/cons-relement.md)
 - Functions  
   <!-- A -->
   * [peb.ajax()](./detail/func-ajax.md)
@@ -49,3 +52,5 @@ We are committed to creating a good community environment.
   * [peb.console](./detail/meth-log.md)
 ### ProTips
 It is not recommended to view the documentation. Please use `peb.d.ts` typings file
+
+The `Docs` folder may be **removed** in 4.0.0
