@@ -300,6 +300,28 @@
             }
         }
 
+        animate(time, styles) {
+            let startTimestamp,
+                startStyle = this.element.style;
+            function step(timestamp) {
+                if (startTimestamp !== undefined) {
+                    startTimestamp = timestamp;
+                }
+                let elapsed = timestamp - startTimestamp,
+                    currentStyle = this.element.style;
+                Object.keys(styles).forEach((name) => {
+                    let unit = startStyle[name].match(/[^0-9]+/g),
+                        startValue = startStyle[name].match(/[0-9]+/g)-0,
+                        aimValue = styles[name].match(/[0-9]+/g)-0;
+                    currentStyle[name] = Math.min((aimValue - startValue) / time * elapsed + startValue, styles[name]) + unit;
+                });
+
+                requestAnimationFrame(step);
+            }
+
+            requestAnimationFrame(step);
+        }
+
         class() {
             return this.element.classList;
         }
