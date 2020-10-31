@@ -6,22 +6,22 @@
  * @copyright TechPot Studio and other contributors
  */
 
-(function (global, factory) {
+(function (window, factory) {
     'use strict';
 
     if (typeof module === 'object' && typeof module.exports === 'object') {
         // CommonJS
-        module.exports = factory(global);
+        module.exports = factory(window);
 
     } else if (typeof define === 'function' && define.amd) {
         // AMD
         define('peb', [], function () {
-            return factory(global);
+            return factory(window);
         });
 
     } else {
         // Browser
-        factory(global);
+        factory(window);
     }
 
     // ES6: Outside the function
@@ -54,6 +54,13 @@
             this.name = 'PebNullObjectError';
         }
     }
+
+    class PebMissingEnvironmentError extends PebError {
+        constructor(message) {
+            super(message);
+            this.name = 'PebMissingEnvironmentError'
+        }
+    }
     
     class PebMissingParameterError extends PebError {
         constructor(message) {
@@ -65,6 +72,7 @@
     peb.PebError = PebError;
     peb.PebExtensionError = PebExtensionError;
     peb.PebNullObjectError = PebExtensionError;
+    peb.PebMissingEnvironmentError = PebMissingEnvironmentError;
 
 
     // Core
@@ -333,11 +341,11 @@
         }
 
         insertTo(target) {
-            target.appendChild(this.element)
+            target.appendChild(this.element);
         }
 
         del() {
-            return this.element.parentNode.removeChild(element);
+            return this.element.parentNode.removeChild(this.element);
         }
 
         html(value) {
@@ -381,15 +389,12 @@
 
         on(event, listener) {
             let bindEventListener = function (eventStr, callback) {
-                if (this.element.addEventListener) {
-                    this.element.addEventListener(eventStr, callback);
-                } else {
-                    this.element.attachEvent('on' + eventStr, callback.call(element));
-                }
+                this.element.addEventListener(eventStr, callback);
             };
+
             if (exist(listener)) {
                 bindEventListener(event, listener);
-            } else if (typeof listener === 'object') {
+            } else if (typeof listener === 'object' && arguments.length === 1) {
                 Object.keys(event).forEach(function (current) {
                     bindEventListener(current, event[current]);
                 });
@@ -547,7 +552,7 @@
     };
 
     /**
-     * print to console
+     * Print to console
      * @param {any[]} data
      */
     peb.log = function (...data) {
@@ -555,7 +560,7 @@
     };
 
     /**
-     * print to console
+     * Print to console
      * @param {any[]} data
      */
     peb.log.error = function (...data) {
@@ -563,7 +568,7 @@
     };
 
     /**
-     * print to console
+     * Print to console
      * @param {any[]} data
      */
     peb.log.warn = function (...data) {
@@ -576,6 +581,15 @@
     peb.log.clear = function () {
         console.clear();
     };
+
+    /**
+     * Print table to console
+     * @param {any} tabularData
+     * @param {ReadonlyArray<string>} properties
+     */
+    peb.log.table = function (tabularData, properties) {
+        console.table(tabularData, properties)
+    }
 
     /**
      * return a new string upper cased
@@ -694,7 +708,7 @@
             return JSON.parse('{\"' + decodeURIComponent(str.replace(/"/g,'\\\"').replace(/[?]/g, '').replace(/=/g, '\":\"').replace(/&/g, '\",\"')) + '\"}');
 
         } else {
-            throw ReferenceError('window.location is not defined');
+            throw PebMissingEnvironmentError('Missing environment window.location');
         }
     };
 
@@ -758,6 +772,8 @@
     peb.stringifyJson = JSON.stringify;
     peb.now = Date.now;
     peb.insert = emptyArray.push.call;
+
+    peb.SearchParams = URLSearchParams;
 
     // Return final object
     window.peb = peb;

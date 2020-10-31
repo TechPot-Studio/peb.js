@@ -345,8 +345,13 @@ declare module 'peb' {
              * Clear console
              */
             function clear(): void
+
+            /**
+             * Send table to console
+             */
+            function table(tabularData: any, properties: ReadonlyArray<string>): void
         }
-        
+
         /**
          * Wrap URL to another page
          * 
