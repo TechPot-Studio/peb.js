@@ -33,6 +33,8 @@
         console.info('Peb.js 3.1.0 is available!');
     }
 
+    peb.version = '3.1.0';
+
     // Error type
     class PebError extends Error {
         constructor(message) {
