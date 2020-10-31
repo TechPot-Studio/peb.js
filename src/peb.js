@@ -472,6 +472,11 @@
             this.element.play();
         }
 
+        // Quick bind functions
+        DOMReady(fn) {
+            this.element.addEventListener('DOMContentLoaded', fn);
+        }
+
         // RElementsCollection
         forEach(callbackFn) {
             callbackFn(this, 0, this);

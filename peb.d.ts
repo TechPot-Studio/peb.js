@@ -153,6 +153,11 @@ declare module 'peb' {
             class(): DOMSettableTokenList
 
             /**
+             * Bind function when DOM contents ready
+             */
+            DOMReady(fn: Function): void
+
+            /**
              * Click element
              */
             click(): void
