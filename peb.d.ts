@@ -36,6 +36,8 @@ declare module 'peb' {
      * A namespace of basic peb.js method peb
      */
     namespace peb {
+        /** Version of peb.js */
+        let version: string;
 
         /**
          * Peb basically error type.
@@ -44,10 +46,18 @@ declare module 'peb' {
         class PebError extends Error {
             constructor(message: string)
         }
+
         /**
-         * If required a valid object but value is none, then throw this.
+         * Throw in case of required a valid object but value is none
          */
         class PebNullObjectError extends PebError {
+            constructor(message: string)
+        }
+
+        /**
+         * Throw in case of missing node.js or browser environment
+         */
+        class PebMissingEnvironmentError extends PebError {
             constructor(message: string)
         }
 
@@ -407,10 +417,8 @@ declare module 'peb' {
 
             /**
              * Lock a type to make all of add in values match or throw an error
-             *
-             * @throws {ReferenceError|TypeError}
              */
-            lockType(type: Function)
+            lockType(type: Function): void
         }
 
         /**
