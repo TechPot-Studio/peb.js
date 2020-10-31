@@ -630,6 +630,48 @@
     }
 
     /**
+     * Start a group to console
+     * @param {string} label
+     * @param {boolean} isCollapsed
+     * @param {Function} run
+     */
+    peb.log.group = function (label, isCollapsed = false, run = undefined) {
+        if (isCollapsed) {
+            console.groupCollapsed(label);
+        } else {
+            console.group(label);
+        }
+
+        if (run) {
+            run();
+            console.groupEnd();
+        }
+    }
+
+    /**
+     * Close a group
+     */
+    peb.log.groupEnd = function () {
+        console.groupEnd();
+    }
+
+    /**
+     * Trace function call
+     */
+    peb.log.trace = function () {
+        console.trace();
+    }
+
+    /**
+     * Console assertion
+     * @param {boolean} condition
+     * @param {any[]} data
+     */
+    peb.log.assert = function (condition, ...data) {
+        console.assert(condition, ...data)
+    }
+
+    /**
      * return a new string upper cased
      * @param {string} str 
      * @return {string}
