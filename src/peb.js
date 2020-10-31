@@ -385,6 +385,14 @@
             return this.element.innerText;
         }
 
+        toggleVisible() {
+            if (this.element.dbh) {
+                this.show();
+            } else {
+                this.hide();
+            }
+        }
+
         val(value) {
             if (exist(value)) {
                 this.element.value = String(value);
@@ -407,6 +415,7 @@
                 return String(type);
             } else {
                 this.element.style.display = this.element.dbh;
+                delete this.element.dbh;
                 return this.element.dbh;
             }
         }
@@ -788,6 +797,10 @@
             } else {
                 throw new TypeError('The type is locked but the incoming value does not match');
             }
+        }
+
+        remove(key) {
+            return delete this.map[key];
         }
 
         keys() {

@@ -212,6 +212,11 @@ declare module 'peb' {
             text(): string
 
             /**
+             * Toggle element visible or hide
+             */
+            toggleVisible(): void
+
+            /**
              * Get value (`<input>` element, etc.)
              */
             val(): string
@@ -427,6 +432,11 @@ declare module 'peb' {
              * Get all keys
              */
             keys(): Array<string>
+
+            /**
+             * Remove a key
+             */
+            remove(key: string): boolean
 
             /**
              * Lock a type to make all of add in values match or throw an error
