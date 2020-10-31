@@ -329,9 +329,9 @@ declare module 'peb' {
         function sel(selector: string): RElementsCollection
 
         /**
-         * Convert Node or HTMLElement into peb RElement or RElementsCollection.
+         * Convert HTMLElement into peb RElement or RElementsCollection.
          */
-        function sel(element: HTMLElement|HTMLCollection|Node|NodeList): RElement|RElementsCollection
+        function sel(element: HTMLElement|HTMLCollection): RElement|RElementsCollection
 
         /**
          * Send HTTP XML Request
