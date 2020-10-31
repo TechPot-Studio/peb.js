@@ -34,8 +34,18 @@ Microsoft's support for Internet Explorer has ended. We will also discontinue it
 
 **Documents**: [View](./docs)
 <p align="center">
-<img src="https://forthebadge.com/images/badges/built-with-love.svg" />
+<img src="https://forthebadge.com/images/badges/built-with-love.svg" alt="NPM info" />
 </p>
+
+### JQuery Writing Habits
+Peb.js
+```js
+peb.sel('div#foo').html("bar");
+```
+JQuery
+```js
+$('div#foo').html("bar");
+```
 
 ## Installation
 ### Using **NPM**
