@@ -199,7 +199,7 @@
          * @param {object} attr Element Attributes
          * @return {HTMLElement}
          */
-        element: function (node, content = '', attr = {}) {
+        element(node, content = '', attr = {}) {
             let r = document.createElement(node);
             r.appendChild(document.createTextNode(String(content)));
             Object.keys(attr).forEach(function (attrName) {
@@ -211,7 +211,7 @@
          * Convert text to HTML. Usually this function is not used, sometimes combined with ajax
          * @param {string} str String
          */
-        fromStr: function (str) {
+        fromStr(str) {
             let operationCard = document.createElement('peb-operation-card'),
                 result;
             
@@ -230,7 +230,7 @@
          * @param {string} text String
          * @return {Text}
          */
-        text: function (text) {
+        text(text) {
             return document.createTextNode(String(text));
         }
     };
