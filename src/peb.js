@@ -83,7 +83,7 @@
         throw new PebMissingParameterError(name ? 'Missing parameter ' + name : 'Missing required parameters');
     };
     
-    if (window.window) {
+    if (window.document && document instanceof Document) {
         customElements.define('p-trans', class PebTransElement extends HTMLElement {
             constructor() {
                 super();
@@ -773,7 +773,7 @@
     peb.now = Date.now;
     peb.insert = emptyArray.push.call;
 
-    peb.SearchParams = URLSearchParams;
+    peb.SearchParams = window.URLSearchParams;
 
     // Return final object
     window.peb = peb;
