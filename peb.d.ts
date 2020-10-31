@@ -140,6 +140,14 @@ declare module 'peb' {
             attr(attributesCollection: object): void
 
             /**
+             * Animate the style
+             *
+             * @param time Milliseconds of animation
+             * @param styles An object of styles after animation
+             */
+            animate(time: number, styles: object): void
+
+            /**
              * Add, Remove, Get or Set class of the element
              */
             class(): DOMSettableTokenList
@@ -463,11 +471,11 @@ declare module 'peb' {
 
         /**
          * await sleep time or sleep a time then do a function
-         * 
+         *
          * Example:
          * ```
          * peb.sleep(1000).then(() => { alert("foo") })
-         * 
+         *
          * await peb.sleep(1000)
          * ```
          */
