@@ -41,16 +41,26 @@ Microsoft's support for Internet Explorer has ended. We will also discontinue it
 Peb.js 3.2.0+
 ```js
 peb.sel('div#foo').toggleVisible();
+
 peb.sel(document).DOMReady(function () {
-    console.log('READY');
+    peb.log('READY');
+});
+
+peb.log.group('foo', true, function () {
+    peb.log.warn('WARNING');
 });
 ```
 JQuery
 ```js
 $('div#foo').toggle();
+
 $(document).ready(function () {
     console.log('READY')
 });
+
+console.groupCollapsed('foo');
+console.warn('WARNING')
+console.groupEnd();
 ```
 
 ## Installation
