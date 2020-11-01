@@ -378,6 +378,26 @@ declare module 'peb' {
              * Send table to console
              */
             function table(tabularData: any, properties: ReadonlyArray<string>): void
+
+            /**
+             * Add a console log group
+             */
+            function group(label: string, isCollapsed?: boolean, beetween?: Function): void
+
+            /**
+             * End a group
+             */
+            function groupEnd(): void
+
+            /**
+             * Trace a function
+             */
+            function trace(...data: any[]): void
+
+            /**
+             * Send assertion to console
+             */
+            function assert(condition: boolean, ...data: any[])
         }
 
         /**

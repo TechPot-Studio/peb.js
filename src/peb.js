@@ -657,9 +657,10 @@
 
     /**
      * Trace function call
+     * @param {any[]} data
      */
-    peb.log.trace = function () {
-        console.trace();
+    peb.log.trace = function (...data) {
+        console.trace(...data);
     }
 
     /**
