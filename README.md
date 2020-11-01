@@ -92,6 +92,10 @@ Go to the function documentation to view the specific supported browsers of the 
 ## Assignments
 [@TechPot-Studio/pebjs](https://github.com/orgs/TechPot-Studio/teams/pebjs)
 
+| Name | Contributes |
+| :--: | :--: |
+| [TheColdPot](https://github.com/TheColdPot) | 💻📖🎨🤔📦 |
+
 ## Special Thanks to
 ### Software Support
 [WebStorm](https://www.jetbrains.com/webstorm/)  
