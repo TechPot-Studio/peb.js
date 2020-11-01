@@ -83,18 +83,18 @@ And, we allowed download source code.
 ## Browser Support
 Number is the **least** version it supports
 | Browser | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/chrome.svg" width="30" /> | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/firefox.svg" width="30" /> | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/safari.svg" width="30" /> | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/edge.svg" width="30" /> | <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/opera.svg" width="30" /> |
-|------: | :------: | :------: | :------: | :------: | :------: |
+|---: | :---: | :---: | :---: | :---: | :---: |
 | **Full Support** | 54 | 63 | 10.1 | 79 | 41 |
 
 Go to the function documentation to view the specific supported browsers of the function  
 **The source of this information: [*developer.mozilla.org*](//developer.mozilla.org)**
 
-## Assignments
+## Main Contributor
 [@TechPot-Studio/pebjs](https://github.com/orgs/TechPot-Studio/teams/pebjs)
 
 | Name | Contributes |
-| :--: | :--: |
-| [TheColdPot](https://github.com/TheColdPot) | 💻📖🎨🤔📦 |
+| :---: | :---: |
+| [TheColdPot](https://github.com/TheColdPot) | 💻🐛📖🎨🤔🗃✏📦 |
 
 ## Special Thanks to
 ### Software Support
