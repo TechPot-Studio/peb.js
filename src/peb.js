@@ -50,13 +50,6 @@
         }
     }
 
-    class PebNullObjectError extends PebError {
-        constructor(message) {
-            super(message);
-            this.name = 'PebNullObjectError';
-        }
-    }
-
     class PebMissingEnvironmentError extends PebError {
         constructor(message) {
             super(message);
@@ -73,13 +66,11 @@
 
     peb.PebError = PebError;
     peb.PebExtensionError = PebExtensionError;
-    peb.PebNullObjectError = PebExtensionError;
     peb.PebMissingEnvironmentError = PebMissingEnvironmentError;
 
 
     // Core
-    let emptyArray = [null],
-        exist = (value) => !(typeof (value) === 'undefined');
+    let emptyArray = [null];
 
     peb.reqArg = (name) => {
         throw new PebMissingParameterError(name ? 'Missing parameter ' + name : 'Missing required parameters');
@@ -243,7 +234,7 @@
      * @param {(HTMLElement | Node)[]} child
      */
     peb.createElement = function (name, attr, inner = '', ...child) {
-        let result = document.createElement(name),
+        let result = typeof name === 'string' ? document.createElement(name) : new name(),
             setMultipleAttributes = (target, objectSeq) => {
                 Object.keys(objectSeq).forEach((attrName) => {
                     target.setAttribute(attrName, objectSeq[attrName])
@@ -268,265 +259,96 @@
      * Convert HTMLElement to operatable element
      * @param {HTMLElement | Node} element 
      */
-    peb.RElement = class RElement {
-        constructor(element) {
-            if (element === null) {
-                throw new PebNullObjectError('Element is null');
-            }
-            this.size = 1;
-            this.tag = element.tagName;
-            this.id = element.id;
-            this.element = element;
-            this[0] = this;
+    peb.ElementManager = class ElementManager {
+        /** @type {HTMLElement | HTMLCollection | Node | NodeList} */
+        element;
+        length;
 
-            Object.freeze(this);
-        }
-        
-        attr(name, value) {
-            if (!exist(name)) {
-                return this.element.attributes;
-            } else if (!exist(value)) {
-                switch (typeof (name)) {
-                    case 'string':
-                        return this.element.getAttribute(name);
-                    case 'object':
-                        Object.keys(name).forEach(function (current) {
-                            this.element.setAttribute(current, name[current]);
-                        });
-                        break;
-                }
-            } else {
-                return this.element.setAttribute(name, String(value));
-            }
-        }
-
-        animate(time, styles) {
-            let startTimestamp,
-                startStyle = this.element.style;
-            function step(timestamp) {
-                if (startTimestamp !== undefined) {
-                    startTimestamp = timestamp;
-                }
-                let elapsed = timestamp - startTimestamp,
-                    currentStyle = this.element.style;
-                Object.keys(styles).forEach((name) => {
-                    let unit = startStyle[name].match(/[^0-9]+/g),
-                        startValue = startStyle[name].match(/[0-9]+/g)-0,
-                        aimValue = styles[name].match(/[0-9]+/g)-0;
-                    currentStyle[name] = Math.min((aimValue - startValue) / time * elapsed + startValue, styles[name]) + unit;
-                });
-
-                requestAnimationFrame(step);
-            }
-
-            requestAnimationFrame(step);
-        }
-
-        class() {
-            return this.element.classList;
-        }
-
-        data(name, value) {
-            if (!exist(name)) {
-                return this.element.dataset;
-            } else if (!exist(value)) {
-                switch (typeof (name)) {
-                    case 'string':
-                        return this.element.dataset[name];
-                    case 'object':
-                        Object.keys(name).forEach(function (current) {
-                            this.element.dataset[current] = name[current];
-                        });
-                        break;
-                }
-            } else {
-                this.element.dataset[name] = String(value);
-                return String(value);
-            }
-        }
-
-        get(key, value) {
-            if (exist(value)) {
-                this.element[key] = value;
-                return value;
-            } else {
-                return this.element[key];
-            }
-        }
-
-        insert(...nodes) {
-            nodes.forEach(function (current) {
-                if (current instanceof RElement) {
-                    this.element.appendChild(current.element);
-                } else {
-                    this.element.appendChild(current);
-                }
+        constructor(origin) {
+            this.element = origin;
+            this.length = origin.length || 1;
+            this.element.forEach((element, index) => {
+                this[index] = element;
             });
         }
 
-        insertTo(target) {
-            target.appendChild(this.element);
+        item(index) {
+            return this[index];
         }
 
-        del() {
-            return this.element.parentNode.removeChild(this.element);
+        manageItem(index) {
+            return new ElementManager(this[index]);
         }
 
-        html(value) {
-            if (exist(value)) {
-                this.element.innerHTML = String(value);
-                return String(value);
+        splice() {}
+
+        forEach(callbackFn) {
+            if (this.element instanceof Node || this.element instanceof HTMLElement) {
+                callbackFn(this.element, 0, this);
             } else {
-                return this.element.innerHTML;
+                this.element.forEach(callbackFn);
+            }
+        }
+
+        html(newer) {
+            if (newer === undefined) {
+                return this.item(0).innerHTML;
+            } else {
+                this.forEach((eachElement) => {
+                    eachElement.innerHTML = newer;
+                });
+                return this;
             }
         }
 
         text() {
-            return this.element.innerText;
+            return this.item(0).innerText;
         }
 
-        toggleVisible() {
-            if (this.element.dbh) {
-                this.show();
-            } else {
-                this.hide();
-            }
+        bind(type, listener) {
+            this.forEach(eachElement => eachElement.addEventListener(type, listener));
         }
 
-        val(value) {
-            if (exist(value)) {
-                this.element.value = String(value);
-                return String(value);
-            } else {
-                return this.element.value;
-            }
+        on(type, listener) {
+            this.bind(type, listener);
         }
 
-        hide(){
-            // dbh: Display Before Hide
-            this.element.dbh = this.element.style.display;
-            this.element.style.display = 'none';
-            return 'none';
+        class() {
+            return this.item(0).classList;
         }
 
-        show(type) {
-            if (exist(type)) {
-                this.element.style.display = String(type);
-                return String(type);
-            } else {
-                this.element.style.display = this.element.dbh;
-                delete this.element.dbh;
-                return this.element.dbh;
-            }
+        addClass(...tokens) {
+            this.forEach(eachElement => eachElement.classList.add(...tokens));
+            return this;
         }
 
-        on(event, listener) {
-            let bindEventListener = function (eventStr, callback) {
-                this.element.addEventListener(eventStr, callback);
-            };
-
-            if (exist(listener)) {
-                bindEventListener(event, listener);
-            } else if (typeof listener === 'object' && arguments.length === 1) {
-                Object.keys(event).forEach(function (current) {
-                    bindEventListener(current, event[current]);
-                });
-            }
+        removeClass(...tokens) {
+            this.forEach(eachElement => eachElement.classList.remove(...tokens));
+            return this;
         }
 
-        parent() {
-            return new RElement(this.element.parentElement);
-        }
-
-        child() {
-            return new RElement(this.element.children[0]);
-        }
-
-        next(isContainTextNode = false) {
-            if (isContainTextNode) {
-                return new RElement(this.element.nextSibling);
-            } else {
-                return new RElement(this.element.nextElementSibling);
-            }
-        }
-
-        prev(isContainTextNode = false) {
-            if (isContainTextNode) {
-                return new RElement(this.element.previousSibling);
-            } else {
-                return new RElement(this.element.previousElementSibling);
-            }
+        clearClass() {
+            this.forEach(eachElement => eachElement.className = '');
         }
 
         click() {
             this.element.click();
         }
 
-        style(sheet) {
-            Object.keys(sheet).forEach((styleName) => {
-                this.element.style[styleName] = sheet[styleName];
-            });
-        }
-    
-        // Video and audio
-        pause(isPause = true) {
-            if (isPause) {
-                this.element.pause();
-            } else {
-                this.element.play();
-            }
-        }
+        onclick(fn) { this.bind('click', fn); }
+        onmouseenter(fn) { this.bind('mouseenter', fn); }
+        onmouseleave(fn) { this.bind('mouseleave', fn); }
+        onmouseup(fn) { this.bind('mouseup', fn); }
+        onmousedown(fn) { this.bind('mousedown', fn); }
+        onmousemove(fn) { this.bind('mousemove', fn); }
+        onmouseover(fn) { this.bind('mouseover', fn ); }
+        onmouseout(fn) { this.bind('mouseout', fn) }
+        onmousewheel(fn) { this.bind('mousewheel', fn); }
+        ondrag(fn) { this.bind('drag', fn); }
+        ondragstart(fn) { this.bind('dragstart', fn); }
+        ondragend(fn) { this.bind('dragend', fn); }
 
-        play() {
-            this.element.play();
-        }
-
-        // Quick bind functions
-        DOMReady(fn) {
-            this.element.addEventListener('DOMContentLoaded', fn);
-        }
-
-        // RElementsCollection
-        forEach(callbackFn) {
-            callbackFn(this, 0, this);
-        }
-
-        item() {
-            return this;
-        }
-    };
-
-
-    /**
-     * Convert HTMLCollection to operatable element collection
-     * @param {HTMLCollection | NodeList} elements
-     */
-    peb.RElementsCollection = class RElementsCollection {
-        constructor(elements) {
-            if (elements === null) {
-                throw new PebNullObjectError('Element is null');
-            }
-            this.size = this.length = elements.length;
-            this.elements = elements;
-            
-            elements.forEach((element, index) => {
-                this[index] = new RElement(element);
-            });
-            Object.freeze(this);
-        }
-        
-        item(index=0) {
-            return this[index];
-        }
-
-        forEach(callbackFn, fromIndex = 0) {
-            this.elements.forEach((_, index) => {
-                if (index >= fromIndex) {
-                    callbackFn(this[index], index, this);
-                }
-            });
-        };
-    };
+    }
 
     /**
      * Operate the DOM with the smallest possible code  
@@ -538,28 +360,14 @@
      */
     peb.sel = function (selector, index) {
         if (typeof selector === 'string') {
-            let matchesElements = document.querySelectorAll(selector);
-
-            if (matchesElements.length === 1) {
-                // ONLY MATCHES 1
-                return new RElement(matchesElements.item(0));
-
-            } else if (exist(index)) {
-                return new RElement(matchesElements.item(index));
-
+            if (index === undefined) {
+                return new ElementManager(document.querySelectorAll(selector));
             } else {
-                return new RElementsCollection(matchesElements);
-
+                return new ElementManager(document.querySelectorAll(selector).item(index))
             }
+
         } else {
-            // Instant covert
-
-            if (selector instanceof HTMLElement || selector instanceof Node) {
-                return new RElement(selector);
-            }
-            if (selector instanceof HTMLCollection || selector instanceof NodeList) {
-                return new RElementsCollection(selector);
-            }
+            return new ElementManager(selector)
         }
     };
 
