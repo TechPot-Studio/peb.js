@@ -347,6 +347,8 @@
         ondrag(fn) { this.bind('drag', fn); }
         ondragstart(fn) { this.bind('dragstart', fn); }
         ondragend(fn) { this.bind('dragend', fn); }
+        oncanplay(fn) { this.bind('canplay', fn); }
+        oncanplaythrough(fn) { this.bind('canplaythrough', fn); }
 
     }
 
