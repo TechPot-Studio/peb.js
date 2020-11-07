@@ -88,208 +88,197 @@ declare module 'peb' {
         }
 
         /**
-         * Create an operable elements collection
+         * Create an operable element or be a `sel` function result
          */
-        class RElementsCollection {
+        class ElementManager {
+            static FIRST_ITEM: 0;
+
+            /** Origin element */
+            element: HTMLElement|NodeList|HTMLCollection
+            /** Length of list */
+            length: number
+
             /**
-             * construct by exist node list
+             * Convert HTMLElement to operable element
              */
-            constructor(elements: NodeList)
+            constructor(node: HTMLElement|NodeList|HTMLCollection)
 
             /**
              * Get item by index
              */
-            item(index: number): RElement
+            item(index: number): void
 
             /**
-             * ForEach loop.
-             * 
-             * @param callbackFn executed each time loop
-             * @param startIndex start from index
+             * Manage item by index
              */
-            forEach(callbackFn: (currentElement: RElement, index: number, collection: RElementsCollection) => void, startIndex?: number): void
-        }
-
-        /**
-         * Create an operable element or be a `sel` function result
-         */
-        class RElement {
-            constructor(element: HTMLElement)
+            manageItem(index: number): void
 
             /**
-             * Edit attribute `attributeName` to `becoming`
+             * Each all of element
              */
-            attr(attributeName: string, becoming: string): void
+            forEach(callbackFn: (currentElement: HTMLElement, index: number, list: ElementManager) => void): void
 
             /**
-             * Get all attributes or attribute `attributeName`
-             */
-            attr(attributeName?: string): string|NamedNodeMap
-
-            /**
-             * Edit multiple attributes
-             * 
-             * Example:
-             * ```
-             * peb.sel("div", 0).attr({
-             *     foo: "val",
-             *     bar: "val"
-             * })
-             * ```
-             */
-            attr(attributesCollection: object): void
-
-            /**
-             * Animate the style
+             * Get or set html
              *
-             * @param time Milliseconds of animation
-             * @param styles An object of styles after animation
+             * **JQuery Writing Habit**
              */
-            animate(time: number, styles: object): void
+            html(newer: string): string|this
 
             /**
-             * Add, Remove, Get or Set class of the element
-             */
-            class(): DOMSettableTokenList
-
-            /**
-             * Bind function when DOM contents ready
-             */
-            DOMReady(fn: Function): void
-
-            /**
-             * Click element
-             */
-            click(): void
-
-            /**
-             * Set dataset `name` to `becoming`.
-             */
-            data(name: string, becoming: string): string
-
-            /**
-             * Set dataset by object `key` to `value`.
-             * 
-             * Example:
-             * ```
-             * peb.sel("div", 0).data({
-             *     foo: "val",
-             *     bar: "val"
-             * })
-             * ```
-             */
-            data(sequence: object): void
-
-            /**
-             * Insert new element to current element
-             */
-            insert(...nodes: Node[]|HTMLElement[]|RElement[]): void
-
-            /**
-             * Insert to another element and delete this element
-             */
-            insertTo(node: HTMLElement|RElement): void
-
-            /**
-             * Delete element
-             */
-            del(): void
-
-            /**
-             * Get inner (html)
-             */
-            html(): string
-
-            /**
-             * Set inner (html) value.
-             * Allow HTML in string
-             */
-            html(becoming: string): string
-
-            /**
-             * Get inner plain text
+             * Get inner text
              */
             text(): string
 
             /**
-             * Toggle element visible or hide
+             * Bind event listener
              */
-            toggleVisible(): void
+            bind(type: string, listener: Function): void
 
             /**
-             * Get value (`<input>` element, etc.)
+             * Bind event listener
+             *
+             * **As known as `bind` function**
              */
-            val(): string
+            on(type: string, listener: Function): void
 
             /**
-             * Set value (`<input>` element, etc.)
+             * Get DOMSettableTokenList of class
              */
-            val(becoming: string): string
+            class(index?: number): DOMSettableTokenList
 
             /**
-             * Hide element.
-             * Actually is set style.display to none
+             * Add class token
              */
-            hide(): void
+            addClass(...tokens: string[]): this
 
             /**
-             * Show element (if already hide)
+             * Remove class token
              */
-            show(): string
+            removeClass(...tokens: string[]): this
 
             /**
-             * Set style
+             * Clear all class
              */
-            style(sheet: object): void
+            clearClass(...tokens: string[]): this
+
+            /**
+             * Hide element
+             */
+            hide(): this
 
             /**
              * Set element display type
              */
-            show(type: string): string
+            display(type: string): this
 
             /**
-             * Add event listener
+             * Show element or set display type
              */
-            on(event: string, listener: Function): void
+            show(type?: string): void
 
             /**
-             * Add multiple event listener
-             * 
-             * Example:
-             * ```
-             * peb.sel("div#foo").on({
-             *     click: () => {
-             *         alert("bar")
-             *     },
-             *     mouseover: () => {
-             *         console.log("bar")
-             *     }
-             * })
-             * ```
+             * Remove element
              */
-            on(eventListenerSequence: Object): void
+            delete(index?: number): void
 
             /**
-             * Return parent node
+             * Remove element
+             *
+             * **As known as `delete` function**
              */
-            parent(): RElement
+            del(index?: number): void
 
             /**
-             * Return first child node
+             * Manage child of the element
              */
-            child(): RElement
+            child(): this
 
             /**
-             * Get next sibling
-             * @param isContainTextNode If true then contains text nodes
+             * Manage parent of the element
              */
-            next(isContainTextNode: boolean): RElement
+            parent(): this
 
             /**
-             * Get previous sibling
-             * @param isContainTextNode If true then contains text nodes
+             * Manage next element sibling
              */
-            prev(isContainTextNode: boolean): RElement
+            next(): this
+
+            /**
+             * Manage previous element sibling
+             */
+            prev(): this
+
+            /** Click elements or bind a `click` event listener */
+            click(fn?: Function): void
+            /** Focus elements or bind a `focus` event listener */
+            focus(fn?: Function): void
+            /** Bind a `mouseenter` event listener */
+            mouseenter(fn: Function): void
+            /** Bind a `mouseleave` event listener */
+            mouseleave(fn: Function): void
+            /** Bind a `mouseup` event listener */
+            mouseup(fn: Function): void
+            /** Bind a `mousedown` event listener */
+            mousedown(fn: Function): void
+            /** Bind a `mousemove` event listener */
+            mousemove(fn: Function): void
+            /** Bind a `mouseover` event listener */
+            mouseover(fn: Function): void
+            /** Bind a `mouseout` event listener */
+            mouseout(fn: Function): void
+            /** Bind a `mousewheel` event listener */
+            mousewheel(fn: Function): void
+            /** Bind a `drag` event listener */
+            drag(fn: Function): void
+            /** Bind a `dragstart` event listener */
+            dragstart(fn: Function): void
+            /** Bind a `dragend` event listener */
+            dragend(fn: Function): void
+            /** Bind a `dragenter` event listener */
+            dragenter(fn: Function): void
+            /** Bind a `dragexit` event listener */
+            dragexit(fn: Function): void
+            /** Bind a `dragover` event listener */
+            dragover(fn: Function): void
+            /** Bind a `dragleave` event listener */
+            dragleave(fn: Function): void
+            /** Bind a `canplay` event listener */
+            canplay(fn: Function): void
+            /** Bind a `canplaythrough` event listener */
+            canplaythrough(fn: Function): void
+            /** Bind a `play` event listener */
+            play(fn: Function): void
+            /** Bind a `playing` event listener */
+            playing(fn: Function): void
+            /** Bind a `copy` event listener */
+            copy(fn: Function): void
+            /** Bind a `beforecopy` event listener */
+            beforecopy(fn: Function): void
+            /** Bind a `paste` event listener */
+            paste(fn: Function): void
+            /** Bind a `beforepaste` event listener */
+            beforepaste(fn: Function): void
+            /** Bind a `blur` event listener */
+            blur(fn: Function): void
+            /** Bind a `load` event listener */
+            load(fn: Function): void
+            /** Bind a `loadstart` event listener */
+            loadstart(fn: Function): void
+            /** Bind a `loadeddata` event listener */
+            loadeddata(fn: Function): void
+            /** Bind a `loadedmetadata` event listener */
+            loadedmetadata(fn: Function): void
+            /** Bind a `focusin` event listener */
+            focusin(fn: Function): void
+            /** Bind a `focusout` event listener */
+            focusout(fn: Function): void
+            /** Bind a `keydown` event listener */
+            keydown(fn: Function): void
+            /** Bind a `keyup` event listener */
+            keyup(fn: Function): void
+            /** Bind a `keypress` event listener */
+            keypress(fn: Function): void
         }
 
         /**
@@ -319,19 +308,19 @@ declare module 'peb' {
          * @param selector Css Selector of the element
          * @param index Index in the list
          */
-        function sel(selector: string, index?: number): RElement
+        function sel(selector: string, index?: number): ElementManager
 
         /**
          * Select multiple HTMLElements and operate it.
          * 
          * @param selector Css Selector of elements
          */
-        function sel(selector: string): RElementsCollection
+        function sel(selector: string): ElementManager
 
         /**
          * Convert HTMLElement into peb RElement or RElementsCollection.
          */
-        function sel(element: HTMLElement|HTMLCollection): RElement|RElementsCollection
+        function sel(element: HTMLElement|HTMLCollection): ElementManager
 
         /**
          * Send HTTP XML Request
