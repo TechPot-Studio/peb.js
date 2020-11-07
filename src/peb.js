@@ -6,6 +6,8 @@
  * @copyright TechPot Studio and other contributors
  */
 
+import './scss/variable.scss';
+
 (function (window, factory) {
     'use strict';
 
@@ -91,41 +93,8 @@
                 this.style.fontFamily = 'attr(font), inherit';
             }
         });
-
-        peb.QuickAudio = class QuickAudio {
-            constructor(url) {
-                this.url = url;
-                /* INIT */
-                this.player = new Audio();
-                this.player.style.display = 'none';
-                this.player.src = this.url;
-                document.body.appendChild(this.player);
-            }
-
-            destroy(obj) {
-                document.body.removeChild(obj.player);
-            }
-
-            async play() {
-                return this.player.play();
-            }
-            pause() {
-                this.player.pause();
-            }
-            /**
-             * Set repeat or not
-             * @param {boolean} isLoop
-             */
-            loop(isLoop) {
-                if (isLoop) {
-                    this.player.addEventListener('ended', this.play);
-                } else {
-                    this.player.removeEventListener('ended', this.play);
-                }
-            }
-
-        };
     }
+
     peb.TranslationTable = class TranslationTable {
         constructor(table) {
             if (typeof (table) === 'object') {
@@ -182,53 +151,9 @@
         return window;
     };
 
-    peb.genNode = {
-        /**
-         * Quickly create an HTMLElement
-         * @param {string} node Element Name
-         * @param {string} content Element Content
-         * @param {object} attr Element Attributes
-         * @return {HTMLElement}
-         */
-        element(node, content = '', attr = {}) {
-            let r = document.createElement(node);
-            r.appendChild(document.createTextNode(String(content)));
-            Object.keys(attr).forEach(function (attrName) {
-                r.setAttribute(attrName, attr[attrName]);
-            });
-            return r;
-        },
-        /**
-         * Convert text to HTML. Usually this function is not used, sometimes combined with ajax
-         * @param {string} str String
-         */
-        fromStr(str) {
-            let operationCard = document.createElement('peb-operation-card'),
-                result;
-            
-            operationCard.innerHTML = str;
-            result = operationCard.children;
-
-            if (result.length === 1) {
-                return result[0];
-            } else {
-                return result;
-            }
-
-        },
-        /**
-         * Create a text node quickly
-         * @param {string} text String
-         * @return {Text}
-         */
-        text(text) {
-            return document.createTextNode(String(text));
-        }
-    };
-
     /**
      * Create an element
-     * @param {string} name
+     * @param {string|Function} name
      * @param {object} attr
      * @param {string} inner
      * @param {(HTMLElement | Node)[]} child
@@ -256,7 +181,7 @@
     };
 
     /**
-     * Convert HTMLElement to operatable element
+     * Convert HTMLElement to operable element
      * @param {HTMLElement | Node} element 
      */
     peb.ElementManager = class ElementManager {
@@ -264,10 +189,12 @@
         element;
         length;
 
+        static FIRST_ITEM = 0;
+
         constructor(origin) {
             this.element = origin;
             this.length = origin.length || 1;
-            this.element.forEach((element, index) => {
+            this.forEach((element, index) => {
                 this[index] = element;
             });
         }
@@ -280,10 +207,12 @@
             return new ElementManager(this[index]);
         }
 
-        splice() {}
+        splice() {
+            /* Pseudo-array must have a `splice` function */
+        }
 
         forEach(callbackFn) {
-            if (this.element instanceof Node || this.element instanceof HTMLElement) {
+            if (this.element instanceof Node || this.element instanceof HTMLElement || this.element instanceof HTMLDocument) {
                 callbackFn(this.element, 0, this);
             } else {
                 this.element.forEach(callbackFn);
@@ -329,6 +258,7 @@
 
         clearClass() {
             this.forEach(eachElement => eachElement.className = '');
+            return this;
         }
 
         hide() {
@@ -336,12 +266,14 @@
                 eachElement.displayType = eachElement.style.display;
                 eachElement.style.display = 'none';
             });
+            return this;
         }
 
         display(type) {
             this.forEach((eachElement) => {
                 eachElement.style.display = type;
             });
+            return this;
         }
 
         show(type) {
@@ -354,37 +286,97 @@
             }
         }
 
-        click() {
-            this.element.click();
+        delete(index) {
+            if (index === undefined) {
+                this.forEach(eachElement => eachElement.parent.removeChild(eachElement));
+            } else {
+                let singleElement = this.item(index);
+                singleElement.parent.removeChild(singleElement);
+            }
         }
 
-        onclick(fn)          { this.bind('click', fn); }
-        onmouseenter(fn)     { this.bind('mouseenter', fn); }
-        onmouseleave(fn)     { this.bind('mouseleave', fn); }
-        onmouseup(fn)        { this.bind('mouseup', fn); }
-        onmousedown(fn)      { this.bind('mousedown', fn); }
-        onmousemove(fn)      { this.bind('mousemove', fn); }
-        onmouseover(fn)      { this.bind('mouseover', fn ); }
-        onmouseout(fn)       { this.bind('mouseout', fn) }
-        onmousewheel(fn)     { this.bind('mousewheel', fn); }
-        ondrag(fn)           { this.bind('drag', fn); }
-        ondragstart(fn)      { this.bind('dragstart', fn); }
-        ondragend(fn)        { this.bind('dragend', fn); }
-        ondragenter(fn)      { this.bind('dragenter', fn); }
-        ondragexit(fn)       { this.bind('dragexit', fn); }
-        ondragover(fn)       { this.bind('dragover', fn); }
-        ondragleave(fn)      { this.bind('dragleave', fn); }
-        oncanplay(fn)        { this.bind('canplay', fn); }
-        oncanplaythrough(fn) { this.bind('canplaythrough', fn); }
-        onplay(fn)           { this.bind('play', fn); }
-        onplaying(fn)        { this.bind('playing', fn); }
-        oncopy(fn)           { this.bind('copy', fn); }
-        onpaste(fn)          { this.bind('paste', fn); }
-        onblur(fn)           { this.bind('blur', fn); }
-        onload(fn)           { this.bind('load', fn); }
-        onloadstart(fn)      { this.bind('loadstart', fn); }
-        onloadeddata(fn)     { this.bind('loadeddata', fn); }
-        onloadedmetadata(fn) { this.bind('loadedmetadata', fn); }
+        del(index) {
+            this.delete(index);
+        }
+
+        child() {
+            return new ElementManager(this.item(0).children);
+        }
+
+        parent() {
+            return new ElementManager(this.item(0).parentElement);
+        }
+
+        next() {
+            return new ElementManager(this.item(0).nextElementSibling);
+        }
+
+        prev() {
+            return new ElementManager(this.item(0).previousElementSibling);
+        }
+
+        append(...elements) {
+            elements.forEach((eachChild) => {
+                let child = eachChild;
+                if (eachChild instanceof ElementManager) {
+                    child = eachChild.element;
+                }
+                this.forEach(eachElement => eachElement.appendChild(child));
+
+            });
+        }
+
+        add(...elements) {
+            this.append(...elements);
+        }
+
+        toArray() {
+            let result = [];
+            this.forEach(eachElement => result.push(eachElement));
+            return result;
+        }
+
+        click(fn) {
+            fn ? this.bind('click', fn) : this.forEach(eachElement => eachElement.click());
+        }
+
+        focus(fn) {
+            fn ? this.bind('focus', fn) : this.forEach(eachElement => eachElement.focus());
+        }
+
+        mouseenter(fn)     { this.bind('mouseenter', fn); }
+        mouseleave(fn)     { this.bind('mouseleave', fn); }
+        mouseup(fn)        { this.bind('mouseup', fn); }
+        mousedown(fn)      { this.bind('mousedown', fn); }
+        mousemove(fn)      { this.bind('mousemove', fn); }
+        mouseover(fn)      { this.bind('mouseover', fn ); }
+        mouseout(fn)       { this.bind('mouseout', fn) }
+        mousewheel(fn)     { this.bind('mousewheel', fn); }
+        drag(fn)           { this.bind('drag', fn); }
+        dragstart(fn)      { this.bind('dragstart', fn); }
+        dragend(fn)        { this.bind('dragend', fn); }
+        dragenter(fn)      { this.bind('dragenter', fn); }
+        dragexit(fn)       { this.bind('dragexit', fn); }
+        dragover(fn)       { this.bind('dragover', fn); }
+        dragleave(fn)      { this.bind('dragleave', fn); }
+        canplay(fn)        { this.bind('canplay', fn); }
+        canplaythrough(fn) { this.bind('canplaythrough', fn); }
+        play(fn)           { this.bind('play', fn); }
+        playing(fn)        { this.bind('playing', fn); }
+        copy(fn)           { this.bind('copy', fn); }
+        beforecopy(fn)     { this.bind('beforecopy', fn); }
+        paste(fn)          { this.bind('paste', fn); }
+        beforepaste(fn)    { this.bind('beforepaste', fn); }
+        blur(fn)           { this.bind('blur', fn); }
+        load(fn)           { this.bind('load', fn); }
+        loadstart(fn)      { this.bind('loadstart', fn); }
+        loadeddata(fn)     { this.bind('loadeddata', fn); }
+        loadedmetadata(fn) { this.bind('loadedmetadata', fn); }
+        focusin(fn)        { this.bind('focusin', fn); }
+        focusout(fn)       { this.bind('focus', fn); }
+        keydown(fn)        { this.bind('keydown', fn); }
+        keyup(fn)          { this.bind('keyup', fn); }
+        keypress(fn)       { this.bind('keypress', fn); }
     }
 
     /**
@@ -394,17 +386,18 @@
      * The return result is a custom class  
      * @param {string} selector Query Selector For the Element
      * @param {number} index Index In the List
+     * @return {ElementManager}
      */
     peb.sel = function (selector, index) {
         if (typeof selector === 'string') {
             if (index === undefined) {
-                return new ElementManager(document.querySelectorAll(selector));
+                return new this.ElementManager(document.querySelectorAll(selector));
             } else {
-                return new ElementManager(document.querySelectorAll(selector).item(index));
+                return new this.ElementManager(document.querySelectorAll(selector).item(index));
             }
 
         } else {
-            return new ElementManager(selector);
+            return new this.ElementManager(selector);
         }
     };
 
@@ -648,11 +641,23 @@
         }
     };
 
+    peb.noop = function () {
+        // NOOP
+    };
+
     /**
      * Multiple String
      */
     peb.stringTimes = function (string, times, connector = '') {
         return new Array(times).fill(string).join(connector);
+    };
+
+    /**
+     * Throw error
+     */
+    peb.error = function (message, type) {
+        let errorType = type || Error;
+        throw new Error(message);
     };
 
     /**
