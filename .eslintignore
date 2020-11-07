@@ -5,3 +5,4 @@ dist/
 *.json
 LICENSE
 *.d.ts
+*.config.js

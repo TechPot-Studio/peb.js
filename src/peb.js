@@ -358,6 +358,10 @@
             this.element.click();
         }
 
+        play() {
+            this.element.on
+        }
+
         onclick(fn)          { this.bind('click', fn); }
         onmouseenter(fn)     { this.bind('mouseenter', fn); }
         onmouseleave(fn)     { this.bind('mouseleave', fn); }
@@ -372,6 +376,10 @@
         ondragend(fn)        { this.bind('dragend', fn); }
         oncanplay(fn)        { this.bind('canplay', fn); }
         oncanplaythrough(fn) { this.bind('canplaythrough', fn); }
+        onplay(fn)           { this.bind('play', fn); }
+        onplaying(fn)        { this.bind('playing', fn); }
+        oncopy(fn)           { this.bind('copy', fn); }
+        onpaste(fn)          { this.bind('paste', fn); }
 
     }
 
@@ -388,11 +396,11 @@
             if (index === undefined) {
                 return new ElementManager(document.querySelectorAll(selector));
             } else {
-                return new ElementManager(document.querySelectorAll(selector).item(index))
+                return new ElementManager(document.querySelectorAll(selector).item(index));
             }
 
         } else {
-            return new ElementManager(selector)
+            return new ElementManager(selector);
         }
     };
 
@@ -698,4 +706,4 @@
     return peb;
 });
 
-export default peb;
+// export default peb;
