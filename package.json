@@ -18,9 +18,12 @@
     "url": "https://github.com/TechPot-Studio/peb.js/issues"
   },
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "webpack-cli": "^4.2.0"
+  },
   "devDependencies": {
-    "terser": "^5.3.2"
+    "terser": "^5.3.2",
+    "webpack": "^5.4.0"
   },
   "directories": {
     "doc": "docs"
@@ -28,7 +31,6 @@
   "engines": {
     "node": ">14.0.0"
   },
-  "type": "module",
   "scripts": {
     "test": "node ./src/peb.js",
     "minify": "terser src/peb.js -c toplevel=true -m -o dist/peb.min.js",
