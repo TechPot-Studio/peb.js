@@ -20,17 +20,18 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "terser": "^5.3.2",
-    "glob": "^7.1.6",
-    "webpack": "^5.4.0",
-    "webpack-cli": "^4.2.0",
-    "style-loader": "^2.0.0",
-    "css-loader": "^5.0.1",
-    "sass-loader": "^10.0.5",
-    "babel-loader": "^8.1.0",
     "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
-    "@babel/plugin-proposal-class-properties": "^7.12.1"
+    "babel-loader": "^8.1.0",
+    "css-loader": "^5.0.1",
+    "glob": "^7.1.6",
+    "sass": "^1.29.0",
+    "sass-loader": "^10.0.5",
+    "style-loader": "^2.0.0",
+    "terser": "^5.3.2",
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0"
   },
   "directories": {
     "doc": "docs"
