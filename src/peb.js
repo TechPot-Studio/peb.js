@@ -331,23 +331,46 @@
             this.forEach(eachElement => eachElement.className = '');
         }
 
+        hide() {
+            this.forEach((eachElement) => {
+                eachElement.displayType = eachElement.style.display;
+                eachElement.style.display = 'none';
+            });
+        }
+
+        display(type) {
+            this.forEach((eachElement) => {
+                eachElement.style.display = type;
+            });
+        }
+
+        show(type) {
+            if (type === undefined) {
+                this.forEach((eachElement) => {
+                    eachElement.style.display = eachElement.displayType || 'initial';
+                })
+            } else {
+                this.display(type);
+            }
+        }
+
         click() {
             this.element.click();
         }
 
-        onclick(fn) { this.bind('click', fn); }
-        onmouseenter(fn) { this.bind('mouseenter', fn); }
-        onmouseleave(fn) { this.bind('mouseleave', fn); }
-        onmouseup(fn) { this.bind('mouseup', fn); }
-        onmousedown(fn) { this.bind('mousedown', fn); }
-        onmousemove(fn) { this.bind('mousemove', fn); }
-        onmouseover(fn) { this.bind('mouseover', fn ); }
-        onmouseout(fn) { this.bind('mouseout', fn) }
-        onmousewheel(fn) { this.bind('mousewheel', fn); }
-        ondrag(fn) { this.bind('drag', fn); }
-        ondragstart(fn) { this.bind('dragstart', fn); }
-        ondragend(fn) { this.bind('dragend', fn); }
-        oncanplay(fn) { this.bind('canplay', fn); }
+        onclick(fn)          { this.bind('click', fn); }
+        onmouseenter(fn)     { this.bind('mouseenter', fn); }
+        onmouseleave(fn)     { this.bind('mouseleave', fn); }
+        onmouseup(fn)        { this.bind('mouseup', fn); }
+        onmousedown(fn)      { this.bind('mousedown', fn); }
+        onmousemove(fn)      { this.bind('mousemove', fn); }
+        onmouseover(fn)      { this.bind('mouseover', fn ); }
+        onmouseout(fn)       { this.bind('mouseout', fn) }
+        onmousewheel(fn)     { this.bind('mousewheel', fn); }
+        ondrag(fn)           { this.bind('drag', fn); }
+        ondragstart(fn)      { this.bind('dragstart', fn); }
+        ondragend(fn)        { this.bind('dragend', fn); }
+        oncanplay(fn)        { this.bind('canplay', fn); }
         oncanplaythrough(fn) { this.bind('canplaythrough', fn); }
 
     }
