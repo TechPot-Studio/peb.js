@@ -358,10 +358,6 @@
             this.element.click();
         }
 
-        play() {
-            this.element.on
-        }
-
         onclick(fn)          { this.bind('click', fn); }
         onmouseenter(fn)     { this.bind('mouseenter', fn); }
         onmouseleave(fn)     { this.bind('mouseleave', fn); }
@@ -374,13 +370,21 @@
         ondrag(fn)           { this.bind('drag', fn); }
         ondragstart(fn)      { this.bind('dragstart', fn); }
         ondragend(fn)        { this.bind('dragend', fn); }
+        ondragenter(fn)      { this.bind('dragenter', fn); }
+        ondragexit(fn)       { this.bind('dragexit', fn); }
+        ondragover(fn)       { this.bind('dragover', fn); }
+        ondragleave(fn)      { this.bind('dragleave', fn); }
         oncanplay(fn)        { this.bind('canplay', fn); }
         oncanplaythrough(fn) { this.bind('canplaythrough', fn); }
         onplay(fn)           { this.bind('play', fn); }
         onplaying(fn)        { this.bind('playing', fn); }
         oncopy(fn)           { this.bind('copy', fn); }
         onpaste(fn)          { this.bind('paste', fn); }
-
+        onblur(fn)           { this.bind('blur', fn); }
+        onload(fn)           { this.bind('load', fn); }
+        onloadstart(fn)      { this.bind('loadstart', fn); }
+        onloadeddata(fn)     { this.bind('loadeddata', fn); }
+        onloadedmetadata(fn) { this.bind('loadedmetadata', fn); }
     }
 
     /**
