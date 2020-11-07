@@ -21,8 +21,13 @@
   "license": "MIT",
   "devDependencies": {
     "terser": "^5.3.2",
+    "glob": "^7.1.6",
     "webpack": "^5.4.0",
-    "webpack-cli": "^4.2.0"
+    "webpack-cli": "^4.2.0",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.16.0"
   },
   "directories": {
     "doc": "docs"
@@ -32,8 +37,9 @@
   },
   "scripts": {
     "test": "node ./src/peb.js",
-    "minify": "terser src/peb.js -c toplevel=true -m -o dist/peb.min.js",
-    "build": "npm run minify"
+    "build:minify": "terser dist/peb.min.js -c toplevel=true -m -o dist/peb.min.js",
+    "build:webpack": "webpack",
+    "build": "npm run build:minify && npm run build:webpack"
   },
   "repository": {
     "type": "git",
