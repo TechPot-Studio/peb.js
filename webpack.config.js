@@ -1,9 +1,11 @@
 const path = require("path");
+const glob = require("glob");
 
 module.exports = {
-    entry: ["./src/peb.js"],
+    mode: "production",
+    entry: glob.sync('./src/*.js'),
     output: {
-        path: path.join(__dirname, './dist'),
-        filename: '.js'
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'peb.min.js'
     }
 };
