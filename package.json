@@ -18,12 +18,10 @@
     "url": "https://github.com/TechPot-Studio/peb.js/issues"
   },
   "license": "MIT",
-  "dependencies": {
-    "webpack-cli": "^4.2.0"
-  },
   "devDependencies": {
     "terser": "^5.3.2",
-    "webpack": "^5.4.0"
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0"
   },
   "directories": {
     "doc": "docs"
