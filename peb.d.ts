@@ -120,8 +120,6 @@ declare module 'peb' {
 
             /**
              * Get or set html
-             *
-             * **JQuery Writing Habit**
              */
             html(newer: string): string|this
 
@@ -129,6 +127,18 @@ declare module 'peb' {
              * Get inner text
              */
             text(): string
+
+            /**
+             * Get or set value of a form element
+             */
+            value(newer: string): void
+
+            /**
+             * Get or set value of a form element
+             *
+             * **As known as `value` function**
+             */
+            val(newer: string): void
 
             /**
              * Bind event listener

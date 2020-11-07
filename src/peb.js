@@ -234,6 +234,18 @@ import './scss/variable.scss';
             return this.item(0).innerText;
         }
 
+        value(newer) {
+            if (newer === undefined) {
+                return this.item(0).value;
+            } else {
+                this.forEach(eachElement => eachElement.value = newer);
+            }
+        }
+
+        val(newer) {
+            this.value(newer)
+        }
+
         bind(type, listener) {
             this.forEach(eachElement => eachElement.addEventListener(type, listener));
         }
