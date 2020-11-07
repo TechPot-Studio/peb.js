@@ -6,4 +6,4 @@ dist/
 LICENSE
 *.d.ts
 *.config.js
-**/*.scss
+src/scss
