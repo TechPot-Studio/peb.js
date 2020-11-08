@@ -4,16 +4,22 @@
  */
 declare module 'peb' {
 
+    /* type declare */
+
+    type wrapPageTarget = '_blank' | '_self' | '_top' | '_parent'
+    type XHRTypes = 'GET' | 'get' | 'POST' | 'post'
+    type XHRResponseTypes = 'arraybuffer' | 'blob' | 'document' | 'json' | 'text' | 'ms-stream'
+
     /* interface declare */
     interface ajaxConfigOptions {
         /** Request type - `GET` or `POST`*/
-        type: string,
+        type: XHRTypes,
         /** Request URL */
         url: string,
         /** Data to send */
         data?: string,
         /** Response type */
-        response?: string,
+        response?: XHRResponseTypes,
         /** Function to do when success */
         success?: (response: any) => void,
         /** Function to do when fail */
@@ -25,10 +31,6 @@ declare module 'peb' {
             [word: string]: string
         }
     }
-
-    /* type declare */
-
-    type wrapPageTarget = '_blank' | '_self' | '_top' | '_parent'
 
     /* namespace peb */
 
@@ -106,12 +108,12 @@ declare module 'peb' {
             /**
              * Get item by index
              */
-            item(index: number): void
+            item(index: number): HTMLElement
 
             /**
              * Manage item by index
              */
-            manageItem(index: number): void
+            manageItem(index: number): this
 
             /**
              * Each all of element
@@ -121,7 +123,7 @@ declare module 'peb' {
             /**
              * Get or set html
              */
-            html(newer: string): string|this
+            html(newer: string): string|ElementManager
 
             /**
              * Get inner text
@@ -312,25 +314,16 @@ declare module 'peb' {
 
         /**
          * Select a HTMLElement and operate it.
-         * 
-         * No need `index` when selector can only match ONE element
-         * 
-         * @param selector Css Selector of the element
+         *
+         * @param selector Css selector of the element
          * @param index Index in the list
          */
-        function sel(selector: string, index?: number): ElementManager
-
-        /**
-         * Select multiple HTMLElements and operate it.
-         * 
-         * @param selector Css Selector of elements
-         */
-        function sel(selector: string): ElementManager
+        function select(selector: string, index?: number): ElementManager
 
         /**
          * Convert HTMLElement into peb RElement or RElementsCollection.
          */
-        function sel(element: HTMLElement|HTMLCollection): ElementManager
+        function select(element: HTMLElement|HTMLCollection|NodeList): ElementManager
 
         /**
          * Send HTTP XML Request
