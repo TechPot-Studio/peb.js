@@ -66,9 +66,17 @@ import './scss/variable.scss';
         }
     }
 
+    class PebMultipleElementError extends PebError {
+        constructor(message) {
+            super(message);
+            this.name = 'PebMultipleElementError'
+        }
+    }
+
     peb.PebError = PebError;
     peb.PebExtensionError = PebExtensionError;
     peb.PebMissingEnvironmentError = PebMissingEnvironmentError;
+    peb.PebMultipleElementError = PebMultipleElementError;
 
 
     // Core
@@ -292,10 +300,27 @@ import './scss/variable.scss';
             if (type === undefined) {
                 this.forEach((eachElement) => {
                     eachElement.style.display = eachElement.displayType || 'initial';
+                    delete eachElement.displayType;
                 })
             } else {
                 this.display(type);
             }
+        }
+
+        toggle() {
+            this.forEach((eachElement) => {
+                if (eachElement.displayType) {
+                    eachElement.displayType = eachElement.style.display;
+                    eachElement.style.display = 'none';
+                } else {
+                    eachElement.style.display = eachElement.displayType || 'initial';
+                    delete eachElement.displayType;
+                }
+            });
+        }
+
+        toggleVisible() {
+            this.toggle();
         }
 
         delete(index) {
@@ -400,7 +425,7 @@ import './scss/variable.scss';
      * @param {number} index Index In the List
      * @return {ElementManager}
      */
-    peb.sel = function (selector, index) {
+    peb.sel = peb.select = function (selector, index) {
         if (typeof selector === 'string') {
             if (index === undefined) {
                 return new this.ElementManager(document.querySelectorAll(selector));
