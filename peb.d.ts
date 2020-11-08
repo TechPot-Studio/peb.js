@@ -470,6 +470,11 @@ declare module 'peb' {
         function insert(arr: Array<any>, ...items: any[]): number
 
         /**
+         * An empty function
+         */
+        function noop(): void
+
+        /**
          * Slice array or string
          * 
          * @param obj String or array
