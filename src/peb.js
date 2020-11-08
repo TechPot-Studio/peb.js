@@ -694,7 +694,7 @@ import './scss/variable.scss';
      */
     peb.error = function (message, type) {
         let errorType = type || Error;
-        throw new Error(message);
+        throw new errorType(message);
     };
 
     /**
