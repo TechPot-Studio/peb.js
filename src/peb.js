@@ -6,7 +6,12 @@
  * @copyright TechPot Studio and other contributors
  */
 
-import './scss/variable.scss';
+import './scss/styles.scss';
+import 'util/variables';
+import errors from './util/errors';
+import ElementManager from './util/ElementManager';
+import {pebVersion} from './util/variables';
+
 
 (function (window, factory) {
     'use strict';
@@ -35,70 +40,31 @@ import './scss/variable.scss';
         console.info('Peb.js 3.1.0 is available!');
     }
 
-    peb.version = '3.1.0';
+    peb.version = pebVersion;
+    peb.peb = peb.version;
 
     // Error type
-    class PebError extends Error {
-        constructor(message) {
-            super(message);
-            this.name = 'PebBasicError';
-        }
-    }
 
-    class PebExtensionError extends PebError {
-        constructor(message) {
-            super(message);
-            this.name = 'PebExtensionError';
-        }
-    }
+    peb.PebError = errors.PebError;
+    peb.PebExtensionError = errors.PebExtensionError;
+    peb.PebMissingEnvironmentError = errors.PebMissingEnvironmentError;
+    peb.PebMultipleElementError = errors.PebMultipleElementError;
+    peb.PebMissingParameterError = errors.PebMissingParameterError;
 
-    class PebMissingEnvironmentError extends PebError {
-        constructor(message) {
-            super(message);
-            this.name = 'PebMissingEnvironmentError'
-        }
-    }
-    
-    class PebMissingParameterError extends PebError {
-        constructor(message) {
-            super(message)
-            this.name = 'PebMissingParameterError';
-        }
-    }
-
-    class PebMultipleElementError extends PebError {
-        constructor(message) {
-            super(message);
-            this.name = 'PebMultipleElementError'
-        }
-    }
-
-    peb.PebError = PebError;
-    peb.PebExtensionError = PebExtensionError;
-    peb.PebMissingEnvironmentError = PebMissingEnvironmentError;
-    peb.PebMultipleElementError = PebMultipleElementError;
-
-
-    // Core
     let emptyArray = [null];
 
+    peb.FIRST_ITEM = 0
+    peb.GLOBAL = window;
+    peb.UA = window.navigator ? navigator.userAgent : null
+
     peb.reqArg = (name) => {
-        throw new PebMissingParameterError(name ? 'Missing parameter ' + name : 'Missing required parameters');
+        throw new errors.PebMissingParameterError(name ? 'Missing parameter ' + name : 'Missing required parameters');
     };
     
     if (window.document && document instanceof Document) {
-        customElements.define('p-trans', class PebTransElement extends HTMLElement {
+        customElements.define('peb-trans', class PebTransElement extends HTMLElement {
             constructor() {
                 super();
-                this.style.display = 'inline';
-            }
-        });
-
-        customElements.define('p-mark', class PebMarkElement extends HTMLElement {
-            constructor() {
-                super();
-                this.style.color = 'attr(color),inherit';
-                this.style.fontFamily = 'attr(font), inherit';
             }
         });
     }
@@ -133,7 +99,7 @@ import './scss/variable.scss';
          */
         translation(lang) {
             document.querySelectorAll('peb-trans').forEach(function (element) {
-                element.innerHTML = this.table[lang][element.getAttribute('p-word')];
+                element.innerHTML = this.table[lang][element.getAttribute('word')];
             });
         }
     };
@@ -161,30 +127,21 @@ import './scss/variable.scss';
 
     /**
      * Create an element
-     * @param {string|Function} name
+     * @param {string | Array<string, Function>} name
      * @param {object} attr
-     * @param {string} inner
-     * @param {(HTMLElement | Node)[]} child
+     * @param {...(HTMLElement | string)} child
      */
-    peb.createElement = function (name, attr, inner = '', ...child) {
-        let result = typeof name === 'string' ? document.createElement(name) : new name(),
+    peb.createElement = function (name, attr, ...child) {
+        let is = name instanceof Array,
+            create = document.createElement,
+            result = is ? create(name[0], {is: name[1]}) : create(name),
             setMultipleAttributes = (target, objectSeq) => {
                 Object.keys(objectSeq).forEach((attrName) => {
                     target.setAttribute(attrName, objectSeq[attrName])
                 });
-            },
-            addMultipleChildrenToElement = (target, children) => {
-                if (!children) {
-                    return false;
-                }
-
-                children.forEach((eachChild) => {
-                    target.appendChild(eachChild)
-                });
-          };
-        result.innerHTML = inner;
+            };
         setMultipleAttributes(result, attr);
-        addMultipleChildrenToElement(result, child)
+        result.append(...child)
         return result;
     };
 
@@ -192,229 +149,7 @@ import './scss/variable.scss';
      * Convert HTMLElement to operable element
      * @param {HTMLElement | Node} element 
      */
-    peb.ElementManager = class ElementManager {
-        /** @type {HTMLElement | HTMLCollection | Node | NodeList} */
-        element;
-        length;
-
-        static FIRST_ITEM = 0;
-
-        constructor(origin) {
-            this.element = origin;
-            this.length = origin.length || 1;
-            this.forEach((element, index) => {
-                this[index] = element;
-            });
-        }
-
-        item(index) {
-            return this[index];
-        }
-
-        manageItem(index) {
-            return new ElementManager(this[index]);
-        }
-
-        splice() {
-            /* Pseudo-array must have a `splice` function */
-        }
-
-        forEach(callbackFn) {
-            if (this.element instanceof Node || this.element instanceof HTMLElement || this.element instanceof HTMLDocument) {
-                callbackFn(this.element, 0, this);
-            } else {
-                this.element.forEach(callbackFn);
-            }
-        }
-
-        html(newer) {
-            if (newer === undefined) {
-                return this.item(0).innerHTML;
-            } else {
-                this.forEach((eachElement) => {
-                    eachElement.innerHTML = newer;
-                });
-                return this;
-            }
-        }
-
-        text() {
-            return this.item(0).innerText;
-        }
-
-        value(newer) {
-            if (newer === undefined) {
-                return this.item(0).value;
-            } else {
-                this.forEach(eachElement => eachElement.value = newer);
-            }
-        }
-
-        val(newer) {
-            this.value(newer)
-        }
-
-        bind(type, listener) {
-            this.forEach(eachElement => eachElement.addEventListener(type, listener));
-        }
-
-        on(type, listener) {
-            this.bind(type, listener);
-        }
-
-        class() {
-            return this.item(0).classList;
-        }
-
-        addClass(...tokens) {
-            this.forEach(eachElement => eachElement.classList.add(...tokens));
-            return this;
-        }
-
-        removeClass(...tokens) {
-            this.forEach(eachElement => eachElement.classList.remove(...tokens));
-            return this;
-        }
-
-        clearClass() {
-            this.forEach(eachElement => eachElement.className = '');
-            return this;
-        }
-
-        hide() {
-            this.forEach((eachElement) => {
-                eachElement.displayType = eachElement.style.display;
-                eachElement.style.display = 'none';
-            });
-            return this;
-        }
-
-        display(type) {
-            this.forEach((eachElement) => {
-                eachElement.style.display = type;
-            });
-            return this;
-        }
-
-        show(type) {
-            if (type === undefined) {
-                this.forEach((eachElement) => {
-                    eachElement.style.display = eachElement.displayType || 'initial';
-                    delete eachElement.displayType;
-                })
-            } else {
-                this.display(type);
-            }
-        }
-
-        toggle() {
-            this.forEach((eachElement) => {
-                if (eachElement.displayType) {
-                    eachElement.displayType = eachElement.style.display;
-                    eachElement.style.display = 'none';
-                } else {
-                    eachElement.style.display = eachElement.displayType || 'initial';
-                    delete eachElement.displayType;
-                }
-            });
-        }
-
-        toggleVisible() {
-            this.toggle();
-        }
-
-        delete(index) {
-            if (index === undefined) {
-                this.forEach(eachElement => eachElement.parent.removeChild(eachElement));
-            } else {
-                let singleElement = this.item(index);
-                singleElement.parent.removeChild(singleElement);
-            }
-        }
-
-        del(index) {
-            this.delete(index);
-        }
-
-        child() {
-            return new ElementManager(this.item(0).children);
-        }
-
-        parent() {
-            return new ElementManager(this.item(0).parentElement);
-        }
-
-        next() {
-            return new ElementManager(this.item(0).nextElementSibling);
-        }
-
-        prev() {
-            return new ElementManager(this.item(0).previousElementSibling);
-        }
-
-        append(...elements) {
-            elements.forEach((eachChild) => {
-                let child = eachChild;
-                if (eachChild instanceof ElementManager) {
-                    child = eachChild.element;
-                }
-                this.forEach(eachElement => eachElement.appendChild(child));
-
-            });
-        }
-
-        add(...elements) {
-            this.append(...elements);
-        }
-
-        toArray() {
-            let result = [];
-            this.forEach(eachElement => result.push(eachElement));
-            return result;
-        }
-
-        click(fn) {
-            fn ? this.bind('click', fn) : this.forEach(eachElement => eachElement.click());
-        }
-
-        focus(fn) {
-            fn ? this.bind('focus', fn) : this.forEach(eachElement => eachElement.focus());
-        }
-
-        mouseenter(fn)     { this.bind('mouseenter', fn); }
-        mouseleave(fn)     { this.bind('mouseleave', fn); }
-        mouseup(fn)        { this.bind('mouseup', fn); }
-        mousedown(fn)      { this.bind('mousedown', fn); }
-        mousemove(fn)      { this.bind('mousemove', fn); }
-        mouseover(fn)      { this.bind('mouseover', fn ); }
-        mouseout(fn)       { this.bind('mouseout', fn) }
-        mousewheel(fn)     { this.bind('mousewheel', fn); }
-        drag(fn)           { this.bind('drag', fn); }
-        dragstart(fn)      { this.bind('dragstart', fn); }
-        dragend(fn)        { this.bind('dragend', fn); }
-        dragenter(fn)      { this.bind('dragenter', fn); }
-        dragexit(fn)       { this.bind('dragexit', fn); }
-        dragover(fn)       { this.bind('dragover', fn); }
-        dragleave(fn)      { this.bind('dragleave', fn); }
-        canplay(fn)        { this.bind('canplay', fn); }
-        canplaythrough(fn) { this.bind('canplaythrough', fn); }
-        play(fn)           { this.bind('play', fn); }
-        playing(fn)        { this.bind('playing', fn); }
-        copy(fn)           { this.bind('copy', fn); }
-        beforecopy(fn)     { this.bind('beforecopy', fn); }
-        paste(fn)          { this.bind('paste', fn); }
-        beforepaste(fn)    { this.bind('beforepaste', fn); }
-        blur(fn)           { this.bind('blur', fn); }
-        load(fn)           { this.bind('load', fn); }
-        loadstart(fn)      { this.bind('loadstart', fn); }
-        loadeddata(fn)     { this.bind('loadeddata', fn); }
-        loadedmetadata(fn) { this.bind('loadedmetadata', fn); }
-        focusin(fn)        { this.bind('focusin', fn); }
-        focusout(fn)       { this.bind('focus', fn); }
-        keydown(fn)        { this.bind('keydown', fn); }
-        keyup(fn)          { this.bind('keyup', fn); }
-        keypress(fn)       { this.bind('keypress', fn); }
-    }
+    peb.ElementManager = ElementManager
 
     /**
      * Operate the DOM with the smallest possible code  
@@ -428,15 +163,23 @@ import './scss/variable.scss';
     peb.sel = peb.select = function (selector, index) {
         if (typeof selector === 'string') {
             if (index === undefined) {
-                return new this.ElementManager(document.querySelectorAll(selector));
+                return new ElementManager(document.querySelectorAll(selector), selector);
             } else {
-                return new this.ElementManager(document.querySelectorAll(selector).item(index));
+                return new ElementManager(document.querySelectorAll(selector).item(index), selector);
             }
 
         } else {
-            return new this.ElementManager(selector);
+            return new ElementManager(selector);
         }
     };
+
+    /**
+     * Select a element
+     * @param {string} selector Query Selector of the element
+     */
+    peb.query = function (selector) {
+        return document.querySelectorAll(selector)
+    }
 
     /**
      * Send ajax requests
@@ -445,9 +188,10 @@ import './scss/variable.scss';
     peb.ajax = function (config) {
         let request = new XMLHttpRequest()
           , arg = config;
-        arg.success = config.success || function () {};
-        arg.fail = config.fail || function () {};
+        arg.success = config.success || this.noop;
+        arg.fail = config.fail || this.noop;
 
+        arg.preset ? arg.preset(request) : null;
         request.open(arg.type, arg.url, true);
         request.send(arg.data || null);
         request.responseType = config.response || 'text';
@@ -603,7 +347,7 @@ import './scss/variable.scss';
      * Contains `123` `"123"` `1.23` `"1.23"` `.23` `".23"` `0xff00` `"0xf3"`
      * @param {string | number} obj 
      */
-    peb.isdigit = function (obj) {
+    peb.isNumeric = function (obj) {
         return !isNaN(obj - 0);
     };
 
@@ -664,7 +408,7 @@ import './scss/variable.scss';
             return JSON.parse('{\"' + decodeURIComponent(str.replace(/"/g,'\\\"').replace(/[?]/g, '').replace(/=/g, '\":\"').replace(/&/g, '\",\"')) + '\"}');
 
         } else {
-            throw PebMissingEnvironmentError('Missing environment window.location');
+            throw errors.PebMissingEnvironmentError('Missing environment window.location');
         }
     };
 
@@ -751,5 +495,3 @@ import './scss/variable.scss';
     window.peb = peb;
     return peb;
 });
-
-// export default peb;
