@@ -7,10 +7,11 @@
  */
 
 import './scss/styles.scss';
-import 'util/variables';
+import './util/variables';
 import errors from './util/errors';
 import ElementManager from './util/ElementManager';
-import {pebVersion} from './util/variables';
+import { pebVersion } from './util/variables';
+import elementOperator from './util/elementOperator';
 
 
 (function (window, factory) {
@@ -134,13 +135,8 @@ import {pebVersion} from './util/variables';
     peb.createElement = function (name, attr, ...child) {
         let is = name instanceof Array,
             create = document.createElement,
-            result = is ? create(name[0], {is: name[1]}) : create(name),
-            setMultipleAttributes = (target, objectSeq) => {
-                Object.keys(objectSeq).forEach((attrName) => {
-                    target.setAttribute(attrName, objectSeq[attrName])
-                });
-            };
-        setMultipleAttributes(result, attr);
+            result = is ? create(name[0], {is: name[1]}) : create(name);
+        elementOperator.setMultipleAttributes(result, attr);
         result.append(...child)
         return result;
     };
@@ -149,7 +145,7 @@ import {pebVersion} from './util/variables';
      * Convert HTMLElement to operable element
      * @param {HTMLElement | Node} element 
      */
-    peb.ElementManager = ElementManager
+    peb.ElementManager = ElementManager;
 
     /**
      * Operate the DOM with the smallest possible code  
@@ -178,7 +174,7 @@ import {pebVersion} from './util/variables';
      * @param {string} selector Query Selector of the element
      */
     peb.query = function (selector) {
-        return document.querySelectorAll(selector)
+        return document.querySelectorAll(selector);
     }
 
     /**
