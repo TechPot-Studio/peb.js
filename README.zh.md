@@ -84,7 +84,7 @@ import peb from 'peb'
 **数据来源：[*developer.mozilla.org*](//developer.mozilla.org)**
 
 ## 负责人
-[@TechPot-Studio/pebjs](https://github.com/orgs/TechPot-Studio/teams/pebjs) 
+[@TechPot-Studio/peb](https://github.com/orgs/TechPot-Studio/teams/peb) 
 
 ## 脚注
 - ZH 版本可能会更新较慢，可能出现一个版本中两个README不同的情况

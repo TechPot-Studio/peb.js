@@ -100,7 +100,7 @@ Go to the function documentation to view the specific supported browsers of the 
 **The source of this information: [*developer.mozilla.org*](//developer.mozilla.org)**
 
 ## Main Contributor
-[@TechPot-Studio/pebjs](https://github.com/orgs/TechPot-Studio/teams/pebjs)
+[@TechPot-Studio/peb](https://github.com/orgs/TechPot-Studio/teams/peb)
 
 | Name | Contributes |
 | :---: | :---: |
