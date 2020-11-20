@@ -1,6 +1,5 @@
 /**
- * Peb.js JavaScript library
- * @version 3.1.0
+ * Peb.js JavaScript library typings
  */
 declare module 'peb' {
 
@@ -17,9 +16,11 @@ declare module 'peb' {
         /** Request URL */
         url: string,
         /** Data to send */
-        data?: string,
+        data?: any,
         /** Response type */
         response?: XHRResponseTypes,
+        /** Preset function */
+        preset?: (request: XMLHttpRequest) => void;
         /** Function to do when success */
         success?: (response: any) => void,
         /** Function to do when fail */
@@ -39,7 +40,10 @@ declare module 'peb' {
      */
     namespace peb {
         /** Version of peb.js */
-        let version: string;
+        const version: string;
+
+        const FIRST_ITEM: 0;
+        const GLOBAL: any;
 
         /**
          * Peb basically error type.
@@ -93,8 +97,6 @@ declare module 'peb' {
          * Create an operable element or be a `sel` function result
          */
         class ElementManager {
-            static FIRST_ITEM: 0;
-
             /** Origin element */
             element: HTMLElement|NodeList|HTMLCollection
             /** Length of list */
@@ -113,7 +115,17 @@ declare module 'peb' {
             /**
              * Manage item by index
              */
-            manageItem(index: number): this
+            manageItem(index: number): ElementManager
+
+            /**
+             * Manage first item
+             */
+            first(): ElementManager
+
+            /**
+             * Manage last item
+             */
+            last(): ElementManager
 
             /**
              * Each all of element
@@ -313,6 +325,11 @@ declare module 'peb' {
         function parseJson(jsonString: string): object
 
         /**
+         * Select a element as query selector
+         */
+        function query(selector: string): NodeList
+
+        /**
          * Select a HTMLElement and operate it.
          *
          * @param selector Css selector of the element
@@ -324,6 +341,23 @@ declare module 'peb' {
          * Convert HTMLElement into peb RElement or RElementsCollection.
          */
         function select(element: HTMLElement|HTMLCollection|NodeList): ElementManager
+
+        /**
+         * Select a HTMLElement and operate it.
+         *
+         * **As known as `select` function**
+         *
+         * @param selector Css selector of the element
+         * @param index Index in the list
+         */
+        function sel(selector: string, index?: number): ElementManager
+
+        /**
+         * Convert HTMLElement into peb RElement or RElementsCollection.
+         *
+         * **As known as `select` function**
+         */
+        function sel(element: HTMLElement|HTMLCollection|NodeList): ElementManager
 
         /**
          * Send HTTP XML Request
@@ -499,7 +533,7 @@ declare module 'peb' {
         /**
          * Get a number or string is numeric
          */
-        function isdigit(obj: string|number): boolean
+        function isNumeric(obj: string|number): boolean
 
         /**
          * await sleep time or sleep a time then do a function
@@ -531,32 +565,6 @@ declare module 'peb' {
          */
         function forEach(obj: any, callbackFn: (current: any, index: number, array: any[]) => void): void
 
-        /**
-         * ~~Generate a node~~
-         * 
-         * **Warning:** This method will be removed in the next major version
-         */
-        namespace genNode {
-            /**
-             * Generate a new element with innerHTML and attributes
-             * 
-             * @param nodeName Node name
-             * @param inner Inner HTML of the element
-             * @param attr Object of attributes
-             */
-            function element(nodeName: string, inner?: string, attr?: object): HTMLElement
-
-            /**
-             * Generate a text node.
-             */
-            function text(text: string): Text
-
-            /**
-             * Parse the string of HTML content into Node
-             */
-            function fromStr(str: string): HTMLElement|HTMLCollection|Node|NodeList|Text
-
-        }
     }
     export = peb
 }
