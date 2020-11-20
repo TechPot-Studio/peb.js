@@ -1,9 +1,8 @@
 const path = require("path");
-const glob = require("glob");
 
 module.exports = {
     mode: "production",
-    entry: glob.sync('./src/*.js'),
+    entry: 'src/peb.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'peb.min.js'
@@ -22,7 +21,7 @@ module.exports = {
                 }
             },
             {
-                test: /((\.css)|(\.scss))$/g,
+                test: /\.scss$/g,
                 use: [{
                     loader: 'style-loader'
                 }, {
