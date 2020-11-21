@@ -19,6 +19,11 @@ jobs:
           node-version: 12
       - run: npm i
       - run: npm run build
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Minified File
+          path: dist/peb.min.js
+
 
   check-quality:
     runs-on: ubuntu-latest
