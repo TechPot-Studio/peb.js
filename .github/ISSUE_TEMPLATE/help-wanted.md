@@ -6,8 +6,9 @@ labels: help wanted
 assignees: ''
 
 ---
+- [ ] Bounty: $**0.00**
+- [ ] In progress
 
 ### Question
 
 ### Bounty
-Answer this question to get a donate of $**0.00**

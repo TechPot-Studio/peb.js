@@ -6,9 +6,10 @@ labels: suggest
 assignees: ''
 
 ---
+- [ ] I'd like to work for this suggestion
 
-### Naming & Parameters <!--If you are request a function-->
+### Naming <!--If you are request a function-->
 ```javascript
 peb.
 ```
-### Description or Effects
+### Description & Effects
