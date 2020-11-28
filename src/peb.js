@@ -9,18 +9,17 @@
 import './scss/styles.scss';
 import factory from './factory';
 
+const peb = factory(globalThis)
 
 if (typeof module === 'object' && typeof module.exports === 'object') {
     // CommonJS
-    module.exports = factory(globalThis);
+    module.exports = peb;
 } else if (typeof define === 'function' && define.amd) {
     // AMD
     define('peb', [], function () {
-        return factory(globalThis);
+        return peb;
     });
 } else {
     // Browser
-    factory(globalThis);
+    globalThis.peb = peb;
 }
-
-

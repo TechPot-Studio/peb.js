@@ -1,7 +1,7 @@
-import {pebVersion} from './util/variables';
-import errors from './util/errors';
-import elementOperator from './util/elementOperator';
-import ElementManager from './util/ElementManager';
+import {pebVersion} from './utils/variables';
+import errors from './utils/errors';
+import elementOperator from './utils/elementOperator';
+import ElementManager from './utils/ElementManager';
 
 export default function factory(window) {
     'use strict';
@@ -180,6 +180,7 @@ export default function factory(window) {
     peb.log = function (...data) {
         console.log(...data);
     };
+    peb.log.info = peb.log;
 
     /**
      * Print to console
@@ -456,7 +457,5 @@ export default function factory(window) {
 
     peb.SearchParams = window.URLSearchParams;
 
-    // Return final object
-    window.peb = peb;
     return peb;
 }

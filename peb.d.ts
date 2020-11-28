@@ -377,14 +377,14 @@ declare module 'peb' {
         function createElement(name: string, attributes: object, inner?: string, ...child: (HTMLElement)[])
 
         /**
-         * Send log to console
-         */
-        function log(...data: any[]): void
-
-        /**
-         * More console infos
+         * Console infos
          */
         namespace log {
+            /**
+             * Send log to console
+             */
+            function info(...data: any[]): void
+
             /**
              * Send error to console
              */
