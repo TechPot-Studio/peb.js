@@ -4,6 +4,8 @@
 
 **We are about to rebuild the community of this project and rename this project. We are about to stop the update of Peb.js, but there will be exactly the same alternatives**
 
+**Pecis is out! Use Pecis now! :D**
+
 ---
 
 <p align="center">
