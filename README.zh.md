@@ -4,6 +4,13 @@
 <p align="center">
   <img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/pebjs.png" width="299.2" height="137.6" title="Peb.js" alt="Peb.js Icon" />
 </p>
+
+---
+
+**请注意，我们即将重建社区并重命名，届时此项目不再更新，但我们会以另一个名字延续下去**
+
+---
+
 <p align="center">
   <a href="https://github.com/TechPot-Studio/peb.js/commits/master" title="提交频率"><img src="https://img.shields.io/github/commit-activity/m/TechPot-Studio/peb.js?logo=git&logoColor=white&style=flat-square" /></a>
   <a href="https://www.codacy.com/gh/TechPot-Studio/peb.js/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TechPot-Studio/peb.js&amp;utm_campaign=Badge_Grade" title="Codacy"><img src="https://img.shields.io/codacy/grade/3cf32c2b188944b7bd1359d4d5a4cc7d?logo=codacy&style=flat-square" /></a>
