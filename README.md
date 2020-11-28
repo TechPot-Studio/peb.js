@@ -1,6 +1,10 @@
 <p align="center"><img src="https://cdn.jsdelivr.net/gh/TechPot-Studio/svg-gallery/pebjs.png" width="299.2" height="137.6" title="Peb.js" alt="Peb.js Icon" /></p>
 
-#
+---
+
+**We are about to rebuild the community of this project and rename this project. We are about to stop the update of Peb.js, but there will be exactly the same alternatives**
+
+---
 
 <p align="center">
   <a href="https://github.com/TechPot-Studio/peb.js/commits/master" title="Commit Activity"><img src="https://img.shields.io/github/commit-activity/m/TechPot-Studio/peb.js?logo=git&logoColor=white&style=flat-square" /></a>

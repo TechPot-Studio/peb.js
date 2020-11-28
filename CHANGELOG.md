@@ -10,14 +10,16 @@
 ### Changed
 - Rewrite `RElement` and `RElementsCollection` and renamed to `ElementManager`
 - `sel` now is a shorthand of `select`
+- `p-trans` => `peb-trans`
 
 ### Removed
 - `RElement` & `RElementCollection`
 - Error type `PebNullObjectError`
 - `genNode`
+- HTML tag `p-mark`
 
 ### Fixed
-- _No issues recorded yet_
+- The name of `peb-trans` were different in different code
 
 ## [3.1.0] - 2020-10-31
 
